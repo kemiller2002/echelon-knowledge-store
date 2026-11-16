@@ -1,0 +1,6 @@
+{"H02":{"answer":"supporting=EV-ROS-2026-A058,EV-ROS-2026-A059,EV-ROS-2026-A064; contradicting=; superseded_support=no"},
+"H04":{"answer":[]},
+"H06":{"answer":["EX-ROS-2026-A025"]},
+"H08":{"answer":"RQ-FIX-2026-0001"},
+"H10":{"answer":["HY-ROS-2026-A024","HY-ROS-2026-A025","HY-ROS-2026-A026","HY-ROS-2026-A027"]},
+"H12":{"answer":["EV-ROS-2026-A043","EV-ROS-2026-A045","EV-ROS-2026-A046"]}}

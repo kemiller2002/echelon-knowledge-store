@@ -1,0 +1,45 @@
+name: Benchmarks
+
+# Reproducible benchmark run against the public Echelon repositories pinned in
+# benchmarks/corpus.lock.json. Private repositories are skipped (no credentials);
+# results therefore cover the public corpus only. Output is retained as artifacts.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "benchmarks/**"
+      - "src/**"
+
+permissions:
+  contents: read
+
+jobs:
+  benchmarks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Check out the pinned public corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p corpus
+          jq -r '.repositories[] | select(.visibility == "public") | "\(.repository) \(.commit)"' benchmarks/corpus.lock.json |
+          while read -r repo sha; do
+            git init -q "corpus/$repo"
+            git -C "corpus/$repo" fetch -q --depth 1 "https://github.com/kemiller2002/$repo" "$sha"
+            git -C "corpus/$repo" checkout -q FETCH_HEAD
+          done
+      - name: Run benchmarks
+        env:
+          EKS_CORPUS_ROOT: ${{ github.workspace }}/corpus
+          EKS_TRIALS_DIR: ${{ github.workspace }}/benchmarks/out/trials
+        run: dotnet run --project benchmarks/Echelon.KnowledgeStore.Bench -c Release -- baseline validate formats retrieval ablation compiler trials trials2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-results
+          path: research/2026-knowledge-representation/experiments/results
+          retention-days: 90

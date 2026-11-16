@@ -1,0 +1,197 @@
+[
+  {
+    "Id": "Q01",
+    "Kind": "find-evidence",
+    "Batch": 1,
+    "Text": "In the praxis repository, list every record that provides supporting OR contradicting evidence for HY-FE-2026-B006. Include evidence declared in either direction (in HY-FE-2026-B006\u0027s own metadata or in the evidence record\u0027s metadata). Answer with record ids.",
+    "Target": "praxis:HY-FE-2026-B006",
+    "Gold": [
+      "EV-FE-2026-B003",
+      "EV-FE-2026-B004",
+      "EV-FE-2026-B005"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "Q02",
+    "Kind": "change-impact",
+    "Batch": 2,
+    "Text": "In the praxis repository, record DF-ROS-2026-A047 is about to change. List every record that must be reviewed as a consequence, transitively: records that depend on or are derived from a changed record, and records whose claims a changed evidence record supports or contradicts. Use only typed metadata relations (depends_on, derived_from, supports, contradicts, supporting_evidence, contradicting_evidence), not related_documents or prose mentions. Answer with record ids.",
+    "Target": "praxis:DF-ROS-2026-A047",
+    "Gold": [
+      "DF-ROS-2026-A053"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "Q03",
+    "Kind": "current-authority",
+    "Batch": 1,
+    "Text": "In the praxis repository, DF-ROS-2026-A031 may have been superseded. Which record is the current authoritative replacement at the end of its supersession chain? If it is not superseded, answer DF-ROS-2026-A031. Answer with one record id.",
+    "Target": "praxis:DF-ROS-2026-A031",
+    "Gold": [
+      "DF-ROS-2026-A049"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "Q04",
+    "Kind": "lookup-by-description",
+    "Batch": 2,
+    "Text": "In the fides repository, which decision record settled what kind of GitHub integration (an app versus an OAuth client) the sign-in uses, and how its tokens expire? Answer with one record id.",
+    "Target": "fides:DF-FIDES-2026-0003",
+    "Gold": [
+      "DF-FIDES-2026-0003"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "Q05",
+    "Kind": "epistemic-status",
+    "Batch": 1,
+    "Text": "In the praxis repository, what are the recorded status and confidence of HY-FE-2026-B006, and is it contested (has at least one supporting AND at least one contradicting evidence record)? Answer as the string \u0022status=\u003Cstatus\u003E; confidence=\u003Cconfidence\u003E; contested=\u003Cyes|no\u003E\u0022.",
+    "Target": "praxis:HY-FE-2026-B006",
+    "Gold": [],
+    "GoldText": "status=proposed; confidence=very-low; contested=yes"
+  },
+  {
+    "Id": "Q06",
+    "Kind": "missing-evidence",
+    "Batch": 2,
+    "Text": "In the percepta repository, list every hypothesis record (id prefix HY-) that has NO supporting evidence record (no evidence declares it supports the hypothesis, and the hypothesis lists no supporting_evidence). Answer with record ids; answer an empty list if there are none.",
+    "Target": null,
+    "Gold": [
+      "HY-PERCEPTA-2026-0003",
+      "HY-PERCEPTA-2026-0004"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "Q07",
+    "Kind": "find-evidence",
+    "Batch": 1,
+    "Text": "In the praxis repository, list every record that provides supporting OR contradicting evidence for DF-ROS-2026-A028. Include evidence declared in either direction (in DF-ROS-2026-A028\u0027s own metadata or in the evidence record\u0027s metadata). Answer with record ids.",
+    "Target": "praxis:DF-ROS-2026-A028",
+    "Gold": [
+      "EV-ROS-2026-A043",
+      "EV-ROS-2026-A044",
+      "EV-ROS-2026-A045",
+      "EV-ROS-2026-A046",
+      "EV-ROS-2026-A047",
+      "EV-ROS-2026-A048"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "Q08",
+    "Kind": "change-impact",
+    "Batch": 2,
+    "Text": "In the forma repository, record EX-FORMA-2026-0001 is about to change. List every record that must be reviewed as a consequence, transitively: records that depend on or are derived from a changed record, and records whose claims a changed evidence record supports or contradicts. Use only typed metadata relations (depends_on, derived_from, supports, contradicts, supporting_evidence, contradicting_evidence), not related_documents or prose mentions. Answer with record ids.",
+    "Target": "forma:EX-FORMA-2026-0001",
+    "Gold": [
+      "EX-FORMA-2026-0002",
+      "EX-FORMA-2026-0003",
+      "HY-FORMA-2026-0001",
+      "HY-FORMA-2026-0002"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "Q09",
+    "Kind": "find-evidence",
+    "Batch": 2,
+    "Text": "In the praxis repository, list every record that provides supporting OR contradicting evidence for HY-ROS-2026-A028. Include evidence declared in either direction (in HY-ROS-2026-A028\u0027s own metadata or in the evidence record\u0027s metadata). Answer with record ids.",
+    "Target": "praxis:HY-ROS-2026-A028",
+    "Gold": [
+      "EV-ROS-2026-A063",
+      "EV-ROS-2026-A064",
+      "EV-ROS-2026-A070",
+      "EV-ROS-2026-A075"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "Q10",
+    "Kind": "current-authority",
+    "Batch": 2,
+    "Text": "In the fides repository, DF-FIDES-2026-0013 may have been superseded. Which record is the current authoritative replacement at the end of its supersession chain? If it is not superseded, answer DF-FIDES-2026-0013. Answer with one record id.",
+    "Target": "fides:DF-FIDES-2026-0013",
+    "Gold": [
+      "DF-FIDES-2026-0016"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "Q11",
+    "Kind": "lookup-by-description",
+    "Batch": 1,
+    "Text": "In the arca repository, which decision record explains how records that are otherwise immutable can still be erased, and what Git history limitation remains? Answer with one record id.",
+    "Target": "arca:DF-ARCA-2026-0012",
+    "Gold": [
+      "DF-ARCA-2026-0012"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "Q12",
+    "Kind": "change-impact",
+    "Batch": 1,
+    "Text": "In the praxis repository, record EX-ROS-2026-A021 is about to change. List every record that must be reviewed as a consequence, transitively: records that depend on or are derived from a changed record, and records whose claims a changed evidence record supports or contradicts. Use only typed metadata relations (depends_on, derived_from, supports, contradicts, supporting_evidence, contradicting_evidence), not related_documents or prose mentions. Answer with record ids.",
+    "Target": "praxis:EX-ROS-2026-A021",
+    "Gold": [
+      "DF-ROS-2026-A053",
+      "EV-ROS-2026-A064",
+      "EV-ROS-2026-A070",
+      "EV-ROS-2026-A074",
+      "EV-ROS-2026-A075",
+      "EX-ROS-2026-A024",
+      "HY-ROS-2026-A027",
+      "HY-ROS-2026-A028",
+      "HY-ROS-2026-A030"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "Q13",
+    "Kind": "find-evidence",
+    "Batch": 2,
+    "Text": "In the praxis repository, list every record that provides supporting OR contradicting evidence for DF-ROS-2026-A027. Include evidence declared in either direction (in DF-ROS-2026-A027\u0027s own metadata or in the evidence record\u0027s metadata). Answer with record ids.",
+    "Target": "praxis:DF-ROS-2026-A027",
+    "Gold": [
+      "EV-ROS-2026-A015",
+      "EV-ROS-2026-A018"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "Q14",
+    "Kind": "lookup-by-description",
+    "Batch": 1,
+    "Text": "In the signal repository, which decision record covers running the survey page on Safari-on-iPhone and Firefox outside the per-pull-request checks? Answer with one record id.",
+    "Target": "signal:DF-SIGNAL-2026-0016",
+    "Gold": [
+      "DF-SIGNAL-2026-0016"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "Q15",
+    "Kind": "epistemic-status",
+    "Batch": 2,
+    "Text": "In the forma repository, what are the recorded status and confidence of HY-FORMA-2026-0002, and is it contested (has at least one supporting AND at least one contradicting evidence record)? Answer as the string \u0022status=\u003Cstatus\u003E; confidence=\u003Cconfidence\u003E; contested=\u003Cyes|no\u003E\u0022.",
+    "Target": "forma:HY-FORMA-2026-0002",
+    "Gold": [],
+    "GoldText": "status=rejected; confidence=medium; contested=no"
+  },
+  {
+    "Id": "Q16",
+    "Kind": "missing-evidence",
+    "Batch": 1,
+    "Text": "In the forma repository, list every hypothesis record (id prefix HY-) that has NO supporting evidence record (no evidence declares it supports the hypothesis, and the hypothesis lists no supporting_evidence). Answer with record ids; answer an empty list if there are none.",
+    "Target": null,
+    "Gold": [
+      "HY-FORMA-2026-0002"
+    ],
+    "GoldText": null
+  }
+]

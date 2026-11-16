@@ -1,0 +1,2955 @@
+[
+  {
+    "Gold": [
+      "aegis:DF-AEGIS-2026-0CA3"
+    ],
+    "Id": "lookup:aegis:DF-AEGIS-2026-0CA3",
+    "Kind": "lookup-by-id",
+    "Query": "DF-AEGIS-2026-0CA3",
+    "Target": "aegis:DF-AEGIS-2026-0CA3"
+  },
+  {
+    "Gold": [
+      "aegis:GV-INDEX-001"
+    ],
+    "Id": "lookup:aegis:GV-INDEX-001",
+    "Kind": "lookup-by-id",
+    "Query": "GV-INDEX-001",
+    "Target": "aegis:GV-INDEX-001"
+  },
+  {
+    "Gold": [
+      "aegis:SDE-DOCTRINE-009"
+    ],
+    "Id": "lookup:aegis:SDE-DOCTRINE-009",
+    "Kind": "lookup-by-id",
+    "Query": "SDE-DOCTRINE-009",
+    "Target": "aegis:SDE-DOCTRINE-009"
+  },
+  {
+    "Gold": [
+      "arca:DF-ARCA-2026-0002"
+    ],
+    "Id": "lookup:arca:DF-ARCA-2026-0002",
+    "Kind": "lookup-by-id",
+    "Query": "DF-ARCA-2026-0002",
+    "Target": "arca:DF-ARCA-2026-0002"
+  },
+  {
+    "Gold": [
+      "arca:DF-ARCA-2026-0012"
+    ],
+    "Id": "lookup:arca:DF-ARCA-2026-0012",
+    "Kind": "lookup-by-id",
+    "Query": "DF-ARCA-2026-0012",
+    "Target": "arca:DF-ARCA-2026-0012"
+  },
+  {
+    "Gold": [
+      "arca:GV-START-001"
+    ],
+    "Id": "lookup:arca:GV-START-001",
+    "Kind": "lookup-by-id",
+    "Query": "GV-START-001",
+    "Target": "arca:GV-START-001"
+  },
+  {
+    "Gold": [
+      "arca:SDE-METHOD-003"
+    ],
+    "Id": "lookup:arca:SDE-METHOD-003",
+    "Kind": "lookup-by-id",
+    "Query": "SDE-METHOD-003",
+    "Target": "arca:SDE-METHOD-003"
+  },
+  {
+    "Gold": [
+      "dokimos:GV-DEC-001"
+    ],
+    "Id": "lookup:dokimos:GV-DEC-001",
+    "Kind": "lookup-by-id",
+    "Query": "GV-DEC-001",
+    "Target": "dokimos:GV-DEC-001"
+  },
+  {
+    "Gold": [
+      "dokimos:SDE-DOCTRINE-004"
+    ],
+    "Id": "lookup:dokimos:SDE-DOCTRINE-004",
+    "Kind": "lookup-by-id",
+    "Query": "SDE-DOCTRINE-004",
+    "Target": "dokimos:SDE-DOCTRINE-004"
+  },
+  {
+    "Gold": [
+      "dokimos:SDE-METHOD-008"
+    ],
+    "Id": "lookup:dokimos:SDE-METHOD-008",
+    "Kind": "lookup-by-id",
+    "Query": "SDE-METHOD-008",
+    "Target": "dokimos:SDE-METHOD-008"
+  },
+  {
+    "Gold": [
+      "echelon-diagnostic-framework:GV-REP-001"
+    ],
+    "Id": "lookup:echelon-diagnostic-framework:GV-REP-001",
+    "Kind": "lookup-by-id",
+    "Query": "GV-REP-001",
+    "Target": "echelon-diagnostic-framework:GV-REP-001"
+  },
+  {
+    "Gold": [
+      "echelon-diagnostic-framework:JR-EDF-2026-002"
+    ],
+    "Id": "lookup:echelon-diagnostic-framework:JR-EDF-2026-002",
+    "Kind": "lookup-by-id",
+    "Query": "JR-EDF-2026-002",
+    "Target": "echelon-diagnostic-framework:JR-EDF-2026-002"
+  },
+  {
+    "Gold": [
+      "echelon-diagnostic-framework:REP-NHEA-2026-001"
+    ],
+    "Id": "lookup:echelon-diagnostic-framework:REP-NHEA-2026-001",
+    "Kind": "lookup-by-id",
+    "Query": "REP-NHEA-2026-001",
+    "Target": "echelon-diagnostic-framework:REP-NHEA-2026-001"
+  },
+  {
+    "Gold": [
+      "echelon-diagnostic-framework:RFR-009"
+    ],
+    "Id": "lookup:echelon-diagnostic-framework:RFR-009",
+    "Kind": "lookup-by-id",
+    "Query": "RFR-009",
+    "Target": "echelon-diagnostic-framework:RFR-009"
+  },
+  {
+    "Gold": [
+      "echelon-diagnostic-framework:SDE-METHOD-002"
+    ],
+    "Id": "lookup:echelon-diagnostic-framework:SDE-METHOD-002",
+    "Kind": "lookup-by-id",
+    "Query": "SDE-METHOD-002",
+    "Target": "echelon-diagnostic-framework:SDE-METHOD-002"
+  },
+  {
+    "Gold": [
+      "fides:DF-FIDES-2026-0005"
+    ],
+    "Id": "lookup:fides:DF-FIDES-2026-0005",
+    "Kind": "lookup-by-id",
+    "Query": "DF-FIDES-2026-0005",
+    "Target": "fides:DF-FIDES-2026-0005"
+  },
+  {
+    "Gold": [
+      "fides:DF-FIDES-2026-0015"
+    ],
+    "Id": "lookup:fides:DF-FIDES-2026-0015",
+    "Kind": "lookup-by-id",
+    "Query": "DF-FIDES-2026-0015",
+    "Target": "fides:DF-FIDES-2026-0015"
+  },
+  {
+    "Gold": [
+      "fides:FIDES-REQUIREMENTS-INDEX"
+    ],
+    "Id": "lookup:fides:FIDES-REQUIREMENTS-INDEX",
+    "Kind": "lookup-by-id",
+    "Query": "FIDES-REQUIREMENTS-INDEX",
+    "Target": "fides:FIDES-REQUIREMENTS-INDEX"
+  },
+  {
+    "Gold": [
+      "fides:GV-INDEX-001"
+    ],
+    "Id": "lookup:fides:GV-INDEX-001",
+    "Kind": "lookup-by-id",
+    "Query": "GV-INDEX-001",
+    "Target": "fides:GV-INDEX-001"
+  },
+  {
+    "Gold": [
+      "fides:SDE-DOCTRINE-009"
+    ],
+    "Id": "lookup:fides:SDE-DOCTRINE-009",
+    "Kind": "lookup-by-id",
+    "Query": "SDE-DOCTRINE-009",
+    "Target": "fides:SDE-DOCTRINE-009"
+  },
+  {
+    "Gold": [
+      "forma:ADR-0003"
+    ],
+    "Id": "lookup:forma:ADR-0003",
+    "Kind": "lookup-by-id",
+    "Query": "ADR-0003",
+    "Target": "forma:ADR-0003"
+  },
+  {
+    "Gold": [
+      "forma:EV-DESIGN-2026-0005"
+    ],
+    "Id": "lookup:forma:EV-DESIGN-2026-0005",
+    "Kind": "lookup-by-id",
+    "Query": "EV-DESIGN-2026-0005",
+    "Target": "forma:EV-DESIGN-2026-0005"
+  },
+  {
+    "Gold": [
+      "forma:EV-DESIGN-2026-0015"
+    ],
+    "Id": "lookup:forma:EV-DESIGN-2026-0015",
+    "Kind": "lookup-by-id",
+    "Query": "EV-DESIGN-2026-0015",
+    "Target": "forma:EV-DESIGN-2026-0015"
+  },
+  {
+    "Gold": [
+      "forma:GV-REP-001"
+    ],
+    "Id": "lookup:forma:GV-REP-001",
+    "Kind": "lookup-by-id",
+    "Query": "GV-REP-001",
+    "Target": "forma:GV-REP-001"
+  },
+  {
+    "Gold": [
+      "forma:RQ-FORMA-2026-A002"
+    ],
+    "Id": "lookup:forma:RQ-FORMA-2026-A002",
+    "Kind": "lookup-by-id",
+    "Query": "RQ-FORMA-2026-A002",
+    "Target": "forma:RQ-FORMA-2026-A002"
+  },
+  {
+    "Gold": [
+      "forma:SDE-METHOD-003"
+    ],
+    "Id": "lookup:forma:SDE-METHOD-003",
+    "Kind": "lookup-by-id",
+    "Query": "SDE-METHOD-003",
+    "Target": "forma:SDE-METHOD-003"
+  },
+  {
+    "Gold": [
+      "mercatus:DF-MERCATUS-FND-2026-0004"
+    ],
+    "Id": "lookup:mercatus:DF-MERCATUS-FND-2026-0004",
+    "Kind": "lookup-by-id",
+    "Query": "DF-MERCATUS-FND-2026-0004",
+    "Target": "mercatus:DF-MERCATUS-FND-2026-0004"
+  },
+  {
+    "Gold": [
+      "mercatus:PROJECT-CHARTER-mercatus"
+    ],
+    "Id": "lookup:mercatus:PROJECT-CHARTER-mercatus",
+    "Kind": "lookup-by-id",
+    "Query": "PROJECT-CHARTER-mercatus",
+    "Target": "mercatus:PROJECT-CHARTER-mercatus"
+  },
+  {
+    "Gold": [
+      "mercatus:SDE-METHOD-005"
+    ],
+    "Id": "lookup:mercatus:SDE-METHOD-005",
+    "Kind": "lookup-by-id",
+    "Query": "SDE-METHOD-005",
+    "Target": "mercatus:SDE-METHOD-005"
+  },
+  {
+    "Gold": [
+      "percepta:EX-PERCEPTA-2026-0002"
+    ],
+    "Id": "lookup:percepta:EX-PERCEPTA-2026-0002",
+    "Kind": "lookup-by-id",
+    "Query": "EX-PERCEPTA-2026-0002",
+    "Target": "percepta:EX-PERCEPTA-2026-0002"
+  },
+  {
+    "Gold": [
+      "percepta:HY-PERCEPTA-2026-0001"
+    ],
+    "Id": "lookup:percepta:HY-PERCEPTA-2026-0001",
+    "Kind": "lookup-by-id",
+    "Query": "HY-PERCEPTA-2026-0001",
+    "Target": "percepta:HY-PERCEPTA-2026-0001"
+  },
+  {
+    "Gold": [
+      "percepta:SDE-DOCTRINE-005"
+    ],
+    "Id": "lookup:percepta:SDE-DOCTRINE-005",
+    "Kind": "lookup-by-id",
+    "Query": "SDE-DOCTRINE-005",
+    "Target": "percepta:SDE-DOCTRINE-005"
+  },
+  {
+    "Gold": [
+      "praxis:CLAUDE-EX-ROS-2026-A024"
+    ],
+    "Id": "lookup:praxis:CLAUDE-EX-ROS-2026-A024",
+    "Kind": "lookup-by-id",
+    "Query": "CLAUDE-EX-ROS-2026-A024",
+    "Target": "praxis:CLAUDE-EX-ROS-2026-A024"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A027"
+    ],
+    "Id": "lookup:praxis:DF-ROS-2026-A027",
+    "Kind": "lookup-by-id",
+    "Query": "DF-ROS-2026-A027",
+    "Target": "praxis:DF-ROS-2026-A027"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A037"
+    ],
+    "Id": "lookup:praxis:DF-ROS-2026-A037",
+    "Kind": "lookup-by-id",
+    "Query": "DF-ROS-2026-A037",
+    "Target": "praxis:DF-ROS-2026-A037"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A050"
+    ],
+    "Id": "lookup:praxis:DF-ROS-2026-A050",
+    "Kind": "lookup-by-id",
+    "Query": "DF-ROS-2026-A050",
+    "Target": "praxis:DF-ROS-2026-A050"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A060"
+    ],
+    "Id": "lookup:praxis:DF-ROS-2026-A060",
+    "Kind": "lookup-by-id",
+    "Query": "DF-ROS-2026-A060",
+    "Target": "praxis:DF-ROS-2026-A060"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A071"
+    ],
+    "Id": "lookup:praxis:DF-ROS-2026-A071",
+    "Kind": "lookup-by-id",
+    "Query": "DF-ROS-2026-A071",
+    "Target": "praxis:DF-ROS-2026-A071"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A014"
+    ],
+    "Id": "lookup:praxis:EV-ROS-2026-A014",
+    "Kind": "lookup-by-id",
+    "Query": "EV-ROS-2026-A014",
+    "Target": "praxis:EV-ROS-2026-A014"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A036"
+    ],
+    "Id": "lookup:praxis:EV-ROS-2026-A036",
+    "Kind": "lookup-by-id",
+    "Query": "EV-ROS-2026-A036",
+    "Target": "praxis:EV-ROS-2026-A036"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A046"
+    ],
+    "Id": "lookup:praxis:EV-ROS-2026-A046",
+    "Kind": "lookup-by-id",
+    "Query": "EV-ROS-2026-A046",
+    "Target": "praxis:EV-ROS-2026-A046"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A056"
+    ],
+    "Id": "lookup:praxis:EV-ROS-2026-A056",
+    "Kind": "lookup-by-id",
+    "Query": "EV-ROS-2026-A056",
+    "Target": "praxis:EV-ROS-2026-A056"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A068"
+    ],
+    "Id": "lookup:praxis:EV-ROS-2026-A068",
+    "Kind": "lookup-by-id",
+    "Query": "EV-ROS-2026-A068",
+    "Target": "praxis:EV-ROS-2026-A068"
+  },
+  {
+    "Gold": [
+      "praxis:EX-ROS-2026-A022"
+    ],
+    "Id": "lookup:praxis:EX-ROS-2026-A022",
+    "Kind": "lookup-by-id",
+    "Query": "EX-ROS-2026-A022",
+    "Target": "praxis:EX-ROS-2026-A022"
+  },
+  {
+    "Gold": [
+      "praxis:GV-START-001"
+    ],
+    "Id": "lookup:praxis:GV-START-001",
+    "Kind": "lookup-by-id",
+    "Query": "GV-START-001",
+    "Target": "praxis:GV-START-001"
+  },
+  {
+    "Gold": [
+      "praxis:HY-ROS-2026-A029"
+    ],
+    "Id": "lookup:praxis:HY-ROS-2026-A029",
+    "Kind": "lookup-by-id",
+    "Query": "HY-ROS-2026-A029",
+    "Target": "praxis:HY-ROS-2026-A029"
+  },
+  {
+    "Gold": [
+      "praxis:RP-RFA-2026-001"
+    ],
+    "Id": "lookup:praxis:RP-RFA-2026-001",
+    "Kind": "lookup-by-id",
+    "Query": "RP-RFA-2026-001",
+    "Target": "praxis:RP-RFA-2026-001"
+  },
+  {
+    "Gold": [
+      "praxis:RQ-ROS-2026-A005"
+    ],
+    "Id": "lookup:praxis:RQ-ROS-2026-A005",
+    "Kind": "lookup-by-id",
+    "Query": "RQ-ROS-2026-A005",
+    "Target": "praxis:RQ-ROS-2026-A005"
+  },
+  {
+    "Gold": [
+      "praxis:RQ-ROS-2026-A015"
+    ],
+    "Id": "lookup:praxis:RQ-ROS-2026-A015",
+    "Kind": "lookup-by-id",
+    "Query": "RQ-ROS-2026-A015",
+    "Target": "praxis:RQ-ROS-2026-A015"
+  },
+  {
+    "Gold": [
+      "praxis:RQ-ROS-2026-A025"
+    ],
+    "Id": "lookup:praxis:RQ-ROS-2026-A025",
+    "Kind": "lookup-by-id",
+    "Query": "RQ-ROS-2026-A025",
+    "Target": "praxis:RQ-ROS-2026-A025"
+  },
+  {
+    "Gold": [
+      "praxis:RQ-ROS-2026-A035"
+    ],
+    "Id": "lookup:praxis:RQ-ROS-2026-A035",
+    "Kind": "lookup-by-id",
+    "Query": "RQ-ROS-2026-A035",
+    "Target": "praxis:RQ-ROS-2026-A035"
+  },
+  {
+    "Gold": [
+      "praxis:SDE-METHOD-003"
+    ],
+    "Id": "lookup:praxis:SDE-METHOD-003",
+    "Kind": "lookup-by-id",
+    "Query": "SDE-METHOD-003",
+    "Target": "praxis:SDE-METHOD-003"
+  },
+  {
+    "Gold": [
+      "signal:DF-SIGNAL-2026-0006"
+    ],
+    "Id": "lookup:signal:DF-SIGNAL-2026-0006",
+    "Kind": "lookup-by-id",
+    "Query": "DF-SIGNAL-2026-0006",
+    "Target": "signal:DF-SIGNAL-2026-0006"
+  },
+  {
+    "Gold": [
+      "signal:DF-SIGNAL-2026-0016"
+    ],
+    "Id": "lookup:signal:DF-SIGNAL-2026-0016",
+    "Kind": "lookup-by-id",
+    "Query": "DF-SIGNAL-2026-0016",
+    "Target": "signal:DF-SIGNAL-2026-0016"
+  },
+  {
+    "Gold": [
+      "signal:DF-SIGNAL-2026-0026"
+    ],
+    "Id": "lookup:signal:DF-SIGNAL-2026-0026",
+    "Kind": "lookup-by-id",
+    "Query": "DF-SIGNAL-2026-0026",
+    "Target": "signal:DF-SIGNAL-2026-0026"
+  },
+  {
+    "Gold": [
+      "signal:GV-START-001"
+    ],
+    "Id": "lookup:signal:GV-START-001",
+    "Kind": "lookup-by-id",
+    "Query": "GV-START-001",
+    "Target": "signal:GV-START-001"
+  },
+  {
+    "Gold": [
+      "signal:SDE-METHOD-002"
+    ],
+    "Id": "lookup:signal:SDE-METHOD-002",
+    "Kind": "lookup-by-id",
+    "Query": "SDE-METHOD-002",
+    "Target": "signal:SDE-METHOD-002"
+  },
+  {
+    "Gold": [
+      "signal:WI-0004"
+    ],
+    "Id": "lookup:signal:WI-0004",
+    "Kind": "lookup-by-id",
+    "Query": "WI-0004",
+    "Target": "signal:WI-0004"
+  },
+  {
+    "Gold": [
+      "signal:WI-0014"
+    ],
+    "Id": "lookup:signal:WI-0014",
+    "Kind": "lookup-by-id",
+    "Query": "WI-0014",
+    "Target": "signal:WI-0014"
+  },
+  {
+    "Gold": [
+      "aegis:DF-AEGIS-2026-0CA3"
+    ],
+    "Id": "title:aegis:DF-AEGIS-2026-0CA3",
+    "Kind": "lookup-by-description",
+    "Query": "Aegis implementation sequencing",
+    "Target": "aegis:DF-AEGIS-2026-0CA3"
+  },
+  {
+    "Gold": [
+      "aegis:GV-INDEX-001"
+    ],
+    "Id": "title:aegis:GV-INDEX-001",
+    "Kind": "lookup-by-description",
+    "Query": "Governance Index",
+    "Target": "aegis:GV-INDEX-001"
+  },
+  {
+    "Gold": [
+      "aegis:SDE-DOCTRINE-009"
+    ],
+    "Id": "title:aegis:SDE-DOCTRINE-009",
+    "Kind": "lookup-by-description",
+    "Query": "Decision and Evidence Semantics",
+    "Target": "aegis:SDE-DOCTRINE-009"
+  },
+  {
+    "Gold": [
+      "arca:DF-ARCA-2026-0002"
+    ],
+    "Id": "title:arca:DF-ARCA-2026-0002",
+    "Kind": "lookup-by-description",
+    "Query": "The data repository is configured per deployment, each application owns its namespace, permission separation uses separate repositories, and there is no at-rest encryption for now",
+    "Target": "arca:DF-ARCA-2026-0002"
+  },
+  {
+    "Gold": [
+      "arca:DF-ARCA-2026-0012"
+    ],
+    "Id": "title:arca:DF-ARCA-2026-0012",
+    "Kind": "lookup-by-description",
+    "Query": "Immutable records are erased by an explicit, capability-gated operation that replaces the blob in the current tree with a hash-only tombstone at the same path; Git history is out of Arca\u0027s reach and is documented as such",
+    "Target": "arca:DF-ARCA-2026-0012"
+  },
+  {
+    "Gold": [
+      "arca:GV-START-001"
+    ],
+    "Id": "title:arca:GV-START-001",
+    "Kind": "lookup-by-description",
+    "Query": "Agent Startup Guide",
+    "Target": "arca:GV-START-001"
+  },
+  {
+    "Gold": [
+      "arca:SDE-METHOD-003"
+    ],
+    "Id": "title:arca:SDE-METHOD-003",
+    "Kind": "lookup-by-description",
+    "Query": "Verification Method",
+    "Target": "arca:SDE-METHOD-003"
+  },
+  {
+    "Gold": [
+      "dokimos:GV-DEC-001"
+    ],
+    "Id": "title:dokimos:GV-DEC-001",
+    "Kind": "lookup-by-description",
+    "Query": "Governance Decision Log",
+    "Target": "dokimos:GV-DEC-001"
+  },
+  {
+    "Gold": [
+      "dokimos:SDE-DOCTRINE-004"
+    ],
+    "Id": "title:dokimos:SDE-DOCTRINE-004",
+    "Kind": "lookup-by-description",
+    "Query": "Boundary Preservation",
+    "Target": "dokimos:SDE-DOCTRINE-004"
+  },
+  {
+    "Gold": [
+      "dokimos:SDE-METHOD-008"
+    ],
+    "Id": "title:dokimos:SDE-METHOD-008",
+    "Kind": "lookup-by-description",
+    "Query": "Repository Semantic Maps and Feature Manifests",
+    "Target": "dokimos:SDE-METHOD-008"
+  },
+  {
+    "Gold": [
+      "echelon-diagnostic-framework:GV-REP-001"
+    ],
+    "Id": "title:echelon-diagnostic-framework:GV-REP-001",
+    "Kind": "lookup-by-description",
+    "Query": "Research Execution Package Specification",
+    "Target": "echelon-diagnostic-framework:GV-REP-001"
+  },
+  {
+    "Gold": [
+      "echelon-diagnostic-framework:JR-EDF-2026-002"
+    ],
+    "Id": "title:echelon-diagnostic-framework:JR-EDF-2026-002",
+    "Kind": "lookup-by-description",
+    "Query": "EDF proof-integrity and repository hardening journal",
+    "Target": "echelon-diagnostic-framework:JR-EDF-2026-002"
+  },
+  {
+    "Gold": [
+      "echelon-diagnostic-framework:REP-NHEA-2026-001"
+    ],
+    "Id": "title:echelon-diagnostic-framework:REP-NHEA-2026-001",
+    "Kind": "lookup-by-description",
+    "Query": "Non-Human Experimental Evidence Comparative Analysis",
+    "Target": "echelon-diagnostic-framework:REP-NHEA-2026-001"
+  },
+  {
+    "Gold": [
+      "echelon-diagnostic-framework:RFR-009"
+    ],
+    "Id": "title:echelon-diagnostic-framework:RFR-009",
+    "Kind": "lookup-by-description",
+    "Query": "Evidence-Preserving EDF Visual Notation",
+    "Target": "echelon-diagnostic-framework:RFR-009"
+  },
+  {
+    "Gold": [
+      "echelon-diagnostic-framework:SDE-METHOD-002"
+    ],
+    "Id": "title:echelon-diagnostic-framework:SDE-METHOD-002",
+    "Kind": "lookup-by-description",
+    "Query": "Change Classification",
+    "Target": "echelon-diagnostic-framework:SDE-METHOD-002"
+  },
+  {
+    "Gold": [
+      "fides:DF-FIDES-2026-0005"
+    ],
+    "Id": "title:fides:DF-FIDES-2026-0005",
+    "Kind": "lookup-by-description",
+    "Query": "The AWS account, region and domain are operator configuration; nothing is deployed from this work and no secret enters the repository",
+    "Target": "fides:DF-FIDES-2026-0005"
+  },
+  {
+    "Gold": [
+      "fides:DF-FIDES-2026-0015"
+    ],
+    "Id": "title:fides:DF-FIDES-2026-0015",
+    "Kind": "lookup-by-description",
+    "Query": "Memory-only stays the default; persistent retention of the refresh token is restricted pending a sealed-cookie design; applications must ship a strict CSP",
+    "Target": "fides:DF-FIDES-2026-0015"
+  },
+  {
+    "Gold": [
+      "fides:FIDES-REQUIREMENTS-INDEX"
+    ],
+    "Id": "title:fides:FIDES-REQUIREMENTS-INDEX",
+    "Kind": "lookup-by-description",
+    "Query": "Fides requirements index",
+    "Target": "fides:FIDES-REQUIREMENTS-INDEX"
+  },
+  {
+    "Gold": [
+      "fides:GV-INDEX-001"
+    ],
+    "Id": "title:fides:GV-INDEX-001",
+    "Kind": "lookup-by-description",
+    "Query": "Governance Index",
+    "Target": "fides:GV-INDEX-001"
+  },
+  {
+    "Gold": [
+      "fides:SDE-DOCTRINE-009"
+    ],
+    "Id": "title:fides:SDE-DOCTRINE-009",
+    "Kind": "lookup-by-description",
+    "Query": "Decision and Evidence Semantics",
+    "Target": "fides:SDE-DOCTRINE-009"
+  },
+  {
+    "Gold": [
+      "forma:ADR-0003"
+    ],
+    "Id": "title:forma:ADR-0003",
+    "Kind": "lookup-by-description",
+    "Query": "Versioned marketing presentation artifacts distributed as immutable release assets",
+    "Target": "forma:ADR-0003"
+  },
+  {
+    "Gold": [
+      "forma:EV-DESIGN-2026-0005"
+    ],
+    "Id": "title:forma:EV-DESIGN-2026-0005",
+    "Kind": "lookup-by-description",
+    "Query": "Mature design systems include advanced reusable controls",
+    "Target": "forma:EV-DESIGN-2026-0005"
+  },
+  {
+    "Gold": [
+      "forma:EV-DESIGN-2026-0015"
+    ],
+    "Id": "title:forma:EV-DESIGN-2026-0015",
+    "Kind": "lookup-by-description",
+    "Query": "Visual Engineering principles applicable to marketing-site presentation",
+    "Target": "forma:EV-DESIGN-2026-0015"
+  },
+  {
+    "Gold": [
+      "forma:GV-REP-001"
+    ],
+    "Id": "title:forma:GV-REP-001",
+    "Kind": "lookup-by-description",
+    "Query": "Research Execution Package Specification",
+    "Target": "forma:GV-REP-001"
+  },
+  {
+    "Gold": [
+      "forma:RQ-FORMA-2026-A002"
+    ],
+    "Id": "title:forma:RQ-FORMA-2026-A002",
+    "Kind": "lookup-by-description",
+    "Query": "Public Semantic Color Token Contract",
+    "Target": "forma:RQ-FORMA-2026-A002"
+  },
+  {
+    "Gold": [
+      "forma:SDE-METHOD-003"
+    ],
+    "Id": "title:forma:SDE-METHOD-003",
+    "Kind": "lookup-by-description",
+    "Query": "Verification Method",
+    "Target": "forma:SDE-METHOD-003"
+  },
+  {
+    "Gold": [
+      "mercatus:DF-MERCATUS-FND-2026-0004"
+    ],
+    "Id": "title:mercatus:DF-MERCATUS-FND-2026-0004",
+    "Kind": "lookup-by-description",
+    "Query": "The Aegis restoration trigger is the first host or integration project, not the pure Tier 1/2 domain library",
+    "Target": "mercatus:DF-MERCATUS-FND-2026-0004"
+  },
+  {
+    "Gold": [
+      "mercatus:PROJECT-CHARTER-mercatus"
+    ],
+    "Id": "title:mercatus:PROJECT-CHARTER-mercatus",
+    "Kind": "lookup-by-description",
+    "Query": "Mercatus Project Charter",
+    "Target": "mercatus:PROJECT-CHARTER-mercatus"
+  },
+  {
+    "Gold": [
+      "mercatus:SDE-METHOD-005"
+    ],
+    "Id": "title:mercatus:SDE-METHOD-005",
+    "Kind": "lookup-by-description",
+    "Query": "Engineering Metrics",
+    "Target": "mercatus:SDE-METHOD-005"
+  },
+  {
+    "Gold": [
+      "percepta:EX-PERCEPTA-2026-0002"
+    ],
+    "Id": "title:percepta:EX-PERCEPTA-2026-0002",
+    "Kind": "lookup-by-description",
+    "Query": "Independent-session Percepta treatment versus natural-language control",
+    "Target": "percepta:EX-PERCEPTA-2026-0002"
+  },
+  {
+    "Gold": [
+      "percepta:HY-PERCEPTA-2026-0001"
+    ],
+    "Id": "title:percepta:HY-PERCEPTA-2026-0001",
+    "Kind": "lookup-by-description",
+    "Query": "Deterministic Percepta verification detects machine-addressable UI contract violations",
+    "Target": "percepta:HY-PERCEPTA-2026-0001"
+  },
+  {
+    "Gold": [
+      "percepta:SDE-DOCTRINE-005"
+    ],
+    "Id": "title:percepta:SDE-DOCTRINE-005",
+    "Kind": "lookup-by-description",
+    "Query": "SDE Glossary",
+    "Target": "percepta:SDE-DOCTRINE-005"
+  },
+  {
+    "Gold": [
+      "praxis:CLAUDE-EX-ROS-2026-A024"
+    ],
+    "Id": "title:praxis:CLAUDE-EX-ROS-2026-A024",
+    "Kind": "lookup-by-description",
+    "Query": "Claude orchestration script: EX-ROS-2026-A024",
+    "Target": "praxis:CLAUDE-EX-ROS-2026-A024"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A027"
+    ],
+    "Id": "title:praxis:DF-ROS-2026-A027",
+    "Kind": "lookup-by-description",
+    "Query": "Staged F# application boundary for ROS",
+    "Target": "praxis:DF-ROS-2026-A027"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A037"
+    ],
+    "Id": "title:praxis:DF-ROS-2026-A037",
+    "Kind": "lookup-by-description",
+    "Query": "Execution-owned step ledger with referenced canonical telemetry",
+    "Target": "praxis:DF-ROS-2026-A037"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A050"
+    ],
+    "Id": "title:praxis:DF-ROS-2026-A050",
+    "Kind": "lookup-by-description",
+    "Query": "Praxis is the canonical product and CLI name; ros remains only for compatibility, persisted state and history",
+    "Target": "praxis:DF-ROS-2026-A050"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A060"
+    ],
+    "Id": "title:praxis:DF-ROS-2026-A060",
+    "Kind": "lookup-by-description",
+    "Query": "Local agent coordination uses one controller with embedded authority and artifact handoffs",
+    "Target": "praxis:DF-ROS-2026-A060"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A071"
+    ],
+    "Id": "title:praxis:DF-ROS-2026-A071",
+    "Kind": "lookup-by-description",
+    "Query": "Apply Ordo construction through host-built Git objects bound to a signed cohort grant",
+    "Target": "praxis:DF-ROS-2026-A071"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A014"
+    ],
+    "Id": "title:praxis:EV-ROS-2026-A014",
+    "Kind": "lookup-by-description",
+    "Query": "Iterative telemetry architecture challenge and reliability revisions",
+    "Target": "praxis:EV-ROS-2026-A014"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A036"
+    ],
+    "Id": "title:praxis:EV-ROS-2026-A036",
+    "Kind": "lookup-by-description",
+    "Query": "Telemetry execution-link recovery results",
+    "Target": "praxis:EV-ROS-2026-A036"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A046"
+    ],
+    "Id": "title:praxis:EV-ROS-2026-A046",
+    "Kind": "lookup-by-description",
+    "Query": "F# shadow CLI versus production ./ros command-surface parity inventory (second re-run)",
+    "Target": "praxis:EV-ROS-2026-A046"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A056"
+    ],
+    "Id": "title:praxis:EV-ROS-2026-A056",
+    "Kind": "lookup-by-description",
+    "Query": "Live proof: a runtime-less successor continues active work with praxis.remote 1.3 work.continue on Praxis 3.6.0",
+    "Target": "praxis:EV-ROS-2026-A056"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A068"
+    ],
+    "Id": "title:praxis:EV-ROS-2026-A068",
+    "Kind": "lookup-by-description",
+    "Query": "Runtime-free step reconciliation and final F# validation",
+    "Target": "praxis:EV-ROS-2026-A068"
+  },
+  {
+    "Gold": [
+      "praxis:EX-ROS-2026-A022"
+    ],
+    "Id": "title:praxis:EX-ROS-2026-A022",
+    "Kind": "lookup-by-description",
+    "Query": "Experiment",
+    "Target": "praxis:EX-ROS-2026-A022"
+  },
+  {
+    "Gold": [
+      "praxis:GV-START-001"
+    ],
+    "Id": "title:praxis:GV-START-001",
+    "Kind": "lookup-by-description",
+    "Query": "Agent Startup Guide",
+    "Target": "praxis:GV-START-001"
+  },
+  {
+    "Gold": [
+      "praxis:HY-ROS-2026-A029"
+    ],
+    "Id": "title:praxis:HY-ROS-2026-A029",
+    "Kind": "lookup-by-description",
+    "Query": "Work affinity moderates the value of shared reasoning context",
+    "Target": "praxis:HY-ROS-2026-A029"
+  },
+  {
+    "Gold": [
+      "praxis:RP-RFA-2026-001"
+    ],
+    "Id": "title:praxis:RP-RFA-2026-001",
+    "Kind": "lookup-by-description",
+    "Query": "Research Frontier Analysis",
+    "Target": "praxis:RP-RFA-2026-001"
+  },
+  {
+    "Gold": [
+      "praxis:RQ-ROS-2026-A005"
+    ],
+    "Id": "title:praxis:RQ-ROS-2026-A005",
+    "Kind": "lookup-by-description",
+    "Query": "Requirements are first-class records whose creator and modifiers are attributed",
+    "Target": "praxis:RQ-ROS-2026-A005"
+  },
+  {
+    "Gold": [
+      "praxis:RQ-ROS-2026-A015"
+    ],
+    "Id": "title:praxis:RQ-ROS-2026-A015",
+    "Kind": "lookup-by-description",
+    "Query": "Step usage telemetry preserves availability and derivation",
+    "Target": "praxis:RQ-ROS-2026-A015"
+  },
+  {
+    "Gold": [
+      "praxis:RQ-ROS-2026-A025"
+    ],
+    "Id": "title:praxis:RQ-ROS-2026-A025",
+    "Kind": "lookup-by-description",
+    "Query": "Praxis is the canonical product and CLI name; ros is compatibility only",
+    "Target": "praxis:RQ-ROS-2026-A025"
+  },
+  {
+    "Gold": [
+      "praxis:RQ-ROS-2026-A035"
+    ],
+    "Id": "title:praxis:RQ-ROS-2026-A035",
+    "Kind": "lookup-by-description",
+    "Query": "Tamper-evident requirements preservation and authenticated approvals",
+    "Target": "praxis:RQ-ROS-2026-A035"
+  },
+  {
+    "Gold": [
+      "praxis:SDE-METHOD-003"
+    ],
+    "Id": "title:praxis:SDE-METHOD-003",
+    "Kind": "lookup-by-description",
+    "Query": "Verification Method",
+    "Target": "praxis:SDE-METHOD-003"
+  },
+  {
+    "Gold": [
+      "signal:DF-SIGNAL-2026-0006"
+    ],
+    "Id": "title:signal:DF-SIGNAL-2026-0006",
+    "Kind": "lookup-by-description",
+    "Query": "Respondent links carry an invitation\u0027s locale and expiry in a new link format 2, inside the link\u0027s integrity check; format 1 links are unchanged",
+    "Target": "signal:DF-SIGNAL-2026-0006"
+  },
+  {
+    "Gold": [
+      "signal:DF-SIGNAL-2026-0016"
+    ],
+    "Id": "title:signal:DF-SIGNAL-2026-0016",
+    "Kind": "lookup-by-description",
+    "Query": "The survey page runs on real WebKit (iPhone) and Firefox in a scheduled and manual workflow, outside the per-pull-request checks, with bounded apt",
+    "Target": "signal:DF-SIGNAL-2026-0016"
+  },
+  {
+    "Gold": [
+      "signal:DF-SIGNAL-2026-0026"
+    ],
+    "Id": "title:signal:DF-SIGNAL-2026-0026",
+    "Kind": "lookup-by-description",
+    "Query": "The console authors scoring by named built-in choices that compile to the engine\u0027s scorer algebra; advanced and custom scoring are offered separately",
+    "Target": "signal:DF-SIGNAL-2026-0026"
+  },
+  {
+    "Gold": [
+      "signal:GV-START-001"
+    ],
+    "Id": "title:signal:GV-START-001",
+    "Kind": "lookup-by-description",
+    "Query": "Agent Startup Guide",
+    "Target": "signal:GV-START-001"
+  },
+  {
+    "Gold": [
+      "signal:SDE-METHOD-002"
+    ],
+    "Id": "title:signal:SDE-METHOD-002",
+    "Kind": "lookup-by-description",
+    "Query": "Change Classification",
+    "Target": "signal:SDE-METHOD-002"
+  },
+  {
+    "Gold": [
+      "signal:WI-0004"
+    ],
+    "Id": "title:signal:WI-0004",
+    "Kind": "lookup-by-description",
+    "Query": "WI-0004: Answer model, URL encoding, and live respondent lifecycle",
+    "Target": "signal:WI-0004"
+  },
+  {
+    "Gold": [
+      "signal:WI-0014"
+    ],
+    "Id": "title:signal:WI-0014",
+    "Kind": "lookup-by-description",
+    "Query": "WI-0014: Administrator analytics, comparisons, lineage, and dependency invalidation",
+    "Target": "signal:WI-0014"
+  },
+  {
+    "Gold": [
+      "forma:EX-FORMA-2026-0001"
+    ],
+    "Id": "evidence:forma:HY-FORMA-2026-0001",
+    "Kind": "find-evidence",
+    "Query": "HY-FORMA-2026-0001",
+    "Target": "forma:HY-FORMA-2026-0001"
+  },
+  {
+    "Gold": [
+      "forma:EX-FORMA-2026-0001"
+    ],
+    "Id": "evidence:forma:HY-FORMA-2026-0002",
+    "Kind": "find-evidence",
+    "Query": "HY-FORMA-2026-0002",
+    "Target": "forma:HY-FORMA-2026-0002"
+  },
+  {
+    "Gold": [
+      "percepta:EV-PERCEPTA-2026-0002"
+    ],
+    "Id": "evidence:percepta:DF-PERCEPTA-2026-0001",
+    "Kind": "find-evidence",
+    "Query": "DF-PERCEPTA-2026-0001",
+    "Target": "percepta:DF-PERCEPTA-2026-0001"
+  },
+  {
+    "Gold": [
+      "percepta:EV-PERCEPTA-2026-0002"
+    ],
+    "Id": "evidence:percepta:DF-PERCEPTA-2026-0002",
+    "Kind": "find-evidence",
+    "Query": "DF-PERCEPTA-2026-0002",
+    "Target": "percepta:DF-PERCEPTA-2026-0002"
+  },
+  {
+    "Gold": [
+      "percepta:EV-PERCEPTA-2026-0001"
+    ],
+    "Id": "evidence:percepta:HY-PERCEPTA-2026-0001",
+    "Kind": "find-evidence",
+    "Query": "HY-PERCEPTA-2026-0001",
+    "Target": "percepta:HY-PERCEPTA-2026-0001"
+  },
+  {
+    "Gold": [
+      "percepta:EV-PERCEPTA-2026-0001"
+    ],
+    "Id": "evidence:percepta:HY-PERCEPTA-2026-0002",
+    "Kind": "find-evidence",
+    "Query": "HY-PERCEPTA-2026-0002",
+    "Target": "percepta:HY-PERCEPTA-2026-0002"
+  },
+  {
+    "Gold": [
+      "percepta:EV-PERCEPTA-2026-0002"
+    ],
+    "Id": "evidence:percepta:HY-PERCEPTA-2026-0005",
+    "Kind": "find-evidence",
+    "Query": "HY-PERCEPTA-2026-0005",
+    "Target": "percepta:HY-PERCEPTA-2026-0005"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A011",
+      "praxis:EV-ROS-2026-A014"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A010",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A010",
+    "Target": "praxis:DF-ROS-2026-A010"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A015",
+      "praxis:EV-ROS-2026-A018"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A027",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A027",
+    "Target": "praxis:DF-ROS-2026-A027"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A043",
+      "praxis:EV-ROS-2026-A044",
+      "praxis:EV-ROS-2026-A045",
+      "praxis:EV-ROS-2026-A046",
+      "praxis:EV-ROS-2026-A047",
+      "praxis:EV-ROS-2026-A048"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A028",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A028",
+    "Target": "praxis:DF-ROS-2026-A028"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A047",
+      "praxis:EV-ROS-2026-A048"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A029",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A029",
+    "Target": "praxis:DF-ROS-2026-A029"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A047",
+      "praxis:EV-ROS-2026-A048"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A030",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A030",
+    "Target": "praxis:DF-ROS-2026-A030"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A048"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A031",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A031",
+    "Target": "praxis:DF-ROS-2026-A031"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A047",
+      "praxis:EV-ROS-2026-A048"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A032",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A032",
+    "Target": "praxis:DF-ROS-2026-A032"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A047",
+      "praxis:EV-ROS-2026-A048"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A033",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A033",
+    "Target": "praxis:DF-ROS-2026-A033"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A068",
+      "praxis:EV-ROS-2026-A069"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A037",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A037",
+    "Target": "praxis:DF-ROS-2026-A037"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A053"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A041",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A041",
+    "Target": "praxis:DF-ROS-2026-A041"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A057"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A045",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A045",
+    "Target": "praxis:DF-ROS-2026-A045"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A058"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A046",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A046",
+    "Target": "praxis:DF-ROS-2026-A046"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A059"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A047",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A047",
+    "Target": "praxis:DF-ROS-2026-A047"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A068"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A051",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A051",
+    "Target": "praxis:DF-ROS-2026-A051"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A064",
+      "praxis:EV-ROS-2026-A070"
+    ],
+    "Id": "evidence:praxis:DF-ROS-2026-A053",
+    "Kind": "find-evidence",
+    "Query": "DF-ROS-2026-A053",
+    "Target": "praxis:DF-ROS-2026-A053"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A018",
+      "praxis:EV-ROS-2026-A028"
+    ],
+    "Id": "evidence:praxis:EX-ROS-2026-A020",
+    "Kind": "find-evidence",
+    "Query": "EX-ROS-2026-A020",
+    "Target": "praxis:EX-ROS-2026-A020"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A065",
+      "praxis:EV-ROS-2026-A066",
+      "praxis:EV-ROS-2026-A067"
+    ],
+    "Id": "evidence:praxis:EX-ROS-2026-A021",
+    "Kind": "find-evidence",
+    "Query": "EX-ROS-2026-A021",
+    "Target": "praxis:EX-ROS-2026-A021"
+  },
+  {
+    "Gold": [
+      "praxis:EV-FE-2026-B003",
+      "praxis:EV-FE-2026-B004",
+      "praxis:EV-FE-2026-B005"
+    ],
+    "Id": "evidence:praxis:HY-FE-2026-B006",
+    "Kind": "find-evidence",
+    "Query": "HY-FE-2026-B006",
+    "Target": "praxis:HY-FE-2026-B006"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A018",
+      "praxis:EV-ROS-2026-A028"
+    ],
+    "Id": "evidence:praxis:HY-ROS-2026-A021",
+    "Kind": "find-evidence",
+    "Query": "HY-ROS-2026-A021",
+    "Target": "praxis:HY-ROS-2026-A021"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A018",
+      "praxis:EV-ROS-2026-A028"
+    ],
+    "Id": "evidence:praxis:HY-ROS-2026-A022",
+    "Kind": "find-evidence",
+    "Query": "HY-ROS-2026-A022",
+    "Target": "praxis:HY-ROS-2026-A022"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A018",
+      "praxis:EV-ROS-2026-A028"
+    ],
+    "Id": "evidence:praxis:HY-ROS-2026-A023",
+    "Kind": "find-evidence",
+    "Query": "HY-ROS-2026-A023",
+    "Target": "praxis:HY-ROS-2026-A023"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A018",
+      "praxis:EV-ROS-2026-A028"
+    ],
+    "Id": "evidence:praxis:HY-ROS-2026-A024",
+    "Kind": "find-evidence",
+    "Query": "HY-ROS-2026-A024",
+    "Target": "praxis:HY-ROS-2026-A024"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A018"
+    ],
+    "Id": "evidence:praxis:HY-ROS-2026-A025",
+    "Kind": "find-evidence",
+    "Query": "HY-ROS-2026-A025",
+    "Target": "praxis:HY-ROS-2026-A025"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A018"
+    ],
+    "Id": "evidence:praxis:HY-ROS-2026-A026",
+    "Kind": "find-evidence",
+    "Query": "HY-ROS-2026-A026",
+    "Target": "praxis:HY-ROS-2026-A026"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A058",
+      "praxis:EV-ROS-2026-A059",
+      "praxis:EV-ROS-2026-A064"
+    ],
+    "Id": "evidence:praxis:HY-ROS-2026-A027",
+    "Kind": "find-evidence",
+    "Query": "HY-ROS-2026-A027",
+    "Target": "praxis:HY-ROS-2026-A027"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A063",
+      "praxis:EV-ROS-2026-A064",
+      "praxis:EV-ROS-2026-A070",
+      "praxis:EV-ROS-2026-A075"
+    ],
+    "Id": "evidence:praxis:HY-ROS-2026-A028",
+    "Kind": "find-evidence",
+    "Query": "HY-ROS-2026-A028",
+    "Target": "praxis:HY-ROS-2026-A028"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A075"
+    ],
+    "Id": "evidence:praxis:HY-ROS-2026-A030",
+    "Kind": "find-evidence",
+    "Query": "HY-ROS-2026-A030",
+    "Target": "praxis:HY-ROS-2026-A030"
+  },
+  {
+    "Gold": [
+      "praxis:EV-FE-2026-B003",
+      "praxis:EV-FE-2026-B004",
+      "praxis:EV-FE-2026-B005"
+    ],
+    "Id": "evidence:praxis:RP-FE-2026-B008",
+    "Kind": "find-evidence",
+    "Query": "RP-FE-2026-B008",
+    "Target": "praxis:RP-FE-2026-B008"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A003"
+    ],
+    "Id": "evidence:praxis:RP-ROS-2026-A005",
+    "Kind": "find-evidence",
+    "Query": "RP-ROS-2026-A005",
+    "Target": "praxis:RP-ROS-2026-A005"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A015"
+    ],
+    "Id": "evidence:praxis:RP-ROS-2026-A017",
+    "Kind": "find-evidence",
+    "Query": "RP-ROS-2026-A017",
+    "Target": "praxis:RP-ROS-2026-A017"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A055"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A004",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A004",
+    "Target": "praxis:RQ-ROS-2026-A004"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A055"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A007",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A007",
+    "Target": "praxis:RQ-ROS-2026-A007"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A069"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A013",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A013",
+    "Target": "praxis:RQ-ROS-2026-A013"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A069"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A014",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A014",
+    "Target": "praxis:RQ-ROS-2026-A014"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A069"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A015",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A015",
+    "Target": "praxis:RQ-ROS-2026-A015"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A069"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A016",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A016",
+    "Target": "praxis:RQ-ROS-2026-A016"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A069"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A017",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A017",
+    "Target": "praxis:RQ-ROS-2026-A017"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A069"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A018",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A018",
+    "Target": "praxis:RQ-ROS-2026-A018"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A051",
+      "praxis:EV-ROS-2026-A068",
+      "praxis:EV-ROS-2026-A069"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A019",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A019",
+    "Target": "praxis:RQ-ROS-2026-A019"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A040"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A020",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A020",
+    "Target": "praxis:RQ-ROS-2026-A020"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A041",
+      "praxis:EV-ROS-2026-A053",
+      "praxis:EV-ROS-2026-A054",
+      "praxis:EV-ROS-2026-A056"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A021",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A021",
+    "Target": "praxis:RQ-ROS-2026-A021"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A042",
+      "praxis:DF-ROS-2026-A043",
+      "praxis:EV-ROS-2026-A055",
+      "praxis:EV-ROS-2026-A056",
+      "praxis:EV-ROS-2026-A073"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A022",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A022",
+    "Target": "praxis:RQ-ROS-2026-A022"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A045",
+      "praxis:EV-ROS-2026-A057",
+      "praxis:EV-ROS-2026-A073"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A023",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A023",
+    "Target": "praxis:RQ-ROS-2026-A023"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:DF-ROS-2026-A057",
+      "praxis:DF-ROS-2026-A058",
+      "praxis:DF-ROS-2026-A059"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A024",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A024",
+    "Target": "praxis:RQ-ROS-2026-A024"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A050"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A025",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A025",
+    "Target": "praxis:RQ-ROS-2026-A025"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A051",
+      "praxis:EV-ROS-2026-A068"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A026",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A026",
+    "Target": "praxis:RQ-ROS-2026-A026"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A069"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A027",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A027",
+    "Target": "praxis:RQ-ROS-2026-A027"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A073"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A028",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A028",
+    "Target": "praxis:RQ-ROS-2026-A028"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A074"
+    ],
+    "Id": "evidence:praxis:RQ-ROS-2026-A029",
+    "Kind": "find-evidence",
+    "Query": "RQ-ROS-2026-A029",
+    "Target": "praxis:RQ-ROS-2026-A029"
+  },
+  {
+    "Gold": [
+      "forma:EX-FORMA-2026-0002",
+      "forma:EX-FORMA-2026-0003",
+      "forma:HY-FORMA-2026-0001",
+      "forma:HY-FORMA-2026-0002"
+    ],
+    "Id": "impact:forma:EX-FORMA-2026-0001",
+    "Kind": "change-impact",
+    "Query": "EX-FORMA-2026-0001",
+    "Target": "forma:EX-FORMA-2026-0001"
+  },
+  {
+    "Gold": [
+      "percepta:HY-PERCEPTA-2026-0001",
+      "percepta:HY-PERCEPTA-2026-0002"
+    ],
+    "Id": "impact:percepta:EV-PERCEPTA-2026-0001",
+    "Kind": "change-impact",
+    "Query": "EV-PERCEPTA-2026-0001",
+    "Target": "percepta:EV-PERCEPTA-2026-0001"
+  },
+  {
+    "Gold": [
+      "percepta:DF-PERCEPTA-2026-0001",
+      "percepta:DF-PERCEPTA-2026-0002",
+      "percepta:HY-PERCEPTA-2026-0005"
+    ],
+    "Id": "impact:percepta:EV-PERCEPTA-2026-0002",
+    "Kind": "change-impact",
+    "Query": "EV-PERCEPTA-2026-0002",
+    "Target": "percepta:EV-PERCEPTA-2026-0002"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A041",
+      "praxis:DF-ROS-2026-A042",
+      "praxis:DF-ROS-2026-A043",
+      "praxis:DF-ROS-2026-A045",
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A059",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A054",
+      "praxis:EV-ROS-2026-A055",
+      "praxis:EV-ROS-2026-A056",
+      "praxis:EV-ROS-2026-A057",
+      "praxis:EV-ROS-2026-A073",
+      "praxis:RQ-ROS-2026-A020",
+      "praxis:RQ-ROS-2026-A021",
+      "praxis:RQ-ROS-2026-A022",
+      "praxis:RQ-ROS-2026-A023",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A027",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A040",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A040",
+    "Target": "praxis:DF-ROS-2026-A040"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A042",
+      "praxis:DF-ROS-2026-A043",
+      "praxis:DF-ROS-2026-A045",
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A059",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A054",
+      "praxis:EV-ROS-2026-A055",
+      "praxis:EV-ROS-2026-A056",
+      "praxis:EV-ROS-2026-A057",
+      "praxis:EV-ROS-2026-A073",
+      "praxis:RQ-ROS-2026-A021",
+      "praxis:RQ-ROS-2026-A022",
+      "praxis:RQ-ROS-2026-A023",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A041",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A041",
+    "Target": "praxis:DF-ROS-2026-A041"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A041",
+      "praxis:DF-ROS-2026-A043",
+      "praxis:DF-ROS-2026-A045",
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:DF-ROS-2026-A059",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A054",
+      "praxis:EV-ROS-2026-A055",
+      "praxis:EV-ROS-2026-A056",
+      "praxis:EV-ROS-2026-A057",
+      "praxis:EV-ROS-2026-A073",
+      "praxis:RQ-ROS-2026-A021",
+      "praxis:RQ-ROS-2026-A022",
+      "praxis:RQ-ROS-2026-A023",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A042",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A042",
+    "Target": "praxis:DF-ROS-2026-A042"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A041",
+      "praxis:DF-ROS-2026-A042",
+      "praxis:DF-ROS-2026-A045",
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:DF-ROS-2026-A059",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A054",
+      "praxis:EV-ROS-2026-A055",
+      "praxis:EV-ROS-2026-A056",
+      "praxis:EV-ROS-2026-A057",
+      "praxis:EV-ROS-2026-A073",
+      "praxis:RQ-ROS-2026-A021",
+      "praxis:RQ-ROS-2026-A022",
+      "praxis:RQ-ROS-2026-A023",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A043",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A043",
+    "Target": "praxis:DF-ROS-2026-A043"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:RQ-ROS-2026-A024"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A049",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A049",
+    "Target": "praxis:DF-ROS-2026-A049"
+  },
+  {
+    "Gold": [
+      "praxis:RQ-ROS-2026-A019",
+      "praxis:RQ-ROS-2026-A026"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A051",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A051",
+    "Target": "praxis:DF-ROS-2026-A051"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:RQ-ROS-2026-A024"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A054",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A054",
+    "Target": "praxis:DF-ROS-2026-A054"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A036",
+      "praxis:DF-ROS-2026-A037",
+      "praxis:RQ-ROS-2026-A004",
+      "praxis:RQ-ROS-2026-A007"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A055",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A055",
+    "Target": "praxis:DF-ROS-2026-A055"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:RQ-ROS-2026-A024"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A056",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A056",
+    "Target": "praxis:DF-ROS-2026-A056"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:DF-ROS-2026-A058",
+      "praxis:RQ-ROS-2026-A024"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A057",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A057",
+    "Target": "praxis:DF-ROS-2026-A057"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:RQ-ROS-2026-A024"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A058",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A058",
+    "Target": "praxis:DF-ROS-2026-A058"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A059",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A059",
+    "Target": "praxis:DF-ROS-2026-A059"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A060",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A060",
+    "Target": "praxis:DF-ROS-2026-A060"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A061",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A061",
+    "Target": "praxis:DF-ROS-2026-A061"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A062",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A062",
+    "Target": "praxis:DF-ROS-2026-A062"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A063",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A063",
+    "Target": "praxis:DF-ROS-2026-A063"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A064",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A064",
+    "Target": "praxis:DF-ROS-2026-A064"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A065",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A065",
+    "Target": "praxis:DF-ROS-2026-A065"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A066",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A066",
+    "Target": "praxis:DF-ROS-2026-A066"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A067",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A067",
+    "Target": "praxis:DF-ROS-2026-A067"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A068",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A068",
+    "Target": "praxis:DF-ROS-2026-A068"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A070",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A070",
+    "Target": "praxis:DF-ROS-2026-A070"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A071",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A071",
+    "Target": "praxis:DF-ROS-2026-A071"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A074",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A072",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A072",
+    "Target": "praxis:DF-ROS-2026-A072"
+  },
+  {
+    "Gold": [
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:DF-ROS-2026-A073",
+    "Kind": "change-impact",
+    "Query": "DF-ROS-2026-A073",
+    "Target": "praxis:DF-ROS-2026-A073"
+  },
+  {
+    "Gold": [
+      "praxis:HY-FE-2026-B006",
+      "praxis:RP-FE-2026-B008"
+    ],
+    "Id": "impact:praxis:EV-FE-2026-B003",
+    "Kind": "change-impact",
+    "Query": "EV-FE-2026-B003",
+    "Target": "praxis:EV-FE-2026-B003"
+  },
+  {
+    "Gold": [
+      "praxis:HY-FE-2026-B006",
+      "praxis:RP-FE-2026-B008"
+    ],
+    "Id": "impact:praxis:EV-FE-2026-B004",
+    "Kind": "change-impact",
+    "Query": "EV-FE-2026-B004",
+    "Target": "praxis:EV-FE-2026-B004"
+  },
+  {
+    "Gold": [
+      "praxis:HY-FE-2026-B006",
+      "praxis:RP-FE-2026-B008"
+    ],
+    "Id": "impact:praxis:EV-FE-2026-B005",
+    "Kind": "change-impact",
+    "Query": "EV-FE-2026-B005",
+    "Target": "praxis:EV-FE-2026-B005"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A010",
+      "praxis:DF-ROS-2026-A037"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A011",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A011",
+    "Target": "praxis:EV-ROS-2026-A011"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A010",
+      "praxis:DF-ROS-2026-A037"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A014",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A014",
+    "Target": "praxis:EV-ROS-2026-A014"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A027",
+      "praxis:RP-ROS-2026-A017"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A015",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A015",
+    "Target": "praxis:EV-ROS-2026-A015"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A027",
+      "praxis:EX-ROS-2026-A020",
+      "praxis:HY-ROS-2026-A021",
+      "praxis:HY-ROS-2026-A022",
+      "praxis:HY-ROS-2026-A023",
+      "praxis:HY-ROS-2026-A024",
+      "praxis:HY-ROS-2026-A025",
+      "praxis:HY-ROS-2026-A026"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A018",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A018",
+    "Target": "praxis:EV-ROS-2026-A018"
+  },
+  {
+    "Gold": [
+      "praxis:EX-ROS-2026-A020",
+      "praxis:HY-ROS-2026-A021",
+      "praxis:HY-ROS-2026-A022",
+      "praxis:HY-ROS-2026-A023",
+      "praxis:HY-ROS-2026-A024"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A028",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A028",
+    "Target": "praxis:EV-ROS-2026-A028"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A028",
+      "praxis:DF-ROS-2026-A029",
+      "praxis:DF-ROS-2026-A030",
+      "praxis:DF-ROS-2026-A032",
+      "praxis:DF-ROS-2026-A033"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A047",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A047",
+    "Target": "praxis:EV-ROS-2026-A047"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A028",
+      "praxis:DF-ROS-2026-A029",
+      "praxis:DF-ROS-2026-A030",
+      "praxis:DF-ROS-2026-A031",
+      "praxis:DF-ROS-2026-A032",
+      "praxis:DF-ROS-2026-A033"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A048",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A048",
+    "Target": "praxis:EV-ROS-2026-A048"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A041",
+      "praxis:DF-ROS-2026-A042",
+      "praxis:DF-ROS-2026-A043",
+      "praxis:DF-ROS-2026-A045",
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A059",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A054",
+      "praxis:EV-ROS-2026-A055",
+      "praxis:EV-ROS-2026-A056",
+      "praxis:EV-ROS-2026-A057",
+      "praxis:EV-ROS-2026-A073",
+      "praxis:RQ-ROS-2026-A021",
+      "praxis:RQ-ROS-2026-A022",
+      "praxis:RQ-ROS-2026-A023",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A053",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A053",
+    "Target": "praxis:EV-ROS-2026-A053"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A041",
+      "praxis:DF-ROS-2026-A042",
+      "praxis:DF-ROS-2026-A043",
+      "praxis:DF-ROS-2026-A045",
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A059",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A055",
+      "praxis:EV-ROS-2026-A056",
+      "praxis:EV-ROS-2026-A057",
+      "praxis:EV-ROS-2026-A073",
+      "praxis:RQ-ROS-2026-A021",
+      "praxis:RQ-ROS-2026-A022",
+      "praxis:RQ-ROS-2026-A023",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A054",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A054",
+    "Target": "praxis:EV-ROS-2026-A054"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A041",
+      "praxis:DF-ROS-2026-A042",
+      "praxis:DF-ROS-2026-A043",
+      "praxis:DF-ROS-2026-A045",
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:DF-ROS-2026-A059",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A054",
+      "praxis:EV-ROS-2026-A056",
+      "praxis:EV-ROS-2026-A057",
+      "praxis:EV-ROS-2026-A073",
+      "praxis:RQ-ROS-2026-A021",
+      "praxis:RQ-ROS-2026-A022",
+      "praxis:RQ-ROS-2026-A023",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A055",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A055",
+    "Target": "praxis:EV-ROS-2026-A055"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A041",
+      "praxis:DF-ROS-2026-A042",
+      "praxis:DF-ROS-2026-A043",
+      "praxis:DF-ROS-2026-A045",
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:DF-ROS-2026-A059",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A054",
+      "praxis:EV-ROS-2026-A055",
+      "praxis:EV-ROS-2026-A057",
+      "praxis:EV-ROS-2026-A073",
+      "praxis:RQ-ROS-2026-A021",
+      "praxis:RQ-ROS-2026-A022",
+      "praxis:RQ-ROS-2026-A023",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A056",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A056",
+    "Target": "praxis:EV-ROS-2026-A056"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A041",
+      "praxis:DF-ROS-2026-A042",
+      "praxis:DF-ROS-2026-A043",
+      "praxis:DF-ROS-2026-A045",
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A059",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A054",
+      "praxis:EV-ROS-2026-A055",
+      "praxis:EV-ROS-2026-A056",
+      "praxis:EV-ROS-2026-A073",
+      "praxis:RQ-ROS-2026-A021",
+      "praxis:RQ-ROS-2026-A022",
+      "praxis:RQ-ROS-2026-A023",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A057",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A057",
+    "Target": "praxis:EV-ROS-2026-A057"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A046",
+      "praxis:HY-ROS-2026-A027"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A058",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A058",
+    "Target": "praxis:EV-ROS-2026-A058"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A047",
+      "praxis:DF-ROS-2026-A053",
+      "praxis:HY-ROS-2026-A027"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A059",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A059",
+    "Target": "praxis:EV-ROS-2026-A059"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A053",
+      "praxis:EV-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A075",
+      "praxis:EX-ROS-2026-A024",
+      "praxis:HY-ROS-2026-A027",
+      "praxis:HY-ROS-2026-A028",
+      "praxis:HY-ROS-2026-A030"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A064",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A064",
+    "Target": "praxis:EV-ROS-2026-A064"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A053",
+      "praxis:EV-ROS-2026-A064",
+      "praxis:EV-ROS-2026-A070",
+      "praxis:EV-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A075",
+      "praxis:EX-ROS-2026-A021",
+      "praxis:EX-ROS-2026-A024",
+      "praxis:HY-ROS-2026-A027",
+      "praxis:HY-ROS-2026-A028",
+      "praxis:HY-ROS-2026-A030"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A065",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A065",
+    "Target": "praxis:EV-ROS-2026-A065"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A053",
+      "praxis:EV-ROS-2026-A064",
+      "praxis:EV-ROS-2026-A070",
+      "praxis:EV-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A075",
+      "praxis:EX-ROS-2026-A021",
+      "praxis:EX-ROS-2026-A024",
+      "praxis:HY-ROS-2026-A027",
+      "praxis:HY-ROS-2026-A028",
+      "praxis:HY-ROS-2026-A030"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A066",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A066",
+    "Target": "praxis:EV-ROS-2026-A066"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A053",
+      "praxis:EV-ROS-2026-A064",
+      "praxis:EV-ROS-2026-A070",
+      "praxis:EV-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A075",
+      "praxis:EX-ROS-2026-A021",
+      "praxis:EX-ROS-2026-A024",
+      "praxis:HY-ROS-2026-A027",
+      "praxis:HY-ROS-2026-A028",
+      "praxis:HY-ROS-2026-A030"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A067",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A067",
+    "Target": "praxis:EV-ROS-2026-A067"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A037",
+      "praxis:DF-ROS-2026-A051",
+      "praxis:RQ-ROS-2026-A019",
+      "praxis:RQ-ROS-2026-A026"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A068",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A068",
+    "Target": "praxis:EV-ROS-2026-A068"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A037",
+      "praxis:DF-ROS-2026-A051",
+      "praxis:RQ-ROS-2026-A013",
+      "praxis:RQ-ROS-2026-A014",
+      "praxis:RQ-ROS-2026-A015",
+      "praxis:RQ-ROS-2026-A016",
+      "praxis:RQ-ROS-2026-A017",
+      "praxis:RQ-ROS-2026-A018",
+      "praxis:RQ-ROS-2026-A019",
+      "praxis:RQ-ROS-2026-A026",
+      "praxis:RQ-ROS-2026-A027"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A069",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A069",
+    "Target": "praxis:EV-ROS-2026-A069"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A053",
+      "praxis:EV-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A075",
+      "praxis:EX-ROS-2026-A024",
+      "praxis:HY-ROS-2026-A028",
+      "praxis:HY-ROS-2026-A030"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A070",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A070",
+    "Target": "praxis:EV-ROS-2026-A070"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A041",
+      "praxis:DF-ROS-2026-A042",
+      "praxis:DF-ROS-2026-A043",
+      "praxis:DF-ROS-2026-A045",
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:DF-ROS-2026-A059",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A054",
+      "praxis:EV-ROS-2026-A055",
+      "praxis:EV-ROS-2026-A056",
+      "praxis:EV-ROS-2026-A057",
+      "praxis:RQ-ROS-2026-A021",
+      "praxis:RQ-ROS-2026-A022",
+      "praxis:RQ-ROS-2026-A023",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A073",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A073",
+    "Target": "praxis:EV-ROS-2026-A073"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A075",
+      "praxis:HY-ROS-2026-A028",
+      "praxis:HY-ROS-2026-A030"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A074",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A074",
+    "Target": "praxis:EV-ROS-2026-A074"
+  },
+  {
+    "Gold": [
+      "praxis:HY-ROS-2026-A028",
+      "praxis:HY-ROS-2026-A030"
+    ],
+    "Id": "impact:praxis:EV-ROS-2026-A075",
+    "Kind": "change-impact",
+    "Query": "EV-ROS-2026-A075",
+    "Target": "praxis:EV-ROS-2026-A075"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A053",
+      "praxis:EV-ROS-2026-A064",
+      "praxis:EV-ROS-2026-A070",
+      "praxis:EV-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A075",
+      "praxis:EX-ROS-2026-A024",
+      "praxis:HY-ROS-2026-A027",
+      "praxis:HY-ROS-2026-A028",
+      "praxis:HY-ROS-2026-A030"
+    ],
+    "Id": "impact:praxis:EX-ROS-2026-A021",
+    "Kind": "change-impact",
+    "Query": "EX-ROS-2026-A021",
+    "Target": "praxis:EX-ROS-2026-A021"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A072",
+      "praxis:EX-ROS-2026-A023"
+    ],
+    "Id": "impact:praxis:EX-ROS-2026-A022",
+    "Kind": "change-impact",
+    "Query": "EX-ROS-2026-A022",
+    "Target": "praxis:EX-ROS-2026-A022"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A075",
+      "praxis:HY-ROS-2026-A028",
+      "praxis:HY-ROS-2026-A030"
+    ],
+    "Id": "impact:praxis:EX-ROS-2026-A024",
+    "Kind": "change-impact",
+    "Query": "EX-ROS-2026-A024",
+    "Target": "praxis:EX-ROS-2026-A024"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A036",
+      "praxis:DF-ROS-2026-A037"
+    ],
+    "Id": "impact:praxis:RQ-ROS-2026-A001",
+    "Kind": "change-impact",
+    "Query": "RQ-ROS-2026-A001",
+    "Target": "praxis:RQ-ROS-2026-A001"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A036",
+      "praxis:DF-ROS-2026-A037"
+    ],
+    "Id": "impact:praxis:RQ-ROS-2026-A004",
+    "Kind": "change-impact",
+    "Query": "RQ-ROS-2026-A004",
+    "Target": "praxis:RQ-ROS-2026-A004"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A036",
+      "praxis:DF-ROS-2026-A037",
+      "praxis:DF-ROS-2026-A055",
+      "praxis:RQ-ROS-2026-A004"
+    ],
+    "Id": "impact:praxis:RQ-ROS-2026-A007",
+    "Kind": "change-impact",
+    "Query": "RQ-ROS-2026-A007",
+    "Target": "praxis:RQ-ROS-2026-A007"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A051",
+      "praxis:RQ-ROS-2026-A026"
+    ],
+    "Id": "impact:praxis:RQ-ROS-2026-A019",
+    "Kind": "change-impact",
+    "Query": "RQ-ROS-2026-A019",
+    "Target": "praxis:RQ-ROS-2026-A019"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A040",
+      "praxis:DF-ROS-2026-A041",
+      "praxis:DF-ROS-2026-A042",
+      "praxis:DF-ROS-2026-A043",
+      "praxis:DF-ROS-2026-A045",
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:DF-ROS-2026-A059",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A054",
+      "praxis:EV-ROS-2026-A055",
+      "praxis:EV-ROS-2026-A056",
+      "praxis:EV-ROS-2026-A057",
+      "praxis:EV-ROS-2026-A073",
+      "praxis:RQ-ROS-2026-A021",
+      "praxis:RQ-ROS-2026-A022",
+      "praxis:RQ-ROS-2026-A023",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A027",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:RQ-ROS-2026-A020",
+    "Kind": "change-impact",
+    "Query": "RQ-ROS-2026-A020",
+    "Target": "praxis:RQ-ROS-2026-A020"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A041",
+      "praxis:DF-ROS-2026-A042",
+      "praxis:DF-ROS-2026-A043",
+      "praxis:DF-ROS-2026-A045",
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:DF-ROS-2026-A059",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A054",
+      "praxis:EV-ROS-2026-A055",
+      "praxis:EV-ROS-2026-A056",
+      "praxis:EV-ROS-2026-A057",
+      "praxis:EV-ROS-2026-A073",
+      "praxis:RQ-ROS-2026-A022",
+      "praxis:RQ-ROS-2026-A023",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:RQ-ROS-2026-A021",
+    "Kind": "change-impact",
+    "Query": "RQ-ROS-2026-A021",
+    "Target": "praxis:RQ-ROS-2026-A021"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A041",
+      "praxis:DF-ROS-2026-A042",
+      "praxis:DF-ROS-2026-A043",
+      "praxis:DF-ROS-2026-A045",
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056",
+      "praxis:DF-ROS-2026-A059",
+      "praxis:DF-ROS-2026-A060",
+      "praxis:DF-ROS-2026-A061",
+      "praxis:DF-ROS-2026-A062",
+      "praxis:DF-ROS-2026-A063",
+      "praxis:DF-ROS-2026-A064",
+      "praxis:DF-ROS-2026-A065",
+      "praxis:DF-ROS-2026-A066",
+      "praxis:DF-ROS-2026-A067",
+      "praxis:DF-ROS-2026-A068",
+      "praxis:DF-ROS-2026-A070",
+      "praxis:DF-ROS-2026-A071",
+      "praxis:DF-ROS-2026-A072",
+      "praxis:DF-ROS-2026-A073",
+      "praxis:DF-ROS-2026-A074",
+      "praxis:EV-ROS-2026-A054",
+      "praxis:EV-ROS-2026-A055",
+      "praxis:EV-ROS-2026-A056",
+      "praxis:EV-ROS-2026-A057",
+      "praxis:EV-ROS-2026-A073",
+      "praxis:RQ-ROS-2026-A021",
+      "praxis:RQ-ROS-2026-A023",
+      "praxis:RQ-ROS-2026-A024",
+      "praxis:RQ-ROS-2026-A028",
+      "praxis:RQ-ROS-2026-A029"
+    ],
+    "Id": "impact:praxis:RQ-ROS-2026-A022",
+    "Kind": "change-impact",
+    "Query": "RQ-ROS-2026-A022",
+    "Target": "praxis:RQ-ROS-2026-A022"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A049",
+      "praxis:DF-ROS-2026-A054",
+      "praxis:DF-ROS-2026-A056"
+    ],
+    "Id": "impact:praxis:RQ-ROS-2026-A024",
+    "Kind": "change-impact",
+    "Query": "RQ-ROS-2026-A024",
+    "Target": "praxis:RQ-ROS-2026-A024"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A051",
+      "praxis:RQ-ROS-2026-A019"
+    ],
+    "Id": "impact:praxis:RQ-ROS-2026-A026",
+    "Kind": "change-impact",
+    "Query": "RQ-ROS-2026-A026",
+    "Target": "praxis:RQ-ROS-2026-A026"
+  },
+  {
+    "Gold": [
+      "fides:DF-FIDES-2026-0016"
+    ],
+    "Id": "current:fides:DF-FIDES-2026-0013",
+    "Kind": "current-authority",
+    "Query": "DF-FIDES-2026-0013",
+    "Target": "fides:DF-FIDES-2026-0013"
+  },
+  {
+    "Gold": [
+      "forma:ADR-0002"
+    ],
+    "Id": "current:forma:ADR-0001",
+    "Kind": "current-authority",
+    "Query": "ADR-0001",
+    "Target": "forma:ADR-0001"
+  },
+  {
+    "Gold": [
+      "percepta:DF-PERCEPTA-2026-0002"
+    ],
+    "Id": "current:percepta:DF-PERCEPTA-2026-0001",
+    "Kind": "current-authority",
+    "Query": "DF-PERCEPTA-2026-0001",
+    "Target": "percepta:DF-PERCEPTA-2026-0001"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A049"
+    ],
+    "Id": "current:praxis:DF-ROS-2026-A029",
+    "Kind": "current-authority",
+    "Query": "DF-ROS-2026-A029",
+    "Target": "praxis:DF-ROS-2026-A029"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A049"
+    ],
+    "Id": "current:praxis:DF-ROS-2026-A031",
+    "Kind": "current-authority",
+    "Query": "DF-ROS-2026-A031",
+    "Target": "praxis:DF-ROS-2026-A031"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A049"
+    ],
+    "Id": "current:praxis:DF-ROS-2026-A032",
+    "Kind": "current-authority",
+    "Query": "DF-ROS-2026-A032",
+    "Target": "praxis:DF-ROS-2026-A032"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A049"
+    ],
+    "Id": "current:praxis:DF-ROS-2026-A033",
+    "Kind": "current-authority",
+    "Query": "DF-ROS-2026-A033",
+    "Target": "praxis:DF-ROS-2026-A033"
+  },
+  {
+    "Gold": [
+      "praxis:DF-ROS-2026-A049"
+    ],
+    "Id": "current:praxis:DF-ROS-2026-A034",
+    "Kind": "current-authority",
+    "Query": "DF-ROS-2026-A034",
+    "Target": "praxis:DF-ROS-2026-A034"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A047"
+    ],
+    "Id": "current:praxis:EV-ROS-2026-A043",
+    "Kind": "current-authority",
+    "Query": "EV-ROS-2026-A043",
+    "Target": "praxis:EV-ROS-2026-A043"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A047"
+    ],
+    "Id": "current:praxis:EV-ROS-2026-A045",
+    "Kind": "current-authority",
+    "Query": "EV-ROS-2026-A045",
+    "Target": "praxis:EV-ROS-2026-A045"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A047"
+    ],
+    "Id": "current:praxis:EV-ROS-2026-A046",
+    "Kind": "current-authority",
+    "Query": "EV-ROS-2026-A046",
+    "Target": "praxis:EV-ROS-2026-A046"
+  },
+  {
+    "Gold": [
+      "signal:DF-SIGNAL-FND-2026-0002"
+    ],
+    "Id": "current:signal:DF-SIGNAL-FND-2026-0001",
+    "Kind": "current-authority",
+    "Query": "DF-SIGNAL-FND-2026-0001",
+    "Target": "signal:DF-SIGNAL-FND-2026-0001"
+  }
+]

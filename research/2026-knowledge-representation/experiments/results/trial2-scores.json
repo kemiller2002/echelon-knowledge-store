@@ -1,0 +1,380 @@
+[
+  {
+    "Condition": "A-markdown-b1",
+    "Question": "H01",
+    "Kind": "task-context",
+    "Score": 0.888888888888889,
+    "Exact": false
+  },
+  {
+    "Condition": "A-markdown-b1",
+    "Question": "H03",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "A-markdown-b1",
+    "Question": "H05",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "A-markdown-b1",
+    "Question": "H07",
+    "Kind": "adversarial-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "A-markdown-b1",
+    "Question": "H09",
+    "Kind": "contested",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "A-markdown-b1",
+    "Question": "H11",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "A-markdown-b2",
+    "Question": "H02",
+    "Kind": "evidence-bundle",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "A-markdown-b2",
+    "Question": "H04",
+    "Kind": "cross-repo-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "A-markdown-b2",
+    "Question": "H06",
+    "Kind": "missing-link",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "A-markdown-b2",
+    "Question": "H08",
+    "Kind": "adversarial-injection",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "A-markdown-b2",
+    "Question": "H10",
+    "Kind": "status-lag",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "A-markdown-b2",
+    "Question": "H12",
+    "Kind": "superseded-support",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "B-excerpts-b1",
+    "Question": "H01",
+    "Kind": "task-context",
+    "Score": 0,
+    "Exact": false
+  },
+  {
+    "Condition": "B-excerpts-b1",
+    "Question": "H03",
+    "Kind": "change-impact",
+    "Score": 0,
+    "Exact": false
+  },
+  {
+    "Condition": "B-excerpts-b1",
+    "Question": "H05",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "B-excerpts-b1",
+    "Question": "H07",
+    "Kind": "adversarial-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "B-excerpts-b1",
+    "Question": "H09",
+    "Kind": "contested",
+    "Score": 0,
+    "Exact": false
+  },
+  {
+    "Condition": "B-excerpts-b1",
+    "Question": "H11",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "B-excerpts-b2",
+    "Question": "H02",
+    "Kind": "evidence-bundle",
+    "Score": 0.6666666666666666,
+    "Exact": false
+  },
+  {
+    "Condition": "B-excerpts-b2",
+    "Question": "H04",
+    "Kind": "cross-repo-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "B-excerpts-b2",
+    "Question": "H06",
+    "Kind": "missing-link",
+    "Score": 0,
+    "Exact": false
+  },
+  {
+    "Condition": "B-excerpts-b2",
+    "Question": "H08",
+    "Kind": "adversarial-injection",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "B-excerpts-b2",
+    "Question": "H10",
+    "Kind": "status-lag",
+    "Score": 0,
+    "Exact": false
+  },
+  {
+    "Condition": "B-excerpts-b2",
+    "Question": "H12",
+    "Kind": "superseded-support",
+    "Score": 0,
+    "Exact": false
+  },
+  {
+    "Condition": "C-registries-b1",
+    "Question": "H01",
+    "Kind": "task-context",
+    "Score": 0.888888888888889,
+    "Exact": false
+  },
+  {
+    "Condition": "C-registries-b1",
+    "Question": "H03",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "C-registries-b1",
+    "Question": "H05",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "C-registries-b1",
+    "Question": "H07",
+    "Kind": "adversarial-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "C-registries-b1",
+    "Question": "H09",
+    "Kind": "contested",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "C-registries-b1",
+    "Question": "H11",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "C-registries-b2",
+    "Question": "H02",
+    "Kind": "evidence-bundle",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "C-registries-b2",
+    "Question": "H04",
+    "Kind": "cross-repo-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "C-registries-b2",
+    "Question": "H06",
+    "Kind": "missing-link",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "C-registries-b2",
+    "Question": "H08",
+    "Kind": "adversarial-injection",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "C-registries-b2",
+    "Question": "H10",
+    "Kind": "status-lag",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "C-registries-b2",
+    "Question": "H12",
+    "Kind": "superseded-support",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b1",
+    "Question": "H01",
+    "Kind": "task-context",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b1",
+    "Question": "H03",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b1",
+    "Question": "H05",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b1",
+    "Question": "H07",
+    "Kind": "adversarial-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b1",
+    "Question": "H09",
+    "Kind": "contested",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b1",
+    "Question": "H11",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b2-fixed",
+    "Question": "H02",
+    "Kind": "evidence-bundle",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b2-fixed",
+    "Question": "H04",
+    "Kind": "cross-repo-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b2-fixed",
+    "Question": "H06",
+    "Kind": "missing-link",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b2-fixed",
+    "Question": "H08",
+    "Kind": "adversarial-injection",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b2-fixed",
+    "Question": "H10",
+    "Kind": "status-lag",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b2-fixed",
+    "Question": "H12",
+    "Kind": "superseded-support",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b2",
+    "Question": "H02",
+    "Kind": "evidence-bundle",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b2",
+    "Question": "H04",
+    "Kind": "cross-repo-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b2",
+    "Question": "H06",
+    "Kind": "missing-link",
+    "Score": 0,
+    "Exact": false
+  },
+  {
+    "Condition": "D-compiled-b2",
+    "Question": "H08",
+    "Kind": "adversarial-injection",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b2",
+    "Question": "H10",
+    "Kind": "status-lag",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "D-compiled-b2",
+    "Question": "H12",
+    "Kind": "superseded-support",
+    "Score": 1,
+    "Exact": true
+  }
+]

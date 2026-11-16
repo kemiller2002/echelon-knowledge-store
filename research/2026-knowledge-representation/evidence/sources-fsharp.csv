@@ -1,0 +1,18 @@
+source_id,title,url,type,accessed,used_for
+SRC-FS-001,FSharp.TypeProviders.SDK documentation,https://fsprojects.github.io/FSharp.TypeProviders.SDK/,web-doc (fetched),2026-11-16,Design-time vs runtime component split; providers run inside fsc/fsi/IDE processes (page itself silent on security)
+SRC-FS-002,FSharp.SystemTextJson README,https://github.com/Tarmil/FSharp.SystemTextJson,repo-readme (fetched),2026-11-16,Supported F# types (records/unions/options/collections); union encoding customizable; no release version shown on page
+SRC-FS-003,F# Compiler Guide - Tutorial: Processing untyped syntax tree,https://fsharp.github.io/fsharp-compiler-docs/fcs/untypedtree.html,web-doc (search snippet only; direct fetch of a sibling URL returned 404),2026-11-16,FSharpChecker.ParseFile and ParseTree; API churn warning; SourceCodeServices removed in 31.0.0
+SRC-FS-004,Type provider security (Microsoft Learn),https://learn.microsoft.com/en-us/dotnet/fsharp/tutorials/type-providers/type-provider-security,web-doc (search snippet only),2026-11-16,Provider DLLs execute in IDE/compiler at design time; trust prompt; declining yields compile error
+SRC-FS-005,FParsec documentation,http://www.quanttec.com/fparsec,web-doc (search snippet only),2026-11-16,FParsec docs location; BSD-2 license; tutorial and reference
+SRC-FS-006,FParsec on NuGet,https://nuget.org/packages/fparsec,package-page (search snippet only),2026-11-16,NuGet listing showed 1.1.1 in search results (not independently confirmed as latest)
+SRC-FS-007,KDL document language,https://kdl.dev/,web-doc (fetched),2026-11-16,KDL 2.0.0 finalized; nodes/args/properties/children; .NET parsers KdlSharp and Kadlet (v1 only)
+SRC-FS-008,EDN specification repository,https://github.com/edn-format/edn,repo-readme (fetched),2026-11-16,EDN is values-only with no schemas; tagged elements with reader handlers
+SRC-FS-009,TOML v1.0.0 specification,https://toml.io/en/v1.0.0,spec (fetched),2026-11-16,Table/array-of-tables restrictions; v1.1.0 listed as newer
+SRC-FS-010,CUE introduction,https://cuelang.org/docs/introduction/,web-doc (fetched),2026-11-16,CUE as data validation language; constraints merge; types=values
+SRC-FS-011,Pkl introduction,https://pkl-lang.org/main/current/introduction/index.html,web-doc (fetched),2026-11-16,Pkl is configuration-as-code with validation; page silent on sandboxing
+SRC-FS-012,Dhall language homepage,https://dhall-lang.org/,web-doc (fetched),2026-11-16,Total non-Turing-complete; safe evaluation of untrusted code as stated goal; imports
+SRC-FS-013,Nickel language homepage,https://nickel-lang.org/,web-doc (fetched),2026-11-16,Contracts and merge; optional static typing
+SRC-FS-014,HCL (HashiCorp) repository,https://github.com/hashicorp/hcl,repo-readme (fetched),2026-11-16,Native syntax plus JSON variant; expressions and functions; APIs described are Go
+SRC-FS-015,FsToolkit.ErrorHandling repository,https://github.com/demystifyfp/FsToolkit.ErrorHandling,repo-readme (fetched),2026-11-16,Result helpers and computation expressions; error-list results
+SRC-FS-016,Thoth.Json repository,https://github.com/thoth-org/Thoth.Json,repo-readme (fetched),2026-11-16,Decoders/encoders; .NET via Newtonsoft or STJ; reported ~2.7x slower than plain STJ on its benchmark
+SRC-FS-017,Designing with types: making illegal states unrepresentable,https://fsharpforfunandprofit.com/posts/designing-with-types-making-illegal-states-unrepresentable/,blog (fetched),2026-11-16,Union-per-valid-state technique (Wlaschin)

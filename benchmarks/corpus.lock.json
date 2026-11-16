@@ -1,0 +1,71 @@
+{
+  "audited": "2026-11-16",
+  "owner": "kemiller2002",
+  "repositories": [
+    {
+      "repository": "aegis",
+      "commit": "2c28b6e20565164b0f604298062ebdfc19d1a2af",
+      "visibility": "public"
+    },
+    {
+      "repository": "arca",
+      "commit": "8cfa064ab80003980ec0647363e980ff2e9d1b84",
+      "visibility": "public"
+    },
+    {
+      "repository": "clarity-framework",
+      "commit": "8cd48019b893a4ce42fe4c9dcc81dd81fb12d1ea",
+      "visibility": "private"
+    },
+    {
+      "repository": "dokimos",
+      "commit": "6ea86246cb13f141201bc5cae5d84ebe9831d02b",
+      "visibility": "public"
+    },
+    {
+      "repository": "echelon-diagnostic-framework",
+      "commit": "41fea6ffc764adc69643d5ee2940916592486f84",
+      "visibility": "public"
+    },
+    {
+      "repository": "echelon-engineering-system",
+      "commit": "4ca2f981ea2c813cd4894f1ce83c7b2c4ece14a6",
+      "visibility": "public"
+    },
+    {
+      "repository": "echelon-organization-administration",
+      "commit": "9ee7c93d8ce07e2e74ea63c2d6c26b6f9a4af507",
+      "visibility": "private"
+    },
+    {
+      "repository": "fides",
+      "commit": "f9b72911bdc0dedc5c4a4d0df182edd6406505fd",
+      "visibility": "public"
+    },
+    {
+      "repository": "forma",
+      "commit": "3887eec80668fecc7c6e91e38a782765a71199ff",
+      "visibility": "public"
+    },
+    {
+      "repository": "mercatus",
+      "commit": "d67feaff33d20024507f00cfd4b4380eb76e2eb7",
+      "visibility": "public"
+    },
+    {
+      "repository": "percepta",
+      "commit": "4a53688238f205fdde474cc340378a89ddea0c09",
+      "visibility": "public"
+    },
+    {
+      "repository": "praxis",
+      "commit": "12bf9951253fc15e6973c2d3f5b88076f4556245",
+      "visibility": "public"
+    },
+    {
+      "repository": "signal",
+      "commit": "e5530d336e7e846b1eb9d0192f0739039280ca2f",
+      "visibility": "public"
+    }
+  ]
+}

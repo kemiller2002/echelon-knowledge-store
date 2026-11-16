@@ -1,0 +1,237 @@
+{
+  "Lossless": {
+    "Records": 557,
+    "IdenticalFrontMatter": 555,
+    "DifferingFields": [
+      {
+        "Item1": "superseded_by",
+        "Item2": 1
+      },
+      {
+        "Item1": "supersedes",
+        "Item2": 1
+      }
+    ]
+  },
+  "Mutations": [
+    {
+      "Mutation": "field-name typo supporting_evidence-\u003Esupporting_evidences",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0022"
+    },
+    {
+      "Mutation": "status typo proposed-\u003Epropsed",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0023"
+    },
+    {
+      "Mutation": "status set to supported (1 supports, 2 contradict)",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "FLAGGED",
+      "Codes": "EKS0010"
+    },
+    {
+      "Mutation": "confidence invalid label (hgih)",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "FLAGGED",
+      "Codes": "EKS0024"
+    },
+    {
+      "Mutation": "confidence numeric 0.8",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "FLAGGED",
+      "Codes": "EKS0024"
+    },
+    {
+      "Mutation": "confidence raised very-low-\u003Ehigh, no new evidence",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "UNDETECTED",
+      "Codes": ""
+    },
+    {
+      "Mutation": "evidence id typo B003-\u003EB030",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0002"
+    },
+    {
+      "Mutation": "evidence id swapped to real but wrong record",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "FLAGGED",
+      "Codes": "EKS0007, EKS0012"
+    },
+    {
+      "Mutation": "evidence id lower-cased",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0002"
+    },
+    {
+      "Mutation": "duplicate status key appended",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0011"
+    },
+    {
+      "Mutation": "unquoted colon in title",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0011"
+    },
+    {
+      "Mutation": "id field deleted",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0001"
+    },
+    {
+      "Mutation": "contradicting evidence removed from list only",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "UNDETECTED",
+      "Codes": ""
+    },
+    {
+      "Mutation": "relation stated in prose only",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "UNDETECTED",
+      "Codes": ""
+    },
+    {
+      "Mutation": "superseded_by cleared, status left superseded",
+      "Record": "praxis/DF-ROS-2026-A031--fsharp-starter-template-launcher.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0013, EKS0021"
+    },
+    {
+      "Mutation": "status reverted to accepted, superseded_by kept",
+      "Record": "praxis/DF-ROS-2026-A031--fsharp-starter-template-launcher.md",
+      "Result": "FLAGGED",
+      "Codes": "EKS0010"
+    },
+    {
+      "Mutation": "superseded_by -\u003E nonexistent A099",
+      "Record": "praxis/DF-ROS-2026-A031--fsharp-starter-template-launcher.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0002, EKS0021"
+    },
+    {
+      "Mutation": "superseded_by -\u003E self",
+      "Record": "praxis/DF-ROS-2026-A031--fsharp-starter-template-launcher.md",
+      "Result": "FLAGGED",
+      "Codes": "EKS0003, EKS0021"
+    },
+    {
+      "Mutation": "list item indentation broken",
+      "Record": "praxis/DF-ROS-2026-A031--fsharp-starter-template-launcher.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0002, EKS0021"
+    },
+    {
+      "Mutation": "superseded_by written as scalar (benign)",
+      "Record": "praxis/DF-ROS-2026-A031--fsharp-starter-template-launcher.md",
+      "Result": "UNDETECTED",
+      "Codes": ""
+    },
+    {
+      "Mutation": "superseded_by key mis-cased",
+      "Record": "praxis/DF-ROS-2026-A031--fsharp-starter-template-launcher.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0013, EKS0021, EKS0022"
+    },
+    {
+      "Mutation": "derived_from typo -\u003E derive_from",
+      "Record": "forma/HY-FORMA-2026-0002--layout-physics-improves-agent-layout-correctness.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0022"
+    },
+    {
+      "Mutation": "derived_from -\u003E dependsOn",
+      "Record": "forma/HY-FORMA-2026-0002--layout-physics-improves-agent-layout-correctness.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0022"
+    },
+    {
+      "Mutation": "status rejected-\u003Erefuted",
+      "Record": "forma/HY-FORMA-2026-0002--layout-physics-improves-agent-layout-correctness.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0023"
+    },
+    {
+      "Mutation": "contradicting evidence moved to supporting",
+      "Record": "forma/HY-FORMA-2026-0002--layout-physics-improves-agent-layout-correctness.md",
+      "Result": "FLAGGED",
+      "Codes": "EKS0010, EKS0012"
+    },
+    {
+      "Mutation": "copy with id unchanged (duplicate id)",
+      "Record": "praxis/HY-FE-2026-B006--integrated-profile-incremental-value.md",
+      "Result": "BLOCKING",
+      "Codes": "EKS0018"
+    }
+  ],
+  "Optimisation": {
+    "Packages": 587,
+    "Complete": 586,
+    "LedgerEntries": 261,
+    "Unaccounted": 0,
+    "TargetLost": 0,
+    "MeanTokens": 2307.618398637138,
+    "MeanCompileMs": 0.46563628620102254
+  },
+  "Resolution": {
+    "Relations": 1888,
+    "Resolved": 1325,
+    "Unresolved": 563,
+    "UnresolvedIdLike": 1,
+    "UnresolvedPaths": 532,
+    "UnresolvedOther": 30
+  },
+  "Timings": [
+    {
+      "Scenario": "cold (parse \u002B graph \u002B validate \u002B precompute)",
+      "Files": 1615,
+      "MedianMs": 193.0622,
+      "Runs": 5,
+      "OutputsEqualCold": null
+    },
+    {
+      "Scenario": "parse only (all files)",
+      "Files": 1615,
+      "MedianMs": 96.8074,
+      "Runs": 5,
+      "OutputsEqualCold": null
+    },
+    {
+      "Scenario": "warm, no change",
+      "Files": 1615,
+      "MedianMs": 52.9092,
+      "Runs": 5,
+      "OutputsEqualCold": true
+    },
+    {
+      "Scenario": "warm, 1 file changed",
+      "Files": 1615,
+      "MedianMs": 51.3824,
+      "Runs": 5,
+      "OutputsEqualCold": true
+    },
+    {
+      "Scenario": "warm, 10% of files changed",
+      "Files": 1615,
+      "MedianMs": 72.0104,
+      "Runs": 5,
+      "OutputsEqualCold": true
+    }
+  ],
+  "TimingsAll": [
+    {
+      "Scenario": "cold (parse \u002B graph \u002B validate \u002B precompute)",
+      "Files": 1931,
+      "MedianMs": 162.4675,
+      "Runs": 5,
+      "OutputsEqualCold": null
+    }
+  ]
+}

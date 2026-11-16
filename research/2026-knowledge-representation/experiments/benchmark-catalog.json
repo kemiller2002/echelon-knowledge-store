@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "corpusLock": "benchmarks/corpus.lock.json",
+  "suites": [
+    {"id": "BL", "command": "baseline", "output": "results/baseline.md"},
+    {"id": "VA", "command": "validate", "output": "results/validation.md"},
+    {"id": "FM", "command": "formats", "output": "results/formats.md"},
+    {"id": "RT", "command": "retrieval", "output": "results/retrieval.md", "taskKinds": ["lookup-by-id", "lookup-by-description", "find-evidence", "change-impact", "current-authority"]},
+    {"id": "DP", "command": "dependencies", "output": "results/dependencies.md", "gold": "baseline/cross-repo-edges.json"},
+    {"id": "AB", "command": "ablation", "output": "results/ablation.md"},
+    {"id": "TR", "command": "trials,score-trials", "output": "results/trial-scores.md", "questions": "results/trial-questions.json", "answers": "results/trial-answers/", "usage": "results/trial-usage.json"}
+  ],
+  "missionTasks": [
+    {"n": 1, "name": "Find a requirement", "suites": ["RT", "TR"], "status": "executed"},
+    {"n": 2, "name": "Identify all related requirements", "suites": ["RT", "AB"], "status": "executed"},
+    {"n": 3, "name": "Find supporting evidence", "suites": ["RT", "TR", "AB"], "status": "executed"},
+    {"n": 4, "name": "Detect contradictions", "suites": ["VA", "TR"], "status": "executed"},
+    {"n": 5, "name": "Identify superseded decisions", "suites": ["RT", "TR"], "status": "executed"},
+    {"n": 6, "name": "Determine change impact", "suites": ["RT", "AB", "TR", "DP"], "status": "executed"},
+    {"n": 7, "name": "Generate a test plan", "suites": [], "status": "specified"},
+    {"n": 8, "name": "Prepare an implementation task", "suites": [], "status": "implemented-not-benchmarked"},
+    {"n": 9, "name": "Update a requirement", "suites": ["FM", "AB"], "status": "partial"},
+    {"n": 10, "name": "Merge concurrent knowledge changes", "suites": [], "status": "executed-by-workstream", "reference": "migration/versioning-research.md"},
+    {"n": 11, "name": "Answer a cross-repository question", "suites": ["DP"], "status": "executed-deterministic"},
+    {"n": 12, "name": "Produce a source-linked research summary", "suites": [], "status": "specified"},
+    {"n": 13, "name": "Identify missing evidence", "suites": ["TR", "VA"], "status": "executed"},
+    {"n": 14, "name": "Detect stale knowledge", "suites": ["VA", "AB"], "status": "executed"},
+    {"n": 15, "name": "Reconstruct a decision history", "suites": ["RT"], "status": "executed"},
+    {"n": 16, "name": "Produce a minimal context package", "suites": ["TR", "AB"], "status": "executed"}
+  ]
+}

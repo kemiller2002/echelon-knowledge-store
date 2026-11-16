@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- `eks`: research CLI over the experimental knowledge compiler. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>eks</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Sources.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Echelon.KnowledgeStore.Compiler/Echelon.KnowledgeStore.Compiler.fsproj" />
+  </ItemGroup>
+</Project>

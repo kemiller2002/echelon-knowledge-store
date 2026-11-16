@@ -1,0 +1,910 @@
+{
+  "PublicViolations": [
+    {
+      "Detail": "no acceptance criteria found in body",
+      "Record": "arca:ARCA-REQ-STORAGE",
+      "Rule": "requirement-without-acceptance",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "echelon-diagnostic-framework:JR-EDF-2026-003",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "echelon-diagnostic-framework:JR-EDF-2026-004",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "echelon-diagnostic-framework:JR-EDF-2026-006",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "echelon-diagnostic-framework:JR-EDF-2026-007",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "echelon-diagnostic-framework:JR-EDF-2026-008",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "echelon-diagnostic-framework:RP-EDF-2026-002",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "echelon-diagnostic-framework:RP-EDF-2026-003",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "no acceptance criteria found in body",
+      "Record": "fides:FIDES-ORG-TENANT",
+      "Rule": "requirement-without-acceptance",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "no acceptance criteria found in body",
+      "Record": "fides:FIDES-READINESS-GAP-REPORT",
+      "Rule": "requirement-without-acceptance",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "no acceptance criteria found in body",
+      "Record": "fides:FIDES-UI-REQUIREMENTS",
+      "Rule": "requirement-without-acceptance",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0001",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0002",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0003",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0004",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0005",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0006",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0007",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0008",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0009",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0010",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0011",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0012",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0013",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0014",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:EV-DESIGN-2026-0015",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:RP-DESIGN-2026-0001",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "forma:RP-DESIGN-2026-0002",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "mercatus:EV-MERCATUS-UI-2026-0001",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A011",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A014",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A015",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A018",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A028",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A030",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A031",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A032",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A033",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A034",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A035",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A036",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A037",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A038",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A039",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A040",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A041",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A042",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A043",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A044",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A045",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A046",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A047",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A048",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A049",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A050",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A051",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A052",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A053",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A054",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A055",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A056",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A057",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A058",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A059",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A060",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A063",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A064",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A065",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A066",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A067",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A068",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A069",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A070",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A072",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A073",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A074",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A075",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "evidence source given only as related links or prose",
+      "Record": "praxis:EV-ROS-2026-A076",
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "record has no status",
+      "Record": "praxis:JR-ROS-2026-A004",
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "no acceptance criteria found in body",
+      "Record": "praxis:RQ-ROS-2026-A036",
+      "Rule": "requirement-without-acceptance",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "no acceptance criteria found in body",
+      "Record": "signal:SIG-DATALOC",
+      "Rule": "requirement-without-acceptance",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "no acceptance criteria found in body",
+      "Record": "signal:SIG-LINK",
+      "Rule": "requirement-without-acceptance",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "SDE-DOCTRINE-004",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "SDE-DOCTRINE-009",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "SDE-DOCTRINE-003",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "SDE-DOCTRINE-008",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "SDE-METHOD-004",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "SDE-METHOD-002",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "SDE-METHOD-001",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "SDE-METHOD-008",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "SDE-METHOD-007",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "SDE-METHOD-003",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "SDE-METHOD-005",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "SDE-DOCTRINE-005",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "GV-START-001",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "GV-ROS-001",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "GV-AGENT-001",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "GV-ENG-001",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "GV-DEC-001",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "GV-INDEX-001",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in aegis,arca,dokimos,echelon-diagnostic-framework,fides,forma,mercatus,percepta,praxis,signal",
+      "Record": "GV-REP-001",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in clarity-framework,echelon-diagnostic-framework",
+      "Record": "RFR-001",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in clarity-framework,echelon-diagnostic-framework",
+      "Record": "RFR-002",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in clarity-framework,echelon-diagnostic-framework",
+      "Record": "RFR-003",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in clarity-framework,echelon-diagnostic-framework",
+      "Record": "RFR-004",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in clarity-framework,echelon-diagnostic-framework",
+      "Record": "RFR-005",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in clarity-framework,echelon-diagnostic-framework",
+      "Record": "RFR-006",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in clarity-framework,echelon-diagnostic-framework",
+      "Record": "RFR-007",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in clarity-framework,echelon-diagnostic-framework",
+      "Record": "RFR-008",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in clarity-framework,echelon-diagnostic-framework",
+      "Record": "RFR-009",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "defined in clarity-framework,echelon-diagnostic-framework",
+      "Record": "RFR-010",
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "related_documents \u2192 RQ-SDE-2026-0002 not found",
+      "Record": "dokimos:RQ-DOKIMOS-REL-001",
+      "Rule": "dangling-reference",
+      "Severity": "Blocking"
+    },
+    {
+      "Detail": "HY-FORMA-2026-0001 lists it as supports evidence but it does not declare supports HY-FORMA-2026-0001",
+      "Record": "forma:EX-FORMA-2026-0001",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "HY-FORMA-2026-0002 lists it as contradicts evidence but it does not declare contradicts HY-FORMA-2026-0002",
+      "Record": "forma:EX-FORMA-2026-0001",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-PERCEPTA-2026-0001 lists it as supports evidence but it does not declare supports DF-PERCEPTA-2026-0001",
+      "Record": "percepta:EV-PERCEPTA-2026-0002",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-PERCEPTA-2026-0002 lists it as supports evidence but it does not declare supports DF-PERCEPTA-2026-0002",
+      "Record": "percepta:EV-PERCEPTA-2026-0002",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A027 lists it as supports evidence but it does not declare supports DF-ROS-2026-A027",
+      "Record": "praxis:EV-ROS-2026-A015",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A027 lists it as supports evidence but it does not declare supports DF-ROS-2026-A027",
+      "Record": "praxis:EV-ROS-2026-A018",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A029 lists it as supports evidence but it does not declare supports DF-ROS-2026-A029",
+      "Record": "praxis:EV-ROS-2026-A047",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A030 lists it as supports evidence but it does not declare supports DF-ROS-2026-A030",
+      "Record": "praxis:EV-ROS-2026-A047",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A030 lists it as supports evidence but it does not declare supports DF-ROS-2026-A030",
+      "Record": "praxis:EV-ROS-2026-A048",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A031 lists it as supports evidence but it does not declare supports DF-ROS-2026-A031",
+      "Record": "praxis:EV-ROS-2026-A048",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A032 lists it as supports evidence but it does not declare supports DF-ROS-2026-A032",
+      "Record": "praxis:EV-ROS-2026-A047",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A032 lists it as supports evidence but it does not declare supports DF-ROS-2026-A032",
+      "Record": "praxis:EV-ROS-2026-A048",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A033 lists it as supports evidence but it does not declare supports DF-ROS-2026-A033",
+      "Record": "praxis:EV-ROS-2026-A047",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A033 lists it as supports evidence but it does not declare supports DF-ROS-2026-A033",
+      "Record": "praxis:EV-ROS-2026-A048",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A041 lists it as supports evidence but it does not declare supports DF-ROS-2026-A041",
+      "Record": "praxis:EV-ROS-2026-A053",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A045 lists it as supports evidence but it does not declare supports DF-ROS-2026-A045",
+      "Record": "praxis:EV-ROS-2026-A057",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A053 lists it as supports evidence but it does not declare supports DF-ROS-2026-A053",
+      "Record": "praxis:EV-ROS-2026-A064",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "DF-ROS-2026-A053 lists it as supports evidence but it does not declare supports DF-ROS-2026-A053",
+      "Record": "praxis:EV-ROS-2026-A070",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "HY-FE-2026-B006 lists it as contradicts evidence but it does not declare contradicts HY-FE-2026-B006",
+      "Record": "praxis:EV-FE-2026-B005",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "HY-ROS-2026-A021 lists it as supports evidence but it does not declare supports HY-ROS-2026-A021",
+      "Record": "praxis:EV-ROS-2026-A018",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "HY-ROS-2026-A022 lists it as supports evidence but it does not declare supports HY-ROS-2026-A022",
+      "Record": "praxis:EV-ROS-2026-A018",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "HY-ROS-2026-A023 lists it as supports evidence but it does not declare supports HY-ROS-2026-A023",
+      "Record": "praxis:EV-ROS-2026-A018",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "HY-ROS-2026-A024 lists it as supports evidence but it does not declare supports HY-ROS-2026-A024",
+      "Record": "praxis:EV-ROS-2026-A018",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "HY-ROS-2026-A024 lists it as supports evidence but it does not declare supports HY-ROS-2026-A024",
+      "Record": "praxis:EV-ROS-2026-A028",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "HY-ROS-2026-A025 lists it as supports evidence but it does not declare supports HY-ROS-2026-A025",
+      "Record": "praxis:EV-ROS-2026-A018",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "HY-ROS-2026-A026 lists it as supports evidence but it does not declare supports HY-ROS-2026-A026",
+      "Record": "praxis:EV-ROS-2026-A018",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "HY-ROS-2026-A027 lists it as supports evidence but it does not declare supports HY-ROS-2026-A027",
+      "Record": "praxis:EV-ROS-2026-A058",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "HY-ROS-2026-A027 lists it as supports evidence but it does not declare supports HY-ROS-2026-A027",
+      "Record": "praxis:EV-ROS-2026-A064",
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "has both supporting and contradicting evidence",
+      "Record": "praxis:HY-FE-2026-B006",
+      "Rule": "contested-claim",
+      "Severity": "Informational"
+    },
+    {
+      "Detail": "praxis:EV-ROS-2026-A043 is superseded but still supports it",
+      "Record": "praxis:DF-ROS-2026-A028",
+      "Rule": "support-from-superseded-record",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "praxis:EV-ROS-2026-A045 is superseded but still supports it",
+      "Record": "praxis:DF-ROS-2026-A028",
+      "Rule": "support-from-superseded-record",
+      "Severity": "Advisory"
+    },
+    {
+      "Detail": "praxis:EV-ROS-2026-A046 is superseded but still supports it",
+      "Record": "praxis:DF-ROS-2026-A028",
+      "Rule": "support-from-superseded-record",
+      "Severity": "Advisory"
+    }
+  ],
+  "Summary": [
+    {
+      "Count": 49,
+      "Rule": "evidence-without-structured-source",
+      "Severity": "Advisory"
+    },
+    {
+      "Count": 29,
+      "Rule": "cross-repository-id-collision",
+      "Severity": "Advisory"
+    },
+    {
+      "Count": 28,
+      "Rule": "evidence-link-asymmetry",
+      "Severity": "Advisory"
+    },
+    {
+      "Count": 26,
+      "Rule": "missing-status",
+      "Severity": "Advisory"
+    },
+    {
+      "Count": 7,
+      "Rule": "requirement-without-acceptance",
+      "Severity": "Advisory"
+    },
+    {
+      "Count": 3,
+      "Rule": "support-from-superseded-record",
+      "Severity": "Advisory"
+    },
+    {
+      "Count": 1,
+      "Rule": "dangling-reference",
+      "Severity": "Blocking"
+    },
+    {
+      "Count": 1,
+      "Rule": "contested-claim",
+      "Severity": "Informational"
+    }
+  ]
+}

@@ -12,6 +12,20 @@ Does a typed, F#-validated knowledge representation let agents complete more
 correct work per unit of context, time and cost than Markdown — once retrieval,
 organisation and agent behaviour are controlled for?
 
+## Findings (research phase)
+
+Start with [`research/2026-knowledge-representation/strategy/executive-report.md`](research/2026-knowledge-representation/strategy/executive-report.md).
+In short: keep Markdown with front matter canonical (as Praxis already does), and
+compile it, deriving links, closures and authority, validating agent edits and
+delivering task-specific packages. Do not replace it with a new format.
+
+## Try the compiler
+
+```bash
+dotnet run --project tools/Echelon.KnowledgeStore.Cli -- validate --root <dir with repository clones> --repos praxis,fides
+dotnet run --project tools/Echelon.KnowledgeStore.Cli -- context DF-ROS-2026-A059 --root <dir> --repos praxis
+```
+
 ## Build
 
 Requires the .NET 10 SDK (`global.json`).

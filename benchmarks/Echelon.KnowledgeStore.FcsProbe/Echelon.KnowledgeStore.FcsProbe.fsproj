@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Layer A experiment: can the F# compiler (FSharp.Compiler.Service) act as a
+       validator for knowledge expressed as F#? Type-checks generated source only;
+       never compiles to an assembly and never executes it. Kept out of the
+       solution because FCS is large; run explicitly (see compiler/fsharp-compiler-integration.md). -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Generate.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Echelon.KnowledgeStore.Compiler/Echelon.KnowledgeStore.Compiler.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FSharp.Compiler.Service" Version="43.12.403" />
+  </ItemGroup>
+</Project>
