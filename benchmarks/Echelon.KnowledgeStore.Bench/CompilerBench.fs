@@ -12,7 +12,9 @@ let config =
         Visibility = Corpus.privateRepositories |> Seq.map (fun r -> r, Private) |> Map.ofSeq
         Audience = Private
         SupportedSchema = 1
-        ExistingPaths = None; DisabledRules = Set.empty; Revisions = Map.empty
+        ExistingPaths = None
+        DisabledRules = Set.empty
+        Revisions = Map.empty
     }
 
 let sources (files: Corpus.SourceFile list) =

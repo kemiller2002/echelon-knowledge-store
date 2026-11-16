@@ -102,7 +102,9 @@ let main argv =
             Visibility = Map.empty
             Audience = Private
             SupportedSchema = 1
-            ExistingPaths = None; DisabledRules = Set.empty; Revisions = Map.empty
+            ExistingPaths = None
+            DisabledRules = Set.empty
+            Revisions = Map.empty
         }
 
     let c, _ = Pipeline.compile cfg Map.empty files
