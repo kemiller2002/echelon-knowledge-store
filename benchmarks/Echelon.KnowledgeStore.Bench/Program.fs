@@ -691,6 +691,77 @@ let private scoreTrials2 (out: string) =
 
     printfn "scored %d" scores.Length
 
+let private writePrepare (root: string) =
+    let dir = trialsDir ()
+
+    let conds = [ "sonnet-plain"; "sonnet-compiler"; "haiku-plain"; "haiku-compiler" ]
+
+    WriteTrial.prepare root dir conds
+    printfn "write trial prepared in %s" dir
+
+let private writeScore (root: string) (out: string) =
+    let dir = trialsDir ()
+    let results = WriteTrial.scoreAll root dir
+
+    let rows =
+        results
+        |> List.map (fun r ->
+            [ r.Condition; Report.f3 r.Score ]
+            @ (r.Tasks
+               |> List.map (fun t -> $"{t.Checks |> List.filter snd |> List.length}/{t.Checks.Length}"))
+            @ [
+                string r.NewErrors.Length
+                string r.NewWarnings
+                string r.CollateralFiles.Length
+            ])
+
+    let failed =
+        results
+        |> List.collect (fun r ->
+            r.Tasks
+            |> List.collect (fun t ->
+                t.Checks
+                |> List.filter (snd >> not)
+                |> List.map (fun (c, _) -> [ r.Condition; t.Task; c ])))
+
+    let errs =
+        results
+        |> List.collect (fun r -> r.NewErrors |> List.map (fun e -> [ r.Condition; e.Replace("|", "/") ]))
+
+    let coll =
+        results
+        |> List.collect (fun r -> r.CollateralFiles |> List.map (fun f -> [ r.Condition; f ]))
+
+    let md =
+        String.concat
+            "\n\n"
+            [
+                Report.table
+                    [
+                        "Condition"
+                        "Mean check score"
+                        "W1"
+                        "W2"
+                        "W3"
+                        "W4"
+                        "W5"
+                        "New errors"
+                        "New warnings"
+                        "Collateral files"
+                    ]
+                    rows
+                "## Failed checks"
+                Report.table [ "Condition"; "Task"; "Check" ] failed
+                "## Errors introduced"
+                Report.table [ "Condition"; "Diagnostic" ] errs
+                "## Files changed outside the tasks"
+                Report.table [ "Condition"; "File" ] coll
+            ]
+
+    Report.json out "write-trial.json" results
+    Report.text out "write-trial.md" (md + "\n")
+    printfn "write trial scored: %d conditions" results.Length
+
 [<EntryPoint>]
 let main argv =
     let repoRoot = Directory.GetCurrentDirectory()
@@ -716,6 +787,8 @@ let main argv =
         | "ablation" -> ablation root out families
         | "compiler" -> compilerBench root out families
         | "trials2" -> trials2 root out families
+        | "write-prepare" -> writePrepare root
+        | "write-score" -> writeScore root out
         | "score-trials2" -> scoreTrials2 out
         | "score-trials" -> scoreTrials root out
         | other -> eprintfn "unknown command %s" other
