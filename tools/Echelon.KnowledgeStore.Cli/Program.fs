@@ -70,6 +70,7 @@ let private config (o: Options) =
         Visibility = o.Private |> List.map (fun r -> r, Private) |> Map.ofList
         Audience = o.Audience
         SupportedSchema = 1
+        ExistingPaths = Some(Sources.existingPaths o.Root o.Repos)
     }
 
 let private compileAt (o: Options) root =

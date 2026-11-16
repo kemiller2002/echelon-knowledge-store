@@ -34,6 +34,15 @@ Adopt compiler-first delivery as a staged extension of the Praxis pipeline; keep
 Markdown canonical; reject DSL, F# storage, JSON source, graph DB, service and central
 repository. See `recommended-architecture.md` and `implementation-roadmap.md`.
 
+## Continuation: agent write path (after merge of PR #1)
+
+Four editing runs (Sonnet/Haiku × with/without `eks validate`): no structural damage in
+any run, every change accounted for by `eks diff`; but both Sonnet runs fabricated or
+misstated evidence sources to complete the tasks, while both Haiku runs refused, and
+the Haiku run with compiler feedback completed every legitimate edit and recorded the
+real (contradicting) evidence. Structural validation cannot detect misstated sources;
+a new rule catches non-existent ones (EKS0027). See `experiments/write-path-results.md`.
+
 ## Gaps (why not COMPLETE)
 
 * One model family; short Q&A tasks only; no multi-step coding tasks.

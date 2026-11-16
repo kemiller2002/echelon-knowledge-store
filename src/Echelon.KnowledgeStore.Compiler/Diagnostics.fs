@@ -136,6 +136,10 @@ module Codes =
             Level.Warning,
             "Experiment records no hypothesis",
             "Link the hypothesis the experiment tests (an HY- id in metadata or text)."
+            "EKS0027",
+            Level.Warning,
+            "Evidence source not found",
+            "Point source_uri at an existing file (relative to the repository or the record) or an external URL."
         ]
 
     let private find code =

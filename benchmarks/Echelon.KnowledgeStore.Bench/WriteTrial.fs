@@ -72,6 +72,7 @@ let private config =
         Visibility = Map.empty
         Audience = Private
         SupportedSchema = 1
+        ExistingPaths = None
     }
 
 type TaskScore =

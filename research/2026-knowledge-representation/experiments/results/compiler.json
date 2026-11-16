@@ -178,7 +178,7 @@
     "Unaccounted": 0,
     "TargetLost": 0,
     "MeanTokens": 2307.618398637138,
-    "MeanCompileMs": 0.46563628620102254
+    "MeanCompileMs": 0.4661708688245309
   },
   "Resolution": {
     "Relations": 1888,
@@ -192,35 +192,35 @@
     {
       "Scenario": "cold (parse \u002B graph \u002B validate \u002B precompute)",
       "Files": 1615,
-      "MedianMs": 193.0622,
+      "MedianMs": 320.9964,
       "Runs": 5,
       "OutputsEqualCold": null
     },
     {
       "Scenario": "parse only (all files)",
       "Files": 1615,
-      "MedianMs": 96.8074,
+      "MedianMs": 76.6928,
       "Runs": 5,
       "OutputsEqualCold": null
     },
     {
       "Scenario": "warm, no change",
       "Files": 1615,
-      "MedianMs": 52.9092,
+      "MedianMs": 77.297,
       "Runs": 5,
       "OutputsEqualCold": true
     },
     {
       "Scenario": "warm, 1 file changed",
       "Files": 1615,
-      "MedianMs": 51.3824,
+      "MedianMs": 50.1009,
       "Runs": 5,
       "OutputsEqualCold": true
     },
     {
       "Scenario": "warm, 10% of files changed",
       "Files": 1615,
-      "MedianMs": 72.0104,
+      "MedianMs": 75.9582,
       "Runs": 5,
       "OutputsEqualCold": true
     }
@@ -229,7 +229,7 @@
     {
       "Scenario": "cold (parse \u002B graph \u002B validate \u002B precompute)",
       "Files": 1931,
-      "MedianMs": 162.4675,
+      "MedianMs": 164.8327,
       "Runs": 5,
       "OutputsEqualCold": null
     }
