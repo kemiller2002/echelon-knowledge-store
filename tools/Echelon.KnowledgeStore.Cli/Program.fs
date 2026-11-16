@@ -26,7 +26,10 @@ usage: eks <command> [args] --root DIR [--repos a,b] [--private a,b] [--audience
   dokimos-obligations REPO WI --suite-id S --suite-command CMD --suite-path P
                            dokimos.verification-obligations/1 from declared `verified_by` bindings
   privacy-check [paths]    scan public artefacts against .privacy-denylist (exit 5 on findings)
-  diff BASE_ROOT HEAD_ROOT added/removed/changed records and the impact of changes"""
+  diff BASE_ROOT HEAD_ROOT added/removed/changed records and the impact of changes
+  change-manifest BASE_ROOT HEAD_ROOT
+                           eks.change-manifest/0 for a proposed change set (exit 4 if rejected;
+                           otherwise requires-review: no change is ever approved by the compiler)"""
 
 type Options =
     {
@@ -100,7 +103,10 @@ let private config (o: Options) =
     }
 
 let private compileAt (o: Options) root =
-    Sources.load root o.Repos |> Pipeline.compile (config o) Map.empty |> fst
+    // Configuration (existing paths, revisions) must come from the tree being compiled.
+    Sources.load root o.Repos
+    |> Pipeline.compile (config { o with Root = root }) Map.empty
+    |> fst
 
 /// Refuses to answer from stale artefacts (fail safe).
 let private fresh (o: Options) (files: SourceFile list) =
@@ -254,6 +260,10 @@ let run (argv: string list) : string * int =
                 | _ ->
                     "error: dokimos-obligations needs --suite-id and --suite-command (EKS does not invent how tests run)\n",
                     1)
+    | [ "change-manifest"; baseRoot; headRoot ] ->
+        match Changes.evaluate (compileAt o baseRoot) (compileAt o headRoot) with
+        | Rejected _, json -> json + "\n", 4
+        | RequiresReview _, json -> json + "\n", 0
     | [ "diff"; baseRoot; headRoot ] -> Query.diff (compileAt o baseRoot) (compileAt o headRoot)
     | _ -> usage, 1
 

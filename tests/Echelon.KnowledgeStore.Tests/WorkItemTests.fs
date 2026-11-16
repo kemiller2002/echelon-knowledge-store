@@ -121,3 +121,35 @@ let ``dokimos obligations bind only declared tests`` () =
 
     Assert.Equal<string list>([ "app:RQ-APP-0002" ], unbound2)
     Assert.Contains("\"tests\": []", json2)
+
+[<Fact>]
+let ``change manifest rejects new errors and never approves`` () =
+    let baseFiles =
+        [ req "RQ-APP-0001" "accepted" "DF-APP-0001" ""; dec "DF-APP-0001" "accepted" ]
+
+    let baseC = compile baseFiles
+
+    let evidence status extra =
+        Pipeline.sourceFile
+            "app"
+            "research/evidence/EV-APP-0001--e.md"
+            $"---\nid: EV-APP-0001\ntitle: E\nstatus: {status}\nsupports: [DF-APP-0001]\n{extra}---\n\nData.\n"
+
+    match Changes.evaluate baseC (compile (baseFiles @ [ evidence "accepted" "source_title: A meeting\n" ])) with
+    | RequiresReview attention, json ->
+        Assert.Contains(attention, fun a -> a.Contains "cannot be located")
+        Assert.Contains("\"requires-review\"", json)
+    | Rejected rs, _ -> failwithf "unexpected rejection %A" rs
+
+    match Changes.evaluate baseC (compile (baseFiles @ [ evidence "accepted" "" ])) with
+    | Rejected reasons, _ -> Assert.Contains(reasons, fun r -> r.Contains "EKS0005")
+    | RequiresReview _, _ -> failwith "a change that introduces an error must be rejected"
+
+    let promoted =
+        [ req "RQ-APP-0001" "accepted" "DF-APP-0001" ""; dec "DF-APP-0001" "proposed" ]
+
+    match Changes.evaluate baseC (compile promoted) with
+    | RequiresReview attention, json ->
+        Assert.Contains(attention, fun a -> a.Contains "status accepted → proposed")
+        Assert.DoesNotContain("\"approved\"", json)
+    | Rejected rs, _ -> failwithf "unexpected rejection %A" rs

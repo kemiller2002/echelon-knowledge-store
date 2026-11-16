@@ -1,0 +1,45 @@
+{
+  "baseInputs": "675ff3f97743d1756e009fec33d921226a2bdfa18b95f816cabfe65ba0996f58",
+  "compiler": {
+    "name": "eks-compiler",
+    "version": "0.1.0-research"
+  },
+  "diagnosticsIntroduced": [
+    "fx-ledger/research/evidence/EV-FXL-0012--support-survey-refunds.md(1): error EKS0005: evidence has no source, derived_from or related_documents \u2014 Add \u0060source_uri\u0060/\u0060source_title\u0060 or link the evidence with \u0060derived_from\u0060.",
+    "fx-ledger/research/evidence/EV-FXL-0012--support-survey-refunds.md(1): error EKS0005: record has no title \u2014 Add \u0060source_uri\u0060/\u0060source_title\u0060 or link the evidence with \u0060derived_from\u0060.",
+    "fx-ledger/research/evidence/EV-FXL-0012--support-survey-refunds.md(1): error EKS0011: YAML syntax error: While scanning a plain scalar value, found invalid mapping. \u2014 Fix the YAML; aliases, anchors and multiple documents are rejected."
+  ],
+  "diagnosticsResolved": [],
+  "files": {
+    "added": [
+      {
+        "path": "fx-ledger/research/evidence/EV-FXL-0010--reconciliation-2026-10.md",
+        "sha256": "97cff79ca7b9394cd0044724ae2556efff9e3dca6d0765f905408f52f9524336"
+      },
+      {
+        "path": "fx-ledger/research/evidence/EV-FXL-0012--support-survey-refunds.md",
+        "sha256": "b839567d8a51e164ae827b0c5d7d3f59aae1459ea858012b7600ad8bf1ca141e"
+      }
+    ],
+    "changed": [],
+    "removed": []
+  },
+  "headInputs": "dc06e43c3400df61c8e929232671c75ed647a2cd599c25a3c6bad38c7f3d10b8",
+  "impacted": [],
+  "note": "No verdict approves a change. Schema-valid changes still require review.",
+  "reasons": [
+    "introduces fx-ledger/research/evidence/EV-FXL-0012--support-survey-refunds.md(1): error EKS0005: evidence has no source, derived_from or related_documents \u2014 Add \u0060source_uri\u0060/\u0060source_title\u0060 or link the evidence with \u0060derived_from\u0060.",
+    "introduces fx-ledger/research/evidence/EV-FXL-0012--support-survey-refunds.md(1): error EKS0005: record has no title \u2014 Add \u0060source_uri\u0060/\u0060source_title\u0060 or link the evidence with \u0060derived_from\u0060.",
+    "introduces fx-ledger/research/evidence/EV-FXL-0012--support-survey-refunds.md(1): error EKS0011: YAML syntax error: While scanning a plain scalar value, found invalid mapping. \u2014 Fix the YAML; aliases, anchors and multiple documents are rejected."
+  ],
+  "records": {
+    "added": [
+      "fx-ledger:EV-FXL-0010",
+      "fx-ledger:EV-FXL-0012"
+    ],
+    "changed": [],
+    "removed": []
+  },
+  "schema": "eks.change-manifest/0",
+  "verdict": "rejected"
+}

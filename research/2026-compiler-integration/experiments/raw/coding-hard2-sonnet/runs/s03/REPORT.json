@@ -1,0 +1,15 @@
+[
+{"workItem":"WI-0001","status":"complete","summary":"Implemented total: approved entries of the tenant, summed, rounded to 2dp half away from zero (RQ-FXL-0003, DF-FXL-0007).","criteria":[
+{"criterion":"Approved 0.005 totals 0.01; -0.005 totals -0.01","verified":true,"test":"total rounds half away from zero and counts approved own-tenant only"},
+{"criterion":"Unapproved and other-tenant entries do not count","verified":true,"test":"total rounds half away from zero and counts approved own-tenant only"}]},
+{"workItem":"WI-0003","status":"complete","summary":"Implemented approve with ordered checks using fx-identity isActive and hasRole Approver (flat roles); other-tenant entries give NotFound (RQ-FXL-0004).","criteria":[
+{"criterion":"Idle exactly 15 minutes can approve","verified":true,"test":"approve succeeds at exactly 15 minutes idle"},
+{"criterion":"15 minutes 1 second gets SessionExpired","verified":true,"test":"approve expired after 15 minutes 1 second"},
+{"criterion":"Admin without Approver gets NotAuthorized","verified":true,"test":"approve admin only is not authorized"},
+{"criterion":"Other tenant NotFound, SelfApproval, AlreadyApproved","verified":true,"test":"approve other tenant is not found, self and double approval rejected"}]},
+{"workItem":"WI-0005","status":"complete","summary":"Implemented view: SessionExpired if inactive, else only the session tenant's entries in original order; Admin does not widen (RQ-FXL-0006, DF-FXL-0005 supersedes the stale README note).","criteria":[
+{"criterion":"Admin of t1 sees only t1 entries","verified":true,"test":"view admin sees only own tenant in order"},
+{"criterion":"Expired session gets SessionExpired","verified":true,"test":"view expired session"}]},
+{"workItem":"WI-0007","status":"blocked","summary":"Not implemented: RQ-FXL-0008 is only 'proposed' and leaves rounding and rate date unspecified; DF-FXL-0009 (rates source) is a draft with no decision and no rates available. convertCurrency left unimplemented.","criteria":[
+{"criterion":"Convert amounts between ISO 4217 currencies using the chosen rates source","verified":false,"test":null}]}
+]

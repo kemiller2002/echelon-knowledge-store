@@ -1,0 +1,39 @@
+[
+  {
+    "workItem": "WI-0001",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.total: sums the tenant's approved entries (refunds included) and rounds the sum to 2 dp with MidpointRounding.AwayFromZero (DF-FXL-0007). Banker's rounding (superseded RQ-FXL-0103) is not used. All acceptance criteria verified by passing tests.",
+    "criteria": [
+      { "criterion": "Approved 0.005 alone totals 0.01", "verified": true, "test": "total rounds approved 0.005 away from zero to 0.01" },
+      { "criterion": "Approved -0.005 alone totals -0.01", "verified": true, "test": "total rounds approved -0.005 away from zero to -0.01" },
+      { "criterion": "Unapproved entries and other tenants' entries do not count", "verified": true, "test": "total excludes unapproved entries and other tenants' entries" }
+    ]
+  },
+  {
+    "workItem": "WI-0003",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.approve with the checks of RQ-FXL-0004 in order: isActive (SessionExpired), Approver role (NotAuthorized, flat roles), entry lookup in the session tenant (NotFound), the RQ-FXL-0104 amendment (amount > 10000 requires both Approver and Admin, NotAuthorized, placed after the lookup and before self-approval), self-approval (SelfApproval), already approved (AlreadyApproved). On success sets Approved and ApprovedBy only. Note: the amendment check uses the literal Amount > 10000, so a large negative refund amount is not treated as high-value; the package does not say otherwise. All acceptance criteria verified by passing tests.",
+    "criteria": [
+      { "criterion": "A session idle for exactly 15 minutes can approve", "verified": true, "test": "approve accepts a session idle for exactly 15 minutes" },
+      { "criterion": "At 15 minutes 1 second the session gets SessionExpired", "verified": true, "test": "approve rejects a session idle for 15 minutes 1 second with SessionExpired" },
+      { "criterion": "An Admin without Approver gets NotAuthorized", "verified": true, "test": "approve rejects an Admin without Approver with NotAuthorized" },
+      { "criterion": "(RQ-FXL-0104) An Approver without Admin approving an entry of 10,000.01 gets NotAuthorized", "verified": true, "test": "approve rejects an Approver without Admin for an amount of 10000.01 with NotAuthorized" },
+      { "criterion": "(RQ-FXL-0104) An entry of exactly 10,000 needs only Approver", "verified": true, "test": "approve accepts an amount of exactly 10000 with Approver only" }
+    ]
+  },
+  {
+    "workItem": "WI-0005",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.view: returns SessionExpired when the session is not active (FxIdentity.Identity.isActive), otherwise the entries whose TenantId equals the session's tenant, in original order. No role widens the result (DF-FXL-0005 supersedes DF-FXL-0002; the fx-ledger README note that Administrators can view all tenants is stale and was not implemented). All acceptance criteria verified by passing tests.",
+    "criteria": [
+      { "criterion": "An Admin of t1 sees only t1 entries", "verified": true, "test": "view shows an Admin of t1 only t1 entries" },
+      { "criterion": "An expired session gets SessionExpired", "verified": true, "test": "view returns SessionExpired for an expired session" }
+    ]
+  },
+  {
+    "workItem": "WI-0007",
+    "status": "blocked",
+    "summary": "Not implemented. The package status is INCOMPLETE: RQ-FXL-0008 (convert amounts between currencies) is proposed and has no acceptance criteria; its dependency DF-FXL-0009 (choice of exchange-rate source) is draft and undecided. Rounding and the rate date are not specified, so convertCurrency would require invented rates, rules or sources. FxLedger.Ledger.convertCurrency still raises 'not implemented'. No tests were written because there are no acceptance criteria to verify.",
+    "criteria": []
+  }
+]
