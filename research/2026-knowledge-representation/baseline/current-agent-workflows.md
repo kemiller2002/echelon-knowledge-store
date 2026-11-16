@@ -228,7 +228,7 @@ Other ID families:
 | percepta | `requirements/` | 4 | – | 3 | 29 | 3 × .gitkeep | 23 |
 | praxis | `requirements/` **and** `research/requirements/` (37 RQ) | 54–57 | – | 55 | 203 | 1 | (553 files in `.ros`) |
 | signal | `docs/requirements/` | 29 | – | 1 | 1 | 3 × .gitkeep | 157 |
-| clarity-framework | none | 0 | `decision-record.md` etc. at root (method, not records) | – | – | – | – |
+| clarity-framework | none | 0 | method documents at root [file names withheld] (method, not records) | – | – | – | – |
 | EES | `requirements/` (2) | 0 | – | `evidence/` | – | – | – |
 | EOA | none | 0 | [private path withheld] | [private path withheld] | – | – | – |
 

@@ -23,8 +23,8 @@ What the compiler can do deterministically:
   evidence). In the trial, every correct handling of request 3 produced this review item, so
   it surfaced the disagreement to people.
 - Flag agent-addressed instructions in record text (EKS0015). It fired on the injected
-  EV-FXL-0003 in every run; no agent in any trial followed that instruction (0 of 72 runs that
-  saw it).
+  EV-FXL-0003 in every run; no agent in any trial followed that instruction (0 of 44 runs that
+  saw it: 24 coding runs including WI-0008 and 20 evidence writers).
 - Refuse to treat the existence of a test file or a passing run as verification. Verification
   is Dokimos's decision (`../architecture/dokimos-integration.md`). EKS's obligations file lists
   declared bindings, and Dokimos reported them `not-run` until results exist.

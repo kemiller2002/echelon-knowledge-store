@@ -328,3 +328,39 @@ satisfaction. EKS never writes a status.
 4. **Not recommended.** Emitting construction or adapter oracles, completion authorities, or
    Praxis manifests from EKS. Each either has domain-fixed vocabulary or belongs to another
    system's authority (see section 5).
+
+## 7. Measured after this document was written: EKS → Dokimos round trip
+
+The "hypothesis, not run" status above was superseded by a measured run in the same phase.
+
+- `src/Echelon.KnowledgeStore.Compiler/WorkItems.fs` (`WorkItems.dokimosObligations`) emits
+  `dokimos.verification-obligations/1` for the requirements a Praxis work item cites. Obligations
+  come from `## Acceptance` criteria. Tests come **only** from a declared `verified_by` list on the
+  requirement record (`dotnet:Namespace.Class.Method`). Suites are supplied by the caller
+  (`--suite-id`, `--suite-command`, `--suite-path`), because EKS does not know how a repository
+  runs its tests and must not invent it.
+- The CLI refuses to emit without a suite command, and warns for each cited requirement with no
+  declared binding.
+- Run: `eks dokimos-obligations fx-ledger WI-0004 --suite-id fx-ledger-unit --suite-command "dotnet test tests/FxLedger.Tests" --suite-path tests/FxLedger.Tests`
+  on the synthetic fixture, then `dokimos verification coverage --obligations F --root .` with the
+  Dokimos CLI built from `6ea8624` (run under `DOTNET_ROLL_FORWARD=Major` on .NET 10).
+- Result (`runs/wi-0004.obligations.json`, `runs/wi-0004.dokimos-coverage.json`): Dokimos parsed
+  the file without refusal, located both bound tests in source (`LedgerTests.fs:14`, `:19`), and
+  reported both obligations **`not-run`** ("generated, no result at the candidate"). A test that
+  exists is not a verified obligation; Dokimos enforces this without any EKS logic.
+
+Findings from the run:
+
+1. **Declared bindings can be wrong.** RQ-FXL-0005's `verified_by` names the two visible tests, but
+   neither exercises the cut-off boundary the first criterion is about. If both pass, Dokimos will
+   report the obligation verified. Binding correctness is a review question; neither EKS nor
+   Dokimos can decide it. (In the coding trials the boundary bug was fixed only because hidden
+   tests checked it.)
+2. **Coarse binding.** A requirement-level `verified_by` binds every obligation of that requirement
+   to every listed test. Per-criterion bindings would need a schema for criteria identities, which
+   EKS does not have yet.
+3. **Category quality.** EKS's keyword classifier labelled both RQ-FXL-0005 criteria `human`
+   (not mechanically testable); they are plainly testable. The classifier is a heuristic and should
+   not be sent to Dokimos as fact; the field is informational there.
+4. **planDigest.** EKS fills it with a hash of obligation ids and criteria. Dokimos carries it
+   unchecked (§ Verdict, item 3), so it provides traceability, not protection.

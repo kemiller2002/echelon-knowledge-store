@@ -26,6 +26,9 @@ usage: eks <command> [args] --root DIR [--repos a,b] [--private a,b] [--audience
   dokimos-obligations REPO WI --suite-id S --suite-command CMD --suite-path P
                            dokimos.verification-obligations/1 from declared `verified_by` bindings
   privacy-check [paths]    scan public artefacts against .privacy-denylist (exit 5 on findings)
+  privacy-check-private WORKSPACE [paths] --private a,b
+                           local only: flag public lines that contain distinctive directory or file
+                           names of the private repositories in WORKSPACE (names are never printed)
   diff BASE_ROOT HEAD_ROOT added/removed/changed records and the impact of changes
   change-manifest BASE_ROOT HEAD_ROOT
                            eks.change-manifest/0 for a proposed change set (exit 4 if rejected;
@@ -201,6 +204,24 @@ let run (argv: string list) : string * int =
              |> String.concat "\n")
             + $"\n{fs.Length} finding(s)\n",
             5
+    | "privacy-check-private" :: workspace :: dirs ->
+        let dirs =
+            if dirs.IsEmpty then
+                [ "research"; "docs"; "benchmarks"; "README.md"; "AGENTS.md" ]
+            else
+                dirs
+
+        match o.Private with
+        | [] -> "error: name the private repositories with --private a,b\n", 1
+        | privateRepos ->
+            match Sources.privateNameFindings o.Root dirs workspace privateRepos with
+            | n, [] -> $"privacy-check-private: no findings ({n} distinctive private names checked)\n", 0
+            | n, fs ->
+                (fs
+                 |> List.map (fun (f, l, h) -> $"{f}({l}): contains a private name (hash {h})")
+                 |> String.concat "\n")
+                + $"\n{fs.Length} finding(s) ({n} distinctive private names checked)\n",
+                5
     | [ "manifest"; id ] ->
         withCompilation (fun c ->
             match
