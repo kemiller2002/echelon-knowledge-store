@@ -55,4 +55,6 @@ proposed change set as one transaction:
 
 Measured on the 20 evidence-trial results (`../experiments/raw/evidence-integrity/change-manifests/`):
 all three defective change sets were caught (the malformed record rejected; both fabricated
-title-only evidence records flagged), and the 17 correct change sets carried no attention items.
+title-only evidence records flagged), and the 17 correct change sets carried no attention items. The
+"source cannot be located" item was added after seeing these fabrications, so this is not an independent
+test of it.

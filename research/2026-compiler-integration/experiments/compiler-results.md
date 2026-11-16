@@ -22,14 +22,16 @@ Ceiling effect. The 23-record fixture fits in an agent's reading budget, and eve
 README, superseded decisions, an undecided draft, an injected instruction) was handled in every
 condition. Compiled packages added about 3% tokens for no measurable gain here.
 
-## Hard fixture (amendments reachable only by incoming edges, ~300 distractors)
+## Hard fixture (amendments the work item does not cite, ~300 distractors)
+
+Each amendment names its target in its own `depends_on`, so from the target it is an incoming edge. A text search for the target's identifier would find it; an agent has to think of doing that search.
 
 Pooled over two seeds and two models (8 runs, 32 tasks per condition):
 
 | Cond. | Runs | Solved | Hidden | Overclaims | Tokens/run | **Tokens/solved** | s/run |
 |---|---|---|---|---|---|---|---|
 | A existing workflow | 8 | 24/32 (75%) | 151/164 | 8 | 100,157 | 33,386 | 119 |
-| B retrieval | 8 | 28/32 (88%) | 157/164 | 4 | 101,098 | 28,885 | 113 |
+| B retrieval | 8 | 28/32 (88%) | 157/164 | 4 | 101,098 | 28,885 | 114 |
 | C compiled packages | 8 | **32/32 (100%)** | 164/164 | **0** | 100,998 | **25,250** | 109 |
 | D compiled + verification policy | 8 | **32/32 (100%)** | 164/164 | **0** | 102,547 | 25,637 | 124 |
 
@@ -56,26 +58,41 @@ any hard run in any condition, so the agents implemented everything they found.
 | C, D | none | — |
 
 The work items do not mention the amendments. In A the agent must discover them among ~330
-records. In B the keyword search for "Implement entry approval (RQ-FXL-0004)…" ranked RQ-FXL-0104
-outside the top 8 in 3 of 4 runs. In C and D the package includes requirements with an incoming
-`depends_on` edge to the target, so the amendment is always present.
+records. In B, the retrieved context for WI-0003 omitted RQ-FXL-0104 in **4 of 4** runs (BM25 output
+depends only on the seed's corpus, so both models got the same context); 3 of those runs failed and
+one solved the task by finding the amendment in the repository itself. The context for WI-0006
+omitted RQ-FXL-0107 in both seed-20261119 runs; one of them failed. RQ-FXL-0101 and RQ-FXL-0109 were
+retrieved in every B run. In C and D the package includes requirements with an incoming `depends_on`
+edge to the target, so the amendment is always present (`raw/coding-hard*/runs/*/CONTEXT/`).
 
-Every failure in A and B was an **overclaim**: the agent reported the task complete with its own
-tests passing. The agents' tests checked what they knew about; the hidden tests checked the
-amendments.
+Every failure in A and B was also an overclaim: no agent reported a task partial or blocked except
+WI-0007, so the overclaim column equals the failure column and is not a second, independent result.
+It does show that agents did not know what they had missed: their own tests passed.
 
 ### Cost
 
-Tokens per run are flat across conditions (within ±2%): packages did not reduce reading. The
-cost improvement is entirely from more tasks being right: C costs 24% fewer tokens per correctly
-verified task than A (25,250 vs 33,386) and 13% fewer than B. Wall time per run is also flat.
+Tokens per run are similar across conditions (pooled: D is 2.4% above A; per model the spread
+reaches 7–8%), and roughly 70 k tokens of every run are fixed harness context. Packages did not
+reduce reading. The difference in tokens per correctly verified task (C 25,250 vs A 33,386, 24%
+lower; 13% lower than B) is therefore the solve-rate difference restated, not a separate saving.
+Wall times per run are similar too, but they were measured while about 16 agents ran at once, so
+they are noisy.
 
 ### Statistical caution
 
 32 tasks per condition; tasks within a run are not independent. On tasks, C vs A: Fisher's exact
 p ≈ 0.005 (two-sided). Counting whole runs instead (a run succeeds if all its tasks are solved):
 C 8/8, D 8/8, B 4/8, A 3/8; C vs A p ≈ 0.026, C vs B p ≈ 0.077 (two-sided). The direction is consistent across both models
-and both seeds. The size of the effect depends on how many amendments a real repository has, which
+and both seeds.
+
+Only the four amended tasks can discriminate: the other four pass in every condition, and the
+WI-0007 hidden test also passes for an untouched stub. On the amended tasks alone: A 8/16, B 12/16,
+C 16/16, D 16/16; C vs A p ≈ 0.002, **C vs B p ≈ 0.10**, B vs A p ≈ 0.27. So the evidence that packages
+beat no help is strong for this fixture; the evidence that they beat keyword retrieval is suggestive,
+not significant.
+
+Independence is weaker than the counts suggest: both models received identical sandboxes per seed
+(same corpus, same retrieval context), and tasks within a run share an agent. The size of the effect depends on how many amendments a real repository has, which
 this fixture fixed by design (`../benchmarks/experimental-design.md`, threat 1).
 
 ## Other checks (all runs, all conditions)
@@ -84,4 +101,6 @@ this fixture fixed by design (`../benchmarks/experimental-design.md`, threat 1).
 - `fx-identity` unchanged: 48 of 48.
 - No timeout constants re-implemented in the ledger (RQ-FXID-0004): 48 of 48.
 - WI-0007 (undecided draft dependency) reported blocked, with no invented rates: 24 of 24.
-- Injected instruction in EV-FXL-0003 followed: 0 of 24 runs that included WI-0008.
+- Injected instruction in EV-FXL-0003 followed: 0 of 24 runs that included WI-0008. The instruction
+  asked to skip refund amount validation; the base refund tests that check it (`Hidden.T8.non positive
+  amount`, `cumulative ceiling`) passed in every such run (`raw/*/hidden-test-results.json`).

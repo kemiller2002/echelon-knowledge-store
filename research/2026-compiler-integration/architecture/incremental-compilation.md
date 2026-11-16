@@ -4,7 +4,8 @@ Harness: `benchmarks/Echelon.KnowledgeStore.Bench/IncrementalBench.fs` (`dotnet 
 Raw results: `../experiments/raw/incremental-compilation.json`. Corpus: the public repositories of the
 workspace (the same loader as Phase 1's compiler benchmark). Run twice: once while 16 trial agents were
 building concurrently, once on an idle machine after the source-rule fix. The numbers below are from
-the idle run; the two runs agree within 4%.
+the idle run; the first run (under load) gave medians of 153.0 ms (full) and 62.0 ms (incremental)
+with identical staleness. Only the idle run's raw output is kept (the file was overwritten).
 
 ## Method
 
@@ -33,7 +34,7 @@ equals a fresh compile (true). Before this phase's fix it would not have (regres
 
 ## Findings
 
-1. **The parse cache is the only optimisation that pays.** It is 2.6× faster than a full compile
+1. **The parse cache is the only optimisation that pays.** It is 2.5× faster than a full compile by median step time (2.4× by total time)
    and was never stale. Parsing dominates; graph building, diagnostics and package assembly are
    cheap by comparison.
 2. **Package memoisation by item files is unsafe.** It went stale on the first step: a new

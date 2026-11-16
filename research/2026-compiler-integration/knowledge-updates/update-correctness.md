@@ -24,7 +24,8 @@ records in total.
 | `eks impact` | 13/13 = 100% | 13/13 = 100% |
 | Text search | 11/16 = 69% | 11/13 = 85% |
 
-Caveats: eight targets on a 23-record fixture; the ground truth uses the same `depends_on`
+Caveats: the text-search baseline is a single non-transitive search for the target's id (an agent
+could repeat it transitively); eight targets on a 23-record fixture; the ground truth uses the same `depends_on`
 semantics that EKS follows, so EKS's perfect score shows it computes the closure correctly, not that
 `depends_on` captures every real dependency. Cross-repository dependencies were not assumed: each
 was declared in a record (`fx-identity:RQ-FXID-…`) and checked by hand.
@@ -36,4 +37,4 @@ See `../architecture/incremental-compilation.md`: the parse cache was never stal
 
 ## Change-set correctness
 
-See `write-path-design.md`: 3 of 3 defective change sets caught, 0 false flags on 17 correct ones.
+See `write-path-design.md`: 3 of 3 defective change sets caught (1 rejected, 2 with a "source cannot be located" item); the 17 correct ones carried no attention items. All 19 non-rejected sets get the same `requires-review` verdict, so detection here means an attention item, and the attention rule was written after seeing the two fabrications (post hoc, untested on new data).

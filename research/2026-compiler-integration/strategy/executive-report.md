@@ -14,8 +14,14 @@ Every statement is marked **[measured]** (from data in `../experiments/raw/`, te
   records the work item does not mention. There, compiled packages solved 32/32 tasks against 24/32
   for the existing workflow and 28/32 for keyword retrieval, with no false completion claims (against
   8 and 4). The result held for both models and both seeds.
-- [measured] Cost per correctly verified task fell 24% (25,250 vs 33,386 tokens) because more tasks
-  were right. Tokens per run did not change.
+  Only the four amended tasks discriminate: there, packages solved 16/16 against 8/16 (A, p ≈ 0.002)
+  and 12/16 (B, p ≈ 0.10). The advantage over no help is strong on this fixture; the advantage over
+  keyword retrieval is suggestive, not significant. The fixture was designed by the compiler's author.
+- [measured] Cost per correctly verified task fell 24% (25,250 vs 33,386 tokens). This is the solve
+  rate restated: tokens per run did not change, and about 70 k tokens per run were fixed harness context.
+- [measured] An independent adversarial review recomputed every table from the raw data. It found five
+  errors (now corrected) and several overstatements (now qualified), and confirmed the remaining
+  numbers and all p-values.
 - [hypothesis] Real Echelon work items often lack links to the records they depend on (65% of 796
   cite none), so the hard case is plausibly common. This is untested on real work.
 - Recommendation: adopt packages, manifests, incremental compilation and change manifests as
@@ -92,7 +98,7 @@ fabrications and rejected the one malformed change.
 
 ## Incremental compilation
 
-[measured] Parse-cache incremental: 0 stale packages over 60 edits × 25 packages, 2.6× faster than full.
+[measured] Parse-cache incremental: 0 stale packages over 60 edits × 25 packages, 2.5× faster than full (median).
 Naive package memo: stale at 60/60 steps. On-demand outgoing closure: wrong from the start. Fully keyed
 memo: correct but slower. The cache key now includes compiler version and parse configuration.
 

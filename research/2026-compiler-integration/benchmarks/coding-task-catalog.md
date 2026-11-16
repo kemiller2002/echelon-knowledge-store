@@ -25,7 +25,7 @@ scores 35/41 on hard, so the six amendment tests discriminate).
 - **Base:** 23 records. Everything relevant is cited by the work item or one hop from it.
 - **Hard:** base + 7 overlay records + about 300 generated distractor records (`CodingTrial.distractors`,
   deterministic per seed). Four accepted amendments reach their target requirement **only through
-  an incoming `depends_on` edge**: the work item does not mention them. The distractors share
+  an incoming `depends_on` edge** (a text search for the target's identifier finds them): the work item does not mention them. The distractors share
   vocabulary with the tasks and sometimes name target records in prose.
 
 ## Not covered

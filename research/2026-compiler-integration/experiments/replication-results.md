@@ -14,7 +14,7 @@ a new seed, which gives a different distractor corpus and a different run order.
 
 C and D solved every task in all four replications. A and B varied between replications (A: 5–7 of
 8; B: 6–8 of 8). The ranking C = D > B ≥ A held in three of four replications; in seed 20261119 /
-Sonnet, A and B tied.
+Haiku, A (7/8) beat B (6/8).
 
 ## Base fixture
 
@@ -29,7 +29,7 @@ condition 2), so neither replicated within its cell.
 ## Incremental compilation
 
 Run twice, under load and idle: the correctness results were identical, and the timings agreed
-within 4% (`../architecture/incremental-compilation.md`).
+within 4%; only the second run's raw output is kept (`../architecture/incremental-compilation.md`).
 
 ## Phase 1 claims re-tested
 
@@ -37,4 +37,4 @@ within 4% (`../architecture/incremental-compilation.md`).
 |---|---|
 | Compiled context gives equal accuracy, no token saving | Confirmed on the easy (base) fixture. On the hard fixture accuracy improved (100% vs 75%) and tokens per solved task fell 24%, while tokens per run stayed flat. |
 | An explicit integrity policy removed fabrication (Sonnet 2/2 → 0/2) | Not replicated: fabrication was rare in every condition (2 of 20 runs). Inconclusive. |
-| Compiler validation does not prevent fabrication | Confirmed: title-only fabricated evidence passes every validation level. The new change manifest flags it for review. |
+| Compiler validation does not prevent fabrication | Confirmed: title-only fabricated evidence passes every validation level. The change manifest's "source cannot be located" item, added after seeing these two cases, flags them; it has not been tested on new data. |

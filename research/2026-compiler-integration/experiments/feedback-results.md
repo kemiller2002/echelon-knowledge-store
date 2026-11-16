@@ -12,8 +12,9 @@ optionally recompile packages with `eks work-item`. Full comparison: `compiler-r
 Observations (measured):
 
 - D was not distinguishable from C on outcomes: both solved everything, with no overclaims.
-- D's agents wrote more tests, as instructed: a mean of 19.0 tests in `LedgerTests.fs` per hard run
-  (range 12–27), against 14.6 (A), 14.5 (B) and 15.9 (C). That strengthened the agents' own
+- D's agents wrote more tests, as instructed: a mean of 19.0 `[<Fact>]` tests in `LedgerTests.fs` per
+  hard run (range 12–27), against 14.6 (A), 14.5 (B) and 15.9 (C)
+  (`raw/coding-hard*/hidden-test-results.json`, field `agentTests`; the files are in `runs/*/`). That strengthened the agents' own
   evidence, but the hidden tests could not show a difference because C was already at 100%.
 - D cost about 1.5% more tokens per solved task than C, and the slowest wall time per run.
 - **What D was designed to catch did not occur in C**: no C agent overclaimed or implemented past

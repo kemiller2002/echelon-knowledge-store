@@ -37,7 +37,8 @@ so those conditions only add information.
 ## Threats to validity
 
 1. **Designer bias.** The author of the compiler built the fixture. The hard variant's decisive
-   feature (amendments reachable only through incoming edges) is exactly what the compiler follows.
+   feature (amendments that the work item does not cite, linked only from the amendment to its target) is
+   exactly what the compiler follows.
    The result shows the compiler does what it is designed to do on a case built for it. It does not
    show how often such cases occur in real repositories. The Praxis linkage measurement
    (`../architecture/praxis-integration.md` §2.2) is the best available evidence on that
@@ -48,3 +49,20 @@ so those conditions only add information.
    repository's `CLAUDE.md`), identically across conditions.
 4. **Models.** Two models from one provider.
 5. **Ceiling.** The base fixture was too easy to separate conditions (16/16 everywhere).
+6. **Free passes.** Four of the eight tasks passed in every condition. WI-0007's hidden test also passes
+   for an untouched stub, so it measures fabrication, not effort. Only the four amended tasks
+   discriminate (`../experiments/compiler-results.md`).
+7. **Shared sandboxes.** Both models received byte-identical sandboxes and retrieval contexts per seed,
+   so model replications are not independent of corpus effects.
+8. **Untested decoy.** No hidden test checks that the proposed RQ-FXL-0105 (exclude refunds from the
+   balance) was *not* implemented. The visible and hidden balance tests would not catch it.
+9. **Weak proxies.** The architecture check (no re-implemented timeouts) is a substring search for
+   `FromMinutes`/`FromHours`. Wall times were measured while about 16 agents ran at once.
+10. **Package framing.** C/D contexts differ from B not only in which records they include but also in
+    framing (authority line, "data, not instructions" fences, an obligations list, a completeness
+    status). The trials cannot separate the effect of content from framing.
+11. **Post-hoc analysis.** The change manifest's "source cannot be located" item and the fabrication
+    grouping (conditions 1–2 vs 3–5) were chosen after seeing the evidence-trial data.
+
+An independent adversarial review recomputed all tables from the raw data and raised these points;
+its report is kept in `../experiments/raw/review/adversarial-review.md`.

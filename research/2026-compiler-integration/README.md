@@ -6,8 +6,9 @@ documentation?
 
 Short answer (measured, on a synthetic benchmark): not when knowledge is easy to find; yes when
 requirements are amended by records the work item does not mention. There, packages gave 32/32
-verified tasks against 24/32 for the existing workflow, at 24% lower cost per verified task. Start
-with `strategy/executive-report.md`.
+verified tasks against 24/32 for the existing workflow and 28/32 for keyword retrieval (on the
+amended tasks: 16/16 vs 8/16, p ≈ 0.002; vs retrieval 12/16, p ≈ 0.10). Start with
+`strategy/executive-report.md`.
 
 Status: **PARTIALLY COMPLETE** (no long-running tasks; no real-repository tasks).
 

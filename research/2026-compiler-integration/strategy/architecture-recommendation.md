@@ -14,7 +14,10 @@
   (two models, two seeds, 32 tasks per condition), compiled packages solved 32/32 tasks with no false
   completion claims. The existing workflow solved 24/32 with 8 false claims, and keyword retrieval
   28/32 with 4. Cost per correctly verified task fell 24% against the existing workflow (25,250 vs
-  33,386 tokens), entirely because more tasks were right. Tokens per run were unchanged.
+  33,386 tokens), but that is the solve rate restated: tokens per run were about the same.
+  Only the four amended tasks discriminate: there, packages solved 16/16 against 8/16 (A, p ≈ 0.002)
+  and 12/16 (B, p ≈ 0.10). The advantage over no help is strong on this fixture; the advantage over
+  keyword retrieval is suggestive, not significant. The fixture was designed by the compiler's author.
 
 **Hypothesis (not measured):** how often real Echelon work items depend on records they do not cite.
 The Praxis measurement (796 real work items: 9.7% cite records in structured fields, 25.3% only in
@@ -29,10 +32,10 @@ does not yet support making EKS a gate.
 
 | # | Component | Gate | Evidence | Correctness | Completeness | Security |
 |---|---|---|---|---|---|---|
-| 1 | Work-item packages (`eks work-item`), including incoming requirement edges | **ADOPT** (advisory, opt-in) | hard trials: 32/32 vs 24/32, 2 models × 2 seeds; base: no harm beyond +3% tokens | unit tests; 0 base-test failures in any run | derived from listed conditions; INCOMPLETE for drafts, missing links and missing criteria | packages state authority, quote records as data; injection followed 0/44 |
+| 1 | Work-item packages (`eks work-item`), including incoming requirement edges | **ADOPT** (advisory, opt-in) | hard trials: 32/32 vs 24/32 (amended tasks 16/16 vs 8/16, p ≈ 0.002; vs retrieval 12/16, p ≈ 0.10), 2 models × 2 seeds, designed fixture; base: no harm beyond +3% tokens. Adopted for a measured Stage 1 rollout, which is itself the real-work test | unit tests; 0 base-test failures in any run | derived from listed conditions; INCOMPLETE for drafts, missing links and missing criteria | packages state authority, quote records as data; injection followed 0/44 |
 | 2 | Derived completeness, rule-run records, package manifests | **ADOPT** | adversarial unit tests (skipped mandatory rule ⇒ INCOMPLETE; completeness ⇔ conditions) | tested | tested | n/a |
-| 3 | Incremental compilation with a parse cache keyed by (file hash, compiler version, parse configuration) | **ADOPT** | 0 stale of 1,525 packages over 60 edits; 2.6× faster than full | benchmark + regression test | full-compile equivalence | n/a |
-| 4 | Transactional change manifest (`eks change-manifest`), verdict `rejected` or `requires-review`, never approved | **ADOPT** (attach to knowledge PRs) | 3/3 defective change sets caught, 0 flags on 17 correct | unit tests | covers files, records, diagnostics, impact | cannot approve by construction |
+| 3 | Incremental compilation with a parse cache keyed by (file hash, compiler version, parse configuration) | **ADOPT** | 0 stale of 1,525 packages over 60 edits; 2.5× faster than full | benchmark + regression test | full-compile equivalence | n/a |
+| 4 | Transactional change manifest (`eks change-manifest`), verdict `rejected` or `requires-review`, never approved | **ADOPT** (attach to knowledge PRs) | 3/3 defective change sets caught (attention item added post hoc for 2 of them); no attention items on 17 correct | unit tests | covers files, records, diagnostics, impact | cannot approve by construction |
 | 5 | Source-existence rule fix; unverifiable sources reported | **ADOPT** | planted-violation tests; +3 real warnings on the public corpus | tested | no silent skips | n/a |
 | 6 | CI denylist privacy check | **ADOPT, insufficient alone** | 0/6 historical leak lines caught | — | — | must be paired with #7 |
 | 7 | Local private-name check (`eks privacy-check-private`) | **ADOPT** for any research that reads private repositories | caught the historical lines with private names; found 3 live leaks | tested on history | local only | never prints names |
