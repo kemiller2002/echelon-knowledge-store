@@ -20,6 +20,10 @@ usage: eks <command> [args] --root DIR [--repos a,b] [--private a,b] [--audience
   impact ID                change-impact report
   obligations ID           requirement contract (JSON)
   manifest ID              machine-readable manifest of the task package for ID
+  work-item REPO WI        compiled package for a Praxis work item in REPO/.ros/work/queue.json (exit 3 if incomplete)
+  work-item-manifest REPO WI  machine-readable manifest of that package
+  dokimos-obligations REPO WI --suite-id S --suite-command CMD --suite-path P
+                           dokimos.verification-obligations/1 from declared `verified_by` bindings
   privacy-check [paths]    scan public artefacts against .privacy-denylist (exit 5 on findings)
   diff BASE_ROOT HEAD_ROOT added/removed/changed records and the impact of changes"""
 
@@ -33,6 +37,9 @@ type Options =
         AsOf: DateOnly
         AllowIncomplete: bool
         Out: string option
+        Suite: string option
+        SuiteCommand: string option
+        SuitePaths: string list
         Positional: string list
     }
 
@@ -57,6 +64,14 @@ let rec private parseArgs (o: Options) =
     | "--as-of" :: v :: rest -> parseArgs { o with AsOf = DateOnly.Parse v } rest
     | "--allow-incomplete" :: rest -> parseArgs { o with AllowIncomplete = true } rest
     | "--out" :: v :: rest -> parseArgs { o with Out = Some v } rest
+    | "--suite-id" :: v :: rest -> parseArgs { o with Suite = Some v } rest
+    | "--suite-command" :: v :: rest -> parseArgs { o with SuiteCommand = Some v } rest
+    | "--suite-path" :: v :: rest ->
+        parseArgs
+            { o with
+                SuitePaths = o.SuitePaths @ [ v ]
+            }
+            rest
     | x :: rest ->
         parseArgs
             { o with
@@ -111,6 +126,9 @@ let run (argv: string list) : string * int =
             AsOf = DateOnly.FromDateTime DateTime.UtcNow
             AllowIncomplete = false
             Out = None
+            Suite = None
+            SuiteCommand = None
+            SuitePaths = []
             Positional = []
         }
 
@@ -180,6 +198,54 @@ let run (argv: string list) : string * int =
             | [ k ] -> Packages.manifest c (Packages.task c k) + "\n", 0
             | [] -> $"error: no record '{id}'", 1
             | ks -> $"error: ambiguous '{id}': " + String.concat ", " ks, 1)
+    | [ ("work-item" | "work-item-manifest" | "dokimos-obligations") as cmd; repo; wi ] ->
+        let queue = Path.Combine(o.Root, repo, ".ros", "work", "queue.json")
+
+        let item =
+            if File.Exists queue then
+                WorkItems.parseQueue (File.ReadAllText queue)
+                |> Result.bind (fun ws ->
+                    ws
+                    |> List.tryFind (fun w -> w.Id = wi)
+                    |> Option.map Ok
+                    |> Option.defaultValue (Error $"no work item {wi} in {queue}"))
+            else
+                Error $"no Praxis queue at {queue}"
+
+        match item with
+        | Error e -> $"error: {e}\n", 1
+        | Ok w ->
+            withCompilation (fun c ->
+                match cmd, o.Suite, o.SuiteCommand with
+                | "work-item", _, _ ->
+                    let p = WorkItems.package c repo w
+
+                    match p.Status with
+                    | Complete -> p.Text, 0
+                    | Incomplete _ -> p.Text, (if o.AllowIncomplete then 0 else 3)
+                | "work-item-manifest", _, _ -> Packages.manifest c (WorkItems.package c repo w) + "\n", 0
+                | _, Some id, Some command ->
+                    let json, unbound =
+                        WorkItems.dokimosObligations
+                            c
+                            repo
+                            w
+                            {
+                                Id = id
+                                Command = command
+                                Paths = o.SuitePaths
+                            }
+
+                    let note =
+                        match unbound with
+                        | [] -> ""
+                        | us -> "warning: no declared `verified_by` for " + String.concat ", " us + "\n"
+
+                    stderr.Write note
+                    json + "\n", 0
+                | _ ->
+                    "error: dokimos-obligations needs --suite-id and --suite-command (EKS does not invent how tests run)\n",
+                    1)
     | [ "diff"; baseRoot; headRoot ] -> Query.diff (compileAt o baseRoot) (compileAt o headRoot)
     | _ -> usage, 1
 

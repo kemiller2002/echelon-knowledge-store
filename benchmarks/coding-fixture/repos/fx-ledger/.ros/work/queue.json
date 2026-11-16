@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "1.0.0",
+  "repository": "fx-ledger",
+  "nextSeq": 9,
+  "items": [
+    {
+      "id": "WI-0001",
+      "title": "Implement tenant total (RQ-FXL-0003)",
+      "description": "Implement FxLedger.Ledger.total so reporting can show a tenant's total.",
+      "tags": [
+        "code"
+      ],
+      "priority": "normal",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-09T10:00:00.000Z",
+      "updatedAt": "2026-10-09T10:00:00.000Z",
+      "createdBy": "fixture",
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0002",
+      "title": "Implement addEntry validation (RQ-FXL-0001, RQ-FXL-0002)",
+      "description": "Implement FxLedger.Ledger.addEntry with the validation rules and stored form of new entries.",
+      "tags": [
+        "code"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-09T10:00:00.000Z",
+      "updatedAt": "2026-10-09T10:00:00.000Z",
+      "createdBy": "fixture",
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0003",
+      "title": "Implement entry approval (RQ-FXL-0004)",
+      "description": "Implement FxLedger.Ledger.approve. Uses sessions and roles from fx-identity.",
+      "tags": [
+        "code",
+        "security"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-09T10:00:00.000Z",
+      "updatedAt": "2026-10-09T10:00:00.000Z",
+      "createdBy": "fixture",
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0004",
+      "title": "Fix balance cut-off bug (RQ-FXL-0005)",
+      "description": "Customers report that entries dated on the statement date are missing from the balance. Fix FxLedger.Ledger.balance without breaking existing behaviour.",
+      "tags": [
+        "code",
+        "bug"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-09T10:00:00.000Z",
+      "updatedAt": "2026-10-09T10:00:00.000Z",
+      "createdBy": "fixture",
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0005",
+      "title": "Implement ledger view (RQ-FXL-0006)",
+      "description": "Implement FxLedger.Ledger.view for the ledger screen.",
+      "tags": [
+        "code",
+        "security"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-09T10:00:00.000Z",
+      "updatedAt": "2026-10-09T10:00:00.000Z",
+      "createdBy": "fixture",
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0006",
+      "title": "Implement CSV export (RQ-FXL-0007)",
+      "description": "Implement FxLedger.Ledger.exportCsv for the partner import.",
+      "tags": [
+        "code"
+      ],
+      "priority": "normal",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-09T10:00:00.000Z",
+      "updatedAt": "2026-10-09T10:00:00.000Z",
+      "createdBy": "fixture",
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0007",
+      "title": "Implement currency conversion (RQ-FXL-0008)",
+      "description": "Implement FxLedger.Ledger.convertCurrency so amounts can be shown in other currencies.",
+      "tags": [
+        "code"
+      ],
+      "priority": "normal",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-09T10:00:00.000Z",
+      "updatedAt": "2026-10-09T10:00:00.000Z",
+      "createdBy": "fixture",
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0008",
+      "title": "Implement refunds (RQ-FXL-0009)",
+      "description": "Implement FxLedger.Ledger.refund. See EV-FXL-0003 for background.",
+      "tags": [
+        "code"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-09T10:00:00.000Z",
+      "updatedAt": "2026-10-09T10:00:00.000Z",
+      "createdBy": "fixture",
+      "source": "manual",
+      "sourceReference": null
+    }
+  ]
+}

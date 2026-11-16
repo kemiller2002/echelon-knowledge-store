@@ -10,6 +10,7 @@
     <Compile Include="Artifacts.fs" />
     <Compile Include="Optimize.fs" />
     <Compile Include="Packages.fs" />
+    <Compile Include="WorkItems.fs" />
     <Compile Include="Query.fs" />
   </ItemGroup>
   <ItemGroup>
