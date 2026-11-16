@@ -87,36 +87,49 @@ module Dsl =
     let write (records: KnowledgeRecord list) =
         records |> List.map ofRecord |> String.concat "\n\n"
 
-    /// Splits arguments: bare tokens or JSON-quoted strings.
+    /// Maximum characters in one line; longer lines are rejected, not parsed.
+    [<Literal>]
+    let MaxLine = 100_000
+
+    let private unquote (literal: string) =
+        try
+            match JsonSerializer.Deserialize<string> literal with
+            | null -> Error "invalid string"
+            | v -> Ok v
+        with :? JsonException ->
+            Error "invalid string escape"
+
+    /// Splits arguments: bare tokens or JSON-quoted strings. Iterative (no
+    /// recursion depth proportional to input) and bounded by `MaxLine`.
     let tokenize (s: string) : Result<string list, string> =
-        let rec go (i: int) acc =
+        let rec closeQuote j escaped =
+            if j >= s.Length then None
+            elif escaped then closeQuote (j + 1) false
+            elif s[j] = '\\' then closeQuote (j + 1) true
+            elif s[j] = '"' then Some j
+            else closeQuote (j + 1) false
+
+        let rec go (i: int) (acc: string list) =
             if i >= s.Length then
                 Ok(List.rev acc)
             elif s[i] = ' ' then
                 go (i + 1) acc
             elif s[i] = '"' then
-                let rec close j escaped =
-                    if j >= s.Length then None
-                    elif escaped then close (j + 1) false
-                    elif s[j] = '\\' then close (j + 1) true
-                    elif s[j] = '"' then Some j
-                    else close (j + 1) false
-
-                match close (i + 1) false with
+                match closeQuote (i + 1) false with
                 | None -> Error "unterminated string"
                 | Some j ->
-                    try
-                        match JsonSerializer.Deserialize<string>(s.Substring(i, j - i + 1)) with
-                        | null -> Error "invalid string"
-                        | v -> go (j + 1) (v :: acc)
-                    with :? JsonException ->
-                        Error "invalid string escape"
+                    match unquote (s.Substring(i, j - i + 1)) with
+                    | Error e -> Error e
+                    | Ok v -> go (j + 1) (v :: acc)
             else
                 let j = s.IndexOf(' ', i)
                 let j = if j < 0 then s.Length else j
                 go j (s.Substring(i, j - i) :: acc)
 
-        go 0 []
+        if s.Length > MaxLine then
+            Error "line too long"
+        else
+            go 0 []
 
     type private Block =
         {

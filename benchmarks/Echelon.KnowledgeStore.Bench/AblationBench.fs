@@ -269,3 +269,47 @@ let compilation (count: string -> int) (records: KnowledgeRecord list) : Compila
         Deterministic = (a = b)
         ChangedLinesForOneStatusEdit = changed
     }
+
+type EpistemicRow =
+    {
+        Repository: string
+        Kind: string
+        Status: string
+        Confidence: string
+        Standing: string
+        Records: int
+    }
+
+/// Distribution of declared status/confidence against evidence-derived standing
+/// for claims (hypotheses and theories), and status/standing mismatches.
+let epistemic (records: KnowledgeRecord list) : EpistemicRow list =
+    let g = Graph.build false records
+
+    records
+    |> List.filter (fun r -> r.Kind = Hypothesis || r.Kind = Theory)
+    |> List.map (fun r ->
+        let s, c = Strict.evidenceFor g (Graph.key r)
+
+        let standing =
+            match s, c with
+            | [], [] -> "unassessed"
+            | _ :: _, [] -> "supported"
+            | [], _ :: _ -> "refuted"
+            | _ -> "contested"
+
+        r.Provenance.Repository,
+        KnowledgeKind.name r.Kind,
+        defaultArg r.Status "(none)",
+        Confidence.name r.Confidence,
+        standing)
+    |> List.countBy id
+    |> List.map (fun ((repo, kind, status, conf, standing), n) ->
+        {
+            Repository = repo
+            Kind = kind
+            Status = status
+            Confidence = (if conf = "" then "(none)" else conf)
+            Standing = standing
+            Records = n
+        })
+    |> List.sortBy (fun r -> r.Repository, r.Status, r.Standing)

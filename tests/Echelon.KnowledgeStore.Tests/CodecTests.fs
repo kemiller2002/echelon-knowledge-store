@@ -45,3 +45,15 @@ let ``dsl tokenizer handles quoted strings`` () =
 let ``fsharp source writer emits one record per entry`` () =
     let src = FSharpSource.write core
     Assert.Equal(core.Length, src.Split("{ Id = ").Length - 1)
+
+[<Fact>]
+let ``dsl tokenizer handles many tokens without stack overflow`` () =
+    let line = String.replicate 24_000 "\"a\" "
+
+    match Dsl.tokenize line with
+    | Ok ts -> Assert.Equal(24_000, ts.Length)
+    | Error e -> failwith e
+
+[<Fact>]
+let ``dsl tokenizer rejects over-long lines`` () =
+    Assert.True(Dsl.tokenize (String.replicate 60_000 "a ") |> Result.isError)

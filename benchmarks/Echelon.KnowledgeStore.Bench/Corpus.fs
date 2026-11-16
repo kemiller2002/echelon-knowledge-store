@@ -24,6 +24,7 @@ let private excluded (p: string) =
         "/tests/"
         "/fixtures/"
         "/templates/"
+        "/starter/"
     ]
     |> List.exists (fun x -> p.Replace('\\', '/').Contains x)
 
@@ -71,8 +72,22 @@ let private fileId =
 let filenameRecord (f: SourceFile) : KnowledgeRecord option =
     let m = fileId.Match(f.Path.Split('/') |> Array.last)
 
-    match f.Parsed with
-    | Ok doc when m.Success ->
+    // Files whose front matter cannot be parsed still exist: they are kept as
+    // filename-identified records (and reported by the compiler as EKS0011)
+    // instead of being dropped silently.
+    let parsed =
+        match f.Parsed with
+        | Ok doc -> Some doc
+        | Error _ ->
+            Some
+                {
+                    FrontMatter = None
+                    FrontMatterText = None
+                    Body = f.Text
+                }
+
+    match parsed with
+    | Some doc when m.Success ->
         let title =
             doc.Body.Split('\n')
             |> Array.tryFind (fun l -> l.StartsWith "# ")

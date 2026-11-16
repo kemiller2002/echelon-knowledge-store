@@ -115,4 +115,15 @@ Known open issues to test: whether to allow multiline strings (`"""`), inline li
 
 ## Measured results
 
-_Pending: see experiments/._
+Measured (`experiments/results/formats.md`, trials):
+
+* Implemented as `Dsl.fs`: line-oriented, non-executable, total parser with line
+  diagnostics (unit-tested); round trip 568/568.
+* Tokens: full 907,487 (0.98×); metadata only 63,295, **9% less than YAML front
+  matter** — about 0.7% of the corpus.
+* Trials (Sonnet, one-paragraph spec): 16/16 exact, no learning cost observed.
+* Maintenance: a grammar, a parser, editor support and documentation that nobody
+  else ships; agents must be told about it in every context.
+
+Verdict: REJECT. The measured benefit does not justify a new language. Revisit only
+if metadata becomes a large share of tokens (it is ~8% today).

@@ -43,6 +43,8 @@ type Confidence =
     | High
     | VeryHigh
     | Unstated
+    /// A label outside the standard scale, preserved verbatim (e.g. `medium-high`).
+    | Label of string
 
 type Provenance =
     {
@@ -189,7 +191,9 @@ module Confidence =
         | Some "high" -> High
         | Some "very-high"
         | Some "very high" -> VeryHigh
-        | _ -> Unstated
+        | None
+        | Some "" -> Unstated
+        | Some _ -> s |> Option.map (fun x -> Label(x.Trim())) |> Option.defaultValue Unstated
 
     let name =
         function
@@ -199,6 +203,7 @@ module Confidence =
         | High -> "high"
         | VeryHigh -> "very-high"
         | Unstated -> ""
+        | Label l -> l
 
 [<RequireQualifiedAccess>]
 module KnowledgeRecord =

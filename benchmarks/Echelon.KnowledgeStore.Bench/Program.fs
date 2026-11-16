@@ -457,6 +457,22 @@ let private ablation (root: string) (out: string) (families: Tokens.Family list)
                     ]
             ]
 
+    let epi = AblationBench.epistemic records
+
+    let epiMd =
+        "\n\n## Epistemic state of claims (hypotheses, theories): declared status vs evidence-derived standing\n\n"
+        + Report.table
+            [
+                "Repository"
+                "Kind"
+                "Declared status"
+                "Confidence"
+                "Evidence standing"
+                "Records"
+            ]
+            (epi
+             |> List.map (fun e -> [ e.Repository; e.Kind; e.Status; e.Confidence; e.Standing; string e.Records ]))
+
     Report.json
         out
         "ablation.json"
@@ -465,10 +481,129 @@ let private ablation (root: string) (out: string) (families: Tokens.Family list)
             Strict = strict
             Drift = drift
             Compilation = comp
+            Epistemic = epi
         |}
 
-    Report.text out "ablation.md" (md + "\n")
+    Report.text out "ablation.md" (md + epiMd + "\n")
     printfn "ablation: done"
+
+let private compilerBench (root: string) (out: string) (families: Tokens.Family list) =
+    let count = (Tokens.primary families).Count
+    let publicFiles, _ = publicCorpus root
+    let src = CompilerBench.sources publicFiles
+
+    let allSrc =
+        Corpus.load false root Corpus.defaultRepositories |> CompilerBench.sources
+
+    let timings = CompilerBench.timings src
+    let timingsAll = CompilerBench.timings allSrc |> List.truncate 1
+
+    let comp, _ =
+        Echelon.KnowledgeStore.Compiler.Pipeline.compile CompilerBench.config Map.empty src
+
+    let muts = CompilerBench.mutations src
+    let opt = CompilerBench.optimisation count comp
+    let loss = CompilerBench.lossless src comp
+    let res = CompilerBench.resolution comp
+
+    let byLevel =
+        comp.Diagnostics
+        |> List.countBy (fun d -> d.Code, sprintf "%A" d.Level)
+        |> List.sort
+
+    let md =
+        String.concat
+            "\n\n"
+            [
+                $"Public corpus: {src.Length} Markdown files, {comp.Records.Length} records. Timings are medians of 5 runs on the research container (single process)."
+                Report.table
+                    [ "Scenario"; "Files"; "Median ms"; "Warm output = cold output" ]
+                    ((timings
+                      @ (timingsAll
+                         |> List.map (fun t ->
+                             { t with
+                                 Scenario = t.Scenario + " — all 13 repositories"
+                             })))
+                     |> List.map (fun t ->
+                         [
+                             t.Scenario
+                             string t.Files
+                             Report.f1 t.MedianMs
+                             t.OutputsEqualCold |> Option.map string |> Option.defaultValue "–"
+                         ]))
+                "## Diagnostics (public corpus)"
+                Report.table [ "Code"; "Level"; "Count" ] (byLevel |> List.map (fun ((c, l), n) -> [ c; l; string n ]))
+                "## Agent-edit mutation test (25 + 1 mistakes from the adversarial review)"
+                Report.table
+                    [ "Mutation"; "Record"; "Result"; "Codes" ]
+                    (muts |> List.map (fun m -> [ m.Mutation; m.Record; m.Result; m.Codes ]))
+                (let n r =
+                    muts |> List.filter (fun m -> m.Result = r) |> List.length
+
+                 $"""Blocking {n "BLOCKING"}, flagged {n "FLAGGED"}, advisory-only {n "ADVISORY-ONLY"}, undetected {n "UNDETECTED"} of {muts.Length}.""")
+                "## Task packages for every record (optimisation correctness)"
+                Report.table
+                    [
+                        "Packages"
+                        "Complete"
+                        "Ledger entries"
+                        "Lost without ledger"
+                        "Target lost"
+                        "Mean tokens"
+                        "Mean compile ms"
+                    ]
+                    [
+                        [
+                            string opt.Packages
+                            string opt.Complete
+                            string opt.LedgerEntries
+                            string opt.Unaccounted
+                            string opt.TargetLost
+                            Report.f1 opt.MeanTokens
+                            Report.f2 opt.MeanCompileMs
+                        ]
+                    ]
+                "## Source-level losslessness (original front matter vs regenerated)"
+                $"{loss.IdenticalFrontMatter}/{loss.Records} records regenerate an identical front-matter tree."
+                Report.table
+                    [ "Field differing"; "Records" ]
+                    (loss.DifferingFields |> List.map (fun (k, n) -> [ k; string n ]))
+                "## Reference resolution"
+                Report.table
+                    [
+                        "Relations"
+                        "Resolved"
+                        "Unresolved"
+                        "…id-like"
+                        "…paths"
+                        "…other (INPUT-*, commits, prose)"
+                    ]
+                    [
+                        [
+                            string res.Relations
+                            string res.Resolved
+                            string res.Unresolved
+                            string res.UnresolvedIdLike
+                            string res.UnresolvedPaths
+                            string res.UnresolvedOther
+                        ]
+                    ]
+            ]
+
+    Report.json
+        out
+        "compiler.json"
+        {|
+            Timings = timings
+            TimingsAll = timingsAll
+            Mutations = muts
+            Optimisation = opt
+            Lossless = loss
+            Resolution = res
+        |}
+
+    Report.text out "compiler.md" (md + "\n")
+    printfn "compiler: done"
 
 [<EntryPoint>]
 let main argv =
@@ -493,6 +628,7 @@ let main argv =
         | "dependencies" -> dependencies repoRoot root out
         | "trials" -> prepareTrials root out families
         | "ablation" -> ablation root out families
+        | "compiler" -> compilerBench root out families
         | "score-trials" -> scoreTrials root out
         | other -> eprintfn "unknown command %s" other
 

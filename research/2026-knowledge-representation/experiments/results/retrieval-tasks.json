@@ -343,192 +343,192 @@
   },
   {
     "Gold": [
-      "praxis:EV-ROS-2026-A015"
+      "praxis:EV-ROS-2026-A014"
     ],
-    "Id": "lookup:praxis:EV-ROS-2026-A015",
+    "Id": "lookup:praxis:EV-ROS-2026-A014",
     "Kind": "lookup-by-id",
-    "Query": "EV-ROS-2026-A015",
-    "Target": "praxis:EV-ROS-2026-A015"
+    "Query": "EV-ROS-2026-A014",
+    "Target": "praxis:EV-ROS-2026-A014"
   },
   {
     "Gold": [
-      "praxis:EV-ROS-2026-A037"
+      "praxis:EV-ROS-2026-A036"
     ],
-    "Id": "lookup:praxis:EV-ROS-2026-A037",
+    "Id": "lookup:praxis:EV-ROS-2026-A036",
     "Kind": "lookup-by-id",
-    "Query": "EV-ROS-2026-A037",
-    "Target": "praxis:EV-ROS-2026-A037"
+    "Query": "EV-ROS-2026-A036",
+    "Target": "praxis:EV-ROS-2026-A036"
   },
   {
     "Gold": [
-      "praxis:EV-ROS-2026-A047"
+      "praxis:EV-ROS-2026-A046"
     ],
-    "Id": "lookup:praxis:EV-ROS-2026-A047",
+    "Id": "lookup:praxis:EV-ROS-2026-A046",
     "Kind": "lookup-by-id",
-    "Query": "EV-ROS-2026-A047",
-    "Target": "praxis:EV-ROS-2026-A047"
+    "Query": "EV-ROS-2026-A046",
+    "Target": "praxis:EV-ROS-2026-A046"
   },
   {
     "Gold": [
-      "praxis:EV-ROS-2026-A057"
+      "praxis:EV-ROS-2026-A056"
     ],
-    "Id": "lookup:praxis:EV-ROS-2026-A057",
+    "Id": "lookup:praxis:EV-ROS-2026-A056",
     "Kind": "lookup-by-id",
-    "Query": "EV-ROS-2026-A057",
-    "Target": "praxis:EV-ROS-2026-A057"
+    "Query": "EV-ROS-2026-A056",
+    "Target": "praxis:EV-ROS-2026-A056"
   },
   {
     "Gold": [
-      "praxis:EV-ROS-2026-A069"
+      "praxis:EV-ROS-2026-A068"
     ],
-    "Id": "lookup:praxis:EV-ROS-2026-A069",
+    "Id": "lookup:praxis:EV-ROS-2026-A068",
     "Kind": "lookup-by-id",
-    "Query": "EV-ROS-2026-A069",
-    "Target": "praxis:EV-ROS-2026-A069"
+    "Query": "EV-ROS-2026-A068",
+    "Target": "praxis:EV-ROS-2026-A068"
   },
   {
     "Gold": [
-      "praxis:EX-ROS-2026-A024"
+      "praxis:EX-ROS-2026-A022"
     ],
-    "Id": "lookup:praxis:EX-ROS-2026-A024",
+    "Id": "lookup:praxis:EX-ROS-2026-A022",
     "Kind": "lookup-by-id",
-    "Query": "EX-ROS-2026-A024",
-    "Target": "praxis:EX-ROS-2026-A024"
+    "Query": "EX-ROS-2026-A022",
+    "Target": "praxis:EX-ROS-2026-A022"
   },
   {
     "Gold": [
-      "praxis:HY-ROS-2026-A021"
+      "praxis:GV-START-001"
     ],
-    "Id": "lookup:praxis:HY-ROS-2026-A021",
+    "Id": "lookup:praxis:GV-START-001",
     "Kind": "lookup-by-id",
-    "Query": "HY-ROS-2026-A021",
-    "Target": "praxis:HY-ROS-2026-A021"
+    "Query": "GV-START-001",
+    "Target": "praxis:GV-START-001"
   },
   {
     "Gold": [
-      "praxis:JR-FE-2026-B002"
+      "praxis:HY-ROS-2026-A029"
     ],
-    "Id": "lookup:praxis:JR-FE-2026-B002",
+    "Id": "lookup:praxis:HY-ROS-2026-A029",
     "Kind": "lookup-by-id",
-    "Query": "JR-FE-2026-B002",
-    "Target": "praxis:JR-FE-2026-B002"
+    "Query": "HY-ROS-2026-A029",
+    "Target": "praxis:HY-ROS-2026-A029"
   },
   {
     "Gold": [
-      "praxis:RP-ROS-2026-A013"
+      "praxis:RP-RFA-2026-001"
     ],
-    "Id": "lookup:praxis:RP-ROS-2026-A013",
+    "Id": "lookup:praxis:RP-RFA-2026-001",
     "Kind": "lookup-by-id",
-    "Query": "RP-ROS-2026-A013",
-    "Target": "praxis:RP-ROS-2026-A013"
+    "Query": "RP-RFA-2026-001",
+    "Target": "praxis:RP-RFA-2026-001"
   },
   {
     "Gold": [
-      "praxis:RQ-ROS-2026-A007"
+      "praxis:RQ-ROS-2026-A005"
     ],
-    "Id": "lookup:praxis:RQ-ROS-2026-A007",
+    "Id": "lookup:praxis:RQ-ROS-2026-A005",
     "Kind": "lookup-by-id",
-    "Query": "RQ-ROS-2026-A007",
-    "Target": "praxis:RQ-ROS-2026-A007"
+    "Query": "RQ-ROS-2026-A005",
+    "Target": "praxis:RQ-ROS-2026-A005"
   },
   {
     "Gold": [
-      "praxis:RQ-ROS-2026-A017"
+      "praxis:RQ-ROS-2026-A015"
     ],
-    "Id": "lookup:praxis:RQ-ROS-2026-A017",
+    "Id": "lookup:praxis:RQ-ROS-2026-A015",
     "Kind": "lookup-by-id",
-    "Query": "RQ-ROS-2026-A017",
-    "Target": "praxis:RQ-ROS-2026-A017"
+    "Query": "RQ-ROS-2026-A015",
+    "Target": "praxis:RQ-ROS-2026-A015"
   },
   {
     "Gold": [
-      "praxis:RQ-ROS-2026-A027"
+      "praxis:RQ-ROS-2026-A025"
     ],
-    "Id": "lookup:praxis:RQ-ROS-2026-A027",
+    "Id": "lookup:praxis:RQ-ROS-2026-A025",
     "Kind": "lookup-by-id",
-    "Query": "RQ-ROS-2026-A027",
-    "Target": "praxis:RQ-ROS-2026-A027"
+    "Query": "RQ-ROS-2026-A025",
+    "Target": "praxis:RQ-ROS-2026-A025"
   },
   {
     "Gold": [
-      "praxis:RQ-ROS-2026-A037"
+      "praxis:RQ-ROS-2026-A035"
     ],
-    "Id": "lookup:praxis:RQ-ROS-2026-A037",
+    "Id": "lookup:praxis:RQ-ROS-2026-A035",
     "Kind": "lookup-by-id",
-    "Query": "RQ-ROS-2026-A037",
-    "Target": "praxis:RQ-ROS-2026-A037"
+    "Query": "RQ-ROS-2026-A035",
+    "Target": "praxis:RQ-ROS-2026-A035"
   },
   {
     "Gold": [
-      "praxis:SDE-METHOD-005"
+      "praxis:SDE-METHOD-003"
     ],
-    "Id": "lookup:praxis:SDE-METHOD-005",
+    "Id": "lookup:praxis:SDE-METHOD-003",
     "Kind": "lookup-by-id",
-    "Query": "SDE-METHOD-005",
-    "Target": "praxis:SDE-METHOD-005"
+    "Query": "SDE-METHOD-003",
+    "Target": "praxis:SDE-METHOD-003"
   },
   {
     "Gold": [
-      "signal:DF-SIGNAL-2026-0008"
+      "signal:DF-SIGNAL-2026-0006"
     ],
-    "Id": "lookup:signal:DF-SIGNAL-2026-0008",
+    "Id": "lookup:signal:DF-SIGNAL-2026-0006",
     "Kind": "lookup-by-id",
-    "Query": "DF-SIGNAL-2026-0008",
-    "Target": "signal:DF-SIGNAL-2026-0008"
+    "Query": "DF-SIGNAL-2026-0006",
+    "Target": "signal:DF-SIGNAL-2026-0006"
   },
   {
     "Gold": [
-      "signal:DF-SIGNAL-2026-0018"
+      "signal:DF-SIGNAL-2026-0016"
     ],
-    "Id": "lookup:signal:DF-SIGNAL-2026-0018",
+    "Id": "lookup:signal:DF-SIGNAL-2026-0016",
     "Kind": "lookup-by-id",
-    "Query": "DF-SIGNAL-2026-0018",
-    "Target": "signal:DF-SIGNAL-2026-0018"
+    "Query": "DF-SIGNAL-2026-0016",
+    "Target": "signal:DF-SIGNAL-2026-0016"
   },
   {
     "Gold": [
-      "signal:DF-SIGNAL-FND-2026-0001"
+      "signal:DF-SIGNAL-2026-0026"
     ],
-    "Id": "lookup:signal:DF-SIGNAL-FND-2026-0001",
+    "Id": "lookup:signal:DF-SIGNAL-2026-0026",
     "Kind": "lookup-by-id",
-    "Query": "DF-SIGNAL-FND-2026-0001",
-    "Target": "signal:DF-SIGNAL-FND-2026-0001"
+    "Query": "DF-SIGNAL-2026-0026",
+    "Target": "signal:DF-SIGNAL-2026-0026"
   },
   {
     "Gold": [
-      "signal:PROJECT-CHARTER-echelon-signal"
+      "signal:GV-START-001"
     ],
-    "Id": "lookup:signal:PROJECT-CHARTER-echelon-signal",
+    "Id": "lookup:signal:GV-START-001",
     "Kind": "lookup-by-id",
-    "Query": "PROJECT-CHARTER-echelon-signal",
-    "Target": "signal:PROJECT-CHARTER-echelon-signal"
+    "Query": "GV-START-001",
+    "Target": "signal:GV-START-001"
   },
   {
     "Gold": [
-      "signal:SDE-METHOD-004"
+      "signal:SDE-METHOD-002"
     ],
-    "Id": "lookup:signal:SDE-METHOD-004",
+    "Id": "lookup:signal:SDE-METHOD-002",
     "Kind": "lookup-by-id",
-    "Query": "SDE-METHOD-004",
-    "Target": "signal:SDE-METHOD-004"
+    "Query": "SDE-METHOD-002",
+    "Target": "signal:SDE-METHOD-002"
   },
   {
     "Gold": [
-      "signal:WI-0006"
+      "signal:WI-0004"
     ],
-    "Id": "lookup:signal:WI-0006",
+    "Id": "lookup:signal:WI-0004",
     "Kind": "lookup-by-id",
-    "Query": "WI-0006",
-    "Target": "signal:WI-0006"
+    "Query": "WI-0004",
+    "Target": "signal:WI-0004"
   },
   {
     "Gold": [
-      "signal:WI-0016"
+      "signal:WI-0014"
     ],
-    "Id": "lookup:signal:WI-0016",
+    "Id": "lookup:signal:WI-0014",
     "Kind": "lookup-by-id",
-    "Query": "WI-0016",
-    "Target": "signal:WI-0016"
+    "Query": "WI-0014",
+    "Target": "signal:WI-0014"
   },
   {
     "Gold": [
@@ -874,192 +874,192 @@
   },
   {
     "Gold": [
-      "praxis:EV-ROS-2026-A015"
+      "praxis:EV-ROS-2026-A014"
     ],
-    "Id": "title:praxis:EV-ROS-2026-A015",
+    "Id": "title:praxis:EV-ROS-2026-A014",
     "Kind": "lookup-by-description",
-    "Query": "ROS operational architecture inventory and migration baseline",
-    "Target": "praxis:EV-ROS-2026-A015"
+    "Query": "Iterative telemetry architecture challenge and reliability revisions",
+    "Target": "praxis:EV-ROS-2026-A014"
   },
   {
     "Gold": [
-      "praxis:EV-ROS-2026-A037"
+      "praxis:EV-ROS-2026-A036"
     ],
-    "Id": "title:praxis:EV-ROS-2026-A037",
+    "Id": "title:praxis:EV-ROS-2026-A036",
     "Kind": "lookup-by-description",
-    "Query": "Production Git consumer consolidation results",
-    "Target": "praxis:EV-ROS-2026-A037"
+    "Query": "Telemetry execution-link recovery results",
+    "Target": "praxis:EV-ROS-2026-A036"
   },
   {
     "Gold": [
-      "praxis:EV-ROS-2026-A047"
+      "praxis:EV-ROS-2026-A046"
     ],
-    "Id": "title:praxis:EV-ROS-2026-A047",
+    "Id": "title:praxis:EV-ROS-2026-A046",
     "Kind": "lookup-by-description",
-    "Query": "F# shadow CLI versus production ./ros command-surface parity inventory (closure)",
-    "Target": "praxis:EV-ROS-2026-A047"
+    "Query": "F# shadow CLI versus production ./ros command-surface parity inventory (second re-run)",
+    "Target": "praxis:EV-ROS-2026-A046"
   },
   {
     "Gold": [
-      "praxis:EV-ROS-2026-A057"
+      "praxis:EV-ROS-2026-A056"
     ],
-    "Id": "title:praxis:EV-ROS-2026-A057",
+    "Id": "title:praxis:EV-ROS-2026-A056",
     "Kind": "lookup-by-description",
-    "Query": "Cross-provider continuation attempt 1: an OpenAI successor reconstructed the handoff from repository state but could not invoke Praxis",
-    "Target": "praxis:EV-ROS-2026-A057"
+    "Query": "Live proof: a runtime-less successor continues active work with praxis.remote 1.3 work.continue on Praxis 3.6.0",
+    "Target": "praxis:EV-ROS-2026-A056"
   },
   {
     "Gold": [
-      "praxis:EV-ROS-2026-A069"
+      "praxis:EV-ROS-2026-A068"
     ],
-    "Id": "title:praxis:EV-ROS-2026-A069",
+    "Id": "title:praxis:EV-ROS-2026-A068",
     "Kind": "lookup-by-description",
-    "Query": "First-class step-level execution telemetry implementation and validation",
-    "Target": "praxis:EV-ROS-2026-A069"
+    "Query": "Runtime-free step reconciliation and final F# validation",
+    "Target": "praxis:EV-ROS-2026-A068"
   },
   {
     "Gold": [
-      "praxis:EX-ROS-2026-A024"
+      "praxis:EX-ROS-2026-A022"
     ],
-    "Id": "title:praxis:EX-ROS-2026-A024",
+    "Id": "title:praxis:EX-ROS-2026-A022",
     "Kind": "lookup-by-description",
-    "Query": "Claude context continuity: continuous session versus code-only resets versus structured handoffs",
-    "Target": "praxis:EX-ROS-2026-A024"
+    "Query": "Experiment",
+    "Target": "praxis:EX-ROS-2026-A022"
   },
   {
     "Gold": [
-      "praxis:HY-ROS-2026-A021"
+      "praxis:GV-START-001"
     ],
-    "Id": "title:praxis:HY-ROS-2026-A021",
+    "Id": "title:praxis:GV-START-001",
     "Kind": "lookup-by-description",
-    "Query": "Typed semantic authority reduces duplicated ROS rule sites",
-    "Target": "praxis:HY-ROS-2026-A021"
+    "Query": "Agent Startup Guide",
+    "Target": "praxis:GV-START-001"
   },
   {
     "Gold": [
-      "praxis:JR-FE-2026-B002"
+      "praxis:HY-ROS-2026-A029"
     ],
-    "Id": "title:praxis:JR-FE-2026-B002",
+    "Id": "title:praxis:HY-ROS-2026-A029",
     "Kind": "lookup-by-description",
-    "Query": "Framework Engineering boundary research journal",
-    "Target": "praxis:JR-FE-2026-B002"
+    "Query": "Work affinity moderates the value of shared reasoning context",
+    "Target": "praxis:HY-ROS-2026-A029"
   },
   {
     "Gold": [
-      "praxis:RP-ROS-2026-A013"
+      "praxis:RP-RFA-2026-001"
     ],
-    "Id": "title:praxis:RP-ROS-2026-A013",
+    "Id": "title:praxis:RP-RFA-2026-001",
     "Kind": "lookup-by-description",
-    "Query": "Provider-neutral adaptive development telemetry implementation and handoff",
-    "Target": "praxis:RP-ROS-2026-A013"
+    "Query": "Research Frontier Analysis",
+    "Target": "praxis:RP-RFA-2026-001"
   },
   {
     "Gold": [
-      "praxis:RQ-ROS-2026-A007"
+      "praxis:RQ-ROS-2026-A005"
     ],
-    "Id": "title:praxis:RQ-ROS-2026-A007",
+    "Id": "title:praxis:RQ-ROS-2026-A005",
     "Kind": "lookup-by-description",
-    "Query": "Validation enforces provenance for new work and stays compatible with legacy repositories",
-    "Target": "praxis:RQ-ROS-2026-A007"
+    "Query": "Requirements are first-class records whose creator and modifiers are attributed",
+    "Target": "praxis:RQ-ROS-2026-A005"
   },
   {
     "Gold": [
-      "praxis:RQ-ROS-2026-A017"
+      "praxis:RQ-ROS-2026-A015"
     ],
-    "Id": "title:praxis:RQ-ROS-2026-A017",
+    "Id": "title:praxis:RQ-ROS-2026-A015",
     "Kind": "lookup-by-description",
-    "Query": "Step evidence uses references with contribution-safe provenance",
-    "Target": "praxis:RQ-ROS-2026-A017"
+    "Query": "Step usage telemetry preserves availability and derivation",
+    "Target": "praxis:RQ-ROS-2026-A015"
   },
   {
     "Gold": [
-      "praxis:RQ-ROS-2026-A027"
+      "praxis:RQ-ROS-2026-A025"
     ],
-    "Id": "title:praxis:RQ-ROS-2026-A027",
+    "Id": "title:praxis:RQ-ROS-2026-A025",
     "Kind": "lookup-by-description",
-    "Query": "Step lifecycle and evidence have deterministic CLI inspection",
-    "Target": "praxis:RQ-ROS-2026-A027"
+    "Query": "Praxis is the canonical product and CLI name; ros is compatibility only",
+    "Target": "praxis:RQ-ROS-2026-A025"
   },
   {
     "Gold": [
-      "praxis:RQ-ROS-2026-A037"
+      "praxis:RQ-ROS-2026-A035"
     ],
-    "Id": "title:praxis:RQ-ROS-2026-A037",
+    "Id": "title:praxis:RQ-ROS-2026-A035",
     "Kind": "lookup-by-description",
-    "Query": "Stable requirement IDs and a deterministic verification manifest",
-    "Target": "praxis:RQ-ROS-2026-A037"
+    "Query": "Tamper-evident requirements preservation and authenticated approvals",
+    "Target": "praxis:RQ-ROS-2026-A035"
   },
   {
     "Gold": [
-      "praxis:SDE-METHOD-005"
+      "praxis:SDE-METHOD-003"
     ],
-    "Id": "title:praxis:SDE-METHOD-005",
+    "Id": "title:praxis:SDE-METHOD-003",
     "Kind": "lookup-by-description",
-    "Query": "Engineering Metrics",
-    "Target": "praxis:SDE-METHOD-005"
+    "Query": "Verification Method",
+    "Target": "praxis:SDE-METHOD-003"
   },
   {
     "Gold": [
-      "signal:DF-SIGNAL-2026-0008"
+      "signal:DF-SIGNAL-2026-0006"
     ],
-    "Id": "title:signal:DF-SIGNAL-2026-0008",
+    "Id": "title:signal:DF-SIGNAL-2026-0006",
     "Kind": "lookup-by-description",
-    "Query": "Timers and question banks are optional template fields, written only when present, so existing templates keep their exact bytes and hashes",
-    "Target": "signal:DF-SIGNAL-2026-0008"
+    "Query": "Respondent links carry an invitation\u0027s locale and expiry in a new link format 2, inside the link\u0027s integrity check; format 1 links are unchanged",
+    "Target": "signal:DF-SIGNAL-2026-0006"
   },
   {
     "Gold": [
-      "signal:DF-SIGNAL-2026-0018"
+      "signal:DF-SIGNAL-2026-0016"
     ],
-    "Id": "title:signal:DF-SIGNAL-2026-0018",
+    "Id": "title:signal:DF-SIGNAL-2026-0016",
     "Kind": "lookup-by-description",
-    "Query": "Unfinished compound input is held on the survey page, not answered and not in the link, so the respondent link always equals the response; no link-format change",
-    "Target": "signal:DF-SIGNAL-2026-0018"
+    "Query": "The survey page runs on real WebKit (iPhone) and Firefox in a scheduled and manual workflow, outside the per-pull-request checks, with bounded apt",
+    "Target": "signal:DF-SIGNAL-2026-0016"
   },
   {
     "Gold": [
-      "signal:DF-SIGNAL-FND-2026-0001"
+      "signal:DF-SIGNAL-2026-0026"
     ],
-    "Id": "title:signal:DF-SIGNAL-FND-2026-0001",
+    "Id": "title:signal:DF-SIGNAL-2026-0026",
     "Kind": "lookup-by-description",
-    "Query": "Aegis, Forma and Folio are declared not yet applicable until Signal has the boundary each one governs",
-    "Target": "signal:DF-SIGNAL-FND-2026-0001"
+    "Query": "The console authors scoring by named built-in choices that compile to the engine\u0027s scorer algebra; advanced and custom scoring are offered separately",
+    "Target": "signal:DF-SIGNAL-2026-0026"
   },
   {
     "Gold": [
-      "signal:PROJECT-CHARTER-echelon-signal"
+      "signal:GV-START-001"
     ],
-    "Id": "title:signal:PROJECT-CHARTER-echelon-signal",
+    "Id": "title:signal:GV-START-001",
     "Kind": "lookup-by-description",
-    "Query": "Echelon Signal Project Charter",
-    "Target": "signal:PROJECT-CHARTER-echelon-signal"
+    "Query": "Agent Startup Guide",
+    "Target": "signal:GV-START-001"
   },
   {
     "Gold": [
-      "signal:SDE-METHOD-004"
+      "signal:SDE-METHOD-002"
     ],
-    "Id": "title:signal:SDE-METHOD-004",
+    "Id": "title:signal:SDE-METHOD-002",
     "Kind": "lookup-by-description",
-    "Query": "Agent Execution Rules",
-    "Target": "signal:SDE-METHOD-004"
+    "Query": "Change Classification",
+    "Target": "signal:SDE-METHOD-002"
   },
   {
     "Gold": [
-      "signal:WI-0006"
+      "signal:WI-0004"
     ],
-    "Id": "title:signal:WI-0006",
+    "Id": "title:signal:WI-0004",
     "Kind": "lookup-by-description",
-    "Query": "WI-0006: Deterministic rules, validation, flow, completion, and recommendations",
-    "Target": "signal:WI-0006"
+    "Query": "WI-0004: Answer model, URL encoding, and live respondent lifecycle",
+    "Target": "signal:WI-0004"
   },
   {
     "Gold": [
-      "signal:WI-0016"
+      "signal:WI-0014"
     ],
-    "Id": "title:signal:WI-0016",
+    "Id": "title:signal:WI-0014",
     "Kind": "lookup-by-description",
-    "Query": "WI-0016: Report builder, snapshots, exports, configuration packages, and policy packs",
-    "Target": "signal:WI-0016"
+    "Query": "WI-0014: Administrator analytics, comparisons, lineage, and dependency invalidation",
+    "Target": "signal:WI-0014"
   },
   {
     "Gold": [
@@ -2637,6 +2637,16 @@
     "Kind": "change-impact",
     "Query": "EX-ROS-2026-A021",
     "Target": "praxis:EX-ROS-2026-A021"
+  },
+  {
+    "Gold": [
+      "praxis:EV-ROS-2026-A072",
+      "praxis:EX-ROS-2026-A023"
+    ],
+    "Id": "impact:praxis:EX-ROS-2026-A022",
+    "Kind": "change-impact",
+    "Query": "EX-ROS-2026-A022",
+    "Target": "praxis:EX-ROS-2026-A022"
   },
   {
     "Gold": [

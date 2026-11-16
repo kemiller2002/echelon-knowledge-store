@@ -4,20 +4,20 @@
     "TaskKind": "lookup-by-id",
     "Tasks": 59,
     "Recall": 1,
-    "Precision": 0.26571262949467045,
+    "Precision": 0.2660010173719047,
     "Complete": 59,
-    "MeanTokens": 23787.762711864405,
-    "MeanToolCalls": 9.169491525423728
+    "MeanTokens": 25218.525423728814,
+    "MeanToolCalls": 9.254237288135593
   },
   {
     "Strategy": "A1 grep \u002B whole files (1 hop)",
     "TaskKind": "lookup-by-description",
     "Tasks": 59,
     "Recall": 1,
-    "Precision": 0.7285310734463277,
+    "Precision": 0.6811533951604308,
     "Complete": 59,
-    "MeanTokens": 7737.864406779661,
-    "MeanToolCalls": 5.4576271186440675
+    "MeanTokens": 20566.57627118644,
+    "MeanToolCalls": 9.338983050847459
   },
   {
     "Strategy": "A1 grep \u002B whole files (1 hop)",
@@ -32,12 +32,12 @@
   {
     "Strategy": "A1 grep \u002B whole files (1 hop)",
     "TaskKind": "change-impact",
-    "Tasks": 66,
-    "Recall": 0.46813572289548655,
-    "Precision": 0.3324407247734939,
-    "Complete": 16,
-    "MeanTokens": 41728.681818181816,
-    "MeanToolCalls": 11.545454545454545
+    "Tasks": 67,
+    "Recall": 0.4760739956880912,
+    "Precision": 0.33121026619478505,
+    "Complete": 17,
+    "MeanTokens": 41439.41791044776,
+    "MeanToolCalls": 11.507462686567164
   },
   {
     "Strategy": "A1 grep \u002B whole files (1 hop)",
@@ -54,20 +54,20 @@
     "TaskKind": "lookup-by-id",
     "Tasks": 59,
     "Recall": 1,
-    "Precision": 0.18099573664717747,
+    "Precision": 0.188195764930456,
     "Complete": 59,
-    "MeanTokens": 318469.6101694915,
-    "MeanToolCalls": 147.5593220338983
+    "MeanTokens": 327712.593220339,
+    "MeanToolCalls": 150.6949152542373
   },
   {
     "Strategy": "A2 grep \u002B whole files (chase 6 hops)",
     "TaskKind": "lookup-by-description",
     "Tasks": 59,
     "Recall": 1,
-    "Precision": 0.7181675257759981,
+    "Precision": 0.6691200966348501,
     "Complete": 59,
-    "MeanTokens": 94089.54237288136,
-    "MeanToolCalls": 48.186440677966104
+    "MeanTokens": 131806.50847457626,
+    "MeanToolCalls": 67.23728813559322
   },
   {
     "Strategy": "A2 grep \u002B whole files (chase 6 hops)",
@@ -77,17 +77,17 @@
     "Precision": 0.05948443551290601,
     "Complete": 50,
     "MeanTokens": 495110.01785714284,
-    "MeanToolCalls": 213
+    "MeanToolCalls": 213.82142857142858
   },
   {
     "Strategy": "A2 grep \u002B whole files (chase 6 hops)",
     "TaskKind": "change-impact",
-    "Tasks": 66,
-    "Recall": 0.826357733175915,
-    "Precision": 0.141195541433478,
-    "Complete": 45,
-    "MeanTokens": 485172.36363636365,
-    "MeanToolCalls": 201.36363636363637
+    "Tasks": 67,
+    "Recall": 0.828949408800155,
+    "Precision": 0.1392099850733682,
+    "Complete": 46,
+    "MeanTokens": 491059.6417910448,
+    "MeanToolCalls": 204.59701492537314
   },
   {
     "Strategy": "A2 grep \u002B whole files (chase 6 hops)",
@@ -97,16 +97,16 @@
     "Precision": 0.026903867607649113,
     "Complete": 12,
     "MeanTokens": 605835.3333333334,
-    "MeanToolCalls": 270.0833333333333
+    "MeanToolCalls": 271.1666666666667
   },
   {
     "Strategy": "A3 target file only",
     "TaskKind": "lookup-by-id",
     "Tasks": 59,
     "Recall": 1,
-    "Precision": 0.4927966101694914,
+    "Precision": 0.5234866828087166,
     "Complete": 59,
-    "MeanTokens": 1545.2203389830509,
+    "MeanTokens": 1680.864406779661,
     "MeanToolCalls": 1
   },
   {
@@ -114,9 +114,9 @@
     "TaskKind": "lookup-by-description",
     "Tasks": 59,
     "Recall": 1,
-    "Precision": 0.4927966101694914,
+    "Precision": 0.5234866828087166,
     "Complete": 59,
-    "MeanTokens": 1545.2203389830509,
+    "MeanTokens": 1680.864406779661,
     "MeanToolCalls": 1
   },
   {
@@ -124,7 +124,7 @@
     "TaskKind": "find-evidence",
     "Tasks": 56,
     "Recall": 0.6633928571428571,
-    "Precision": 0.2910572562358277,
+    "Precision": 0.29040790558647706,
     "Complete": 34,
     "MeanTokens": 1795.6785714285713,
     "MeanToolCalls": 1
@@ -132,11 +132,11 @@
   {
     "Strategy": "A3 target file only",
     "TaskKind": "change-impact",
-    "Tasks": 66,
-    "Recall": 0.4222845545705021,
-    "Precision": 0.4368025493025493,
+    "Tasks": 67,
+    "Recall": 0.4159818000246738,
+    "Precision": 0.42825752191423827,
     "Complete": 15,
-    "MeanTokens": 1916.7424242424242,
+    "MeanTokens": 1940.6119402985075,
     "MeanToolCalls": 1
   },
   {
@@ -153,20 +153,20 @@
     "Strategy": "A4 BM25 excerpts (k=10)",
     "TaskKind": "lookup-by-id",
     "Tasks": 59,
-    "Recall": 0.2033898305084746,
-    "Precision": 0.09451170298627926,
-    "Complete": 12,
-    "MeanTokens": 702.7966101694915,
+    "Recall": 0.22033898305084745,
+    "Precision": 0.10315442561205272,
+    "Complete": 13,
+    "MeanTokens": 860.457627118644,
     "MeanToolCalls": 1
   },
   {
     "Strategy": "A4 BM25 excerpts (k=10)",
     "TaskKind": "lookup-by-description",
     "Tasks": 59,
-    "Recall": 0.9661016949152542,
-    "Precision": 0.09661016949152536,
-    "Complete": 57,
-    "MeanTokens": 1687.2542372881355,
+    "Recall": 0.9491525423728814,
+    "Precision": 0.09491525423728807,
+    "Complete": 56,
+    "MeanTokens": 1678.3559322033898,
     "MeanToolCalls": 1
   },
   {
@@ -176,17 +176,17 @@
     "Recall": 0.29345238095238096,
     "Precision": 0.16517857142857142,
     "Complete": 11,
-    "MeanTokens": 974.2321428571429,
+    "MeanTokens": 977.2678571428571,
     "MeanToolCalls": 1
   },
   {
     "Strategy": "A4 BM25 excerpts (k=10)",
     "TaskKind": "change-impact",
-    "Tasks": 66,
-    "Recall": 0.24195276397375956,
-    "Precision": 0.31931818181818183,
-    "Complete": 5,
-    "MeanTokens": 1049.878787878788,
+    "Tasks": 67,
+    "Recall": 0.2532669018248974,
+    "Precision": 0.3146884624496565,
+    "Complete": 6,
+    "MeanTokens": 1085.597014925373,
     "MeanToolCalls": 1
   },
   {
@@ -206,7 +206,7 @@
     "Recall": 1,
     "Precision": 1,
     "Complete": 59,
-    "MeanTokens": 110.9322033898305,
+    "MeanTokens": 106.72881355932203,
     "MeanToolCalls": 1
   },
   {
@@ -232,11 +232,11 @@
   {
     "Strategy": "F1 typed graph query (cards)",
     "TaskKind": "change-impact",
-    "Tasks": 66,
+    "Tasks": 67,
     "Recall": 1,
     "Precision": 1,
-    "Complete": 66,
-    "MeanTokens": 1677.2727272727273,
+    "Complete": 67,
+    "MeanTokens": 1655.8955223880596,
     "MeanToolCalls": 1
   },
   {
@@ -256,17 +256,17 @@
     "Recall": 1,
     "Precision": 1,
     "Complete": 59,
-    "MeanTokens": 110.9322033898305,
+    "MeanTokens": 106.72881355932203,
     "MeanToolCalls": 1
   },
   {
     "Strategy": "F2 hybrid BM25 \u2192 graph (cards)",
     "TaskKind": "lookup-by-description",
     "Tasks": 59,
-    "Recall": 0.7288135593220338,
-    "Precision": 0.24293785310734475,
-    "Complete": 43,
-    "MeanTokens": 329.59322033898303,
+    "Recall": 0.6779661016949152,
+    "Precision": 0.22598870056497186,
+    "Complete": 40,
+    "MeanTokens": 324.47457627118644,
     "MeanToolCalls": 4
   },
   {
@@ -282,11 +282,11 @@
   {
     "Strategy": "F2 hybrid BM25 \u2192 graph (cards)",
     "TaskKind": "change-impact",
-    "Tasks": 66,
+    "Tasks": 67,
     "Recall": 1,
     "Precision": 1,
-    "Complete": 66,
-    "MeanTokens": 1677.2727272727273,
+    "Complete": 67,
+    "MeanTokens": 1655.8955223880596,
     "MeanToolCalls": 1
   },
   {

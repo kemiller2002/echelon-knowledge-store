@@ -5,8 +5,9 @@ open System.IO
 open YamlDotNet.Core
 open YamlDotNet.Core.Events
 
-/// Inert YAML value. Produced by a data-only reader: no type activation,
-/// no tags, no anchors or aliases (rejected to rule out alias-expansion attacks).
+/// Inert YAML value. Produced by a data-only reader: no type activation;
+/// explicit tags, anchors and aliases are rejected (alias-expansion attacks,
+/// type confusion). Malformed input yields an error, never an exception.
 type Yaml =
     | YNull
     | YScalar of string
@@ -33,13 +34,17 @@ module Yaml =
                     | null -> loop count acc
                     | :? AnchorAlias -> Error "YAML aliases are not allowed"
                     | :? NodeEvent as n when not n.Anchor.IsEmpty -> Error "YAML anchors are not allowed"
+                    | :? NodeEvent as n when not n.Tag.IsEmpty && not n.Tag.IsNonSpecific ->
+                        Error $"YAML tags are not allowed ({n.Tag.Value})"
                     | e -> loop (count + 1) (e :: acc)
                 else
                     Ok(List.rev acc)
 
             loop 0 []
-        with :? YamlException as ex ->
-            Error $"YAML syntax error: {ex.Message}"
+        with
+        | :? YamlException as ex -> Error $"YAML syntax error: {ex.Message}"
+        // YamlDotNet raises InvalidOperationException for some malformed inputs.
+        | :? InvalidOperationException as ex -> Error $"YAML syntax error: {ex.Message}"
 
     let private scalarValue (s: Scalar) =
         match s.Style, s.Value with
@@ -63,6 +68,7 @@ module Yaml =
     and private pairs acc events =
         match events with
         | (:? MappingEnd) :: rest -> Ok(YMap(List.rev acc), rest)
+        | (:? Scalar as k) :: _ when acc |> List.exists (fst >> (=) k.Value) -> Error $"duplicate key '{k.Value}'"
         | (:? Scalar as k) :: rest -> node rest |> Result.bind (fun (v, rest') -> pairs ((k.Value, v) :: acc) rest')
         | _ -> Error "only scalar mapping keys are supported"
 

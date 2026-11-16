@@ -140,4 +140,17 @@ Summary: 3 of the 7 requested invariants (conclusion-needs-evidence, requirement
 
 ## Measured results
 
-_Pending: see experiments/._
+Measured (`experiments/results/formats.md`, 568 records):
+
+* F# record source for full records: 921,924 tokens (1.00× original Markdown);
+  metadata only: 121,946 tokens, **+75% vs YAML front matter** (69,866) and the
+  most expensive format measured.
+* Writer implemented (`FSharpSource.fs`); no safe reader without the F# compiler's
+  parser, and evaluating the source would execute code.
+* Not trialled with agents as a corpus format (equivalent information to JSONL/DSL,
+  which scored 0.98–1.00).
+* Every gain of typing (strict per-kind invariants) was obtained **without**
+  storing knowledge as F#: `Strict.classify` derives the typed view from Markdown.
+  Coverage: 100% for most kinds, 64% of requirements, 73% of experiments.
+
+Verdict: F# as storage — REJECT. F# as schema, validator and compiler — ADOPT.

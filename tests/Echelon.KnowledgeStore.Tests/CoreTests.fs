@@ -99,3 +99,21 @@ let ``dependency cycles are detected`` () =
 let ``duplicate ids within a repository are blocking`` () =
     let vs = Validation.duplicateIds [ requirement; requirement ]
     Assert.Contains(vs, fun v -> v.Rule = "duplicate-id")
+
+[<Fact>]
+let ``malformed yaml is an error, not an exception`` () =
+    Assert.True(Yaml.parse "id: [\nb: 1" |> Result.isError)
+    Assert.True(FrontMatter.split "---\nid: [\nb: 1\n---\nx" |> Result.isError)
+
+[<Fact>]
+let ``yaml explicit tags are rejected`` () =
+    Assert.True(Yaml.parse "a: !!python/object:os.system 1" |> Result.isError)
+    Assert.True(Yaml.parse "a: !custom x" |> Result.isError)
+
+[<Fact>]
+let ``unquoted colon in title fails front matter parsing`` () =
+    // Real case from the corpus (praxis EX-ROS-2026-A022): invalid YAML must be reported.
+    Assert.True(
+        FrontMatter.split "---\nid: EX-1\ntitle: Affinity: by mode\n---\nx"
+        |> Result.isError
+    )

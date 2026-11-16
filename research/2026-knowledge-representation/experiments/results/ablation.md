@@ -5,12 +5,12 @@
 | find-evidence | full typed system | 56 | 1.000 | 1.000 | 342.6 |
 | find-evidence | − inverse links (record's own links only) | 56 | 0.679 | 0.732 | 242.3 |
 | find-evidence | − cards (full bodies delivered) | 56 | 1.000 | 1.000 | 4408.2 |
-| change-impact | full typed system | 66 | 1.000 | 1.000 | 1677.3 |
-| change-impact | − transitive traversal (1 hop) | 66 | 0.489 | 1.000 | 410.6 |
-| change-impact | − inverse links | 66 | 0.909 | 1.000 | 1591.4 |
-| change-impact | − relation types (untyped neighbourhood, 6 hops) | 66 | 1.000 | 0.118 | 19860.3 |
-| change-impact | + prose mentions as edges | 66 | 1.000 | 0.257 | 8740.9 |
-| change-impact | − cards (full bodies delivered) | 66 | 1.000 | 1.000 | 14779.4 |
+| change-impact | full typed system | 67 | 1.000 | 1.000 | 1655.9 |
+| change-impact | − transitive traversal (1 hop) | 67 | 0.497 | 1.000 | 408.1 |
+| change-impact | − inverse links | 67 | 0.911 | 1.000 | 1571.2 |
+| change-impact | − relation types (untyped neighbourhood, 6 hops) | 67 | 1.000 | 0.116 | 20047.1 |
+| change-impact | + prose mentions as edges | 67 | 1.000 | 0.252 | 8881.1 |
+| change-impact | − cards (full bodies delivered) | 67 | 1.000 | 1.000 | 14710.1 |
 
 ## Strict per-kind types: share of real records representable
 
@@ -31,9 +31,9 @@
 
 | Repository | Document | Family | listed | actual | missing from doc | unknown ids in doc |
 | --- | --- | --- | --- | --- | --- | --- |
-| praxis | context/DECISIONS.md | DF-ROS-2026 | 3 | 52 | 49 | 0 |
+| praxis | context/DECISIONS.md | DF-ROS-2026 | 3 | 53 | 50 | 0 |
 | praxis | docs/migrations/fsharp/TRACEABILITY.md | EV-ROS-2026 | 5 | 50 | 45 | 0 |
-| praxis | docs/migrations/fsharp/TRACEABILITY.md | DF-ROS-2026 | 14 | 52 | 38 | 0 |
+| praxis | docs/migrations/fsharp/TRACEABILITY.md | DF-ROS-2026 | 14 | 53 | 39 | 0 |
 | fides | context/CURRENT-STATE.md | DF-FIDES-2026 | 7 | 16 | 9 | 0 |
 | mercatus | context/DECISIONS.md | DF-MERCATUS-FND-2026 | 3 | 4 | 1 | 0 |
 | fides | context/DECISIONS.md | DF-FIDES-2026 | 16 | 16 | 0 | 0 |
@@ -44,4 +44,22 @@ Documents compared: 6; with ≥1 missing record: 5; with ≥1 unknown id: 0.
 
 | Records | Index tokens | Compile ms | Deterministic (input order permuted) | Lines changed by one status edit |
 | --- | --- | --- | --- | --- |
-| 585 | 63021 | 63.3 | True | 1 |
+| 587 | 63305 | 60.9 | True | 1 |
+
+## Epistemic state of claims (hypotheses, theories): declared status vs evidence-derived standing
+
+| Repository | Kind | Declared status | Confidence | Evidence standing | Records |
+| --- | --- | --- | --- | --- | --- |
+| echelon-diagnostic-framework | hypothesis | active | low | unassessed | 6 |
+| forma | hypothesis | rejected | medium | refuted | 1 |
+| forma | hypothesis | supported | medium | supported | 1 |
+| percepta | hypothesis | active | very-low | unassessed | 2 |
+| percepta | hypothesis | supported | medium | supported | 2 |
+| percepta | hypothesis | supported | low | supported | 1 |
+| praxis | hypothesis | active | very-low | refuted | 1 |
+| praxis | hypothesis | active | very-low | supported | 1 |
+| praxis | hypothesis | active | low | supported | 1 |
+| praxis | hypothesis | active | very-low | unassessed | 1 |
+| praxis | hypothesis | proposed | very-low | contested | 1 |
+| praxis | hypothesis | proposed | very-low | supported | 2 |
+| praxis | hypothesis | supported | low | supported | 4 |

@@ -14,10 +14,12 @@
     <Compile Include="DependencyBench.fs" />
     <Compile Include="Trials.fs" />
     <Compile Include="AblationBench.fs" />
+    <Compile Include="CompilerBench.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/Echelon.KnowledgeStore.Core/Echelon.KnowledgeStore.Core.fsproj" />
+    <ProjectReference Include="../../src/Echelon.KnowledgeStore.Compiler/Echelon.KnowledgeStore.Compiler.fsproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ML.Tokenizers" Version="2.0.1" />

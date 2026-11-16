@@ -673,54 +673,6 @@
       "Severity": "Blocking"
     },
     {
-      "Detail": "related_documents \u2192 EX-ROS-2026-A022 not found",
-      "Record": "praxis:DF-ROS-2026-A054",
-      "Rule": "dangling-reference",
-      "Severity": "Blocking"
-    },
-    {
-      "Detail": "related_documents \u2192 EX-ROS-2026-A022 not found",
-      "Record": "praxis:EV-ROS-2026-A070",
-      "Rule": "dangling-reference",
-      "Severity": "Blocking"
-    },
-    {
-      "Detail": "derived_from \u2192 EX-ROS-2026-A022 not found",
-      "Record": "praxis:EV-ROS-2026-A072",
-      "Rule": "dangling-reference",
-      "Severity": "Blocking"
-    },
-    {
-      "Detail": "related_documents \u2192 EX-ROS-2026-A022 not found",
-      "Record": "praxis:EV-ROS-2026-A072",
-      "Rule": "dangling-reference",
-      "Severity": "Blocking"
-    },
-    {
-      "Detail": "derived_from \u2192 EX-ROS-2026-A022 not found",
-      "Record": "praxis:EX-ROS-2026-A023",
-      "Rule": "dangling-reference",
-      "Severity": "Blocking"
-    },
-    {
-      "Detail": "related_documents \u2192 EX-ROS-2026-A022 not found",
-      "Record": "praxis:EX-ROS-2026-A023",
-      "Rule": "dangling-reference",
-      "Severity": "Blocking"
-    },
-    {
-      "Detail": "related_documents \u2192 EX-ROS-2026-A022 not found",
-      "Record": "praxis:HY-ROS-2026-A028",
-      "Rule": "dangling-reference",
-      "Severity": "Blocking"
-    },
-    {
-      "Detail": "related_documents \u2192 EX-ROS-2026-A022 not found",
-      "Record": "praxis:HY-ROS-2026-A029",
-      "Rule": "dangling-reference",
-      "Severity": "Blocking"
-    },
-    {
       "Detail": "HY-FORMA-2026-0001 lists it as supports evidence but it does not declare supports HY-FORMA-2026-0001",
       "Record": "forma:EX-FORMA-2026-0001",
       "Rule": "evidence-link-asymmetry",
@@ -935,11 +887,6 @@
       "Severity": "Advisory"
     },
     {
-      "Count": 9,
-      "Rule": "dangling-reference",
-      "Severity": "Blocking"
-    },
-    {
       "Count": 7,
       "Rule": "requirement-without-acceptance",
       "Severity": "Advisory"
@@ -948,6 +895,11 @@
       "Count": 3,
       "Rule": "support-from-superseded-record",
       "Severity": "Advisory"
+    },
+    {
+      "Count": 1,
+      "Rule": "dangling-reference",
+      "Severity": "Blocking"
     },
     {
       "Count": 1,

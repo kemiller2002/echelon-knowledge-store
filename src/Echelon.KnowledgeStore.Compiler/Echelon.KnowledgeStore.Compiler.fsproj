@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Experimental knowledge compiler (research prototype). Deterministic,
+       data-only: knowledge content is never executed. -->
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Diagnostics.fs" />
+    <Compile Include="Pipeline.fs" />
+    <Compile Include="Artifacts.fs" />
+    <Compile Include="Optimize.fs" />
+    <Compile Include="Packages.fs" />
+    <Compile Include="Query.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Echelon.KnowledgeStore.Core/Echelon.KnowledgeStore.Core.fsproj" />
+  </ItemGroup>
+</Project>
