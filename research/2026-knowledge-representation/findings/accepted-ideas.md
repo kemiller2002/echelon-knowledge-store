@@ -13,3 +13,4 @@
 11. Qualitative confidence, derived standing; never "verified" because cited.
 12. Source repositories own knowledge; federate by reader access; never publish private-derived artefacts publicly.
 13. Validation rules calibrated before blocking; data-only parsing everywhere.
+14. Evidence sources must exist (EKS0027) — and agent-authored evidence needs a source-verification review: in the write trial two agents fabricated or misstated sources that passed every structural check.

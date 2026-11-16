@@ -1,0 +1,9 @@
+{
+  "note": "Harness-reported usage per write-trial subagent, recorded from task notifications on 2026-11-16.",
+  "runs": [
+    {"condition": "sonnet-plain", "subagent_tokens": 133720, "tool_uses": 18, "duration_ms": 79721},
+    {"condition": "sonnet-compiler", "subagent_tokens": 120666, "tool_uses": 19, "duration_ms": 90104},
+    {"condition": "haiku-plain", "subagent_tokens": 152356, "tool_uses": 37, "duration_ms": 188782},
+    {"condition": "haiku-compiler", "subagent_tokens": 148804, "tool_uses": 24, "duration_ms": 174481}
+  ]
+}

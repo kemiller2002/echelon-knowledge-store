@@ -12,6 +12,7 @@ let private cfg =
         Visibility = Map.ofList [ "secret", Private ]
         Audience = Private
         SupportedSchema = 1
+        ExistingPaths = None
     }
 
 let private file repo path text = Pipeline.sourceFile repo path text
@@ -345,6 +346,58 @@ let ``every catalogued rule code is reachable or documented as not emitted`` () 
                 "EKS0024"
                 "EKS0025"
                 "EKS0026"
+                "EKS0027"
             ]
 
     Assert.Equal<Set<string>>(emitted, Codes.catalogue |> List.map (fun (c, _, _, _) -> c) |> Set.ofList)
+
+[<Fact>]
+let ``evidence citing a missing source file is a warning`` () =
+    let ev =
+        file
+            "r"
+            "research/evidence/EV-T-2026-0009--x.md"
+            "---\nid: EV-T-2026-0009\ntitle: X\nstatus: accepted\nsource_uri: research/experiments/missing/summary.txt\n---\n\nx\n"
+
+    let ok =
+        file
+            "r"
+            "research/evidence/EV-T-2026-0010--y.md"
+            "---\nid: EV-T-2026-0010\ntitle: Y\nstatus: accepted\nsource_uri: ../experiments/EX-T-2026-0001--e.md\n---\n\ny\n"
+
+    let outside =
+        file
+            "r"
+            "research/evidence/EV-T-2026-0011--z.md"
+            "---\nid: EV-T-2026-0011\ntitle: Z\nstatus: accepted\nsource_uri: ../../../other-repo/x.md\n---\n\nz\n"
+
+    let scheme =
+        file
+            "r"
+            "research/evidence/EV-T-2026-0012--w.md"
+            "---\nid: EV-T-2026-0012\ntitle: W\nstatus: accepted\nsource_uri: repository:owner/other/x.css\n---\n\nw\n"
+
+    let outside =
+        file
+            "r"
+            "research/evidence/EV-T-2026-0011--z.md"
+            "---\nid: EV-T-2026-0011\ntitle: Z\nstatus: accepted\nsource_uri: ../Other-repo/x.md\n---\n\nz\n"
+
+    let scheme =
+        file
+            "r"
+            "research/evidence/EV-T-2026-0012--w.md"
+            "---\nid: EV-T-2026-0012\ntitle: W\nstatus: accepted\nsource_uri: repository:owner/other/x.css\n---\n\nw\n"
+
+    let paths = Some(set [ "r/research/experiments/EX-T-2026-0001--e.md" ])
+
+    let c =
+        Pipeline.compile { cfg with ExistingPaths = paths } Map.empty ([ ev; ok; outside; scheme ] @ corpus)
+        |> fst
+
+    let flagged =
+        c.Diagnostics
+        |> List.filter (fun d -> d.Code = "EKS0027")
+        |> List.choose _.Record
+
+    Assert.Equal<string list>([ "r:EV-T-2026-0009" ], flagged)

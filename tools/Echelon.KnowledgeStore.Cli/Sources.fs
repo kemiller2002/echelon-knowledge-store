@@ -45,3 +45,26 @@ let load (root: string) (repos: string list) : SourceFile list =
             |> List.ofSeq
         else
             [])
+
+/// Every file path (any extension) under the repositories, as `repository/path`.
+let existingPaths (root: string) (repos: string list) : Set<string> =
+    let repos =
+        match repos with
+        | [] ->
+            Directory.GetDirectories root
+            |> Array.map (Path.GetFileName >> string)
+            |> List.ofArray
+        | rs -> rs
+
+    repos
+    |> List.collect (fun repo ->
+        let dir = Path.Combine(root, repo)
+
+        if Directory.Exists dir then
+            Directory.EnumerateFiles(dir, "*", SearchOption.AllDirectories)
+            |> Seq.map (fun f -> repo + "/" + Path.GetRelativePath(dir, f).Replace('\\', '/'))
+            |> Seq.filter (fun p -> not (p.Contains "/.git/"))
+            |> List.ofSeq
+        else
+            [])
+    |> Set.ofList

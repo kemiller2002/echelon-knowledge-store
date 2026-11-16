@@ -16,6 +16,7 @@
     <Compile Include="AblationBench.fs" />
     <Compile Include="CompilerBench.fs" />
     <Compile Include="Trials2.fs" />
+    <Compile Include="WriteTrial.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

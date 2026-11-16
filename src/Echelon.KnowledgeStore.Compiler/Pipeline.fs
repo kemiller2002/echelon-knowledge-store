@@ -28,6 +28,9 @@ type CompileConfig =
         Audience: Visibility
         /// Schema major versions this compiler reads, per record kind (absent = 1).
         SupportedSchema: int
+        /// All existing file paths as `repository/path` (any extension), when known.
+        /// Enables checking that relative `source_uri` values point to real files.
+        ExistingPaths: Set<string> option
     }
 
 /// Result of parsing one file. Cached by (path, hash) for incremental builds.
@@ -608,6 +611,66 @@ module Pipeline =
                     )
                 | _ -> None)
 
+        let missingSources =
+            match cfg.ExistingPaths with
+            | None -> []
+            | Some paths ->
+                records
+                |> List.filter (fun r -> r.Kind = Evidence)
+                |> List.choose (fun r -> r.Provenance.SourceUri |> Option.map (fun s -> r, s.Trim()))
+                |> List.filter (fun (_, s) ->
+                    s <> ""
+                    && not (Regex.IsMatch(s, @"^[A-Za-z][A-Za-z0-9+.-]*:"))
+                    && not (s.StartsWith "#")
+                    && (s.Contains "/" || s.Contains "."))
+                |> List.filter (fun (r, s) ->
+                    let repo = r.Provenance.Repository
+
+                    let dir =
+                        r.Provenance.Path.Split('/')
+                        |> Array.rev
+                        |> Array.skip 1
+                        |> Array.rev
+                        |> String.concat "/"
+
+                    let target = (s.Split('#')[0])
+                    let clean = target.TrimStart('.', '/')
+
+                    let candidates =
+                        [
+                            $"{repo}/{clean}"
+                            System.IO.Path.GetFullPath(System.IO.Path.Combine("/" + repo, dir, target)).TrimStart('/')
+                        ]
+
+                    let fromRoot =
+                        System.IO.Path.GetFullPath(System.IO.Path.Combine("/" + repo, target)).TrimStart('/')
+
+                    let escapes =
+                        not (candidates[1].StartsWith(repo + "/"))
+                        || not (fromRoot.StartsWith(repo + "/"))
+                    // Paths that leave the repository cannot be verified here; directories count as existing.
+                    not escapes
+                    && not (
+                        candidates
+                        |> List.exists (fun c ->
+                            paths.Contains c
+                            || paths |> Set.exists (fun p -> p.StartsWith(c.TrimEnd('/') + "/")))
+                    ))
+                |> List.map (fun (r, s) ->
+                    Diagnostic.make
+                        "EKS0027"
+                        (Some(Graph.key r))
+                        (fileOf
+                         |> Map.tryFind (Graph.key r)
+                         |> Option.map (fun f ->
+                             {
+                                 Repository = f.Repository
+                                 Path = f.Path
+                                 Line = Diagnostic.lineOf f.Text (Some "source_uri") None
+                                 Field = Some "source_uri"
+                             }))
+                        $"source_uri '{s}' does not exist in the repository")
+
         let experimentsWithoutHypothesis =
             records
             |> List.filter (fun r -> r.Kind = Experiment)
@@ -638,6 +701,7 @@ module Pipeline =
         @ misleadingConfidence
         @ statusLag
         @ experimentsWithoutHypothesis
+        @ missingSources
         @ audience
 
     let private sortDiagnostics (ds: Diagnostic list) =

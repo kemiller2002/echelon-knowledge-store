@@ -1,0 +1,586 @@
+[
+  {
+    "Condition": "haiku-compiler",
+    "Tasks": [
+      {
+        "Task": "W1",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": false
+          },
+          {
+            "Item1": "kind evidence (location)",
+            "Item2": false
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": false
+          },
+          {
+            "Item1": "has source",
+            "Item2": false
+          },
+          {
+            "Item1": "has retrieval date",
+            "Item2": false
+          },
+          {
+            "Item1": "supports HY-ROS-2026-A028 (graph)",
+            "Item2": false
+          },
+          {
+            "Item1": "contradicts HY-ROS-2026-A030 (graph)",
+            "Item2": false
+          },
+          {
+            "Item1": "HY-A028 lists it (convention)",
+            "Item2": false
+          },
+          {
+            "Item1": "HY-A030 lists it (convention)",
+            "Item2": false
+          }
+        ]
+      },
+      {
+        "Task": "W2",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": true
+          },
+          {
+            "Item1": "kind decision (location)",
+            "Item2": true
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": true
+          },
+          {
+            "Item1": "new supersedes old",
+            "Item2": true
+          },
+          {
+            "Item1": "old superseded_by new",
+            "Item2": true
+          },
+          {
+            "Item1": "old status superseded",
+            "Item2": true
+          },
+          {
+            "Item1": "current authority resolves to new",
+            "Item2": true
+          }
+        ]
+      },
+      {
+        "Task": "W3",
+        "Checks": [
+          {
+            "Item1": "status rejected",
+            "Item2": true
+          }
+        ]
+      },
+      {
+        "Task": "W4",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": true
+          },
+          {
+            "Item1": "kind requirement (location)",
+            "Item2": true
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": true
+          },
+          {
+            "Item1": "depends on RQ-FORMA-2026-A001 (resolved)",
+            "Item2": true
+          },
+          {
+            "Item1": "\u22652 acceptance criteria",
+            "Item2": true
+          }
+        ]
+      },
+      {
+        "Task": "W5",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": true
+          },
+          {
+            "Item1": "kind evidence (location)",
+            "Item2": true
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": true
+          },
+          {
+            "Item1": "has source",
+            "Item2": true
+          },
+          {
+            "Item1": "supports HY-PERCEPTA-2026-0003 (graph)",
+            "Item2": false
+          },
+          {
+            "Item1": "hypothesis lists it (convention)",
+            "Item2": false
+          }
+        ]
+      }
+    ],
+    "Score": 0.7333333333333333,
+    "NewErrors": [],
+    "NewWarnings": 0,
+    "CollateralFiles": []
+  },
+  {
+    "Condition": "haiku-plain",
+    "Tasks": [
+      {
+        "Task": "W1",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": false
+          },
+          {
+            "Item1": "kind evidence (location)",
+            "Item2": false
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": false
+          },
+          {
+            "Item1": "has source",
+            "Item2": false
+          },
+          {
+            "Item1": "has retrieval date",
+            "Item2": false
+          },
+          {
+            "Item1": "supports HY-ROS-2026-A028 (graph)",
+            "Item2": false
+          },
+          {
+            "Item1": "contradicts HY-ROS-2026-A030 (graph)",
+            "Item2": false
+          },
+          {
+            "Item1": "HY-A028 lists it (convention)",
+            "Item2": false
+          },
+          {
+            "Item1": "HY-A030 lists it (convention)",
+            "Item2": false
+          }
+        ]
+      },
+      {
+        "Task": "W2",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": false
+          },
+          {
+            "Item1": "kind decision (location)",
+            "Item2": false
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": false
+          },
+          {
+            "Item1": "new supersedes old",
+            "Item2": false
+          },
+          {
+            "Item1": "old superseded_by new",
+            "Item2": false
+          },
+          {
+            "Item1": "old status superseded",
+            "Item2": false
+          },
+          {
+            "Item1": "current authority resolves to new",
+            "Item2": false
+          }
+        ]
+      },
+      {
+        "Task": "W3",
+        "Checks": [
+          {
+            "Item1": "status rejected",
+            "Item2": false
+          }
+        ]
+      },
+      {
+        "Task": "W4",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": true
+          },
+          {
+            "Item1": "kind requirement (location)",
+            "Item2": true
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": true
+          },
+          {
+            "Item1": "depends on RQ-FORMA-2026-A001 (resolved)",
+            "Item2": false
+          },
+          {
+            "Item1": "\u22652 acceptance criteria",
+            "Item2": true
+          }
+        ]
+      },
+      {
+        "Task": "W5",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": false
+          },
+          {
+            "Item1": "kind evidence (location)",
+            "Item2": false
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": false
+          },
+          {
+            "Item1": "has source",
+            "Item2": false
+          },
+          {
+            "Item1": "supports HY-PERCEPTA-2026-0003 (graph)",
+            "Item2": false
+          },
+          {
+            "Item1": "hypothesis lists it (convention)",
+            "Item2": false
+          }
+        ]
+      }
+    ],
+    "Score": 0.16,
+    "NewErrors": [],
+    "NewWarnings": 0,
+    "CollateralFiles": []
+  },
+  {
+    "Condition": "sonnet-compiler",
+    "Tasks": [
+      {
+        "Task": "W1",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": true
+          },
+          {
+            "Item1": "kind evidence (location)",
+            "Item2": true
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": true
+          },
+          {
+            "Item1": "has source",
+            "Item2": true
+          },
+          {
+            "Item1": "has retrieval date",
+            "Item2": true
+          },
+          {
+            "Item1": "supports HY-ROS-2026-A028 (graph)",
+            "Item2": true
+          },
+          {
+            "Item1": "contradicts HY-ROS-2026-A030 (graph)",
+            "Item2": true
+          },
+          {
+            "Item1": "HY-A028 lists it (convention)",
+            "Item2": true
+          },
+          {
+            "Item1": "HY-A030 lists it (convention)",
+            "Item2": true
+          }
+        ]
+      },
+      {
+        "Task": "W2",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": true
+          },
+          {
+            "Item1": "kind decision (location)",
+            "Item2": true
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": true
+          },
+          {
+            "Item1": "new supersedes old",
+            "Item2": true
+          },
+          {
+            "Item1": "old superseded_by new",
+            "Item2": true
+          },
+          {
+            "Item1": "old status superseded",
+            "Item2": true
+          },
+          {
+            "Item1": "current authority resolves to new",
+            "Item2": true
+          }
+        ]
+      },
+      {
+        "Task": "W3",
+        "Checks": [
+          {
+            "Item1": "status rejected",
+            "Item2": true
+          }
+        ]
+      },
+      {
+        "Task": "W4",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": true
+          },
+          {
+            "Item1": "kind requirement (location)",
+            "Item2": true
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": true
+          },
+          {
+            "Item1": "depends on RQ-FORMA-2026-A001 (resolved)",
+            "Item2": true
+          },
+          {
+            "Item1": "\u22652 acceptance criteria",
+            "Item2": true
+          }
+        ]
+      },
+      {
+        "Task": "W5",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": true
+          },
+          {
+            "Item1": "kind evidence (location)",
+            "Item2": true
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": true
+          },
+          {
+            "Item1": "has source",
+            "Item2": true
+          },
+          {
+            "Item1": "supports HY-PERCEPTA-2026-0003 (graph)",
+            "Item2": true
+          },
+          {
+            "Item1": "hypothesis lists it (convention)",
+            "Item2": true
+          }
+        ]
+      }
+    ],
+    "Score": 1,
+    "NewErrors": [],
+    "NewWarnings": 0,
+    "CollateralFiles": []
+  },
+  {
+    "Condition": "sonnet-plain",
+    "Tasks": [
+      {
+        "Task": "W1",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": true
+          },
+          {
+            "Item1": "kind evidence (location)",
+            "Item2": true
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": true
+          },
+          {
+            "Item1": "has source",
+            "Item2": true
+          },
+          {
+            "Item1": "has retrieval date",
+            "Item2": true
+          },
+          {
+            "Item1": "supports HY-ROS-2026-A028 (graph)",
+            "Item2": true
+          },
+          {
+            "Item1": "contradicts HY-ROS-2026-A030 (graph)",
+            "Item2": true
+          },
+          {
+            "Item1": "HY-A028 lists it (convention)",
+            "Item2": true
+          },
+          {
+            "Item1": "HY-A030 lists it (convention)",
+            "Item2": true
+          }
+        ]
+      },
+      {
+        "Task": "W2",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": true
+          },
+          {
+            "Item1": "kind decision (location)",
+            "Item2": true
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": true
+          },
+          {
+            "Item1": "new supersedes old",
+            "Item2": true
+          },
+          {
+            "Item1": "old superseded_by new",
+            "Item2": true
+          },
+          {
+            "Item1": "old status superseded",
+            "Item2": true
+          },
+          {
+            "Item1": "current authority resolves to new",
+            "Item2": true
+          }
+        ]
+      },
+      {
+        "Task": "W3",
+        "Checks": [
+          {
+            "Item1": "status rejected",
+            "Item2": true
+          }
+        ]
+      },
+      {
+        "Task": "W4",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": true
+          },
+          {
+            "Item1": "kind requirement (location)",
+            "Item2": true
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": true
+          },
+          {
+            "Item1": "depends on RQ-FORMA-2026-A001 (resolved)",
+            "Item2": true
+          },
+          {
+            "Item1": "\u22652 acceptance criteria",
+            "Item2": true
+          }
+        ]
+      },
+      {
+        "Task": "W5",
+        "Checks": [
+          {
+            "Item1": "record exists",
+            "Item2": true
+          },
+          {
+            "Item1": "kind evidence (location)",
+            "Item2": true
+          },
+          {
+            "Item1": "status accepted",
+            "Item2": true
+          },
+          {
+            "Item1": "has source",
+            "Item2": true
+          },
+          {
+            "Item1": "supports HY-PERCEPTA-2026-0003 (graph)",
+            "Item2": true
+          },
+          {
+            "Item1": "hypothesis lists it (convention)",
+            "Item2": true
+          }
+        ]
+      }
+    ],
+    "Score": 1,
+    "NewErrors": [],
+    "NewWarnings": 0,
+    "CollateralFiles": []
+  }
+]

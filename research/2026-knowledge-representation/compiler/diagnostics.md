@@ -30,6 +30,7 @@ Catalogue (`Diagnostics.fs`, experimental; reviewed against the corpus, not adop
 | EKS0024 | Warning | confidence outside the standard scale |
 | EKS0025 | Warning | unrecognised status value |
 | EKS0026 | Warning | experiment names no hypothesis |
+| EKS0027 | Warning | evidence `source_uri` does not exist in the repository (schemes and paths leaving the repository are skipped) |
 
 Every diagnostic carries file, line (field line where known) and remediation.
 

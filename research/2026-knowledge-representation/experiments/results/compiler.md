@@ -2,12 +2,12 @@ Public corpus: 1615 Markdown files, 587 records. Timings are medians of 5 runs o
 
 | Scenario | Files | Median ms | Warm output = cold output |
 | --- | --- | --- | --- |
-| cold (parse + graph + validate + precompute) | 1615 | 193.1 | – |
-| parse only (all files) | 1615 | 96.8 | – |
-| warm, no change | 1615 | 52.9 | True |
-| warm, 1 file changed | 1615 | 51.4 | True |
-| warm, 10% of files changed | 1615 | 72.0 | True |
-| cold (parse + graph + validate + precompute) — all 13 repositories | 1931 | 162.5 | – |
+| cold (parse + graph + validate + precompute) | 1615 | 321.0 | – |
+| parse only (all files) | 1615 | 76.7 | – |
+| warm, no change | 1615 | 77.3 | True |
+| warm, 1 file changed | 1615 | 50.1 | True |
+| warm, 10% of files changed | 1615 | 76.0 | True |
+| cold (parse + graph + validate + precompute) — all 13 repositories | 1931 | 164.8 | – |
 
 ## Diagnostics (public corpus)
 
