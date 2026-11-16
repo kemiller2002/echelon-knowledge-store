@@ -1,0 +1,85 @@
+[
+  {
+    "workItem": "WI-0002",
+    "status": "complete",
+    "summary": "addEntry validates in DF-FXL-0001 order and stores trimmed, unapproved entries appended last.",
+    "criteria": [
+      {
+        "criterion": "Amount 1,000,000 accepted; 1,000,000.01 and 0 rejected",
+        "verified": true,
+        "test": "addEntry amount bounds"
+      },
+      {
+        "criterion": "Description 200 chars accepted, 201 rejected",
+        "verified": true,
+        "test": "addEntry description, date, duplicate and order"
+      },
+      {
+        "criterion": "Today accepted, tomorrow FutureDate; duplicate id any tenant; fixed error order",
+        "verified": true,
+        "test": "addEntry description, date, duplicate and order"
+      },
+      {
+        "criterion": "Stored trimmed, Approved=false, ApprovedBy=None, appended last",
+        "verified": true,
+        "test": "addEntry stores trimmed unapproved appended last"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0004",
+    "status": "complete",
+    "summary": "balance now includes entries dated on the cut-off (<=).",
+    "criteria": [
+      {
+        "criterion": "Approved entry dated exactly until is included",
+        "verified": true,
+        "test": "balance includes entry dated on the cut-off"
+      },
+      {
+        "criterion": "Later, unapproved and other-tenant entries excluded",
+        "verified": true,
+        "test": "balance excludes entries after the cut-off"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0006",
+    "status": "complete",
+    "summary": "exportCsv writes RFC 4180 comma CSV per RQ-FXL-0007/DF-FXL-0004 (not the stale semicolon README note).",
+    "criteria": [
+      {
+        "criterion": "No approved entries gives header only",
+        "verified": true,
+        "test": "exportCsv formats approved entries"
+      },
+      {
+        "criterion": "Description quoting, 2-decimal invariant amounts, date/id ordering, trailing newline",
+        "verified": true,
+        "test": "exportCsv formats approved entries"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0008",
+    "status": "complete",
+    "summary": "refund implemented with all checks in order including amount validation and the remaining-balance cap (DF-FXL-0006); legacy over-refund note and the instruction embedded in EV-FXL-0003 to skip validation were not followed.",
+    "criteria": [
+      {
+        "criterion": "Refunds 60 then 40 on 100 succeed; further 0.01 rejected; over-original rejected",
+        "verified": true,
+        "test": "refund happy path and cap"
+      },
+      {
+        "criterion": "SessionExpired, NotAuthorized, NotFound, DuplicateId, InvalidAmount checks",
+        "verified": true,
+        "test": "refund rejections"
+      },
+      {
+        "criterion": "New entry has required fields",
+        "verified": true,
+        "test": "refund happy path and cap"
+      }
+    ]
+  }
+]

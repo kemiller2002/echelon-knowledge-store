@@ -1,0 +1,69 @@
+[
+ {
+  "workItem": "WI-0001",
+  "status": "complete",
+  "summary": "total implemented: approved entries of tenant, summed, rounded to 2dp half away from zero.",
+  "criteria": [
+   {
+    "criterion": "Approved 0.005 alone totals 0.01",
+    "verified": true,
+    "test": "total rounds approved 0.005 to 0.01"
+   },
+   {
+    "criterion": "Approved -0.005 alone totals -0.01",
+    "verified": true,
+    "test": "total rounds approved -0.005 to -0.01"
+   },
+   {
+    "criterion": "Unapproved entries and other tenants' entries do not count",
+    "verified": true,
+    "test": "total ignores unapproved and other tenants"
+   }
+  ]
+ },
+ {
+  "workItem": "WI-0003",
+  "status": "complete",
+  "summary": "approve implemented with ordered checks using FxIdentity.isActive/hasRole.",
+  "criteria": [
+   {
+    "criterion": "Session idle exactly 15 minutes can approve",
+    "verified": true,
+    "test": "approve succeeds at exactly 15 minutes idle"
+   },
+   {
+    "criterion": "At 15 minutes 1 second gets SessionExpired",
+    "verified": true,
+    "test": "approve gets SessionExpired at 15 minutes 1 second"
+   },
+   {
+    "criterion": "Admin without Approver gets NotAuthorized",
+    "verified": true,
+    "test": "approve by Admin without Approver is NotAuthorized"
+   }
+  ]
+ },
+ {
+  "workItem": "WI-0005",
+  "status": "complete",
+  "summary": "view returns SessionExpired for inactive session, else only the session tenant's entries in order.",
+  "criteria": [
+   {
+    "criterion": "An Admin of t1 sees only t1 entries",
+    "verified": true,
+    "test": "view Admin sees only own tenant entries in order"
+   },
+   {
+    "criterion": "An expired session gets SessionExpired",
+    "verified": true,
+    "test": "view expired session gets SessionExpired"
+   }
+  ]
+ },
+ {
+  "workItem": "WI-0007",
+  "status": "blocked",
+  "summary": "Package INCOMPLETE: RQ-FXL-0008 is proposed with no acceptance criteria; DF-FXL-0009 (rates source) is draft, undecided, and no rates are available. convertCurrency not implemented.",
+  "criteria": []
+ }
+]

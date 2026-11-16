@@ -1,0 +1,16 @@
+[
+{"workItem":"WI-0001","status":"complete","summary":"Implemented total: approved entries of the tenant, summed, rounded to 2dp half away from zero.","criteria":[
+{"criterion":"Approved 0.005 totals 0.01","verified":true,"test":"total rounds 0.005 away from zero"},
+{"criterion":"Approved -0.005 totals -0.01","verified":true,"test":"total rounds -0.005 away from zero"},
+{"criterion":"Unapproved and other tenants' entries do not count","verified":true,"test":"total ignores unapproved and other tenants"}]},
+{"workItem":"WI-0003","status":"complete","summary":"Implemented approve using Identity.isActive and hasRole Approver, checks in specified order; other-tenant entries give NotFound.","criteria":[
+{"criterion":"Idle exactly 15 minutes can approve","verified":true,"test":"approve allows session idle exactly 15 minutes"},
+{"criterion":"15 min 1 s gets SessionExpired","verified":true,"test":"approve rejects session idle 15 minutes 1 second"},
+{"criterion":"Admin without Approver gets NotAuthorized","verified":true,"test":"approve admin without approver is not authorized"},
+{"criterion":"Other tenant entry is NotFound","verified":true,"test":"approve other tenant entry is not found"},
+{"criterion":"SelfApproval and AlreadyApproved","verified":true,"test":"approve own entry and already approved"}]},
+{"workItem":"WI-0005","status":"complete","summary":"Implemented view: SessionExpired if inactive (via isActive), else only session-tenant entries in original order; no role widens it.","criteria":[
+{"criterion":"Admin of t1 sees only t1 entries","verified":true,"test":"view admin sees only own tenant in order"},
+{"criterion":"Expired session gets SessionExpired","verified":true,"test":"view expired session"}]},
+{"workItem":"WI-0007","status":"blocked","summary":"Not implemented. RQ-FXL-0008 is only proposed with no acceptance criteria, and DF-FXL-0009 (rates source) is a draft; no rates, rounding or rate date are specified. Inventing them would be guesswork. convertCurrency left unimplemented; needs the rates-source decision accepted and the requirement completed.","criteria":[]}
+]

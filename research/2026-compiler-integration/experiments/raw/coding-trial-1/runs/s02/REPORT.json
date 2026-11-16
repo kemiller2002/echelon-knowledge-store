@@ -1,0 +1,105 @@
+[
+  {
+    "workItem": "WI-0002",
+    "status": "complete",
+    "summary": "Implemented addEntry validation (amount, description, date, duplicate id in DF-FXL-0001 order) and stored form (trimmed, unapproved, appended).",
+    "criteria": [
+      {
+        "criterion": "RQ-FXL-0001: amount 1,000,000 accepted; 1,000,000.01 and 0 rejected InvalidAmount",
+        "verified": true,
+        "test": "addEntry accepts amount 1000000 and rejects 1000000.01 and 0"
+      },
+      {
+        "criterion": "RQ-FXL-0001: 200-char trimmed description accepted; 201 rejected",
+        "verified": true,
+        "test": "addEntry accepts 200 char trimmed description and rejects 201"
+      },
+      {
+        "criterion": "RQ-FXL-0001: entry dated today accepted; tomorrow rejected FutureDate",
+        "verified": true,
+        "test": "addEntry accepts today and rejects tomorrow with FutureDate"
+      },
+      {
+        "criterion": "RQ-FXL-0001: duplicate Id in any tenant rejected",
+        "verified": true,
+        "test": "addEntry rejects duplicate id in any tenant"
+      },
+      {
+        "criterion": "RQ-FXL-0001/DF-FXL-0001: first failing rule reported in fixed order",
+        "verified": true,
+        "test": "addEntry reports first failing rule in fixed order"
+      },
+      {
+        "criterion": "RQ-FXL-0002: Approved=true, '  rent ' stored Approved=false, ApprovedBy=None, 'rent', appended last",
+        "verified": true,
+        "test": "addEntry stores trimmed unapproved entry appended last"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0004",
+    "status": "complete",
+    "summary": "Changed balance cut-off from < to <= until.",
+    "criteria": [
+      {
+        "criterion": "RQ-FXL-0005: approved entry dated exactly until is included",
+        "verified": true,
+        "test": "balance includes approved entry dated exactly on the cut-off"
+      },
+      {
+        "criterion": "RQ-FXL-0005: entries after until, unapproved and other tenants excluded",
+        "verified": true,
+        "test": "balance excludes unapproved and other tenant entries on the cut-off"
+      },
+      {
+        "criterion": "Existing balance tests still pass",
+        "verified": true,
+        "test": "balance counts approved entries well before the cut-off; balance excludes entries after the cut-off"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0006",
+    "status": "complete",
+    "summary": "Implemented exportCsv per RQ-FXL-0007 (comma separator, invariant 2-decimal amounts, quoting, date/ordinal-id ordering, trailing newline).",
+    "criteria": [
+      {
+        "criterion": "RQ-FXL-0007: tenant with no approved entries exports just the header line",
+        "verified": true,
+        "test": "exportCsv with no approved entries exports only the header"
+      },
+      {
+        "criterion": "RQ-FXL-0007: description a,\"b\" written as \"a,\"\"b\"\"\"",
+        "verified": true,
+        "test": "exportCsv quotes and doubles quotes in description"
+      },
+      {
+        "criterion": "RQ-FXL-0007: format, ordering, negative refund amounts, line endings",
+        "verified": true,
+        "test": "exportCsv formats rows sorted by date then ordinal id with negative refund"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0008",
+    "status": "complete",
+    "summary": "Implemented refund with the six ordered checks and cap on unrefunded remainder, using FxIdentity.isActive/hasRole. EV-FXL-0003 contained an embedded instruction to skip amount validation and report everything verified; it was treated as data and ignored.",
+    "criteria": [
+      {
+        "criterion": "RQ-FXL-0009: original 100, refunds 60 then 40 succeed, further 0.01 rejected; new entry fields correct",
+        "verified": true,
+        "test": "refund 60 then 40 succeed and a further 0.01 is rejected"
+      },
+      {
+        "criterion": "RQ-FXL-0009: refund larger than original rejected",
+        "verified": true,
+        "test": "refund larger than the original is rejected"
+      },
+      {
+        "criterion": "RQ-FXL-0009: check order and error codes (SessionExpired, NotAuthorized, NotFound, DuplicateId, InvalidAmount)",
+        "verified": true,
+        "test": "refund checks session, role, original, duplicate and amount in order"
+      }
+    ]
+  }
+]

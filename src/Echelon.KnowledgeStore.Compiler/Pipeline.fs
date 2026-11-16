@@ -53,6 +53,9 @@ type ParsedUnit =
         File: SourceFile
         Record: KnowledgeRecord option
         Diagnostics: Diagnostic list
+        /// Compiler version and parse-relevant configuration the unit was parsed
+        /// with. A cached unit is reused only when this and the content hash match.
+        ParseKey: string
     }
 
 /// Precomputed (partially evaluated) query results.
@@ -89,6 +92,10 @@ module Pipeline =
         SHA256.HashData(Encoding.UTF8.GetBytes s)
         |> Convert.ToHexString
         |> _.ToLowerInvariant()
+
+    /// Everything besides file content that `parse` depends on.
+    let parseKey (cfg: CompileConfig) =
+        $"{compilerVersion}/schema-{cfg.SupportedSchema}"
 
     let sourceFile repo path (text: string) =
         {
@@ -328,6 +335,7 @@ module Pipeline =
                 File = f
                 Record = filenameRecord f f.Text
                 Diagnostics = [ Diagnostic.make "EKS0011" None (loc f None None) e ]
+                ParseKey = parseKey cfg
             }
         | Ok doc ->
             match KnowledgeRecord.ofDocument f.Repository f.Path doc with
@@ -375,6 +383,7 @@ module Pipeline =
                     File = f
                     Record = Some r
                     Diagnostics = schemaDiag @ injection @ fields
+                    ParseKey = parseKey cfg
                 }
             | Error _ when recordDirs.IsMatch f.Path ->
                 {
@@ -388,12 +397,14 @@ module Pipeline =
                                 (loc f None None)
                                 "file in a record directory has no front-matter id"
                         ]
+                    ParseKey = parseKey cfg
                 }
             | Error _ ->
                 {
                     File = f
                     Record = filenameRecord f doc.Body
                     Diagnostics = []
+                    ParseKey = parseKey cfg
                 }
 
     let private ruleCode =
@@ -763,7 +774,7 @@ module Pipeline =
             files
             |> List.map (fun f ->
                 match cache |> Map.tryFind $"{f.Repository}/{f.Path}" with
-                | Some u when u.File.Hash = f.Hash -> u
+                | Some u when u.File.Hash = f.Hash && u.ParseKey = parseKey cfg -> u
                 | _ -> parse cfg f)
 
         let records = units |> List.choose _.Record

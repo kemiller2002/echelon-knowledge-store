@@ -467,3 +467,18 @@ let ``package manifest records rules, revisions and derived completeness`` () =
     Assert.Contains("\"rule\": \"core-validation\"", m)
     Assert.Contains("\"completeness\": \"COMPLETE\"", m)
     Assert.Contains(Pipeline.sha256 p.Text, m)
+
+[<Fact>]
+let ``parse cache is not reused across parse-relevant configuration`` () =
+    let f =
+        Pipeline.sourceFile
+            "r"
+            "research/hypotheses/HY-T-2026-0009--s.md"
+            "---\nid: HY-T-2026-0009\ntitle: S\nstatus: proposed\nschema: eks-record/2\n---\n\nClaim.\n"
+
+    let _, cache = Pipeline.compile cfg Map.empty [ f ]
+    let cfg2 = { cfg with SupportedSchema = 2 }
+    let viaCache = Pipeline.compile cfg2 cache [ f ] |> fst
+    let fresh = Pipeline.compile cfg2 Map.empty [ f ] |> fst
+    Assert.Equal<Diagnostic list>(fresh.Diagnostics, viaCache.Diagnostics)
+    Assert.DoesNotContain(viaCache.Diagnostics, fun d -> d.Code = "EKS0004")

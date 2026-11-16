@@ -1,0 +1,384 @@
+{
+  "configChangeCorrect": true,
+  "mutations": [
+    {
+      "Step": 0,
+      "Kind": "base",
+      "Detail": ""
+    },
+    {
+      "Step": 1,
+      "Kind": "add-incoming-support",
+      "Detail": "mercatus:DF-MERCATUS-FND-2026-0002"
+    },
+    {
+      "Step": 2,
+      "Kind": "add-incoming-dependency",
+      "Detail": "praxis:DF-ROS-2026-A037"
+    },
+    {
+      "Step": 3,
+      "Kind": "add-incoming-support",
+      "Detail": "praxis:DF-ROS-2026-A055"
+    },
+    {
+      "Step": 4,
+      "Kind": "status-change",
+      "Detail": "research/decisions/DF-MERCATUS-FND-2026-0003--forma-folio-bound-ahead-of-first-ui.md"
+    },
+    {
+      "Step": 5,
+      "Kind": "id-collision",
+      "Detail": "praxis:DF-ROS-2026-A045"
+    },
+    {
+      "Step": 6,
+      "Kind": "status-change",
+      "Detail": "research/decisions/DF-ROS-2026-A073--probe-qualified-linux-worker-containment.md"
+    },
+    {
+      "Step": 7,
+      "Kind": "add-incoming-support",
+      "Detail": "praxis:DF-ROS-2026-A055"
+    },
+    {
+      "Step": 8,
+      "Kind": "status-change",
+      "Detail": "docs/architecture/TRUST-BOUNDARIES.md"
+    },
+    {
+      "Step": 9,
+      "Kind": "status-change",
+      "Detail": "docs/requirements/ARCA-STORAGE-REQUIREMENTS.md"
+    },
+    {
+      "Step": 10,
+      "Kind": "add-incoming-support",
+      "Detail": "praxis:DF-ROS-2026-A034"
+    },
+    {
+      "Step": 11,
+      "Kind": "edit-body",
+      "Detail": "docs/requirements/FIDES-REQUIREMENTS.md"
+    },
+    {
+      "Step": 12,
+      "Kind": "edit-body",
+      "Detail": "research/decisions/DF-ROS-2026-A063--signed-exact-local-worker-delegation.md"
+    },
+    {
+      "Step": 13,
+      "Kind": "add-incoming-dependency",
+      "Detail": "praxis:DF-ROS-2026-A064"
+    },
+    {
+      "Step": 14,
+      "Kind": "delete-neighbour",
+      "Detail": "research/decisions/DF-MERCATUS-FND-2026-0001--limen-boundary-not-yet-applicable.md"
+    },
+    {
+      "Step": 15,
+      "Kind": "add-incoming-support",
+      "Detail": "arca:DF-ARCA-2026-0015"
+    },
+    {
+      "Step": 16,
+      "Kind": "edit-body",
+      "Detail": "research/requirements/RQ-ROS-2026-A022--durable-work-checkpoints-and-agent-continuity.md"
+    },
+    {
+      "Step": 17,
+      "Kind": "delete-neighbour",
+      "Detail": "research/decisions/DF-ROS-2026-A049--fsharp-dotnet-only-repository.md"
+    },
+    {
+      "Step": 18,
+      "Kind": "status-change",
+      "Detail": "research/decisions/DF-ROS-2026-A068--concrete-local-validator-observations.md"
+    },
+    {
+      "Step": 19,
+      "Kind": "id-collision",
+      "Detail": "fides:DF-FIDES-2026-0004"
+    },
+    {
+      "Step": 20,
+      "Kind": "status-change",
+      "Detail": "research/decisions/DF-FIDES-2026-0002--github-only-extensible-provider-model.md"
+    },
+    {
+      "Step": 21,
+      "Kind": "status-change",
+      "Detail": "research/decisions/DF-ROS-2026-A057--praxis-ui-url-state-through-limen-routing.md"
+    },
+    {
+      "Step": 22,
+      "Kind": "add-incoming-support",
+      "Detail": "mercatus:DF-MERCATUS-FND-2026-0002"
+    },
+    {
+      "Step": 23,
+      "Kind": "edit-body",
+      "Detail": "research/decisions/DF-ARCA-2026-0013--release-0-5-0-is-a-minor-release.md"
+    },
+    {
+      "Step": 24,
+      "Kind": "delete-neighbour",
+      "Detail": "research/decisions/DF-ROS-2026-A035--govern-sde-structural-locality-warnings-as-review-obligations.md"
+    },
+    {
+      "Step": 25,
+      "Kind": "status-change",
+      "Detail": "research/decisions/DF-ROS-2026-A073--probe-qualified-linux-worker-containment.md"
+    },
+    {
+      "Step": 26,
+      "Kind": "delete-neighbour",
+      "Detail": "research/decisions/DF-ARCA-2026-0013--release-0-5-0-is-a-minor-release.md"
+    },
+    {
+      "Step": 27,
+      "Kind": "delete-neighbour",
+      "Detail": "research/requirements/RQ-ROS-2026-A028--local-coordinator-and-worker-handoffs.md"
+    },
+    {
+      "Step": 28,
+      "Kind": "edit-body",
+      "Detail": "docs/architecture/TRUST-BOUNDARIES.md"
+    },
+    {
+      "Step": 29,
+      "Kind": "add-incoming-support",
+      "Detail": "fides:DF-FIDES-2026-0004"
+    },
+    {
+      "Step": 30,
+      "Kind": "id-collision",
+      "Detail": "signal:DF-SIGNAL-2026-0001"
+    },
+    {
+      "Step": 31,
+      "Kind": "edit-body",
+      "Detail": "research/decisions/DF-ROS-2026-A073--probe-qualified-linux-worker-containment.md"
+    },
+    {
+      "Step": 32,
+      "Kind": "delete-neighbour",
+      "Detail": "docs/00-governance/README.md"
+    },
+    {
+      "Step": 33,
+      "Kind": "add-incoming-support",
+      "Detail": "praxis:DF-ROS-2026-A055"
+    },
+    {
+      "Step": 34,
+      "Kind": "add-incoming-dependency",
+      "Detail": "praxis:DF-ROS-2026-A070"
+    },
+    {
+      "Step": 35,
+      "Kind": "delete-neighbour",
+      "Detail": "docs/requirements/FIDES-REQUIREMENTS.md"
+    },
+    {
+      "Step": 36,
+      "Kind": "status-change",
+      "Detail": "research/decisions/DF-FIDES-2026-0004--stateless-exchange.md"
+    },
+    {
+      "Step": 37,
+      "Kind": "id-collision",
+      "Detail": "praxis:DF-ROS-2026-A064"
+    },
+    {
+      "Step": 38,
+      "Kind": "add-incoming-dependency",
+      "Detail": "fides:DF-FIDES-2026-0010"
+    },
+    {
+      "Step": 39,
+      "Kind": "id-collision",
+      "Detail": "praxis:DF-ROS-2026-A070"
+    },
+    {
+      "Step": 40,
+      "Kind": "delete-neighbour",
+      "Detail": "research/decisions/DF-ROS-2026-A032--fsharp-full-node-replacement.md"
+    },
+    {
+      "Step": 41,
+      "Kind": "status-change",
+      "Detail": "research/decisions/DF-ROS-2026-A057--praxis-ui-url-state-through-limen-routing.md"
+    },
+    {
+      "Step": 42,
+      "Kind": "status-change",
+      "Detail": "docs/architecture/TRUST-BOUNDARIES.md"
+    },
+    {
+      "Step": 43,
+      "Kind": "edit-body",
+      "Detail": "research/evidence/EV-ROS-2026-A067--a021-blind-evaluation-report.md"
+    },
+    {
+      "Step": 44,
+      "Kind": "add-incoming-dependency",
+      "Detail": "praxis:DF-ROS-2026-A058"
+    },
+    {
+      "Step": 45,
+      "Kind": "edit-body",
+      "Detail": "research/decisions/DF-FIDES-2026-0013--github-backed-storage-permission-and-tenancy.md"
+    },
+    {
+      "Step": 46,
+      "Kind": "edit-body",
+      "Detail": "research/decisions/DF-FIDES-2026-0005--deployment-is-operator-configuration.md"
+    },
+    {
+      "Step": 47,
+      "Kind": "status-change",
+      "Detail": "research/decisions/DF-ROS-2026-A031--fsharp-starter-template-launcher.md"
+    },
+    {
+      "Step": 48,
+      "Kind": "delete-neighbour",
+      "Detail": "docs/architecture/SECURITY-ARCHITECTURE.md"
+    },
+    {
+      "Step": 49,
+      "Kind": "edit-body",
+      "Detail": "research/decisions/DF-ROS-2026-A037--execution-step-telemetry.md"
+    },
+    {
+      "Step": 50,
+      "Kind": "id-collision",
+      "Detail": "arca:DF-ARCA-2026-0015"
+    },
+    {
+      "Step": 51,
+      "Kind": "add-incoming-support",
+      "Detail": "praxis:DF-ROS-2026-A002"
+    },
+    {
+      "Step": 52,
+      "Kind": "status-change",
+      "Detail": "docs/requirements/ARCA-STORAGE-REQUIREMENTS.md"
+    },
+    {
+      "Step": 53,
+      "Kind": "delete-neighbour",
+      "Detail": "docs/architecture/TRUST-BOUNDARIES.md"
+    },
+    {
+      "Step": 54,
+      "Kind": "add-incoming-dependency",
+      "Detail": "praxis:DF-ROS-2026-A002"
+    },
+    {
+      "Step": 55,
+      "Kind": "delete-neighbour",
+      "Detail": "research/decisions/DF-ROS-2026-A054--python-automation-prohibited-with-approved-exceptions.md"
+    },
+    {
+      "Step": 56,
+      "Kind": "add-incoming-dependency",
+      "Detail": "arca:DF-ARCA-2026-0005"
+    },
+    {
+      "Step": 57,
+      "Kind": "delete-neighbour",
+      "Detail": "research/decisions/DF-ROS-2026-A073--probe-qualified-linux-worker-containment.md"
+    },
+    {
+      "Step": 58,
+      "Kind": "add-incoming-support",
+      "Detail": "praxis:DF-ROS-2026-A045"
+    },
+    {
+      "Step": 59,
+      "Kind": "add-incoming-support",
+      "Detail": "fides:DF-FIDES-2026-0016"
+    },
+    {
+      "Step": 60,
+      "Kind": "id-collision",
+      "Detail": "praxis:DF-ROS-2026-A033"
+    }
+  ],
+  "results": [
+    {
+      "Strategy": "full",
+      "Steps": 61,
+      "StalePackages": 0,
+      "StaleSteps": 0,
+      "MedianMs": 152.9704,
+      "TotalMs": 9255.7735,
+      "FirstStale": ""
+    },
+    {
+      "Strategy": "incremental (parse cache)",
+      "Steps": 61,
+      "StalePackages": 0,
+      "StaleSteps": 0,
+      "MedianMs": 61.9563,
+      "TotalMs": 3921.1644999999994,
+      "FirstStale": ""
+    },
+    {
+      "Strategy": "package memo keyed by item files (naive)",
+      "Steps": 61,
+      "StalePackages": 508,
+      "StaleSteps": 60,
+      "MedianMs": 0.7643,
+      "TotalMs": 1287.3388,
+      "FirstStale": "step 1 add-incoming-support (mercatus:DF-MERCATUS-FND-2026-0002): mercatus:DF-MERCATUS-FND-2026-0002"
+    },
+    {
+      "Strategy": "on-demand (outgoing closure only)",
+      "Steps": 61,
+      "StalePackages": 1336,
+      "StaleSteps": 61,
+      "MedianMs": 234.641,
+      "TotalMs": 14538.453800000001,
+      "FirstStale": "step 0 base (): praxis:DF-ROS-2026-A045"
+    },
+    {
+      "Strategy": "hybrid (parse cache \u002B dependency-keyed package memo)",
+      "Steps": 61,
+      "StalePackages": 0,
+      "StaleSteps": 0,
+      "MedianMs": 106.9604,
+      "TotalMs": 7004.662699999998,
+      "FirstStale": ""
+    }
+  ],
+  "targets": [
+    "praxis:DF-ROS-2026-A045",
+    "praxis:DF-ROS-2026-A040",
+    "praxis:DF-ROS-2026-A034",
+    "praxis:DF-ROS-2026-A055",
+    "fides:DF-FIDES-2026-0016",
+    "praxis:DF-ROS-2026-A064",
+    "fides:DF-FIDES-2026-0004",
+    "fides:DF-FIDES-2026-0001",
+    "arca:DF-ARCA-2026-0015",
+    "signal:DF-SIGNAL-2026-0001",
+    "praxis:DF-ROS-2026-A070",
+    "praxis:RQ-ROS-2026-A018",
+    "fides:DF-FIDES-2026-0010",
+    "praxis:DF-ROS-2026-A037",
+    "praxis:DF-ROS-2026-A063",
+    "mercatus:DF-MERCATUS-FND-2026-0002",
+    "arca:DF-ARCA-2026-0005",
+    "praxis:DF-ROS-2026-A010",
+    "fides:DF-FIDES-2026-0003",
+    "praxis:HY-ROS-2026-A022",
+    "fides:DF-FIDES-2026-0011",
+    "praxis:DF-ROS-2026-A002",
+    "praxis:DF-ROS-2026-A058",
+    "praxis:DF-ROS-2026-A033",
+    "praxis:RQ-ROS-2026-A023"
+  ]
+}

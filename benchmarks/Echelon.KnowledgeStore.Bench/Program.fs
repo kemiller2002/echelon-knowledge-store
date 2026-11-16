@@ -833,6 +833,45 @@ let main argv =
         | "write-score" -> writeScore root out
         | "score-trials2" -> scoreTrials2 out
         | "score-trials" -> scoreTrials root out
+        | "incremental" ->
+            let publicFiles, _ = publicCorpus root
+            let src = CompilerBench.sources publicFiles
+
+            let targets, muts, results, configOk =
+                IncrementalBench.run CompilerBench.config src 25 60 20261116
+
+            Report.json
+                out
+                "incremental-compilation.json"
+                {|
+                    targets = targets
+                    mutations = muts
+                    results = results
+                    configChangeCorrect = configOk
+                |}
+
+            results
+            |> List.iter (fun r ->
+                printfn
+                    "%-55s stale packages %3d / steps %2d  median %.1f ms  total %.0f ms  %s"
+                    r.Strategy
+                    r.StalePackages
+                    r.StaleSteps
+                    r.MedianMs
+                    r.TotalMs
+                    r.FirstStale)
+
+            printfn "config change with warm cache matches fresh compile: %b" configOk
+        | "coding-prepare" ->
+            let sandbox = string (Environment.GetEnvironmentVariable "EKS_CODING_ROOT")
+            let runs = CodingTrial.prepare repoRoot sandbox 2 20261116
+            runs |> List.iter (fun r -> printfn "%s %s" r.Run (String.concat "," r.Batch))
+        | "coding-score" ->
+            let sandbox = string (Environment.GetEnvironmentVariable "EKS_CODING_ROOT")
+            let hash, runs = CodingTrial.readAssignment sandbox
+            let scores = runs |> List.map (CodingTrial.scoreRun repoRoot sandbox hash)
+            File.WriteAllText(Path.Combine(sandbox, "scores.json"), Text.Json.JsonSerializer.Serialize(scores))
+            printfn "scored %d runs" scores.Length
         | other -> eprintfn "unknown command %s" other
 
     match List.ofArray argv with
