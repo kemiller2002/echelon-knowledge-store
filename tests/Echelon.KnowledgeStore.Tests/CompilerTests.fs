@@ -13,6 +13,8 @@ let private cfg =
         Audience = Private
         SupportedSchema = 1
         ExistingPaths = None
+        DisabledRules = Set.empty
+        Revisions = Map.empty
     }
 
 let private file repo path text = Pipeline.sourceFile repo path text
@@ -401,3 +403,67 @@ let ``evidence citing a missing source file is a warning`` () =
         |> List.choose _.Record
 
     Assert.Equal<string list>([ "r:EV-T-2026-0009" ], flagged)
+
+[<Fact>]
+let ``a disabled mandatory rule prevents a COMPLETE package`` () =
+    let c =
+        Pipeline.compile
+            { cfg with
+                DisabledRules = set [ "core-validation" ]
+            }
+            Map.empty
+            corpus
+        |> fst
+
+    let p = Packages.task c "r:DF-T-2026-0001"
+
+    match p.Status with
+    | Incomplete rs -> Assert.Contains(rs, fun r -> r.Contains "core-validation")
+    | Complete -> failwith "a skipped mandatory rule must not yield COMPLETE"
+
+[<Fact>]
+let ``a disabled optional rule is recorded but does not block completeness`` () =
+    let c =
+        Pipeline.compile
+            { cfg with
+                DisabledRules = set [ "status-agrees-with-evidence" ]
+            }
+            Map.empty
+            corpus
+        |> fst
+
+    Assert.Contains(c.Rules, fun r -> r.Rule = "status-agrees-with-evidence" && not r.Executed && not r.Mandatory)
+    Assert.Equal(Complete, (Packages.task c "r:DF-T-2026-0001").Status)
+
+[<Fact>]
+let ``completeness holds exactly when every condition is satisfied`` () =
+    let bad =
+        file
+            "r"
+            "research/decisions/DF-T-2026-0002--d.md"
+            "---\nid: DF-T-2026-0002\ntitle: D\nstatus: accepted\ndepends_on: [RQ-T-2026-0404]\n---\n\nx\n"
+
+    let c = compile (bad :: corpus)
+
+    for k in c.Graph.Records |> Map.keys do
+        for p in [ Packages.task c k; Packages.evidence c k; Packages.impact c k ] do
+            let allSatisfied = p.Conditions |> List.forall snd
+            Assert.Equal(allSatisfied, (p.Status = Complete))
+
+[<Fact>]
+let ``package manifest records rules, revisions and derived completeness`` () =
+    let c =
+        Pipeline.compile
+            { cfg with
+                Revisions = Map.ofList [ "r", "abc123" ]
+            }
+            Map.empty
+            corpus
+        |> fst
+
+    let p = Packages.task c "r:DF-T-2026-0001"
+    let m = Packages.manifest c p
+    Assert.Contains("\"commit\": \"abc123\"", m)
+    Assert.Contains("\"rule\": \"core-validation\"", m)
+    Assert.Contains("\"completeness\": \"COMPLETE\"", m)
+    Assert.Contains(Pipeline.sha256 p.Text, m)

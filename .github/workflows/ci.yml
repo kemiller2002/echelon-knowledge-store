@@ -57,6 +57,17 @@ jobs:
           path: TestResults
           retention-days: 30
 
+  privacy:
+    # Public artefacts must not contain paths into private repositories.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Privacy check
+        run: dotnet run --project tools/Echelon.KnowledgeStore.Cli -c Release -- privacy-check --root .
+
   security:
     runs-on: ubuntu-latest
     steps:

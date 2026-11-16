@@ -31,6 +31,20 @@ type CompileConfig =
         /// All existing file paths as `repository/path` (any extension), when known.
         /// Enables checking that relative `source_uri` values point to real files.
         ExistingPaths: Set<string> option
+        /// Rules switched off (adversarial testing only). A disabled mandatory rule
+        /// makes every package INCOMPLETE.
+        DisabledRules: Set<string>
+        /// Source revision (commit) per repository, recorded in manifests.
+        Revisions: Map<string, string>
+    }
+
+/// One validation rule's execution record.
+type RuleRun =
+    {
+        Rule: string
+        Mandatory: bool
+        Executed: bool
+        Findings: int
     }
 
 /// Result of parsing one file. Cached by (path, hash) for incremental builds.
@@ -59,6 +73,7 @@ type Compilation =
         Diagnostics: Diagnostic list
         Precomputed: Precomputed
         InputsHash: string
+        Rules: RuleRun list
     }
 
 /// Parse cache keyed by `repository/path` and content hash.
@@ -695,14 +710,39 @@ module Pipeline =
                         $"private repository '{repo}' cannot be compiled for a public audience")
             | Private -> []
 
-        fromValidation
-        @ unresolvedTyped
-        @ collisions
-        @ misleadingConfidence
-        @ statusLag
-        @ experimentsWithoutHypothesis
-        @ missingSources
-        @ audience
+        // Named rules: (name, mandatory, findings). The evidence-source check is
+        // mandatory only when the existing paths are known.
+        let rules =
+            [
+                "core-validation", true, fromValidation
+                "case-sensitive-references", true, unresolvedTyped
+                "id-collisions", true, collisions
+                "confidence-backed-by-evidence", false, misleadingConfidence
+                "status-agrees-with-evidence", false, statusLag
+                "experiment-names-hypothesis", false, experimentsWithoutHypothesis
+                "evidence-source-exists", cfg.ExistingPaths.IsSome, missingSources
+                "audience", true, audience
+            ]
+
+        let runs =
+            rules
+            |> List.map (fun (name, mandatory, ds) ->
+                let executed =
+                    not (cfg.DisabledRules.Contains name)
+                    && (name <> "evidence-source-exists" || cfg.ExistingPaths.IsSome)
+
+                {
+                    Rule = name
+                    Mandatory = mandatory
+                    Executed = executed
+                    Findings = if executed then List.length ds else 0
+                })
+
+        let findings =
+            List.zip rules runs
+            |> List.collect (fun ((_, _, ds), run) -> if run.Executed then ds else [])
+
+        findings, runs
 
     let private sortDiagnostics (ds: Diagnostic list) =
         ds
@@ -729,9 +769,18 @@ module Pipeline =
         let records = units |> List.choose _.Record
         let g = Graph.build false records
 
-        let diagnostics =
-            (units |> List.collect _.Diagnostics) @ corpusDiagnostics cfg units records g
-            |> sortDiagnostics
+        let corpusFindings, corpusRuns = corpusDiagnostics cfg units records g
+        let parseFindings = units |> List.collect _.Diagnostics
+
+        let parseRun =
+            {
+                Rule = "parse-and-field-checks"
+                Mandatory = true
+                Executed = true
+                Findings = parseFindings.Length
+            }
+
+        let diagnostics = parseFindings @ corpusFindings |> sortDiagnostics
 
         let inputsHash =
             files
@@ -748,6 +797,7 @@ module Pipeline =
                 Diagnostics = diagnostics
                 Precomputed = precompute g
                 InputsHash = inputsHash
+                Rules = parseRun :: corpusRuns
             }
 
         comp,

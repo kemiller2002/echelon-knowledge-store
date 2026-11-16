@@ -19,6 +19,8 @@ usage: eks <command> [args] --root DIR [--repos a,b] [--private a,b] [--audience
   evidence ID              evidence bundle for a claim
   impact ID                change-impact report
   obligations ID           requirement contract (JSON)
+  manifest ID              machine-readable manifest of the task package for ID
+  privacy-check [paths]    scan public artefacts against .privacy-denylist (exit 5 on findings)
   diff BASE_ROOT HEAD_ROOT added/removed/changed records and the impact of changes"""
 
 type Options =
@@ -71,6 +73,8 @@ let private config (o: Options) =
         Audience = o.Audience
         SupportedSchema = 1
         ExistingPaths = Some(Sources.existingPaths o.Root o.Repos)
+        DisabledRules = Set.empty
+        Revisions = Sources.revisions o.Root o.Repos
     }
 
 let private compileAt (o: Options) root =
@@ -139,6 +143,43 @@ let run (argv: string list) : string * int =
     | [ "evidence"; id ] -> withCompilation (fun c -> Query.evidence c o.AllowIncomplete id)
     | [ "impact"; id ] -> withCompilation (fun c -> Query.impact c o.AllowIncomplete id)
     | [ "obligations"; id ] -> withCompilation (fun c -> Query.obligations c id)
+    | "privacy-check" :: dirs ->
+        let denyFile = Path.Combine(o.Root, ".privacy-denylist")
+
+        let patterns =
+            if File.Exists denyFile then
+                File.ReadAllLines denyFile
+                |> Array.map _.Trim()
+                |> Array.filter (fun l -> l <> "" && not (l.StartsWith "#"))
+                |> List.ofArray
+            else
+                []
+
+        let dirs =
+            if dirs.IsEmpty then
+                [ "research"; "docs"; "benchmarks"; "README.md"; "AGENTS.md" ]
+            else
+                dirs
+
+        match Sources.privacyFindings o.Root dirs patterns with
+        | [] -> $"privacy-check: no findings ({patterns.Length} patterns)\n", 0
+        | fs ->
+            (fs
+             |> List.map (fun (f, l, p) -> $"{f}({l}): matches deny pattern {p}")
+             |> String.concat "\n")
+            + $"\n{fs.Length} finding(s)\n",
+            5
+    | [ "manifest"; id ] ->
+        withCompilation (fun c ->
+            match
+                c.Graph.Records
+                |> Map.filter (fun k r -> k = id || r.Id = id)
+                |> Map.keys
+                |> List.ofSeq
+            with
+            | [ k ] -> Packages.manifest c (Packages.task c k) + "\n", 0
+            | [] -> $"error: no record '{id}'", 1
+            | ks -> $"error: ambiguous '{id}': " + String.concat ", " ks, 1)
     | [ "diff"; baseRoot; headRoot ] -> Query.diff (compileAt o baseRoot) (compileAt o headRoot)
     | _ -> usage, 1
 

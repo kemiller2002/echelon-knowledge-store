@@ -357,7 +357,7 @@ let prepare (files: SourceFile list) (outDir: string) =
             Visibility = Map.empty
             Audience = Private
             SupportedSchema = 1
-            ExistingPaths = None
+            ExistingPaths = None; DisabledRules = Set.empty; Revisions = Map.empty
         }
 
     let c, _ = Pipeline.compile cfg Map.empty all

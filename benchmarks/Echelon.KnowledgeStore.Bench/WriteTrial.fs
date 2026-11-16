@@ -72,7 +72,7 @@ let private config =
         Visibility = Map.empty
         Audience = Private
         SupportedSchema = 1
-        ExistingPaths = None
+        ExistingPaths = None; DisabledRules = Set.empty; Revisions = Map.empty
     }
 
 type TaskScore =
