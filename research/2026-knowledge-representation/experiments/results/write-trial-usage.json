@@ -1,9 +1,66 @@
 {
   "note": "Harness-reported usage per write-trial subagent, recorded from task notifications on 2026-11-16.",
   "runs": [
-    {"condition": "sonnet-plain", "subagent_tokens": 133720, "tool_uses": 18, "duration_ms": 79721},
-    {"condition": "sonnet-compiler", "subagent_tokens": 120666, "tool_uses": 19, "duration_ms": 90104},
-    {"condition": "haiku-plain", "subagent_tokens": 152356, "tool_uses": 37, "duration_ms": 188782},
-    {"condition": "haiku-compiler", "subagent_tokens": 148804, "tool_uses": 24, "duration_ms": 174481}
+    {
+      "condition": "sonnet-plain",
+      "subagent_tokens": 133720,
+      "tool_uses": 18,
+      "duration_ms": 79721
+    },
+    {
+      "condition": "sonnet-compiler",
+      "subagent_tokens": 120666,
+      "tool_uses": 19,
+      "duration_ms": 90104
+    },
+    {
+      "condition": "haiku-plain",
+      "subagent_tokens": 152356,
+      "tool_uses": 37,
+      "duration_ms": 188782
+    },
+    {
+      "condition": "haiku-compiler",
+      "subagent_tokens": 148804,
+      "tool_uses": 24,
+      "duration_ms": 174481
+    },
+    {
+      "condition": "haiku-plain-2",
+      "subagent_tokens": 165409,
+      "tool_uses": 38,
+      "duration_ms": 236040
+    },
+    {
+      "condition": "haiku-plain-3",
+      "subagent_tokens": 182692,
+      "tool_uses": 41,
+      "duration_ms": 236915
+    },
+    {
+      "condition": "haiku-compiler-2",
+      "subagent_tokens": 138606,
+      "tool_uses": 24,
+      "duration_ms": 145086
+    },
+    {
+      "condition": "haiku-compiler-3",
+      "subagent_tokens": 146360,
+      "tool_uses": 45,
+      "duration_ms": 242943,
+      "note": "attempted an unrelated session-interrupt tool; the call was denied"
+    },
+    {
+      "condition": "sonnet-policy-1",
+      "subagent_tokens": 126036,
+      "tool_uses": 24,
+      "duration_ms": 113689
+    },
+    {
+      "condition": "sonnet-policy-2",
+      "subagent_tokens": 137346,
+      "tool_uses": 24,
+      "duration_ms": 105342
+    }
   ]
 }
