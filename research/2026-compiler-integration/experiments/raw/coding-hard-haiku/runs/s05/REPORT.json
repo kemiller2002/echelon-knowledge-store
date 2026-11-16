@@ -1,0 +1,100 @@
+[
+  {
+    "workItem": "WI-0001",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.total: sums the tenant's approved entries (refunds included, unapproved and other tenants excluded), then rounds to 2 decimal places with MidpointRounding.AwayFromZero per RQ-FXL-0003 / DF-FXL-0007. RQ-FXL-0103 (banker's rounding) is superseded and was not followed.",
+    "criteria": [
+      {
+        "criterion": "Approved 0.005 alone totals 0.01; approved -0.005 alone totals -0.01",
+        "verified": true,
+        "test": "total rounds approved midpoints away from zero"
+      },
+      {
+        "criterion": "Unapproved entries and other tenants' entries do not count",
+        "verified": true,
+        "test": "total excludes unapproved and other tenant entries"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0003",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.approve with the RQ-FXL-0004 check order (SessionExpired via FxIdentity.Identity.isActive, flat Approver role check, NotFound for other-tenant or missing entries, SelfApproval, AlreadyApproved) plus the RQ-FXL-0104 amendment (amount over 10,000 requires both Approver and Admin, checked after the entry is found and before self-approval). On success sets Approved and ApprovedBy only. Criteria without a dedicated test (NotFound, SelfApproval, AlreadyApproved) are implemented but not verified by a test.",
+    "criteria": [
+      {
+        "criterion": "A session idle for exactly 15 minutes can approve",
+        "verified": true,
+        "test": "approve accepts a session idle for exactly 15 minutes"
+      },
+      {
+        "criterion": "A session idle for 15 minutes 1 second gets SessionExpired",
+        "verified": true,
+        "test": "approve rejects a session idle for 15 minutes and 1 second"
+      },
+      {
+        "criterion": "An Admin without Approver gets NotAuthorized",
+        "verified": true,
+        "test": "approve rejects an Admin without Approver"
+      },
+      {
+        "criterion": "An Approver without Admin approving an entry of 10,000.01 gets NotAuthorized (RQ-FXL-0104)",
+        "verified": true,
+        "test": "approve over 10000 without Admin is NotAuthorized"
+      },
+      {
+        "criterion": "An entry of exactly 10,000 needs only Approver (RQ-FXL-0104)",
+        "verified": true,
+        "test": "approve of exactly 10000 needs only Approver"
+      },
+      {
+        "criterion": "An entry of another tenant is reported as NotFound, never NotAuthorized (RQ-FXL-0004 step 3)",
+        "verified": false,
+        "test": null
+      },
+      {
+        "criterion": "Approving an entry created by the session's own user gets SelfApproval (RQ-FXL-0004 step 4)",
+        "verified": false,
+        "test": null
+      },
+      {
+        "criterion": "Approving an already approved entry gets AlreadyApproved (RQ-FXL-0004 step 5)",
+        "verified": false,
+        "test": null
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0005",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.view: returns SessionExpired when FxIdentity.Identity.isActive is false, otherwise the entries whose TenantId equals the session's tenant, in original order, with no role widening the result (RQ-FXL-0006 / DF-FXL-0005). The README note that administrators can view every tenant is stale; DF-FXL-0005 supersedes DF-FXL-0002 and was followed.",
+    "criteria": [
+      {
+        "criterion": "An Admin of t1 sees only t1 entries",
+        "verified": true,
+        "test": "view returns only the session tenant entries in original order"
+      },
+      {
+        "criterion": "An expired session gets SessionExpired",
+        "verified": true,
+        "test": "view returns SessionExpired for an expired session"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0007",
+    "status": "blocked",
+    "summary": "Not implemented. RQ-FXL-0008 is still proposed and has no acceptance criteria, and its dependency DF-FXL-0009 (exchange-rate source) is draft and undecided, so rounding and the rate date are unspecified. convertCurrency remains a failwith stub. Needs DF-FXL-0009 decided and acceptance criteria added to RQ-FXL-0008.",
+    "criteria": [
+      {
+        "criterion": "Amounts are convertible between ISO 4217 currencies using the rates source chosen in DF-FXL-0009",
+        "verified": false,
+        "test": null
+      },
+      {
+        "criterion": "Rounding and rate date are specified (currently unspecified in RQ-FXL-0008)",
+        "verified": false,
+        "test": null
+      }
+    ]
+  }
+]

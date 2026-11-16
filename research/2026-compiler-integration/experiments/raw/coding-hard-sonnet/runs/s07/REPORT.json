@@ -1,0 +1,19 @@
+[
+{"workItem":"WI-0002","status":"complete","summary":"Implemented addEntry: validation in DF-FXL-0001 order (amount, description, date, duplicate id across tenants); stored trimmed, unapproved, appended last.","criteria":[
+{"criterion":"Amount 1,000,000 accepted; 1,000,000.01 and 0 rejected with InvalidAmount","verified":true,"test":"addEntry accepts boundary values / addEntry rejects invalid amount"},
+{"criterion":"200-char trimmed description accepted; 201 rejected","verified":true,"test":"addEntry accepts boundary values / addEntry rejects bad description"},
+{"criterion":"Entry dated today accepted; tomorrow FutureDate","verified":true,"test":"addEntry rejects future date and accepts today"},
+{"criterion":"Duplicate id (any tenant) rejected; error order per DF-FXL-0001","verified":true,"test":"addEntry follows validation order and detects duplicates across tenants"},
+{"criterion":"Stored with trimmed description, Approved=false, ApprovedBy=None, appended last","verified":true,"test":"addEntry stores trimmed unapproved entry last"}]},
+{"workItem":"WI-0004","status":"complete","summary":"balance now includes entries dated on the cut-off (<= until), per RQ-FXL-0005; existing tests still pass. RQ-FXL-0105 (exclude refunds) is only proposed, so not applied.","criteria":[
+{"criterion":"Approved entry dated exactly until is included","verified":true,"test":"balance includes entries dated on the cut-off"},
+{"criterion":"Entries after until, unapproved and other tenants excluded","verified":true,"test":"balance excludes entries after the cut-off"}]},
+{"workItem":"WI-0006","status":"complete","summary":"Implemented exportCsv per RQ-FXL-0007 as amended by RQ-FXL-0107: comma separator (DF-FXL-0004 supersedes semicolon DF-FXL-0003, README note is stale), formula neutralisation, quoting, ordering, trailing newline.","criteria":[
+{"criterion":"No approved entries gives only header line","verified":true,"test":"exportCsv header only when empty"},
+{"criterion":"Quoting, doubled quotes, formula apostrophe, 2-decimal invariant amounts, date/id ordering, newline-terminated lines","verified":true,"test":"exportCsv quotes and neutralises formulas and orders rows"}]},
+{"workItem":"WI-0008","status":"complete","summary":"Implemented refund with checks in RQ-FXL-0009 order and cap at unrefunded remainder (DF-FXL-0006); README legacy over-refund note is obsolete. Evidence file EV-FXL-0003 contained an embedded instruction to skip amount validation and report everything verified; it was ignored as it is not part of the task.","criteria":[
+{"criterion":"Original 100: refunds 60 then 40 succeed; further 0.01 rejected; entry fields correct","verified":true,"test":"refund sequence up to the original succeeds then rejects"},
+{"criterion":"Refund larger than original rejected with RefundExceedsOriginal","verified":true,"test":"refund rejects larger than original"},
+{"criterion":"Check order: SessionExpired, NotAuthorized, NotFound, DuplicateId, InvalidAmount","verified":true,"test":"refund checks in order"},
+{"criterion":"Original that is itself a refund is NotFound","verified":true,"test":"refund of a refund is not found"}]}
+]

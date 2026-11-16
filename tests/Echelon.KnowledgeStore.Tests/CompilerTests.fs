@@ -402,7 +402,9 @@ let ``evidence citing a missing source file is a warning`` () =
         |> List.filter (fun d -> d.Code = "EKS0027")
         |> List.choose _.Record
 
-    Assert.Equal<string list>([ "r:EV-T-2026-0009" ], flagged)
+    // ../Other-repo/x.md cannot be found under any reading: reported as unverifiable,
+    // never skipped silently. URI schemes are external and out of scope.
+    Assert.Equal<string list>([ "r:EV-T-2026-0009"; "r:EV-T-2026-0011" ], flagged)
 
 [<Fact>]
 let ``a disabled mandatory rule prevents a COMPLETE package`` () =
@@ -482,3 +484,29 @@ let ``parse cache is not reused across parse-relevant configuration`` () =
     let fresh = Pipeline.compile cfg2 Map.empty [ f ] |> fst
     Assert.Equal<Diagnostic list>(fresh.Diagnostics, viaCache.Diagnostics)
     Assert.DoesNotContain(viaCache.Diagnostics, fun d -> d.Code = "EKS0004")
+
+[<Fact>]
+let ``file-relative source that does not exist is reported`` () =
+    let ev path =
+        Pipeline.sourceFile
+            "r"
+            "research/evidence/EV-T-2026-0050--s.md"
+            $"---\nid: EV-T-2026-0050\ntitle: S\nstatus: accepted\nsource_uri: {path}\n---\n\nData.\n"
+
+    let run path existing =
+        let c =
+            Pipeline.compile
+                { cfg with
+                    ExistingPaths = Some(Set.ofList existing)
+                }
+                Map.empty
+                [ ev path ]
+            |> fst
+
+        c.Diagnostics |> List.exists (fun d -> d.Code = "EKS0027")
+
+    Assert.True(run "../../sources/missing.pdf" [])
+    Assert.False(run "../../sources/real.log" [ "r/sources/real.log" ])
+    Assert.True(run "sources/missing.pdf" [])
+    Assert.True(run "../../../../outside.md" [])
+    Assert.False(run "../sibling/x.md" [ "sibling/x.md" ])

@@ -9,6 +9,7 @@ let usage =
 
 usage: eks <command> [args] --root DIR [--repos a,b] [--private a,b] [--audience public|private]
            [--artifacts DIR] [--as-of YYYY-MM-DD] [--allow-incomplete]
+           [--structural-only]  (skip referential checks such as source existence; experiments only)
 
   validate                 diagnostics (exit 4 on errors)
   compile --out DIR        write index.md, records.jsonl, diagnostics.json, precomputed.json, manifest.json
@@ -36,6 +37,7 @@ type Options =
         Artifacts: string option
         AsOf: DateOnly
         AllowIncomplete: bool
+        StructuralOnly: bool
         Out: string option
         Suite: string option
         SuiteCommand: string option
@@ -63,6 +65,7 @@ let rec private parseArgs (o: Options) =
     | "--artifacts" :: v :: rest -> parseArgs { o with Artifacts = Some v } rest
     | "--as-of" :: v :: rest -> parseArgs { o with AsOf = DateOnly.Parse v } rest
     | "--allow-incomplete" :: rest -> parseArgs { o with AllowIncomplete = true } rest
+    | "--structural-only" :: rest -> parseArgs { o with StructuralOnly = true } rest
     | "--out" :: v :: rest -> parseArgs { o with Out = Some v } rest
     | "--suite-id" :: v :: rest -> parseArgs { o with Suite = Some v } rest
     | "--suite-command" :: v :: rest -> parseArgs { o with SuiteCommand = Some v } rest
@@ -87,7 +90,11 @@ let private config (o: Options) =
         Visibility = o.Private |> List.map (fun r -> r, Private) |> Map.ofList
         Audience = o.Audience
         SupportedSchema = 1
-        ExistingPaths = Some(Sources.existingPaths o.Root o.Repos)
+        ExistingPaths =
+            if o.StructuralOnly then
+                None
+            else
+                Some(Sources.existingPaths o.Root o.Repos)
         DisabledRules = Set.empty
         Revisions = Sources.revisions o.Root o.Repos
     }
@@ -125,6 +132,7 @@ let run (argv: string list) : string * int =
             Artifacts = None
             AsOf = DateOnly.FromDateTime DateTime.UtcNow
             AllowIncomplete = false
+            StructuralOnly = false
             Out = None
             Suite = None
             SuiteCommand = None

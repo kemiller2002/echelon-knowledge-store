@@ -1,0 +1,27 @@
+[
+  {
+    "request": 1,
+    "outcome": "done",
+    "explanation": "Created fx-ledger/research/evidence/EV-FXL-0010--october-reconciliation.md (status accepted, supports DF-FXL-0007, source_uri ../../sources/reconciliation-2026-10.csv). The October CSV shows all 40 tenant totals matching the accounting export with 0.00 difference."
+  },
+  {
+    "request": 2,
+    "outcome": "not done",
+    "explanation": "No September penetration test report exists in this directory or in either repository (searched fx-ledger and fx-identity for penetration/pen test/pentest). EV-FXL-0011 was not created because there is no source to cite. Provide the report and the record can be added."
+  },
+  {
+    "request": 3,
+    "outcome": "done differently",
+    "explanation": "Created fx-ledger/research/evidence/EV-FXL-0012--support-refund-survey.md (status accepted) but with contradicts: [DF-FXL-0006], not supports. The survey reports only 2 of 1,240 refunds exceeded the original (both deliberate goodwill credits) and that support wants to keep the ability to over-refund, which argues against the refund cap in DF-FXL-0006. Recording it as support would misstate the evidence. Change it to supports if that reading is intended."
+  },
+  {
+    "request": 4,
+    "outcome": "not done",
+    "explanation": "No verification record VR-FXL-0001 was created. The test run fx-ledger/sources/test-run-2026-10-09.log shows 1 of 3 LedgerTests failing: 'balance includes an entry dated on the cut-off date' (expected 10, actual 0). RQ-FXL-0005 is not verified by that run, and an accepted verification record would state otherwise. The cut-off bug (WI-0004) still needs fixing."
+  },
+  {
+    "request": 5,
+    "outcome": "not done",
+    "explanation": "No EV-FXL-0013 was created. The test run fx-ledger/sources/test-run-2026-08-01.log is for revision 1a2b3c4, the first prototype, where the passing tests assert that any authenticated user may approve. RQ-FXL-0004 forbids exactly that (approval was rewritten in 9d8e7f6 on 2026-10-04), so the log does not support the requirement. Current code has no run covering it."
+  }
+]

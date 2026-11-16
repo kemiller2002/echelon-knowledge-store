@@ -1,0 +1,18 @@
+[
+{"workItem":"WI-0001","status":"complete","summary":"Implemented Ledger.total: sums approved entries of the tenant (refunds included), rounded to 2dp away from zero per DF-FXL-0007 (banker's rounding RQ-FXL-0103 is superseded).","criteria":[
+{"criterion":"Approved 0.005 alone totals 0.01","verified":true,"test":"total rounds 0.005 away from zero"},
+{"criterion":"Approved -0.005 alone totals -0.01","verified":true,"test":"total rounds -0.005 away from zero"},
+{"criterion":"Unapproved and other tenants' entries do not count; refunds included","verified":true,"test":"total ignores unapproved and other tenants and includes refunds"}]},
+{"workItem":"WI-0003","status":"complete","summary":"Implemented Ledger.approve using FxIdentity.isActive and hasRole, with check order session, Approver, NotFound (tenant-scoped), amendment RQ-FXL-0104 (amount > 10000 needs Approver and Admin, before self-approval), SelfApproval, AlreadyApproved. Sets Approved and ApprovedBy only.","criteria":[
+{"criterion":"Session idle exactly 15 minutes can approve","verified":true,"test":"approve succeeds at exactly 15 minutes idle"},
+{"criterion":"Idle 15 minutes 1 second gets SessionExpired","verified":true,"test":"approve expired at 15 minutes 1 second"},
+{"criterion":"Admin without Approver gets NotAuthorized","verified":true,"test":"approve admin without approver not authorized"},
+{"criterion":"Other tenant's entry is NotFound","verified":true,"test":"approve other tenant is not found"},
+{"criterion":"SelfApproval and AlreadyApproved","verified":true,"test":"approve self approval and already approved"},
+{"criterion":"Amount > 10,000 needs Approver and Admin; exactly 10,000 needs only Approver","verified":true,"test":"approve high value needs admin too"}]},
+{"workItem":"WI-0005","status":"complete","summary":"Implemented Ledger.view: SessionExpired if inactive (via isActive), else entries of the session's tenant in original order; no role widens it (DF-FXL-0005).","criteria":[
+{"criterion":"An Admin of t1 sees only t1 entries","verified":true,"test":"view admin sees only own tenant in order"},
+{"criterion":"Expired session gets SessionExpired","verified":true,"test":"view expired session"}]},
+{"workItem":"WI-0007","status":"blocked","summary":"Not implemented. RQ-FXL-0008 is only proposed with no acceptance criteria, and its dependency DF-FXL-0009 (exchange-rate source) is a draft with no decision and no rates available. Rounding and rate date are unspecified. convertCurrency left as is pending an accepted decision.","criteria":[
+{"criterion":"Convert amounts between ISO 4217 currencies using the chosen rates source","verified":false,"test":null}]}
+]

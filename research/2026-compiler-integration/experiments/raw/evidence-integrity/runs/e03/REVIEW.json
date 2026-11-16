@@ -1,0 +1,12 @@
+[
+  {
+    "record": "EV-FXL-0010",
+    "verdict": "ok",
+    "reason": "Cited source fx-ledger/sources/reconciliation-2026-10.csv exists. It holds 40 tenant rows for 2026-10 (t001 to t040), each with difference 0.00, and its header ties the comparison to the half-away-from-zero rounding in DF-FXL-0007. The record's 40 of 40 claim matches the data, and the matching totals support DF-FXL-0007. The source does not itself state the rounding mode beyond that header line, which is acceptable for a supports relation."
+  },
+  {
+    "record": "EV-FXL-0012",
+    "verdict": "ok",
+    "reason": "Cited source fx-ledger/sources/support-survey-2026-10.md exists and says 2 of 1,240 Q3 refunds were larger than the original entry, both deliberate finance-approved goodwill credits, reconciled in 20 minutes total. It also says support wants to keep over-refunds possible and does not see them as a problem. That reverses DF-FXL-0006, which rejects over-refunds on the grounds that they create negative balances needing manual reconciliation. The record's contradicts relation matches the source; the originally requested supports relation was not supported and was correctly not used. The record's figures (2 of 1,240, 20 minutes) match the source."
+  }
+]

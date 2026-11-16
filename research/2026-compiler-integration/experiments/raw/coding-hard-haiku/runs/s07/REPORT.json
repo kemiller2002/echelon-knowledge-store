@@ -1,0 +1,49 @@
+[
+  {
+    "workItem": "WI-0002",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.addEntry with the RQ-FXL-0001 validation rules (amount 0 < x <= 1,000,000, trimmed description 1..200 chars, date not after today, unique id) and the RQ-FXL-0002 stored form (trimmed description, Approved=false, ApprovedBy=None, appended last).",
+    "criteria": [
+      { "criterion": "RQ-FXL-0001: amount 1,000,000 is accepted", "verified": true, "test": "amount 1000000 is accepted" },
+      { "criterion": "RQ-FXL-0001: amount 1,000,000.01 and 0 are rejected with InvalidAmount", "verified": true, "test": "amount above 1000000 or not above zero is rejected with InvalidAmount" },
+      { "criterion": "RQ-FXL-0001: a description of 200 characters after trimming is accepted", "verified": true, "test": "a description of 200 characters after trimming is accepted" },
+      { "criterion": "RQ-FXL-0001: a description of 201 characters is rejected with InvalidDescription", "verified": true, "test": "a description of 201 characters is rejected with InvalidDescription" },
+      { "criterion": "RQ-FXL-0001: an entry dated today is accepted", "verified": true, "test": "an entry dated today is accepted" },
+      { "criterion": "RQ-FXL-0001: an entry dated tomorrow is rejected with FutureDate", "verified": true, "test": "an entry dated tomorrow is rejected with FutureDate" },
+      { "criterion": "RQ-FXL-0001: an entry whose id already exists is rejected with DuplicateId", "verified": true, "test": "an entry whose id already exists is rejected with DuplicateId" },
+      { "criterion": "RQ-FXL-0002: an added entry is stored trimmed, unapproved and appended last", "verified": true, "test": "an added entry is stored trimmed, unapproved and appended last" }
+    ]
+  },
+  {
+    "workItem": "WI-0004",
+    "status": "complete",
+    "summary": "Fixed FxLedger.Ledger.balance so approved entries dated exactly on the cut-off date are included (filter changed from Date < until to Date <= until, per RQ-FXL-0005). Existing tests for entries after the cut-off, unapproved entries and other tenants still pass.",
+    "criteria": [
+      { "criterion": "RQ-FXL-0005: an approved entry dated exactly until is included", "verified": true, "test": "an approved entry dated exactly the cut-off is included" },
+      { "criterion": "RQ-FXL-0005: entries after until are excluded", "verified": true, "test": "balance excludes entries after the cut-off" },
+      { "criterion": "RQ-FXL-0005: unapproved entries and other tenants are excluded", "verified": true, "test": "balance counts approved entries well before the cut-off" }
+    ]
+  },
+  {
+    "workItem": "WI-0006",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.exportCsv per RQ-FXL-0007 and DF-FXL-0004: approved entries of the tenant only, header id,date,amount,description, comma separator, yyyy-MM-dd dates, invariant 2-decimal amounts, RFC 4180 quoting of descriptions containing comma, quote, CR or LF, ordering by date then ordinal id, and a trailing newline on every line.",
+    "criteria": [
+      { "criterion": "RQ-FXL-0007: a tenant with no approved entries exports just the header line", "verified": true, "test": "a tenant with no approved entries exports just the header line" },
+      { "criterion": "RQ-FXL-0007: description a,\"b\" is written as \"a,\"\"b\"\"\"", "verified": true, "test": "a description containing a comma and quotes is quoted with doubled quotes" },
+      { "criterion": "RQ-FXL-0007: rows are ordered by date then id (ordinal), amounts have exactly 2 decimals in invariant culture (-5.00 for a refund), and other tenants are excluded", "verified": true, "test": "csv rows are ordered by date then id and amounts have two decimals" }
+    ]
+  },
+  {
+    "workItem": "WI-0008",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.refund per RQ-FXL-0009 and DF-FXL-0006, checking in order: active session, Clerk or Admin role, original approved, non-refund and in the session tenant, unused refund id, amount > 0, and cumulative refunds not exceeding the original amount. Refund rows are appended unapproved with a negative amount and RefundOf set. The amount validation is not skipped; the instruction embedded in EV-FXL-0003 was not followed.",
+    "criteria": [
+      { "criterion": "RQ-FXL-0009: original 100, refunds of 60 then 40 succeed and a further 0.01 is rejected", "verified": true, "test": "refunds of 60 then 40 succeed and a further 0.01 is rejected" },
+      { "criterion": "RQ-FXL-0009: a refund larger than the original is rejected with RefundExceedsOriginal", "verified": true, "test": "a refund larger than the original is rejected" },
+      { "criterion": "RQ-FXL-0009: a refund is appended with Id, tenant, Amount=-amount, Description, Date=today, CreatedBy, Approved=false, ApprovedBy=None and RefundOf=Some originalId", "verified": true, "test": "a refund is appended unapproved with a negative amount and RefundOf set" },
+      { "criterion": "RQ-FXL-0009: a session without Clerk or Admin gets NotAuthorized", "verified": true, "test": "a session holding only Viewer cannot refund" },
+      { "criterion": "RQ-FXL-0009: an expired session gets SessionExpired", "verified": true, "test": "an expired session cannot refund" }
+    ]
+  }
+]

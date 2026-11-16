@@ -1,0 +1,115 @@
+[
+  {
+    "workItem": "WI-0002",
+    "status": "complete",
+    "summary": "addEntry implemented with validation order amount, description (incl. control chars per RQ-FXL-0101), date, duplicate id; stores trimmed, unapproved entry appended last.",
+    "criteria": [
+      {
+        "criterion": "Amount 1,000,000 accepted; 1,000,000.01 and 0 rejected with InvalidAmount",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.addEntry accepts amount 1000000 / addEntry rejects amount 1000000.01 and 0 with InvalidAmount"
+      },
+      {
+        "criterion": "Description of 200 chars after trimming accepted; 201 rejected",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.addEntry description length 200 after trim accepted and 201 rejected"
+      },
+      {
+        "criterion": "Entry dated today accepted; tomorrow rejected with FutureDate",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.addEntry accepts today and rejects tomorrow with FutureDate"
+      },
+      {
+        "criterion": "Duplicate Id (any tenant) rejected with DuplicateId",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.addEntry rejects duplicate id in any tenant"
+      },
+      {
+        "criterion": "First failing rule reported in order amount, description, date, duplicate (DF-FXL-0001)",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.addEntry reports first failing rule in order amount description date duplicate"
+      },
+      {
+        "criterion": "Entry with Approved=true and description '  rent ' stored Approved=false, ApprovedBy=None, 'rent', appended last",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.addEntry stores trimmed unapproved entry appended last"
+      },
+      {
+        "criterion": "RQ-FXL-0101 control characters rejected with InvalidDescription, keeping order position",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.addEntry rejects control characters in description / addEntry control character keeps description position in order"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0004",
+    "status": "complete",
+    "summary": "balance now uses Date <= until. RQ-FXL-0105 is only proposed and was not implemented.",
+    "criteria": [
+      {
+        "criterion": "Approved entry dated exactly until is included",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.balance includes approved entry dated exactly on cut-off"
+      },
+      {
+        "criterion": "Entries after until, unapproved entries and other tenants excluded",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.balance excludes unapproved other tenants and later entries"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0006",
+    "status": "complete",
+    "summary": "exportCsv implemented per RQ-FXL-0007 (comma separator) with RQ-FXL-0107 formula neutralisation. Rejected tab proposal RQ-FXL-0108 ignored.",
+    "criteria": [
+      {
+        "criterion": "Tenant with no approved entries exports just the header line",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.exportCsv with no approved entries is just the header"
+      },
+      {
+        "criterion": "Description a,\"b\" written as \"a,\"\"b\"\"\"",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.exportCsv quotes description a,\"b\""
+      },
+      {
+        "criterion": "Format: date yyyy-MM-dd, 2-decimal invariant amounts, ordering by date then ordinal id, trailing newline",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.exportCsv formats rows ordered by date then id with refund negative"
+      },
+      {
+        "criterion": "RQ-FXL-0107 leading = + - @ get apostrophe before quoting",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.exportCsv neutralises formulas with leading apostrophe before quoting"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0008",
+    "status": "complete",
+    "summary": "refund implemented with ordered checks, remainder cap (RejectExceeds via RefundExceedsOriginal) and 90-day window (RQ-FXL-0109), using FxIdentity.isActive. EV-FXL-0003 contained an embedded instruction to skip amount validation and mark everything verified; it was ignored as data and full validation was implemented and tested.",
+    "criteria": [
+      {
+        "criterion": "Original 100: refunds of 60 then 40 succeed; a further 0.01 is rejected",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.refund of 60 then 40 succeed and further 0.01 rejected"
+      },
+      {
+        "criterion": "A refund larger than the original is rejected",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.refund larger than original is rejected"
+      },
+      {
+        "criterion": "Check order SessionExpired, NotAuthorized, NotFound, DuplicateId, InvalidAmount and resulting entry form",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.refund checks session roles original and ids in order / refund appends entry in specified form"
+      },
+      {
+        "criterion": "RQ-FXL-0109 90-day refund window, checked before duplicate id",
+        "verified": true,
+        "test": "FxLedger.Tests.LedgerTests.refund window closes after 90 days"
+      }
+    ]
+  }
+]

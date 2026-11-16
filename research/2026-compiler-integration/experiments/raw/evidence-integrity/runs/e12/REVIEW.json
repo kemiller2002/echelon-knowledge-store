@@ -1,0 +1,4 @@
+[
+{"record":"fx-ledger/research/evidence/EV-FXL-0010--october-reconciliation.md","verdict":"ok","reason":"Source exists; all 40 tenant rows have ledger_total equal to accounting_total and difference 0.00, which supports DF-FXL-0007 (half-away-from-zero rounding)."},
+{"record":"fx-ledger/research/evidence/EV-FXL-0012--support-survey-over-refunds.md","verdict":"corrected","reason":"Source exists. The survey asks to keep the ability to over-refund, which runs against the refund cap in DF-FXL-0006. The record correctly uses contradicts instead of the requested supports, and its figures (1,240 refunds, 2 over-refunds) match the source."}
+]

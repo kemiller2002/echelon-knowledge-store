@@ -19,6 +19,7 @@
     <Compile Include="WriteTrial.fs" />
     <Compile Include="CodingTrial.fs" />
     <Compile Include="IncrementalBench.fs" />
+    <Compile Include="EvidenceTrial.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

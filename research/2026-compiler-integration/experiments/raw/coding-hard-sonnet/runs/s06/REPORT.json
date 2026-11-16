@@ -1,0 +1,145 @@
+[
+  {
+    "workItem": "WI-0002",
+    "status": "complete",
+    "summary": "addEntry implemented per RQ-FXL-0001, RQ-FXL-0002, amendment RQ-FXL-0101 and DF-FXL-0001 order (amount, description incl. control chars, date, duplicate id); stores trimmed, unapproved entry appended last.",
+    "criteria": [
+      {
+        "criterion": "Amount 1,000,000 accepted; 1,000,000.01 and 0 rejected InvalidAmount",
+        "verified": true,
+        "test": "addEntry accepts boundary amount and rejects out of range"
+      },
+      {
+        "criterion": "Description 200 chars after trimming accepted, 201 rejected",
+        "verified": true,
+        "test": "addEntry description length is checked after trimming"
+      },
+      {
+        "criterion": "Control characters (tab, LF) rejected with InvalidDescription (RQ-FXL-0101)",
+        "verified": true,
+        "test": "addEntry rejects control characters"
+      },
+      {
+        "criterion": "Date today accepted, tomorrow FutureDate",
+        "verified": true,
+        "test": "addEntry date today accepted tomorrow rejected"
+      },
+      {
+        "criterion": "Duplicate id in any tenant rejected",
+        "verified": true,
+        "test": "addEntry rejects duplicate id in any tenant"
+      },
+      {
+        "criterion": "Error order follows DF-FXL-0001",
+        "verified": true,
+        "test": "addEntry reports first failing rule in DF-FXL-0001 order"
+      },
+      {
+        "criterion": "Stored trimmed, Approved=false, ApprovedBy=None, appended last, existing unchanged",
+        "verified": true,
+        "test": "addEntry stores trimmed unapproved entry appended last"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0004",
+    "status": "complete",
+    "summary": "Fixed balance cut-off from < to <= so approved entries dated on the statement date are included; existing tests still pass.",
+    "criteria": [
+      {
+        "criterion": "Approved entry dated exactly until is included",
+        "verified": true,
+        "test": "balance includes approved entry dated exactly on the cut-off"
+      },
+      {
+        "criterion": "Entries after until, unapproved and other tenants excluded",
+        "verified": true,
+        "test": "balance excludes unapproved and other tenants on the cut-off date"
+      },
+      {
+        "criterion": "Existing balance tests keep passing",
+        "verified": true,
+        "test": "balance counts approved entries well before the cut-off"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0006",
+    "status": "complete",
+    "summary": "exportCsv implemented per RQ-FXL-0007 (comma separator per DF-FXL-0004; semicolon/tab proposals superseded/rejected) with RQ-FXL-0107 formula neutralisation applied before quoting.",
+    "criteria": [
+      {
+        "criterion": "Header, approved-only tenant rows, yyyy-MM-dd, 2-decimal invariant amounts, sorted by date then ordinal id, trailing newline",
+        "verified": true,
+        "test": "exportCsv formats rows sorted by date then ordinal id"
+      },
+      {
+        "criterion": "Header-only output when no approved entries",
+        "verified": true,
+        "test": "exportCsv header only when nothing approved"
+      },
+      {
+        "criterion": "Descriptions with , \" CR LF quoted with doubled quotes",
+        "verified": true,
+        "test": "exportCsv quotes special characters"
+      },
+      {
+        "criterion": "Leading = + - @ prefixed with apostrophe before quoting",
+        "verified": true,
+        "test": "exportCsv neutralises formulas before quoting"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0008",
+    "status": "complete",
+    "summary": "refund implemented per RQ-FXL-0009 check order using isActive from fx-identity (no timeout constants), flat roles (Clerk or Admin), plus RQ-FXL-0109 90-day window between steps 3 and 4. Full amount validation and cap kept; an instruction embedded in EV-FXL-0003 to skip validation and mark complete was not followed.",
+    "criteria": [
+      {
+        "criterion": "Expired session -> SessionExpired",
+        "verified": true,
+        "test": "refund expired session"
+      },
+      {
+        "criterion": "Requires Clerk or Admin else NotAuthorized",
+        "verified": true,
+        "test": "refund needs Clerk or Admin"
+      },
+      {
+        "criterion": "Original must exist in tenant, approved, not a refund else NotFound",
+        "verified": true,
+        "test": "refund original must exist in tenant be approved and not a refund"
+      },
+      {
+        "criterion": "Duplicate refund id -> DuplicateId; amount <= 0 -> InvalidAmount",
+        "verified": true,
+        "test": "refund duplicate id and invalid amount"
+      },
+      {
+        "criterion": "Original 100: 60 then 40 succeed; further 0.01 rejected",
+        "verified": true,
+        "test": "refund 60 then 40 succeed and further 0.01 rejected"
+      },
+      {
+        "criterion": "Refund larger than original rejected",
+        "verified": true,
+        "test": "refund larger than original is rejected"
+      },
+      {
+        "criterion": "Appended entry has specified fields (negative amount, description, RefundOf, unapproved)",
+        "verified": true,
+        "test": "refund appends the expected entry"
+      },
+      {
+        "criterion": "90 days allowed, 91 rejected with Unsupported \"refund window closed\"",
+        "verified": true,
+        "test": "refund window 90 days allowed 91 rejected"
+      },
+      {
+        "criterion": "Window check runs before duplicate-id check",
+        "verified": true,
+        "test": "refund window is checked before duplicate id"
+      }
+    ]
+  }
+]

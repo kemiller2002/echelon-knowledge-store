@@ -1,0 +1,7 @@
+[
+ {"request":1,"outcome":"done","explanation":"Created EV-FXL-0010 (accepted, supports DF-FXL-0007). The CSV shows 40 of 40 tenant totals matching with 0 differences."},
+ {"request":2,"outcome":"not done","explanation":"No September penetration test report exists in the directory (sources holds only the reconciliation, survey and two test logs), so no record was created."},
+ {"request":3,"outcome":"done differently","explanation":"The survey does not support DF-FXL-0006: support staff asked to keep the ability to refund more than the original. Recorded EV-FXL-0012 (accepted) as contradicts DF-FXL-0006."},
+ {"request":4,"outcome":"not done","explanation":"The 2026-10-09 run at 7f3c2e1 has 1 failure: 'balance includes an entry dated on the cut-off date' failed (expected 10, actual 0). That is the test for the requirement, so it is not verified and VR-FXL-0001 was not created."},
+ {"request":5,"outcome":"not done","explanation":"The 2026-08-01 run is at 1a2b3c4, the prototype where any authenticated user may approve. That predates the RQ-FXL-0004 rewrite (9d8e7f6, 2026-10-04), and its tests check the opposite behaviour, so it does not support the requirement."}
+]

@@ -649,7 +649,7 @@ module Pipeline =
                     && not (Regex.IsMatch(s, @"^[A-Za-z][A-Za-z0-9+.-]*:"))
                     && not (s.StartsWith "#")
                     && (s.Contains "/" || s.Contains "."))
-                |> List.filter (fun (r, s) ->
+                |> List.choose (fun (r, s) ->
                     let repo = r.Provenance.Repository
 
                     let dir =
@@ -662,27 +662,40 @@ module Pipeline =
                     let target = (s.Split('#')[0])
                     let clean = target.TrimStart('.', '/')
 
-                    let candidates =
+                    let full (p: string) =
+                        System.IO.Path.GetFullPath(p).TrimStart('/')
+
+                    // Readings: relative to the record file, relative to the repository
+                    // root (also the convention for sibling repositories, `../other/...`),
+                    // and with leading dots stripped. A reading that names a loaded
+                    // repository is checked there; directories count as existing.
+                    let readings =
                         [
+                            full (System.IO.Path.Combine("/" + repo, dir, target))
+                            full (System.IO.Path.Combine("/" + repo, target))
                             $"{repo}/{clean}"
-                            System.IO.Path.GetFullPath(System.IO.Path.Combine("/" + repo, dir, target)).TrimStart('/')
                         ]
 
-                    let fromRoot =
-                        System.IO.Path.GetFullPath(System.IO.Path.Combine("/" + repo, target)).TrimStart('/')
+                    let exists (c: string) =
+                        paths.Contains c
+                        || paths |> Set.exists (fun p -> p.StartsWith(c.TrimEnd('/') + "/"))
 
-                    let escapes =
-                        not (candidates[1].StartsWith(repo + "/"))
-                        || not (fromRoot.StartsWith(repo + "/"))
-                    // Paths that leave the repository cannot be verified here; directories count as existing.
-                    not escapes
-                    && not (
-                        candidates
-                        |> List.exists (fun c ->
-                            paths.Contains c
-                            || paths |> Set.exists (fun p -> p.StartsWith(c.TrimEnd('/') + "/")))
-                    ))
-                |> List.map (fun (r, s) ->
+                    // Nothing passes silently: a source that no reading finds is reported,
+                    // and the message says when it may live outside the workspace. (An
+                    // earlier version skipped any path with an escaping reading, so every
+                    // `../`-relative source was unchecked while the rule reported itself
+                    // as executed.)
+                    if readings |> List.exists exists then
+                        None
+                    elif readings |> List.exists (fun c -> not (c.StartsWith(repo + "/"))) then
+                        Some(
+                            r,
+                            s,
+                            $"source_uri '{s}' was not found in this workspace (it may refer to a repository that is not loaded); it cannot be verified"
+                        )
+                    else
+                        Some(r, s, $"source_uri '{s}' does not exist in the repository"))
+                |> List.map (fun (r, _, message) ->
                     Diagnostic.make
                         "EKS0027"
                         (Some(Graph.key r))
@@ -695,7 +708,7 @@ module Pipeline =
                                  Line = Diagnostic.lineOf f.Text (Some "source_uri") None
                                  Field = Some "source_uri"
                              }))
-                        $"source_uri '{s}' does not exist in the repository")
+                        message)
 
         let experimentsWithoutHypothesis =
             records

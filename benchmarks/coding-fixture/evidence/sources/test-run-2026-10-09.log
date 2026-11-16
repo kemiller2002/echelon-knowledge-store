@@ -1,0 +1,10 @@
+revision: 7f3c2e1 (2026-10-09)
+command: dotnet test tests/FxLedger.Tests
+  Passed FxLedger.Tests.LedgerTests.balance counts approved entries well before the cut-off [2 ms]
+  Passed FxLedger.Tests.LedgerTests.balance excludes entries after the cut-off [< 1 ms]
+  Failed FxLedger.Tests.LedgerTests.balance includes an entry dated on the cut-off date [3 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+   Expected: 10
+   Actual:   0
+Failed!  - Failed:     1, Passed:     2, Skipped:     0, Total:     3, Duration: 41 ms - FxLedger.Tests.dll (net10.0)

@@ -1,0 +1,39 @@
+[
+  {
+    "workItem": "WI-0001",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.total: sums the tenant's approved entries (refunds included) and rounds to 2 dp with MidpointRounding.AwayFromZero per RQ-FXL-0003 / DF-FXL-0007. Banker's rounding (RQ-FXL-0103, superseded) not used.",
+    "criteria": [
+      { "criterion": "Approved 0.005 alone totals 0.01", "verified": true, "test": "approved 0.005 alone totals 0.01" },
+      { "criterion": "Approved -0.005 alone totals -0.01", "verified": true, "test": "approved -0.005 alone totals -0.01" },
+      { "criterion": "Unapproved entries and other tenants' entries do not count", "verified": true, "test": "unapproved entries and other tenants' entries do not count" }
+    ]
+  },
+  {
+    "workItem": "WI-0003",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.approve following the ordered checks in RQ-FXL-0004: SessionExpired via fx-identity isActive, NotAuthorized if no Approver role (flat roles), NotFound for an entry outside the session's tenant or missing, then the RQ-FXL-0104 amendment (amount > 10,000 needs Approver and Admin, NotAuthorized), SelfApproval, AlreadyApproved. On success sets Approved and ApprovedBy only. Tests cover every acceptance criterion of RQ-FXL-0004 and RQ-FXL-0104 that is in the package scope.",
+    "criteria": [
+      { "criterion": "A session idle for exactly 15 minutes can approve", "verified": true, "test": "a session idle for exactly 15 minutes can approve" },
+      { "criterion": "At 15 minutes 1 second the session gets SessionExpired", "verified": true, "test": "a session idle for 15 minutes and 1 second gets SessionExpired" },
+      { "criterion": "An Admin without Approver gets NotAuthorized", "verified": true, "test": "an Admin without Approver gets NotAuthorized" },
+      { "criterion": "(RQ-FXL-0104) An Approver without Admin approving an entry of 10,000.01 gets NotAuthorized", "verified": true, "test": "an Approver without Admin approving 10000.01 gets NotAuthorized" },
+      { "criterion": "(RQ-FXL-0104) An entry of exactly 10,000 needs only Approver", "verified": true, "test": "an entry of exactly 10000 needs only Approver" }
+    ]
+  },
+  {
+    "workItem": "WI-0005",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.view: returns SessionExpired when fx-identity isActive is false, otherwise the entries whose TenantId equals the session's tenant, in original order, with no role widening (RQ-FXL-0006, DF-FXL-0005). Note: the fx-ledger README states administrators can view all tenants; that conflicts with the accepted DF-FXL-0005 and was not followed. The README was not changed.",
+    "criteria": [
+      { "criterion": "An Admin of t1 sees only t1 entries", "verified": true, "test": "an Admin of t1 sees only t1 entries" },
+      { "criterion": "An expired session gets SessionExpired", "verified": true, "test": "an expired session gets SessionExpired" }
+    ]
+  },
+  {
+    "workItem": "WI-0007",
+    "status": "blocked",
+    "summary": "Not implemented; convertCurrency remains a stub. The package status is INCOMPLETE: RQ-FXL-0008 is proposed (not authoritative), DF-FXL-0009 (choice of exchange-rate source) is draft and undecided, and RQ-FXL-0008 has no acceptance criteria. Rounding and rate date are undetermined, so no rates, rules or sources were invented.",
+    "criteria": []
+  }
+]
