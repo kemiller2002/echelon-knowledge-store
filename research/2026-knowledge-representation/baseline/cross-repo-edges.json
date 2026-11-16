@@ -912,7 +912,7 @@
       "from_repo": "signal",
       "from_path": "research/decisions/DF-SIGNAL-FND-2026-0001--aegis-forma-folio-not-yet-applicable.md",
       "to_repo": "echelon-organization-administration",
-      "to_artifact": "application-governance/QUALITY-REMEDIATION-INVENTORY.md finding SIG-F1",
+      "to_artifact": "[private artifact withheld]",
       "kind": "cites",
       "evidence": "signal/research/decisions/DF-SIGNAL-FND-2026-0001--aegis-forma-folio-not-yet-applicable.md:96: - **Portfolio inventory.** `echelon-organization-administration`",
       "scenario": "other"

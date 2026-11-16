@@ -26,8 +26,8 @@ with a tokenizer. They are not tokenizer counts.
 | Class | Repos | Agent entry point | Knowledge layout |
 |---|---|---|---|
 | **A. Praxis-governed** (Repository Operating System, "ROS", renamed Praxis in DF-ROS-2026-A050) | aegis, arca, dokimos, echelon-diagnostic-framework (EDF), fides, forma, mercatus, percepta, signal, and praxis itself (10) | `CLAUDE.md`, `GEMINI.md` and `.github/copilot-instructions.md` are 1-paragraph pointers to `AGENTS.md`. AGENTS.md is the canonical contract, `id: GV-START-001`. | Uniform skeleton: `context/`, `framework/`, `registries/`, `missions/`, `research/{decisions,evidence,experiments,hypotheses,journals,packages,theories}`, `docs/00-governance/`, `templates/`, `schemas/`, plus hidden tool payloads `.echelon/`, `.ros/`, `.sde/`, `.visual-engineering/`, `.communication-engineering/`, `.conditor/`, `.praxis/` |
-| **B. Content repo, no agent contract** | clarity-framework (private) | None. The only agent guidance is `agent-directions /directions.md` (9,087 B; the directory name has a trailing space) and `prompts/` | Flat. 131 `.md` files, mostly at root or in `docs/`, `book/`, `research/frontier/`. Two 250–280 KB `system_graph_*.json` files sit at the root. |
-| **C. Business/site repos, no agent contract** | echelon-engineering-system (EES), echelon-organization-administration (EOA, private) | README only (EES 2,983 B; EOA 1,630 B). EOA has `Prompts/master-agent-prompt.md`, which is byte-identical to `business-plan/AGENT-PROMPT.md` (12,378 B each). | EES: `requirements/`, `docs/`, `evidence/`. EOA: `business-plan(s)/`, `application-governance/`, `entities/`. |
+| **B. Content repo, no agent contract** | clarity-framework (private) | None found (details withheld: private repository). | 131 `.md` files; layout withheld (private repository). |
+| **C. Business/site repos, no agent contract** | echelon-engineering-system (EES), echelon-organization-administration (EOA, private) | README only (EES 2,983 B; EOA 1,630 B). EOA layout withheld (private repository). | EES: `requirements/`, `docs/`, `evidence/`. EOA: [private layout withheld]. |
 
 ### Entry files present (command: `python3 inv.py`, Appendix A)
 
@@ -230,7 +230,7 @@ Other ID families:
 | signal | `docs/requirements/` | 29 | – | 1 | 1 | 3 × .gitkeep | 157 |
 | clarity-framework | none | 0 | `decision-record.md` etc. at root (method, not records) | – | – | – | – |
 | EES | `requirements/` (2) | 0 | – | `evidence/` | – | – | – |
-| EOA | none | 0 | `application-governance/*DECISION-INVENTORY*.md` | `application-governance/evidence/` | – | – | – |
+| EOA | none | 0 | [private path withheld] | [private path withheld] | – | – | – |
 
 Observations:
 
@@ -323,7 +323,7 @@ Each problem is assigned to its primary cause. The paths are concrete examples.
 | B1 | Governance is copied into each repo instead of referenced, so 10 copies must be kept in sync, and IDs collide. | `docs/00-governance/*` ×10 identical. GV-START-001 has 9 variants. 3.83 MB of duplicated Markdown (§7). |
 | B2 | Declared canonical roots are empty while real content lives elsewhere. | `aegis/missions/{active,backlog,completed}/.gitkeep` vs 192 items in `aegis/.ros/work/queue.json`. `signal/research/evidence/` is empty, while evidence sits in `signal/docs/modernization/evidence/`. |
 | B3 | There are parallel stores for the same record type. | `forma/docs/decisions/ADR-0001…` and `forma/research/decisions/DF-FORMA-2026-0001…`. `echelon-diagnostic-framework/registries/` and `research/registries/`. `forma/requirements/` and `forma/research/requirements/`. |
-| B4 | Repos outside Praxis have no structure for agents. | `clarity-framework/[private path withheld]` root holds 20+ loose `.md` files with misspelt names (file names withheld: private repository) and a directory named `agent-directions ` with a trailing space. EOA has the same prompt twice (`Prompts/master-agent-prompt.md` = `business-plan/AGENT-PROMPT.md`). |
+| B4 | Repos outside Praxis have no structure for agents. | `clarity-framework/[private path withheld]` root holds 20+ loose `.md` files with misspelt names (file names withheld: private repository) and further loose structure (details withheld: private repository) |
 | B5 | Installed method packs are not connected to the routing. | `.sde/` (10 repos, ~92 KB each) is never mentioned in `AGENTS.md`. `arca/SDE-MAP.md` says "Accepted requirement artifacts: none declared" although `arca/docs/requirements/ARCA-STORAGE-REQUIREMENTS.md` exists. |
 
 ### C. Caused by retrieval strategy
