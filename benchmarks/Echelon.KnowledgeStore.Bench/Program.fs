@@ -605,6 +605,92 @@ let private compilerBench (root: string) (out: string) (families: Tokens.Family 
     Report.text out "compiler.md" (md + "\n")
     printfn "compiler: done"
 
+let private trials2 (root: string) (out: string) (families: Tokens.Family list) =
+    let count = (Tokens.primary families).Count
+    let publicFiles, _ = publicCorpus root
+    let dir = trialsDir ()
+    let sw = Diagnostics.Stopwatch.StartNew()
+    let qs, comp = Trials2.prepare (CompilerBench.sources publicFiles) dir
+    sw.Stop()
+
+    let size sub =
+        let fs =
+            Directory.EnumerateFiles(Path.Combine(dir, sub), "*", SearchOption.AllDirectories)
+            |> List.ofSeq
+
+        fs.Length, fs |> List.sumBy (File.ReadAllText >> count)
+
+    let rows =
+        [ "A-markdown"; "B-excerpts"; "C-registries"; "D-compiled" ]
+        |> List.map (fun c -> let n, t = size (c + "/corpus") in [ c; string n; string t ])
+
+    let goldPath = Path.Combine(dir, "..", "trial2-gold.json")
+    File.WriteAllText(goldPath, Text.Json.JsonSerializer.Serialize(qs))
+    Report.json out "trial2-questions.json" qs
+
+    Report.text
+        out
+        "trial2-materials.md"
+        (Report.table [ "Condition"; "Files"; "Tokens (o200k_base)" ] rows
+         + $"\n\nPreparation including compilation: {sw.Elapsed.TotalMilliseconds:F0} ms; {comp.Records.Length} records.\n")
+
+    printfn "trials2: %d questions" qs.Length
+
+let private scoreTrials2 (out: string) =
+    let qs =
+        match
+            Text.Json.JsonSerializer.Deserialize<Trials2.Question list>(
+                File.ReadAllText(Path.Combine(out, "trial2-questions.json"))
+            )
+        with
+        | null -> []
+        | xs -> xs |> List.map Trials2.asV1
+
+    let scores = Trials.score qs (Path.Combine(trialsDir (), "answers"))
+    let conditionOf (c: string) = c.Substring(0, c.IndexOf "-b")
+
+    let runOf (c: string) =
+        c.Substring(c.IndexOf "-b" + 3)
+        |> fun s -> if s = "" then "sonnet" else s.TrimStart('-')
+
+    let rows =
+        scores
+        |> List.groupBy (fun s -> conditionOf s.Condition, runOf s.Condition)
+        |> List.sort
+        |> List.map (fun ((c, run), ss) ->
+            [
+                c
+                run
+                string ss.Length
+                Report.f3 (ss |> List.averageBy _.Score)
+                $"{ss |> List.filter _.Exact |> List.length}/{ss.Length}"
+            ])
+
+    let byQ =
+        scores
+        |> List.groupBy (fun s -> s.Question, s.Kind)
+        |> List.sort
+        |> List.map (fun ((q, k), ss) ->
+            [ q; k ]
+            @ ([ "A-markdown"; "B-excerpts"; "C-registries"; "D-compiled" ]
+               |> List.map (fun c ->
+                   ss
+                   |> List.filter (fun s -> s.Condition.StartsWith c)
+                   |> List.map (fun s -> Report.f2 s.Score)
+                   |> String.concat " / ")))
+
+    Report.json out "trial2-scores.json" scores
+
+    Report.text
+        out
+        "trial2-scores.md"
+        (Report.table [ "Condition"; "Run"; "Questions"; "Mean score"; "Exact" ] rows
+         + "\n\n"
+         + Report.table [ "Q"; "Kind"; "A"; "B"; "C"; "D" ] byQ
+         + "\n")
+
+    printfn "scored %d" scores.Length
+
 [<EntryPoint>]
 let main argv =
     let repoRoot = Directory.GetCurrentDirectory()
@@ -629,6 +715,8 @@ let main argv =
         | "trials" -> prepareTrials root out families
         | "ablation" -> ablation root out families
         | "compiler" -> compilerBench root out families
+        | "trials2" -> trials2 root out families
+        | "score-trials2" -> scoreTrials2 out
         | "score-trials" -> scoreTrials root out
         | other -> eprintfn "unknown command %s" other
 

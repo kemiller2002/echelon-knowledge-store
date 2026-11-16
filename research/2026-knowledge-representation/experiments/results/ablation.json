@@ -76,7 +76,7 @@
   "Compilation": {
     "Records": 587,
     "IndexTokens": 63305,
-    "CompileMilliseconds": 60.8913,
+    "CompileMilliseconds": 94.2252,
     "Deterministic": true,
     "ChangedLinesForOneStatusEdit": 1
   },

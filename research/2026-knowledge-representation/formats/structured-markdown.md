@@ -3,7 +3,7 @@
 Already Echelon's practice for 568 records (32% of files). Measured:
 
 * Trials: 1.00 accuracy (Sonnet, Haiku) with front matter and grep.
-* Lossless round trip through the F# IR: 568/568, including unrecognised fields.
+* Lossless round trip through the F# IR: 568/568, including unrecognised fields; source-level 555/557 identical (2 representational differences), after fixing an erasure of non-standard confidence labels found by the adversarial review.
 * Canonical minimal front matter is 6% smaller than current front matter
   (869,764 vs 926,439 tokens), mostly by dropping per-file provenance blocks that
   agents did not use in any task.

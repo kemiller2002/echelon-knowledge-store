@@ -1,21 +1,23 @@
 # Implementation roadmap
 
-Each phase has an exit criterion measured by the benchmark suite. No phase
-migrates content automatically.
+Each stage extends the Praxis pipeline (or ships as a library Praxis calls — owners'
+decision) and has a measured exit criterion. No content is migrated automatically.
 
-| Phase | Deliverable | Exit criterion |
+| Stage | Deliverable | Exit criterion |
 |---|---|---|
-| 0 (done) | Research prototype, benchmarks, findings (this PR) | merged after review |
-| 1 Validator CLI | `eks validate` over a repository (rules from `Validation.fs`, calibrated); runs as a non-blocking CI job in 2 pilot repositories (praxis, fides) | false-positive rate < 5% on owner review of every finding |
-| 2 Generated index | `eks index` → `INDEX.md` + `index.jsonl` with derived inverse links, as CI artefacts; AGENTS.md points agents to it | agent trials: equal accuracy, ≥ 20% fewer tool calls (trials showed −1 call, −30% time with Sonnet) |
-| 3 Context packages | `eks context <task> <id>` (implement, evidence, impact, history) | trials on new held-out questions incl. adversarial cases; no accuracy loss; time ≥ 30% lower |
-| 4 Cross-repository references | `repo:ID[@version]` fields; manifest harvesting; federated impact query per reader's access | impact analysis precision ≥ 0.9 and recall ≥ 0.9 against a fresh hand-verified gold set (fides, forma, dokimos scenarios) |
-| 5 Enforce | blocking rules (dangling refs, cycles, missing replacements, private → public) as required checks | two consecutive months with no override |
-| 6 Generated views | decision log, traceability (needs `implements`/`validates`), Dokimos obligations if Dokimos exposes a verified interface | generated views replace hand-written ones in pilot repos; zero drift |
+| 0 (done) | Research prototype, compiler, benchmarks, findings (PR #1) | review and merge |
+| 1 | Add derived inverse links, closures and EKS rules to `praxis registry build`/`validate` as **non-blocking** reports in praxis and fides | owner-reviewed false-positive rate < 5%; mutation suite ≥ 22/26 |
+| 2 | Manifest with content hashes; `verify` refusing stale registries | zero stale-answer incidents in CI over a month |
+| 3 | `context`, `evidence`, `impact` commands; AGENTS.md points agents to them | on new held-out tasks including multi-step implementation tasks and two other model families: accuracy ≥ raw Markdown, wall time ≥ 30% lower |
+| 4 | Agent write path: diagnostics fed back to agents editing records | repair rate measured; ≥ 80% of injected mistakes fixed without human help |
+| 5 | Cross-repository references `repo:ID[@version]` + manifest harvesting; federated impact per reader access | impact precision and recall ≥ 0.9 on a fresh hand-verified gold set |
+| 6 | Blocking rules (errors only) as required checks | two months without overrides |
+| 7 | Generated views (decision logs, traceability) replace hand-written ones; Dokimos obligations if an interface is agreed | zero drift in pilot repositories |
 
-Out of scope unless new evidence: custom DSL, F# source storage, graph database,
-central knowledge repository, embedding service.
+Guardrails at every stage: catalogue-wiring test, preservation oracles, determinism
+and warm = cold tests, raw sources remain readable by agents, no private-derived
+artefact in a public location.
 
-Owners' decisions needed: dependency graph setting (for dependency review),
-branch protection on `main`, licence confirmation, and whether Praxis (which
-already owns the front-matter conventions) should host the validator instead of EKS.
+Owner decisions needed: enable Dependency graph (dependency review check), branch
+protection on `main`, licence confirmation, where the compiler lives (Praxis vs EKS),
+whether to keep the separate echelon-knowledge-store repository after stage 1.

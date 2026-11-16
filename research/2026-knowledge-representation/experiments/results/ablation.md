@@ -44,7 +44,7 @@ Documents compared: 6; with ≥1 missing record: 5; with ≥1 unknown id: 0.
 
 | Records | Index tokens | Compile ms | Deterministic (input order permuted) | Lines changed by one status edit |
 | --- | --- | --- | --- | --- |
-| 587 | 63305 | 60.9 | True | 1 |
+| 587 | 63305 | 94.2 | True | 1 |
 
 ## Epistemic state of claims (hypotheses, theories): declared status vs evidence-derived standing
 

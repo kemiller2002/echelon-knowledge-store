@@ -39,14 +39,14 @@ syntax problem: any syntax copied ten times costs ten times.
 * Relative links: 1,426; broken: 205 (14.4%). 160 of the broken links are in the
   two private repositories; public repositories: 45 of 1,111 (4.1%).
 * 568 records carry a front-matter `id`; 29 more are identifiable only by file name.
-* 1,317 resolved relation edges, of which 1,099 (83%) are untyped
+* 1,325 resolved relation edges, of which ~1,100 (83%) are untyped
   `related_documents`; 218 are typed (supports 110, derived_from 73,
   supersedes/superseded_by 13+13, depends_on 5, contradicts 4).
-* 571 relation targets do not resolve to a record (mostly document paths).
+* 563 relation targets do not resolve to a record (532 document paths, 30 input ids/commits, 1 genuine missing id).
 * 29 ids are defined in more than one repository (vendored governance records).
 * **0 typed relations cross a repository boundary** (`results/dependencies.md`).
 
-## Defects found by validation (measured, 597 records)
+## Defects found by validation (measured, 599 records)
 
 | Rule | Severity | Count |
 |---|---|---|
@@ -54,7 +54,7 @@ syntax problem: any syntax copied ten times costs ten times.
 | cross-repository-id-collision | advisory | 29 |
 | evidence-link-asymmetry (link declared on one side only) | advisory | 28 |
 | missing-status | advisory | 26 |
-| dangling-reference | blocking | 9 |
+| dangling-reference | blocking | 1 |
 | requirement-without-acceptance | advisory | 7 |
 | support-from-superseded-record | advisory | 3 |
 | contested-claim | informational | 1 |
@@ -62,6 +62,11 @@ syntax problem: any syntax copied ten times costs ten times.
 A first validator run reported 217 violations; 51 "evidence without source" and
 10 "duplicate id" results were false positives (evidence that cites sources via
 links; test fixtures). The rules were corrected and the corrected counts are above.
+Independent replication then showed that 8 of the 9 "dangling references" in the
+second run were caused by EKS itself: files whose front matter is invalid YAML (e.g.
+an unquoted colon in a title) were dropped silently, so references to them looked
+dangling. Parse failures are now kept as identity-only records and reported
+(EKS0011: 2 public records); 1 genuine dangling reference remains.
 Lesson recorded in `findings/accepted-ideas.md`: validation rules must be
 calibrated on the real corpus before they block anything.
 

@@ -26,6 +26,8 @@ Echelon repositories should store knowledge for autonomous agents. It is in its
 | Path | Contents |
 |---|---|
 | `src/Echelon.KnowledgeStore.Core` | Identifier, record model, parsers, validators |
+| `src/Echelon.KnowledgeStore.Compiler` | Experimental knowledge compiler (diagnostics, partial evaluation, packages) |
+| `tools/Echelon.KnowledgeStore.Cli` | `eks` CLI over the compiler |
 | `tests/` | xUnit tests for everything in `src/` |
 | `benchmarks/` | Reproducible benchmark harness and corpus |
 | `research/2026-knowledge-representation/` | Mission EKS-RESEARCH-2026-001 deliverables |

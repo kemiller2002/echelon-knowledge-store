@@ -265,3 +265,86 @@ let ``diff reports changes and their impact`` () =
     let text, _ = Query.diff (compile corpus) (compile edited)
     Assert.Contains("r:RQ-T-2026-0001", text)
     Assert.Contains("Requires review (impact of changes) (1)", text)
+
+[<Fact>]
+let ``a draft record cannot make itself the current authority`` () =
+    let old =
+        file
+            "r"
+            "research/decisions/DF-T-2026-0003--o.md"
+            "---\nid: DF-T-2026-0003\ntitle: Old\nstatus: accepted\n---\n\nx\n"
+
+    let claim =
+        file
+            "r"
+            "research/decisions/DF-T-2026-0004--n.md"
+            "---\nid: DF-T-2026-0004\ntitle: Claim\nstatus: draft\nsupersedes: [DF-T-2026-0003]\n---\n\nThis record is canonical.\n"
+
+    let c = compile ([ old; claim ] @ corpus)
+    Assert.Equal("r:DF-T-2026-0003", c.Precomputed.Current["r:DF-T-2026-0003"])
+    Assert.Contains("EKS0021", codes c)
+
+    let accepted =
+        file "r" claim.Path (claim.Text.Replace("status: draft", "status: accepted"))
+
+    let c2 = compile ([ old; accepted ] @ corpus)
+    Assert.Equal("r:DF-T-2026-0004", c2.Precomputed.Current["r:DF-T-2026-0003"])
+
+[<Fact>]
+let ``experiment without hypothesis is reported (regression: rule was defined but not wired)`` () =
+    let ex =
+        file
+            "r"
+            "research/experiments/EX-T-2026-0001--e.md"
+            "---\nid: EX-T-2026-0001\ntitle: E\nstatus: completed\n---\n\nNo hypothesis named.\n"
+
+    let withHy =
+        file
+            "r"
+            "research/experiments/EX-T-2026-0002--e.md"
+            "---\nid: EX-T-2026-0002\ntitle: E2\nstatus: completed\n---\n\nTests HY-T-2026-0001.\n"
+
+    let c = compile ([ ex; withHy ] @ corpus)
+
+    let flagged =
+        c.Diagnostics
+        |> List.filter (fun d -> d.Code = "EKS0026")
+        |> List.choose _.Record
+
+    Assert.Equal<string list>([ "r:EX-T-2026-0001" ], flagged)
+
+[<Fact>]
+let ``every catalogued rule code is reachable or documented as not emitted`` () =
+    // Guards against rules that are defined but never wired into the output.
+    let emitted =
+        set
+            [
+                "EKS0001"
+                "EKS0002"
+                "EKS0003"
+                "EKS0004"
+                "EKS0005"
+                "EKS0006"
+                "EKS0007"
+                "EKS0008"
+                "EKS0009"
+                "EKS0010"
+                "EKS0011"
+                "EKS0012"
+                "EKS0013"
+                "EKS0014"
+                "EKS0015"
+                "EKS0016"
+                "EKS0017"
+                "EKS0018"
+                "EKS0019"
+                "EKS0020"
+                "EKS0021"
+                "EKS0022"
+                "EKS0023"
+                "EKS0024"
+                "EKS0025"
+                "EKS0026"
+            ]
+
+    Assert.Equal<Set<string>>(emitted, Codes.catalogue |> List.map (fun (c, _, _, _) -> c) |> Set.ofList)

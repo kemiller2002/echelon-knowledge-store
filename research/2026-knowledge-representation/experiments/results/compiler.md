@@ -2,12 +2,12 @@ Public corpus: 1615 Markdown files, 587 records. Timings are medians of 5 runs o
 
 | Scenario | Files | Median ms | Warm output = cold output |
 | --- | --- | --- | --- |
-| cold (parse + graph + validate + precompute) | 1615 | 322.3 | – |
-| parse only (all files) | 1615 | 82.7 | – |
-| warm, no change | 1615 | 42.3 | True |
-| warm, 1 file changed | 1615 | 39.7 | True |
-| warm, 10% of files changed | 1615 | 52.0 | True |
-| cold (parse + graph + validate + precompute) — all 13 repositories | 1931 | 159.4 | – |
+| cold (parse + graph + validate + precompute) | 1615 | 193.1 | – |
+| parse only (all files) | 1615 | 96.8 | – |
+| warm, no change | 1615 | 52.9 | True |
+| warm, 1 file changed | 1615 | 51.4 | True |
+| warm, 10% of files changed | 1615 | 72.0 | True |
+| cold (parse + graph + validate + precompute) — all 13 repositories | 1931 | 162.5 | – |
 
 ## Diagnostics (public corpus)
 
@@ -25,6 +25,7 @@ Public corpus: 1615 Markdown files, 587 records. Timings are medians of 5 runs o
 | EKS0017 | RequiresReview | 1 |
 | EKS0022 | Warning | 4 |
 | EKS0024 | Warning | 4 |
+| EKS0026 | Warning | 5 |
 
 ## Agent-edit mutation test (25 + 1 mistakes from the adversarial review)
 
@@ -63,7 +64,7 @@ Blocking 15, flagged 7, advisory-only 0, undetected 4 of 26.
 
 | Packages | Complete | Ledger entries | Lost without ledger | Target lost | Mean tokens | Mean compile ms |
 | --- | --- | --- | --- | --- | --- | --- |
-| 587 | 586 | 261 | 0 | 0 | 2307.3 | 0.52 |
+| 587 | 586 | 261 | 0 | 0 | 2307.6 | 0.47 |
 
 ## Source-level losslessness (original front matter vs regenerated)
 

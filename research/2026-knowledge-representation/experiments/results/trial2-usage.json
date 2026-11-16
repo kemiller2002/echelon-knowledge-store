@@ -1,0 +1,60 @@
+{
+  "note": "Harness-reported usage per trial-2 subagent (Claude Sonnet tier), recorded from task notifications on 2026-11-16. subagent_tokens include the agent's fixed system prompt and tool definitions.",
+  "runs": [
+    {
+      "answers": "A-markdown-b1",
+      "subagent_tokens": 72712,
+      "tool_uses": 8,
+      "duration_ms": 34072
+    },
+    {
+      "answers": "A-markdown-b2",
+      "subagent_tokens": 75995,
+      "tool_uses": 8,
+      "duration_ms": 28538
+    },
+    {
+      "answers": "B-excerpts-b1",
+      "subagent_tokens": 89448,
+      "tool_uses": 6,
+      "duration_ms": 24490
+    },
+    {
+      "answers": "B-excerpts-b2",
+      "subagent_tokens": 75426,
+      "tool_uses": 7,
+      "duration_ms": 22536
+    },
+    {
+      "answers": "C-registries-b1",
+      "subagent_tokens": 73982,
+      "tool_uses": 7,
+      "duration_ms": 34740
+    },
+    {
+      "answers": "C-registries-b2",
+      "subagent_tokens": 73194,
+      "tool_uses": 8,
+      "duration_ms": 30918
+    },
+    {
+      "answers": "D-compiled-b1",
+      "subagent_tokens": 80205,
+      "tool_uses": 5,
+      "duration_ms": 16851
+    },
+    {
+      "answers": "D-compiled-b2",
+      "subagent_tokens": 70634,
+      "tool_uses": 5,
+      "duration_ms": 12570
+    },
+    {
+      "answers": "D-compiled-b2-fixed",
+      "subagent_tokens": 70687,
+      "tool_uses": 5,
+      "duration_ms": 13462,
+      "note": "re-run after fixing the unwired EKS0026 rule"
+    }
+  ]
+}

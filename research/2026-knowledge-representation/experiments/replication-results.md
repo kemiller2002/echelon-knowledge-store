@@ -40,7 +40,7 @@ Two corpus facts matter throughout:
 | --- | --- | --- | --- |
 | 1 | cross-repository-id-collision, SDE-DOCTRINE-004, defined in 10 repos | `id: SDE-DOCTRINE-004` is at line 2 of `.sde/architecture/BOUNDARY-PRESERVATION.md` in exactly the 10 listed repos (aegis, arca, dokimos, echelon-diagnostic-framework, fides, forma, mercatus, percepta, praxis, signal) | confirmed |
 | 2 | evidence-without-structured-source, praxis:EV-ROS-2026-A034 | The front matter has no `source_uri`, `source_title` or similar. It has only `related_documents` and `evidence_type: primary`. | confirmed |
-| 3 | cross-repository-id-collision, RFR-001, defined in clarity-framework and echelon-diagnostic-framework | `^id: RFR-001` appears in `clarity-framework/research/frontier/records/RFR-001.md` and `echelon-diagnostic-framework/research/frontier/records/RFR-001.md` | confirmed |
+| 3 | cross-repository-id-collision, RFR-001, defined in clarity-framework and echelon-diagnostic-framework | `^id: RFR-001` appears in `clarity-framework/[private path withheld]` and `echelon-diagnostic-framework/research/frontier/records/RFR-001.md` | confirmed |
 | 4 | missing-status, forma:EV-DESIGN-2026-0002 | The front matter has no `status` key | confirmed |
 | 5 | evidence-link-asymmetry, praxis:EV-ROS-2026-A070 and DF-ROS-2026-A053 | A053 lists A070 in `supporting_evidence`. A070 has `supports: [HY-ROS-2026-A028]` only. | confirmed |
 | 6 | missing-status, forma:EV-DESIGN-2026-0014 | No `status` key | confirmed |

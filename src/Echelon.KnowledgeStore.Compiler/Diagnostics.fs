@@ -132,6 +132,10 @@ module Codes =
             Level.Warning,
             "Unrecognised status value",
             "Use an established lifecycle status (draft, review, accepted, canonical, superseded, ...)."
+            "EKS0026",
+            Level.Warning,
+            "Experiment records no hypothesis",
+            "Link the hypothesis the experiment tests (an HY- id in metadata or text)."
         ]
 
     let private find code =

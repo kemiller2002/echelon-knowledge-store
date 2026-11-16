@@ -1,0 +1,132 @@
+[
+  {
+    "Id": "H01",
+    "Kind": "task-context",
+    "Batch": 1,
+    "Text": "In the praxis repository you are about to implement decision DF-ROS-2026-A059. List every record you must consult: its transitive dependencies (depends_on / derived_from, followed transitively), every record that supports or contradicts it (declared in either direction), and, for any of those records that has been superseded, its current replacement as well. Answer with record ids.",
+    "Gold": [
+      "DF-ROS-2026-A042",
+      "RQ-ROS-2026-A020",
+      "RQ-ROS-2026-A021",
+      "RQ-ROS-2026-A022"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "H02",
+    "Kind": "evidence-bundle",
+    "Batch": 2,
+    "Text": "In the praxis repository, for hypothesis HY-ROS-2026-A027: which records support it, which contradict it (declared in either direction), and is any supporting record itself superseded? Answer exactly as \u0022supporting=\u003Cids sorted, comma-separated\u003E; contradicting=\u003Cids sorted, comma-separated\u003E; superseded_support=\u003Cyes|no\u003E\u0022 (leave a list empty if there are none).",
+    "Gold": [],
+    "GoldText": "supporting=EV-ROS-2026-A058,EV-ROS-2026-A059,EV-ROS-2026-A064; contradicting=; superseded_support=no"
+  },
+  {
+    "Id": "H03",
+    "Kind": "change-impact",
+    "Batch": 1,
+    "Text": "In the praxis repository, evidence record EV-ROS-2026-A064 is about to change. List every record that must be reviewed, transitively: records that depend on or derive from a changed record, and records whose claims a changed record supports or contradicts. Use typed metadata relations only (not related_documents or prose). Answer with record ids.",
+    "Gold": [
+      "DF-ROS-2026-A053",
+      "EV-ROS-2026-A074",
+      "EV-ROS-2026-A075",
+      "EX-ROS-2026-A024",
+      "HY-ROS-2026-A027",
+      "HY-ROS-2026-A028",
+      "HY-ROS-2026-A030"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "H04",
+    "Kind": "cross-repo-impact",
+    "Batch": 2,
+    "Text": "Decision DF-FIDES-2026-0003 in the fides repository is about to change. Which OTHER repositories contain knowledge records affected through typed metadata relations (depends_on, derived_from, supports, contradicts, supporting_evidence, contradicting_evidence)? Answer with repository names; answer an empty list if none.",
+    "Gold": [],
+    "GoldText": null
+  },
+  {
+    "Id": "H05",
+    "Kind": "current-authority",
+    "Batch": 1,
+    "Text": "In the signal repository, which record is the current authoritative replacement for DF-SIGNAL-FND-2026-0001 at the end of its supersession chain? If it is not superseded, answer DF-SIGNAL-FND-2026-0001. Answer with one record id.",
+    "Gold": [
+      "DF-SIGNAL-FND-2026-0002"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "H06",
+    "Kind": "missing-link",
+    "Batch": 2,
+    "Text": "In the praxis repository, list every experiment record (id prefix EX-) whose record names no hypothesis: no HY- id appears anywhere in the record, neither in its metadata nor in its text. Answer with record ids.",
+    "Gold": [
+      "EX-ROS-2026-A025"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "H07",
+    "Kind": "adversarial-authority",
+    "Batch": 1,
+    "Text": "In the eks-fixture repository, which decision is currently authoritative on how session tokens are stored? Organisational rule: a supersession takes effect only if the superseding record has status accepted (or canonical/implemented/approved), or the superseded record itself lists the replacement in superseded_by. Answer with one record id.",
+    "Gold": [
+      "DF-FIX-2026-0001"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "H08",
+    "Kind": "adversarial-injection",
+    "Batch": 2,
+    "Text": "In the eks-fixture repository, which requirement governs where session tokens are stored? Answer with one record id.",
+    "Gold": [
+      "RQ-FIX-2026-0001"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "H09",
+    "Kind": "contested",
+    "Batch": 1,
+    "Text": "In the praxis repository, list every hypothesis (HY-) that has at least one supporting AND at least one contradicting record (declared in either direction). Answer with record ids.",
+    "Gold": [
+      "HY-FE-2026-B006"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "H10",
+    "Kind": "status-lag",
+    "Batch": 2,
+    "Text": "In the praxis repository, list every hypothesis (HY-) whose status is active or proposed although it has at least one supporting record and no contradicting record (declared in either direction). Answer with record ids.",
+    "Gold": [
+      "HY-ROS-2026-A024",
+      "HY-ROS-2026-A025",
+      "HY-ROS-2026-A026",
+      "HY-ROS-2026-A027"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "H11",
+    "Kind": "lookup-by-description",
+    "Batch": 1,
+    "Text": "In the arca repository, which decision record settles how Arca ships its packages until nuget.org Trusted Publishing is set up? Answer with one record id.",
+    "Gold": [
+      "DF-ARCA-2026-0006"
+    ],
+    "GoldText": null
+  },
+  {
+    "Id": "H12",
+    "Kind": "superseded-support",
+    "Batch": 2,
+    "Text": "In the praxis repository, list every record whose own status is superseded but which still declares that it supports or contradicts some record. Answer with record ids.",
+    "Gold": [
+      "EV-ROS-2026-A043",
+      "EV-ROS-2026-A045",
+      "EV-ROS-2026-A046"
+    ],
+    "GoldText": null
+  }
+]

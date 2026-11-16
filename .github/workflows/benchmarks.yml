@@ -37,7 +37,7 @@ jobs:
         env:
           EKS_CORPUS_ROOT: ${{ github.workspace }}/corpus
           EKS_TRIALS_DIR: ${{ github.workspace }}/benchmarks/out/trials
-        run: dotnet run --project benchmarks/Echelon.KnowledgeStore.Bench -c Release -- baseline validate formats retrieval ablation trials
+        run: dotnet run --project benchmarks/Echelon.KnowledgeStore.Bench -c Release -- baseline validate formats retrieval ablation compiler trials trials2
       - uses: actions/upload-artifact@v4
         with:
           name: benchmark-results

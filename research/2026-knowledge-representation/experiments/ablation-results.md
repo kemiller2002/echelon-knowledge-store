@@ -1,6 +1,6 @@
 # Ablation results
 
-Measured on the public corpus (585 records); `results/ablation.md`. Gold = the full
+Measured on the public corpus (587 records); `results/ablation.md`. Gold = the full
 typed system's answer, so this measures what each *feature* contributes to
 recovering authored knowledge.
 
@@ -9,12 +9,12 @@ recovering authored knowledge.
 | find-evidence (56) | full typed system | 1.000 | 1.000 | 343 |
 | | − inverse links (record's own links only) | **0.679** | 0.732 | 242 |
 | | − cards (full bodies) | 1.000 | 1.000 | **4,408** |
-| change-impact (66) | full typed system | 1.000 | 1.000 | 1,677 |
-| | − transitive traversal (1 hop) | **0.489** | 1.000 | 411 |
-| | − inverse links | 0.909 | 1.000 | 1,591 |
-| | − relation types (untyped 6-hop neighbourhood) | 1.000 | **0.118** | 19,860 |
-| | + prose id mentions as edges | 1.000 | **0.257** | 8,741 |
-| | − cards (full bodies) | 1.000 | 1.000 | **14,779** |
+| change-impact (67) | full typed system | 1.000 | 1.000 | 1,656 |
+| | − transitive traversal (1 hop) | **0.497** | 1.000 | 408 |
+| | − inverse links | 0.911 | 1.000 | 1,571 |
+| | − relation types (untyped 6-hop neighbourhood) | 1.000 | **0.116** | 20,047 |
+| | + prose id mentions as edges | 1.000 | **0.252** | 8,881 |
+| | − cards (full bodies) | 1.000 | 1.000 | **14,710** |
 
 Earlier retrieval results give the remaining ablations:
 
@@ -25,7 +25,7 @@ Earlier retrieval results give the remaining ablations:
 | Generated index (md vs md-index trials) | no accuracy change; −1 tool call, −14 s per run |
 | Compact syntax (DSL vs front matter) | 9% fewer metadata tokens (≈0.7% of corpus); no accuracy change |
 | Compile-time types (F# records as storage) | not needed for any measured gain; +73% metadata tokens vs front matter |
-| Runtime validation | finds 9 dangling references, 28 asymmetric links, 3 supports from superseded records, 5 stale indexes, which no other feature detects |
+| Runtime validation | finds 1 dangling reference, 2 invalid front matters, 28 asymmetric links, 3 supports from superseded records, 5 stale indexes, which no other feature detects |
 
 ## Conclusions
 

@@ -6,7 +6,7 @@ Critical failures are gates, not score components (mission §21).
 
 | Gate | Threshold | Status of recommended architecture |
 |---|---|---|
-| G1 No loss of requirements/decisions in conversion | 100% field equality on round trip | met (568/568) |
+| G1 No loss of requirements/decisions in conversion | 100% field equality on round trip | met after fixes (568/568 record level; 555/557 source level, differences representational) |
 | G2 No accuracy regression vs current Markdown on the benchmark | ≥ baseline mean score | met (1.00 vs 1.00) |
 | G3 No silent truncation in context packages | every dropped item listed | met (unit-tested) |
 | G4 No executable knowledge | data-only parsing | met (YAML aliases/anchors rejected; no evaluation) |

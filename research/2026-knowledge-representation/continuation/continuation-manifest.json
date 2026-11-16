@@ -1,0 +1,23 @@
+{
+  "mission": "EKS-RESEARCH-2026-001",
+  "resumeFrom": "branch claude/echelon-knowledge-store-research-horhs0, PR #1",
+  "reproduce": {
+    "tests": "dotnet test Echelon.KnowledgeStore.sln -c Release",
+    "benchmarks": "EKS_CORPUS_ROOT=<clones> dotnet run --project benchmarks/Echelon.KnowledgeStore.Bench -c Release -- baseline validate formats retrieval dependencies ablation compiler",
+    "trial1": "EKS_TRIALS_DIR=<dir> ... -- trials; run agents per experiments/benchmark-specification.md; ... -- score-trials",
+    "trial2": "EKS_TRIALS_DIR=<dir> ... -- trials2; run agents; ... -- score-trials2",
+    "fcsProbe": "dotnet run --project benchmarks/Echelon.KnowledgeStore.FcsProbe -c Release -- <corpus root>",
+    "corpusLock": "benchmarks/corpus.lock.json"
+  },
+  "nextExperiments": [
+    "trial 3: multi-step implementation tasks, with and without eks context, two non-Claude model families",
+    "agent write-path trial with compiler diagnostics as feedback",
+    "owner review of eks validate findings in praxis and fides (false-positive rate)",
+    "backfill 29 cross-repository hard dependencies as repo:ID references in two repositories",
+    "design review with Praxis owners: extend praxis registry build vs EKS library"
+  ],
+  "knownRisks": [
+    "compiler defects yield confident COMPLETE outputs; keep wiring tests and raw-source access",
+    "private repositories must never feed public artefacts"
+  ]
+}

@@ -403,24 +403,35 @@ module Pipeline =
     let precompute (g: KnowledgeGraph) : Precomputed =
         let keys = g.Records |> Map.keys |> List.ofSeq
 
+        // Authority policy: a supersession is effective when the superseded record
+        // declares `superseded_by`, or when the superseding record is accepted and
+        // the superseded record does not contradict it. A one-sided claim by a
+        // draft record never changes the current authority (it is flagged EKS0021).
+        let authoritative (k: string) =
+            g.Records
+            |> Map.tryFind k
+            |> Option.bind _.Status
+            |> Option.map (fun s ->
+                List.contains (s.ToLowerInvariant()) [ "accepted"; "canonical"; "implemented"; "approved" ])
+            |> Option.defaultValue false
+
         let current k =
             let rec go seen k =
-                match
+                let declaredByOld =
                     Graph.outgoing g k
                     |> List.filter (fun e -> e.Kind = SupersededBy)
                     |> List.map _.Target
                     |> List.sort
-                with
-                | n :: _ when not (Set.contains n seen) -> go (Set.add n seen) n
-                | _ ->
-                    match
-                        Graph.incoming g k
-                        |> List.filter (fun e -> e.Kind = Supersedes)
-                        |> List.map _.Source
-                        |> List.sort
-                    with
-                    | n :: _ when not (Set.contains n seen) -> go (Set.add n seen) n
-                    | _ -> k
+
+                let claimedByNew =
+                    Graph.incoming g k
+                    |> List.filter (fun e -> e.Kind = Supersedes && authoritative e.Source)
+                    |> List.map _.Source
+                    |> List.sort
+
+                match declaredByOld @ claimedByNew |> List.filter (fun n -> not (Set.contains n seen)) with
+                | n :: _ -> go (Set.add n seen) n
+                | [] -> k
 
             go (Set.singleton k) k
 
@@ -597,6 +608,15 @@ module Pipeline =
                     )
                 | _ -> None)
 
+        let experimentsWithoutHypothesis =
+            records
+            |> List.filter (fun r -> r.Kind = Experiment)
+            |> List.filter (fun r ->
+                match Strict.classify ([], []) r with
+                | Error es -> es |> List.contains "experiment without a hypothesis"
+                | Ok _ -> false)
+            |> List.map (fun r -> Diagnostic.make "EKS0026" (Some(Graph.key r)) None $"{r.Id} names no hypothesis")
+
         let audience =
             match cfg.Audience with
             | Public ->
@@ -617,6 +637,7 @@ module Pipeline =
         @ collisions
         @ misleadingConfidence
         @ statusLag
+        @ experimentsWithoutHypothesis
         @ audience
 
     let private sortDiagnostics (ds: Diagnostic list) =

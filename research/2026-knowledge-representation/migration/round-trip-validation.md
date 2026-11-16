@@ -18,5 +18,12 @@ lines of the body — formatting changes, not meaning changes, but they would sh
 in a diff. A migration that rewrites files must therefore be a separate,
 reviewed, formatting-only PR, verified by re-parsing to the same record.
 
-Semantic loss detected: none. Broken links introduced: none (paths unchanged).
+Source-level check (added after the adversarial review showed the record-level
+round trip could not see what the parser itself dropped): original front-matter tree
+vs regenerated tree, field by field — 555/557 identical; the 2 differences are a scalar
+`supersedes`/`superseded_by` written back as a one-element list. Before the fix,
+non-standard confidence labels (`medium-high`, 4 records) were erased; they are now
+preserved verbatim.
+
+Semantic loss detected after fixes: none. Broken links introduced: none (paths unchanged).
 Requirements or decisions altered: none (equality is on every field).
