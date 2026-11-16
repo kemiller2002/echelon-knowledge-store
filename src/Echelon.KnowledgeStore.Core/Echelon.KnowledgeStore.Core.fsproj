@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Research-phase core: identifiers, record model, parsers and validators.
+       Data-only: nothing here evaluates knowledge content as code. -->
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Identifiers.fs" />
+  </ItemGroup>
+</Project>

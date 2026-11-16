@@ -1,0 +1,16 @@
+<Project>
+  <PropertyGroup>
+    <!-- 0.0.0 means "not released". Research phase: nothing is published. -->
+    <Version>0.0.0</Version>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Deterministic>true</Deterministic>
+    <IsPackable>false</IsPackable>
+    <Authors>Kevin Miller</Authors>
+    <Company>Echelon Foundry</Company>
+    <RepositoryUrl>https://github.com/kemiller2002/echelon-knowledge-store</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+</Project>

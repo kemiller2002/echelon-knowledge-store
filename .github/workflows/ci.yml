@@ -1,0 +1,76 @@
+name: CI
+
+# Pull request and main-branch validation: formatting, build, unit and
+# schema tests, vulnerable-package check. An empty or skipped test run fails.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - run: dotnet tool restore
+      - name: Fantomas check
+        run: dotnet fantomas --check src tests benchmarks tools
+
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Build
+        run: dotnet build Echelon.KnowledgeStore.sln -c Release
+      - name: Test
+        shell: bash
+        run: |
+          set -uo pipefail
+          status=0
+          output=$(dotnet test Echelon.KnowledgeStore.sln -c Release --no-build --logger "trx;LogFileName=results.trx" --results-directory TestResults 2>&1) || status=$?
+          echo "$output"
+          if [ "$status" -ne 0 ]; then exit "$status"; fi
+          if ! echo "$output" | grep -qE 'Passed:[[:space:]]*[1-9]'; then
+            echo "::error::No test passed. An empty test run is not a pass."; exit 1
+          fi
+          if echo "$output" | grep -qE 'Skipped:[[:space:]]*[1-9]'; then
+            echo "::error::Tests were skipped. A run that skips tests is not a pass."; exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: TestResults
+          retention-days: 30
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Vulnerable package check
+        shell: bash
+        run: |
+          set -euo pipefail
+          dotnet restore Echelon.KnowledgeStore.sln
+          report=$(dotnet list Echelon.KnowledgeStore.sln package --vulnerable --include-transitive 2>&1)
+          echo "$report"
+          if echo "$report" | grep -q 'has the following vulnerable packages'; then
+            echo "::error::Vulnerable packages found."; exit 1
+          fi
