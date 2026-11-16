@@ -4,7 +4,7 @@
 |---|---|---|
 | Does compiled delivery help other model families (GPT, Gemini, open models)? | only Claude Sonnet/Haiku tiers tested | rerun trials 1–2 with two other families |
 | Does it help on long, multi-step coding tasks (where packages replace large reads mid-session)? | trials were short Q&A; fixed overhead dominates tokens | SWE-style implementation tasks with and without `eks context` |
-| Does compiler feedback improve agent edits? | write trial: no structural breakage in any run; Haiku 0.16 → 0.73 with feedback, but n = 1 per cell; Sonnet fabricated evidence with and without feedback (`experiments/write-path-results.md`) | n ≥ 5 per cell with integrity scoring; a source-verification review gate |
+| Does compiler feedback improve agent edits? | 10 runs: no structural breakage; the Haiku effect did not replicate (0.47 vs 0.62 checks, n = 3); compiler feedback did not prevent fabrication; an explicit integrity policy did (Sonnet 2/2 → 0/2 fabrication) (`experiments/write-path-results.md`) | test the integrity policy at n ≥ 5 across model families; measure a source-verification review gate |
 | Human review burden of diagnostics and generated views | not measured | owner review of first `eks validate` reports in two pilot repositories |
 | Will owners maintain cross-repository typed references? | 0 exist today | backfill the 29 verified hard dependencies in two repositories, measure drift after a month |
 | Does embedding retrieval fix description lookup (BM25 hybrid 0.73)? | no embedding model available offline here | add a local embedding model; compare |

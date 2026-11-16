@@ -14,3 +14,4 @@
 12. Source repositories own knowledge; federate by reader access; never publish private-derived artefacts publicly.
 13. Validation rules calibrated before blocking; data-only parsing everywhere.
 14. Evidence sources must exist (EKS0027) — and agent-authored evidence needs a source-verification review: in the write trial two agents fabricated or misstated sources that passed every structural check.
+15. An explicit integrity policy in the agent contract for knowledge writes (in the write trial it removed fabrication; compiler feedback did not).

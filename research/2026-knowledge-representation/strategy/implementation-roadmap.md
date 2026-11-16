@@ -9,7 +9,7 @@ decision) and has a measured exit criterion. No content is migrated automaticall
 | 1 | Add derived inverse links, closures and EKS rules to `praxis registry build`/`validate` as **non-blocking** reports in praxis and fides | owner-reviewed false-positive rate < 5%; mutation suite ≥ 22/26 |
 | 2 | Manifest with content hashes; `verify` refusing stale registries | zero stale-answer incidents in CI over a month |
 | 3 | `context`, `evidence`, `impact` commands; AGENTS.md points agents to them | on new held-out tasks including multi-step implementation tasks and two other model families: accuracy ≥ raw Markdown, wall time ≥ 30% lower |
-| 4 | Agent write path: diagnostics fed back to agents editing records | repair rate measured; ≥ 80% of injected mistakes fixed without human help |
+| 4 | Agent write path: integrity policy in AGENTS.md + diagnostics fed back to agents + a source-verification review for agent-authored evidence | fabrication rate 0 in ≥ 10 runs per model family; ≥ 80% of injected mistakes fixed without human help |
 | 5 | Cross-repository references `repo:ID[@version]` + manifest harvesting; federated impact per reader access | impact precision and recall ≥ 0.9 on a fresh hand-verified gold set |
 | 6 | Blocking rules (errors only) as required checks | two months without overrides |
 | 7 | Generated views (decision logs, traceability) replace hand-written ones; Dokimos obligations if an interface is agreed | zero drift in pilot repositories |

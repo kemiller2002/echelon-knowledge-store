@@ -694,7 +694,11 @@ let private scoreTrials2 (out: string) =
 let private writePrepare (root: string) =
     let dir = trialsDir ()
 
-    let conds = [ "sonnet-plain"; "sonnet-compiler"; "haiku-plain"; "haiku-compiler" ]
+    let conds =
+        Environment.GetEnvironmentVariable "EKS_WRITE_CONDITIONS"
+        |> Option.ofObj
+        |> Option.map (fun v -> v.Split(',') |> List.ofArray)
+        |> Option.defaultValue [ "sonnet-plain"; "sonnet-compiler"; "haiku-plain"; "haiku-compiler" ]
 
     WriteTrial.prepare root dir conds
     printfn "write trial prepared in %s" dir
@@ -713,6 +717,7 @@ let private writeScore (root: string) (out: string) =
                 string r.NewErrors.Length
                 string r.NewWarnings
                 string r.CollateralFiles.Length
+                Report.f2 r.IntegrityScore
             ])
 
     let failed =
@@ -748,8 +753,45 @@ let private writeScore (root: string) (out: string) =
                         "New errors"
                         "New warnings"
                         "Collateral files"
+                        "Integrity"
                     ]
                     rows
+                "## Integrity outcomes"
+                Report.table
+                    [ "Condition"; "W1"; "W2"; "W3"; "W4"; "W5" ]
+                    (results
+                     |> List.map (fun r ->
+                         r.Condition
+                         :: (r.Integrity
+                             |> List.map (fun i -> (if i.Correct then "✓ " else "✗ ") + i.Outcome))))
+                "## Pooled by model and condition (run suffix -N removed)"
+                Report.table
+                    [
+                        "Group"
+                        "Runs"
+                        "Mean check score"
+                        "Mean integrity"
+                        "Fabricated W1"
+                        "Misstated W5"
+                    ]
+                    (results
+                     |> List.groupBy (fun r -> Text.RegularExpressions.Regex.Replace(r.Condition, "-\\d+$", ""))
+                     |> List.sortBy fst
+                     |> List.map (fun (g, rs) ->
+                         let failedOn task =
+                             rs
+                             |> List.filter (fun r ->
+                                 r.Integrity |> List.exists (fun i -> i.Task = task && not i.Correct))
+                             |> List.length
+
+                         [
+                             g
+                             string rs.Length
+                             Report.f3 (rs |> List.averageBy _.Score)
+                             Report.f3 (rs |> List.averageBy _.IntegrityScore)
+                             string (failedOn "W1")
+                             string (failedOn "W5")
+                         ]))
                 "## Failed checks"
                 Report.table [ "Condition"; "Task"; "Check" ] failed
                 "## Errors introduced"

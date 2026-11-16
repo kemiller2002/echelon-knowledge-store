@@ -43,6 +43,11 @@ the Haiku run with compiler feedback completed every legitimate edit and recorde
 real (contradicting) evidence. Structural validation cannot detect misstated sources;
 a new rule catches non-existent ones (EKS0027). See `experiments/write-path-results.md`.
 
+Replication (10 runs, integrity scored automatically): the apparent benefit of compiler
+feedback for Haiku did not replicate; compiler feedback did not prevent fabrication;
+an explicit integrity policy in the instructions did (Sonnet 2/2 → 0/2). Recommendation
+added: put the policy into the agent contract for knowledge writes.
+
 ## Gaps (why not COMPLETE)
 
 * One model family; short Q&A tasks only; no multi-step coding tasks.
