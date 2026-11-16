@@ -1,0 +1,211 @@
+{
+  "Ablation": [
+    {
+      "Variant": "full typed system",
+      "TaskKind": "find-evidence",
+      "Tasks": 56,
+      "Recall": 1,
+      "Precision": 1,
+      "MeanTokens": 342.60714285714283
+    },
+    {
+      "Variant": "\u2212 inverse links (record\u0027s own links only)",
+      "TaskKind": "find-evidence",
+      "Tasks": 56,
+      "Recall": 0.6785714285714286,
+      "Precision": 0.7321428571428571,
+      "MeanTokens": 242.32142857142858
+    },
+    {
+      "Variant": "\u2212 cards (full bodies delivered)",
+      "TaskKind": "find-evidence",
+      "Tasks": 56,
+      "Recall": 1,
+      "Precision": 1,
+      "MeanTokens": 4408.232142857143
+    },
+    {
+      "Variant": "full typed system",
+      "TaskKind": "change-impact",
+      "Tasks": 66,
+      "Recall": 1,
+      "Precision": 1,
+      "MeanTokens": 1677.2727272727273
+    },
+    {
+      "Variant": "\u2212 transitive traversal (1 hop)",
+      "TaskKind": "change-impact",
+      "Tasks": 66,
+      "Recall": 0.48949733935638146,
+      "Precision": 1,
+      "MeanTokens": 410.6060606060606
+    },
+    {
+      "Variant": "\u2212 inverse links",
+      "TaskKind": "change-impact",
+      "Tasks": 66,
+      "Recall": 0.9093494468494469,
+      "Precision": 1,
+      "MeanTokens": 1591.378787878788
+    },
+    {
+      "Variant": "\u2212 relation types (untyped neighbourhood, 6 hops)",
+      "TaskKind": "change-impact",
+      "Tasks": 66,
+      "Recall": 1,
+      "Precision": 0.11791299463562925,
+      "MeanTokens": 19860.272727272728
+    },
+    {
+      "Variant": "\u002B prose mentions as edges",
+      "TaskKind": "change-impact",
+      "Tasks": 66,
+      "Recall": 1,
+      "Precision": 0.2566787825437489,
+      "MeanTokens": 8740.90909090909
+    },
+    {
+      "Variant": "\u2212 cards (full bodies delivered)",
+      "TaskKind": "change-impact",
+      "Tasks": 66,
+      "Recall": 1,
+      "Precision": 1,
+      "MeanTokens": 14779.439393939394
+    }
+  ],
+  "Compilation": {
+    "Records": 585,
+    "IndexTokens": 63021,
+    "CompileMilliseconds": 63.3086,
+    "Deterministic": true,
+    "ChangedLinesForOneStatusEdit": 1
+  },
+  "Drift": [
+    {
+      "Repository": "praxis",
+      "Document": "context/DECISIONS.md",
+      "Family": "DF-ROS-2026",
+      "Listed": 3,
+      "Actual": 52,
+      "Missing": 49,
+      "Unknown": 0
+    },
+    {
+      "Repository": "praxis",
+      "Document": "docs/migrations/fsharp/TRACEABILITY.md",
+      "Family": "EV-ROS-2026",
+      "Listed": 5,
+      "Actual": 50,
+      "Missing": 45,
+      "Unknown": 0
+    },
+    {
+      "Repository": "praxis",
+      "Document": "docs/migrations/fsharp/TRACEABILITY.md",
+      "Family": "DF-ROS-2026",
+      "Listed": 14,
+      "Actual": 52,
+      "Missing": 38,
+      "Unknown": 0
+    },
+    {
+      "Repository": "fides",
+      "Document": "context/CURRENT-STATE.md",
+      "Family": "DF-FIDES-2026",
+      "Listed": 7,
+      "Actual": 16,
+      "Missing": 9,
+      "Unknown": 0
+    },
+    {
+      "Repository": "mercatus",
+      "Document": "context/DECISIONS.md",
+      "Family": "DF-MERCATUS-FND-2026",
+      "Listed": 3,
+      "Actual": 4,
+      "Missing": 1,
+      "Unknown": 0
+    },
+    {
+      "Repository": "fides",
+      "Document": "context/DECISIONS.md",
+      "Family": "DF-FIDES-2026",
+      "Listed": 16,
+      "Actual": 16,
+      "Missing": 0,
+      "Unknown": 0
+    }
+  ],
+  "Strict": [
+    {
+      "Kind": "decision",
+      "Records": 134,
+      "Representable": 134,
+      "Reasons": []
+    },
+    {
+      "Kind": "governance",
+      "Records": 125,
+      "Representable": 125,
+      "Reasons": []
+    },
+    {
+      "Kind": "evidence",
+      "Records": 71,
+      "Representable": 71,
+      "Reasons": []
+    },
+    {
+      "Kind": "method",
+      "Records": 70,
+      "Representable": 70,
+      "Reasons": []
+    },
+    {
+      "Kind": "requirement",
+      "Records": 56,
+      "Representable": 36,
+      "Reasons": [
+        {
+          "Item1": "requirement without acceptance criteria",
+          "Item2": 20
+        }
+      ]
+    },
+    {
+      "Kind": "document",
+      "Records": 38,
+      "Representable": 38,
+      "Reasons": []
+    },
+    {
+      "Kind": "hypothesis",
+      "Records": 24,
+      "Representable": 24,
+      "Reasons": []
+    },
+    {
+      "Kind": "experiment",
+      "Records": 15,
+      "Representable": 11,
+      "Reasons": [
+        {
+          "Item1": "experiment without a hypothesis",
+          "Item2": 4
+        }
+      ]
+    },
+    {
+      "Kind": "journal",
+      "Records": 12,
+      "Representable": 12,
+      "Reasons": []
+    },
+    {
+      "Kind": "researchpackage",
+      "Records": 12,
+      "Representable": 12,
+      "Reasons": []
+    }
+  ]
+}

@@ -1,0 +1,930 @@
+{
+  "meta": {
+    "generated": "2026-11-16",
+    "mission": "EKS-RESEARCH-2026-001",
+    "workstream": "A/H",
+    "method": "python3 edges.py: each edge is a (file, regex) pair; the script opens the file in the shallow clone at /home/user/kemiller2002/<repo>, records the first matching line number and snippet, and fails if the file or match is missing. 0 failures.",
+    "scope": "Only edges between the 13 audited repositories. Edges to unaudited systems (ordo, limen, folio, visual-engineering, communication-engineering, echelon-theme, tutela, conditor registry) are excluded.",
+    "scenario_field": "extra field naming which mandated scenario the edge answers (fides, forma, clarity, edf, dokimos, praxis, other)",
+    "kinds": {
+      "depends-on": 34,
+      "vendors": 14,
+      "implements": 6,
+      "references": 27,
+      "cites": 12,
+      "validates": 7
+    },
+    "scenario_counts": {
+      "fides": 12,
+      "forma": 29,
+      "clarity": 9,
+      "edf": 8,
+      "dokimos": 14,
+      "praxis": 20,
+      "other": 8
+    },
+    "privacy": "Edges originating in private repositories (clarity-framework, echelon-organization-administration) keep repo, target and kind only; paths and snippets are withheld because this repository is public."
+  },
+  "edges": [
+    {
+      "from_repo": "signal",
+      "from_path": "Directory.Packages.props",
+      "to_repo": "fides",
+      "to_artifact": "NuGet EchelonFoundry.Fides 0.2.0 (Fides API)",
+      "kind": "depends-on",
+      "evidence": "signal/Directory.Packages.props:23: <PackageVersion Include=\"EchelonFoundry.Fides\" Version=\"0.2.0\" />",
+      "scenario": "fides"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "src/Echelon.Signal.Application/Echelon.Signal.Application.fsproj",
+      "to_repo": "fides",
+      "to_artifact": "NuGet EchelonFoundry.Fides.Client (client API)",
+      "kind": "depends-on",
+      "evidence": "signal/src/Echelon.Signal.Application/Echelon.Signal.Application.fsproj:45: <PackageReference Include=\"EchelonFoundry.Fides.Client\" />",
+      "scenario": "fides"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "vendor/nuget/fides.lock",
+      "to_repo": "fides",
+      "to_artifact": "release assets v0.2.0 (4 nupkgs, sha256-pinned)",
+      "kind": "vendors",
+      "evidence": "signal/vendor/nuget/fides.lock:6: repository kemiller2002/fides",
+      "scenario": "fides"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "conditor.json",
+      "to_repo": "fides",
+      "to_artifact": "Conditor component fides 0.2.0",
+      "kind": "depends-on",
+      "evidence": "signal/conditor.json:31: \"id\": \"fides\",",
+      "scenario": "fides"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "src/Echelon.Signal.Application/Identity.fs",
+      "to_repo": "fides",
+      "to_artifact": "Fides.Client namespace (sign-in API)",
+      "kind": "implements",
+      "evidence": "signal/src/Echelon.Signal.Application/Identity.fs:17: open Fides.Client",
+      "scenario": "fides"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "research/decisions/DF-SIGNAL-2026-0001--storage-through-arca-sign-in-through-fides-built-after-summa.md",
+      "to_repo": "fides",
+      "to_artifact": "Fides sign-in (architecture decision)",
+      "kind": "references",
+      "evidence": "signal/research/decisions/DF-SIGNAL-2026-0001--storage-through-arca-sign-in-through-fides-built-after-summa.md:69: 3. **Sign-in.** Administrator credentials come from Fides",
+      "scenario": "fides"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "research/decisions/DF-SIGNAL-2026-0027--pages-framing-risk-accepted-while-the-owner-is-the-only-user.md",
+      "to_repo": "fides",
+      "to_artifact": "docs/requirements/FIDES-REQUIREMENTS.md#FID-DATA-009",
+      "kind": "cites",
+      "evidence": "signal/research/decisions/DF-SIGNAL-2026-0027--pages-framing-risk-accepted-while-the-owner-is-the-only-user.md:61: splitting the shared GitHub App (Fides FID-DATA-009).",
+      "scenario": "fides"
+    },
+    {
+      "from_repo": "arca",
+      "from_path": "docs/requirements/ARCA-STORAGE-REQUIREMENTS.md",
+      "to_repo": "fides",
+      "to_artifact": "Fides (explicit non-dependency; token-provider seam)",
+      "kind": "references",
+      "evidence": "arca/docs/requirements/ARCA-STORAGE-REQUIREMENTS.md:118: | ARCA-D-002 | Arca does not depend on Fides. It takes a token-provider abstraction; Fides (or anything else) supplies the token. | Decision (user direction) |",
+      "scenario": "fides"
+    },
+    {
+      "from_repo": "arca",
+      "from_path": "tests/Arca.Tests/ArchitectureTests.fs",
+      "to_repo": "fides",
+      "to_artifact": "EchelonFoundry.Fides packages (absence enforced)",
+      "kind": "validates",
+      "evidence": "arca/tests/Arca.Tests/ArchitectureTests.fs:153: let ``no Arca package depends on Fides or any identity package (ARCA-ARCH-005)`` () =",
+      "scenario": "fides"
+    },
+    {
+      "from_repo": "arca",
+      "from_path": ".ros/work/queue.json",
+      "to_repo": "fides",
+      "to_artifact": "docs/requirements/FIDES-REQUIREMENTS.md#FID-CLI-001",
+      "kind": "cites",
+      "evidence": "arca/.ros/work/queue.json:162: \u2026dency (ARCA-D-002); Fides supplies an implementation (Fides FID-CLI-001). Resolve the acting identity from GitHub. Derive a non-secret capability snapshot (read, write, b\u2026",
+      "scenario": "fides"
+    },
+    {
+      "from_repo": "praxis",
+      "from_path": "docs/ecir-host-integration.md",
+      "to_repo": "fides",
+      "to_artifact": "Fides authenticated identity (future host integration)",
+      "kind": "references",
+      "evidence": "praxis/docs/ecir-host-integration.md:75: Fides integration may be added later and is not a local prerequisite.",
+      "scenario": "fides"
+    },
+    {
+      "from_repo": "dokimos",
+      "from_path": ".ros/work/queue.json",
+      "to_repo": "fides",
+      "to_artifact": "issue kemiller2002/fides#16 (install.sh feed defect)",
+      "kind": "references",
+      "evidence": "dokimos/.ros/work/queue.json:566: \"description\": \"Found on kemiller2002/fides#16: install.sh runs 'dotnet tool install --add-source <feed>' in the consumer's workspace. NuGet reads the consumer's NuGet.co\u2026",
+      "scenario": "fides"
+    },
+    {
+      "from_repo": "dokimos",
+      "from_path": "package.json",
+      "to_repo": "forma",
+      "to_artifact": "@echelon-foundry/design-system 0.3.0 tarball",
+      "kind": "depends-on",
+      "evidence": "dokimos/package.json:25: \"@echelon-foundry/design-system\": \"https://github.com/kemiller2002/forma/releases/download/v0.3.0/echelon-foundry-design-system-0.3.0.tgz\",",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "dokimos",
+      "from_path": "src/Dokimos.Core/Verification/RequirementJudging.fs",
+      "to_repo": "forma",
+      "to_artifact": "src/workflow/Forma.Workflow/RequirementIdentity.fs",
+      "kind": "implements",
+      "evidence": "dokimos/src/Dokimos.Core/Verification/RequirementJudging.fs:18: /// Mirrors Forma.Workflow.RequirementIdentity (kemiller2002/forma).",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "dokimos",
+      "from_path": "requirements/COLOR-CONTRACT-VERIFICATION.md",
+      "to_repo": "forma",
+      "to_artifact": "issues #159/#160 (public tokens, contrast contract)",
+      "kind": "cites",
+      "evidence": "dokimos/requirements/COLOR-CONTRACT-VERIFICATION.md:59: [#159](https://github.com/kemiller2002/forma/issues/159) and",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "echelon-diagnostic-framework",
+      "from_path": "forma.lock",
+      "to_repo": "forma",
+      "to_artifact": "Forma 0.13.0 presentation release (sha256-pinned CSS)",
+      "kind": "vendors",
+      "evidence": "echelon-diagnostic-framework/forma.lock:4: repository kemiller2002/forma",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "echelon-diagnostic-framework",
+      "from_path": ".github/workflows/quality.yml",
+      "to_repo": "forma",
+      "to_artifact": "actions/install-presentation@v0.13.0",
+      "kind": "depends-on",
+      "evidence": "echelon-diagnostic-framework/.github/workflows/quality.yml:32: uses: kemiller2002/forma/actions/install-presentation@v0.13.0",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "echelon-diagnostic-framework",
+      "from_path": "tests/forma-site.test.mjs",
+      "to_repo": "forma",
+      "to_artifact": "forma.lock contract",
+      "kind": "validates",
+      "evidence": "echelon-diagnostic-framework/tests/forma-site.test.mjs:43: test(\"forma.lock pins an exact, hashed Forma release from the authoritative repository\", () => {",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "echelon-diagnostic-framework",
+      "from_path": ".github/workflows/quality.yml",
+      "to_repo": "forma",
+      "to_artifact": "docs/MARKETING-SITES.md (question 9)",
+      "kind": "cites",
+      "evidence": "echelon-diagnostic-framework/.github/workflows/quality.yml:17: # Keep equal to the version in forma.lock (Forma docs/MARKETING-SITES.md, question 9).",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "echelon-engineering-system",
+      "from_path": "package.json",
+      "to_repo": "forma",
+      "to_artifact": "@echelon-foundry/design-system 0.9.0",
+      "kind": "depends-on",
+      "evidence": "echelon-engineering-system/package.json:14: \"@echelon-foundry/design-system\": \"0.9.0\",",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "echelon-engineering-system",
+      "from_path": "docs/source-inventory.md",
+      "to_repo": "forma",
+      "to_artifact": "tag v0.9.0 commit 18e6ff7",
+      "kind": "cites",
+      "evidence": "echelon-engineering-system/docs/source-inventory.md:10: | [Forma 0.9.0](https://github.com/kemiller2002/forma/tree/18e6ff7b15e54862521a101ac2589da0c597fc98) | tag `v0.9.0`, commit `18e6ff7b15e54862521a101ac2589da0c597fc98` | I\u2026",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "fides",
+      "from_path": "docs/requirements/FIDES-REQUIREMENTS.md",
+      "to_repo": "forma",
+      "to_artifact": "Forma components and tokens",
+      "kind": "depends-on",
+      "evidence": "fides/docs/requirements/FIDES-REQUIREMENTS.md:1701: **FID-UX-003** Fides screens MUST be built from Forma components and tokens; Fides's own brand MUST be a Forma brand manifest supplied by Fides or the application, and Fi\u2026",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "fides",
+      "from_path": "docs/requirements/FIDES-REQUIREMENTS.md",
+      "to_repo": "forma",
+      "to_artifact": "requirements/WHITE-LABEL-AND-SKINNING.md",
+      "kind": "cites",
+      "evidence": "fides/docs/requirements/FIDES-REQUIREMENTS.md:1707: - Source: WI-0022 phase 2E; Forma requirements/WHITE-LABEL-AND-SKINNING.md (Forma 0.14.0 default palette is still Echelon's)",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "fides",
+      "from_path": "docs/requirements/FIDES-REQUIREMENTS.md",
+      "to_repo": "forma",
+      "to_artifact": "requirements/AEGIS-FAULT-PRESENTATION.md",
+      "kind": "cites",
+      "evidence": "fides/docs/requirements/FIDES-REQUIREMENTS.md:1771: - Source: WI-0022 phase 2E; Forma requirements/AEGIS-FAULT-PRESENTATION.md",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "mercatus",
+      "from_path": "package.json",
+      "to_repo": "forma",
+      "to_artifact": "@echelon-foundry/design-system 1.0.1 tarball",
+      "kind": "depends-on",
+      "evidence": "mercatus/package.json:12: \"@echelon-foundry/design-system\": \"https://github.com/kemiller2002/forma/releases/download/v1.0.1/echelon-foundry-design-system-1.0.1.tgz\",",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "mercatus",
+      "from_path": "conditor.json",
+      "to_repo": "forma",
+      "to_artifact": "Conditor component forma 1.0.1",
+      "kind": "depends-on",
+      "evidence": "mercatus/conditor.json:26: \"id\": \"forma\",",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "mercatus",
+      "from_path": "requirements/UI-REQUIREMENTS.md",
+      "to_repo": "forma",
+      "to_artifact": "Forma design system (UI requirement)",
+      "kind": "depends-on",
+      "evidence": "mercatus/requirements/UI-REQUIREMENTS.md:22: 1. Every interactive screen MUST be built with Forma (`@echelon-foundry/design-system`), consumed as the exact release pin that Conditor governs. Forma CSS MUST NOT be co\u2026",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "mercatus",
+      "from_path": "research/decisions/DF-MERCATUS-FND-2026-0003--forma-folio-bound-ahead-of-first-ui.md",
+      "to_repo": "forma",
+      "to_artifact": "FORMA-NS-001 (ef- to forma- namespace)",
+      "kind": "cites",
+      "evidence": "mercatus/research/decisions/DF-MERCATUS-FND-2026-0003--forma-folio-bound-ahead-of-first-ui.md:55: is a breaking boundary: the `ef-` namespace became `forma-` (FORMA-NS-001)",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "mercatus",
+      "from_path": "tools/modernization/ui-conformance.mjs",
+      "to_repo": "forma",
+      "to_artifact": "@echelon-foundry/design-system binding",
+      "kind": "validates",
+      "evidence": "mercatus/tools/modernization/ui-conformance.mjs:12: export const FORMA_PACKAGE = \"@echelon-foundry/design-system\";",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "percepta",
+      "from_path": "package.json",
+      "to_repo": "forma",
+      "to_artifact": "@echelon-foundry/design-system 0.4.1 tarball",
+      "kind": "depends-on",
+      "evidence": "percepta/package.json:29: \"@echelon-foundry/design-system\": \"https://github.com/kemiller2002/forma/releases/download/v0.4.1/echelon-foundry-design-system-0.4.1.tgz\",",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "percepta",
+      "from_path": "AGENTS.md",
+      "to_repo": "forma",
+      "to_artifact": "Forma tokens/foundations/components (agent instruction)",
+      "kind": "references",
+      "evidence": "percepta/AGENTS.md:321: - Use **Forma** (`@echelon-foundry/design-system`) for shared UI tokens, foundations, components, patterns, accessibility contracts, branding, and skins. Do not copy Form\u2026",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "praxis",
+      "from_path": "vendor/forma/forma.lock",
+      "to_repo": "forma",
+      "to_artifact": "echelon-foundry-design-system-0.4.1.tgz",
+      "kind": "vendors",
+      "evidence": "praxis/vendor/forma/forma.lock:7: url https://github.com/kemiller2002/forma/releases/download/v0.4.1/echelon-foundry-design-system-0.4.1.tgz",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "praxis",
+      "from_path": "src/Praxis.Infrastructure/Praxis.Infrastructure.fsproj",
+      "to_repo": "forma",
+      "to_artifact": "forma.lock embedded resource",
+      "kind": "depends-on",
+      "evidence": "praxis/src/Praxis.Infrastructure/Praxis.Infrastructure.fsproj:216: <EmbeddedResource Include=\"$(PraxisRepositoryRoot)vendor/forma/forma.lock\" LogicalName=\"praxis.forma/forma.lock\" />",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "praxis",
+      "from_path": "tests/Praxis.Tests/FormaPresentationTests.fs",
+      "to_repo": "forma",
+      "to_artifact": "Forma presentation pin",
+      "kind": "validates",
+      "evidence": "praxis/tests/Praxis.Tests/FormaPresentationTests.fs:27: let private lockText () = read \"vendor/forma/forma.lock\"",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "package.json",
+      "to_repo": "forma",
+      "to_artifact": "@echelon-foundry/design-system 1.0.1 tarball",
+      "kind": "depends-on",
+      "evidence": "signal/package.json:18: \"@echelon-foundry/design-system\": \"https://github.com/kemiller2002/forma/releases/download/v1.0.1/echelon-foundry-design-system-1.0.1.tgz\",",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "conditor.json",
+      "to_repo": "forma",
+      "to_artifact": "Conditor component forma 1.0.1",
+      "kind": "depends-on",
+      "evidence": "signal/conditor.json:41: \"id\": \"forma\",",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "tests/Echelon.Signal.Tests/FoundationsConformanceTests.fs",
+      "to_repo": "forma",
+      "to_artifact": "release v1.0.1 tarball pin",
+      "kind": "validates",
+      "evidence": "signal/tests/Echelon.Signal.Tests/FoundationsConformanceTests.fs:19: \"https://github.com/kemiller2002/forma/releases/download/v1.0.1/echelon-foundry-design-system-1.0.1.tgz\"",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "tests/fixtures/forma-zero-names.json",
+      "to_repo": "forma",
+      "to_artifact": "FORMA-NS-001 (namespace rename)",
+      "kind": "cites",
+      "evidence": "signal/tests/fixtures/forma-zero-names.json:2: \"description\": \"Deliberate Forma 0.x names (FORMA-NS-001) that Signal's guards must recognise. This is the only file in web, web-kernel, tests, tools and src that may hol\u2026",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "docs/modernization/CROSS-REPOSITORY-DEPENDENCIES.md",
+      "to_repo": "forma",
+      "to_artifact": "Forma (declared dependency direction)",
+      "kind": "references",
+      "evidence": "signal/docs/modernization/CROSS-REPOSITORY-DEPENDENCIES.md:9: Signal \u2192 {Limen, Forma, Folio, Aegis, Arca, Fides, Praxis, Ordo, Visual Engineering} via Conditor-installed releases. No platform repository depends on Signal. Signal app\u2026",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "arca",
+      "from_path": "docs/requirements/ARCA-STORAGE-REQUIREMENTS.md",
+      "to_repo": "forma",
+      "to_artifact": "Limen/Forma WASM UI host model (context only)",
+      "kind": "references",
+      "evidence": "arca/docs/requirements/ARCA-STORAGE-REQUIREMENTS.md:120: | ARCA-D-004 | Arca runs in browser WebAssembly, because the consuming applications are Limen/Forma F# WASM UIs. | Decision (user direction) |",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "echelon-organization-administration",
+      "from_path": "[withheld: private repository]",
+      "to_repo": "forma",
+      "to_artifact": "forma/package.json version (portfolio audit)",
+      "kind": "references",
+      "evidence": "[withheld: private repository content; verified locally 2026-11-16]",
+      "scenario": "forma"
+    },
+    {
+      "from_repo": "echelon-diagnostic-framework",
+      "from_path": "docs/edf/README.md",
+      "to_repo": "clarity-framework",
+      "to_artifact": "Clarity decision framework (conceptual boundary)",
+      "kind": "references",
+      "evidence": "echelon-diagnostic-framework/docs/edf/README.md:89: ## Relationship To Clarity",
+      "scenario": "clarity"
+    },
+    {
+      "from_repo": "echelon-diagnostic-framework",
+      "from_path": "docs/edf/specification.md",
+      "to_repo": "clarity-framework",
+      "to_artifact": "Clarity decision framework (conceptual boundary)",
+      "kind": "references",
+      "evidence": "echelon-diagnostic-framework/docs/edf/specification.md:194: ## Relationship To Clarity",
+      "scenario": "clarity"
+    },
+    {
+      "from_repo": "echelon-diagnostic-framework",
+      "from_path": "docs/edf/operating-cycle.md",
+      "to_repo": "clarity-framework",
+      "to_artifact": "Clarity as Decide stage of operating cycle",
+      "kind": "depends-on",
+      "evidence": "echelon-diagnostic-framework/docs/edf/operating-cycle.md:18: | Decide | Evaluate options and choose a path | Clarity |",
+      "scenario": "clarity"
+    },
+    {
+      "from_repo": "echelon-diagnostic-framework",
+      "from_path": "docs/edf/specification-v1-draft.md",
+      "to_repo": "clarity-framework",
+      "to_artifact": "Clarity reasoning-depth governance (draft v1)",
+      "kind": "depends-on",
+      "evidence": "echelon-diagnostic-framework/docs/edf/specification-v1-draft.md:214: Clarity governs reasoning depth and reconsideration.",
+      "scenario": "clarity"
+    },
+    {
+      "from_repo": "mercatus",
+      "from_path": "requirements/PRODUCT-REQUIREMENTS.md",
+      "to_repo": "clarity-framework",
+      "to_artifact": "Clarity method (optional decision support)",
+      "kind": "references",
+      "evidence": "mercatus/requirements/PRODUCT-REQUIREMENTS.md:220: Clarity MAY be used for market selection, account prioritization, campaigns, opportunities, proposals, and experiments when useful. It SHOULD NOT be mechanically forced i\u2026",
+      "scenario": "clarity"
+    },
+    {
+      "from_repo": "mercatus",
+      "from_path": "requirements/PORTFOLIO-GTM-SCENARIOS.md",
+      "to_repo": "clarity-framework",
+      "to_artifact": "Clarity as a product offering (commercial)",
+      "kind": "references",
+      "evidence": "mercatus/requirements/PORTFOLIO-GTM-SCENARIOS.md:10: 2. Clarity helps decide what to do when evidence, assumptions, risk, and uncertainty matter.",
+      "scenario": "clarity"
+    },
+    {
+      "from_repo": "echelon-organization-administration",
+      "from_path": "[withheld: private repository]",
+      "to_repo": "clarity-framework",
+      "to_artifact": "Clarity method (private repository usage)",
+      "kind": "depends-on",
+      "evidence": "[withheld: private repository content; verified locally 2026-11-16]",
+      "scenario": "clarity"
+    },
+    {
+      "from_repo": "echelon-organization-administration",
+      "from_path": "[withheld: private repository]",
+      "to_repo": "clarity-framework",
+      "to_artifact": "Clarity operating model (restated, not linked)",
+      "kind": "references",
+      "evidence": "[withheld: private repository content; verified locally 2026-11-16]",
+      "scenario": "clarity"
+    },
+    {
+      "from_repo": "echelon-organization-administration",
+      "from_path": "[withheld: private repository]",
+      "to_repo": "clarity-framework",
+      "to_artifact": "repository inventory entry",
+      "kind": "references",
+      "evidence": "[withheld: private repository content; verified locally 2026-11-16]",
+      "scenario": "clarity"
+    },
+    {
+      "from_repo": "clarity-framework",
+      "from_path": "[withheld: private repository]",
+      "to_repo": "echelon-diagnostic-framework",
+      "to_artifact": "EDF diagnosis (conceptual boundary)",
+      "kind": "references",
+      "evidence": "[withheld: private repository content; verified locally 2026-11-16]",
+      "scenario": "edf"
+    },
+    {
+      "from_repo": "clarity-framework",
+      "from_path": "[withheld: private repository]",
+      "to_repo": "echelon-diagnostic-framework",
+      "to_artifact": "EDF modes (EDF-0 .. deeper)",
+      "kind": "references",
+      "evidence": "[withheld: private repository content; verified locally 2026-11-16]",
+      "scenario": "edf"
+    },
+    {
+      "from_repo": "clarity-framework",
+      "from_path": "[withheld: private repository]",
+      "to_repo": "echelon-diagnostic-framework",
+      "to_artifact": "EDF mode selection",
+      "kind": "references",
+      "evidence": "[withheld: private repository content; verified locally 2026-11-16]",
+      "scenario": "edf"
+    },
+    {
+      "from_repo": "dokimos",
+      "from_path": "docs/architecture/ARCHITECTURE.md",
+      "to_repo": "echelon-diagnostic-framework",
+      "to_artifact": "EDF research (deliberately NOT depended on)",
+      "kind": "references",
+      "evidence": "dokimos/docs/architecture/ARCHITECTURE.md:77: EDF/Ordo research is still evolving. Dokimos therefore depends on narrow state/evidence principles rather than copying experimental framework internals into its public do\u2026",
+      "scenario": "edf"
+    },
+    {
+      "from_repo": "forma",
+      "from_path": "CHANGELOG.md",
+      "to_repo": "echelon-diagnostic-framework",
+      "to_artifact": "EDF static site (consumer bug report, not the diagnostic model)",
+      "kind": "cites",
+      "evidence": "forma/CHANGELOG.md:106: - marketing containment (MKT-CONTAIN, WI-0043), found by the Echelon Diagnostic Framework site migration to 0.13.0;",
+      "scenario": "edf"
+    },
+    {
+      "from_repo": "mercatus",
+      "from_path": "requirements/PORTFOLIO-GTM-SCENARIOS.md",
+      "to_repo": "echelon-diagnostic-framework",
+      "to_artifact": "EDF as commercial offering",
+      "kind": "references",
+      "evidence": "mercatus/requirements/PORTFOLIO-GTM-SCENARIOS.md:1: # Portfolio Go-To-Market Scenarios: Clarity, EDF, HelixNote, and Echelon Foundry",
+      "scenario": "edf"
+    },
+    {
+      "from_repo": "praxis",
+      "from_path": "docs/agent-provenance.md",
+      "to_repo": "echelon-diagnostic-framework",
+      "to_artifact": "EDF experiments may adopt provenance schema (no dependency)",
+      "kind": "references",
+      "evidence": "praxis/docs/agent-provenance.md:446: - **Other Echelon systems.** Vigila, Aegis, Dokimos, Percepta, and EDF",
+      "scenario": "edf"
+    },
+    {
+      "from_repo": "echelon-organization-administration",
+      "from_path": "[withheld: private repository]",
+      "to_repo": "echelon-diagnostic-framework",
+      "to_artifact": "EDF as business initiative",
+      "kind": "references",
+      "evidence": "[withheld: private repository content; verified locally 2026-11-16]",
+      "scenario": "edf"
+    },
+    {
+      "from_repo": "aegis",
+      "from_path": ".github/workflows/dokimos.yml",
+      "to_repo": "dokimos",
+      "to_artifact": "actions/quality-gate (SHA-pinned)",
+      "kind": "validates",
+      "evidence": "aegis/.github/workflows/dokimos.yml:41: - uses: kemiller2002/dokimos/actions/quality-gate@2923d18917ed06601d996febd1793ab7a1fcd8e8",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "aegis",
+      "from_path": ".dokimos/policy.json",
+      "to_repo": "dokimos",
+      "to_artifact": "policy schema (ratchet rules)",
+      "kind": "implements",
+      "evidence": "aegis/.dokimos/policy.json:2: \"$schema\": \"https://echelonfoundry.com/dokimos/schemas/policy\",",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "fides",
+      "from_path": ".github/workflows/dokimos.yml",
+      "to_repo": "dokimos",
+      "to_artifact": "actions/quality-gate (SHA-pinned)",
+      "kind": "validates",
+      "evidence": "fides/.github/workflows/dokimos.yml:41: - uses: kemiller2002/dokimos/actions/quality-gate@2be0cf4e8cbba482ab481614f99c7c88b49354ec",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "fides",
+      "from_path": ".dokimos/policy.json",
+      "to_repo": "dokimos",
+      "to_artifact": "policy schema (ratchet rules)",
+      "kind": "implements",
+      "evidence": "fides/.dokimos/policy.json:2: \"$schema\": \"https://echelonfoundry.com/dokimos/schemas/policy\",",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "fides",
+      "from_path": "docs/requirements/FIDES-REQUIREMENTS.md",
+      "to_repo": "dokimos",
+      "to_artifact": "Dokimos requirement-coverage evaluation",
+      "kind": "depends-on",
+      "evidence": "fides/docs/requirements/FIDES-REQUIREMENTS.md:817: **FID-TEST-014** Requirement coverage MUST be evaluated by Dokimos in CI: the xUnit traceability gates run inside the Dokimos-evaluated test run, and, once Fides adopts a\u2026",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "fides",
+      "from_path": "conditor.json",
+      "to_repo": "dokimos",
+      "to_artifact": "Conditor component dokimos 0.2.0",
+      "kind": "depends-on",
+      "evidence": "fides/conditor.json:26: \"id\": \"dokimos\",",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "praxis",
+      "from_path": "research/decisions/DF-ROS-2026-A052--consume-quality-evidence-at-completion.md",
+      "to_repo": "dokimos",
+      "to_artifact": "Dokimos quality evidence (completion readiness)",
+      "kind": "depends-on",
+      "evidence": "praxis/research/decisions/DF-ROS-2026-A052--consume-quality-evidence-at-completion.md:3: title: Consume Dokimos and Ordo quality evidence at work completion",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "praxis",
+      "from_path": "requirements/CODE-QUALITY-HARDENING.md",
+      "to_repo": "dokimos",
+      "to_artifact": "Dokimos quality evidence",
+      "kind": "depends-on",
+      "evidence": "praxis/requirements/CODE-QUALITY-HARDENING.md:316: ### PRX-QUAL-023 \u2014 Integrate Dokimos quality evidence into Praxis completion",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "percepta",
+      "from_path": "src/Percepta.Core/Specification.fs",
+      "to_repo": "dokimos",
+      "to_artifact": "contract dokimos.verification-refusals/1",
+      "kind": "implements",
+      "evidence": "percepta/src/Percepta.Core/Specification.fs:52: /// Obligations the verification compiler refused (`dokimos.verification-refusals/1`).",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "mercatus",
+      "from_path": "docs/modernization/DOMAIN-UI-CONTRACTS.md",
+      "to_repo": "dokimos",
+      "to_artifact": "Dokimos checks CHK-DOK-01..03 (defined, not executable)",
+      "kind": "references",
+      "evidence": "mercatus/docs/modernization/DOMAIN-UI-CONTRACTS.md:207: ## 5. Verification checks (Dokimos and gate)",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "docs/modernization/SYSTEM-INVENTORY.md",
+      "to_repo": "dokimos",
+      "to_artifact": "Dokimos >=0.7 required by Praxis attested completion (not installed)",
+      "kind": "references",
+      "evidence": "signal/docs/modernization/SYSTEM-INVENTORY.md:52: | Dokimos | not installed | 0.11.1 (required by the channel) | \u2014 | **yes**: Praxis \u2265 3.17 attested completion needs Dokimos \u2265 0.7, and SIGNAL-QUAL-001 needs a quality gate |",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "arca",
+      "from_path": "docs/measurement/baseline-sources.md",
+      "to_repo": "dokimos",
+      "to_artifact": "Dokimos (explicitly not adopted)",
+      "kind": "references",
+      "evidence": "arca/docs/measurement/baseline-sources.md:37: | Dokimos checks | not adopted | | No Dokimos configuration or workflow in this repository. |",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "echelon-engineering-system",
+      "from_path": "requirements/ENGINEERING-SYSTEM-WEBSITE-v0.1.md",
+      "to_repo": "dokimos",
+      "to_artifact": "Dokimos as authoritative contract source",
+      "kind": "references",
+      "evidence": "echelon-engineering-system/requirements/ENGINEERING-SYSTEM-WEBSITE-v0.1.md:40: - REQ-EVID-001: Treat Praxis, Ordo, Dokimos, Causa, and each component repository as authoritative for their own documented contracts and experiment outputs.",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "forma",
+      "from_path": "research/requirements/RQ-FORMA-2026-A002--public-semantic-color-contract.md",
+      "to_repo": "dokimos",
+      "to_artifact": "Dokimos CI as consumer of Forma colour validation API",
+      "kind": "references",
+      "evidence": "forma/research/requirements/RQ-FORMA-2026-A002--public-semantic-color-contract.md:55: - **FORMA-COLOR-001.2 \u2014 Deterministic validation.** Provide a deterministic API and CLI usable by applications and Dokimos CI. Validation identifies unknown `var(--ef-*)`\u2026",
+      "scenario": "dokimos"
+    },
+    {
+      "from_repo": "aegis",
+      "from_path": ".echelon/ros.json",
+      "to_repo": "praxis",
+      "to_artifact": "Praxis/ROS payload (100-103 managed artifacts: AGENTS.md, BOOTSTRAP.md, docs/00-governance/*, framework/*, templates/*, schemas/*)",
+      "kind": "vendors",
+      "evidence": "aegis/.echelon/ros.json:4: \"package\": \"@echelon-foundry/repository-operating-system\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "aegis",
+      "from_path": "conditor.json",
+      "to_repo": "praxis",
+      "to_artifact": "Conditor component praxis (pinned version)",
+      "kind": "depends-on",
+      "evidence": "aegis/conditor.json:16: \"id\": \"praxis\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "arca",
+      "from_path": ".echelon/ros.json",
+      "to_repo": "praxis",
+      "to_artifact": "Praxis/ROS payload (100-103 managed artifacts: AGENTS.md, BOOTSTRAP.md, docs/00-governance/*, framework/*, templates/*, schemas/*)",
+      "kind": "vendors",
+      "evidence": "arca/.echelon/ros.json:4: \"package\": \"@echelon-foundry/repository-operating-system\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "arca",
+      "from_path": "conditor.json",
+      "to_repo": "praxis",
+      "to_artifact": "Conditor component praxis (pinned version)",
+      "kind": "depends-on",
+      "evidence": "arca/conditor.json:11: \"id\": \"praxis\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "dokimos",
+      "from_path": ".echelon/ros.json",
+      "to_repo": "praxis",
+      "to_artifact": "Praxis/ROS payload (100-103 managed artifacts: AGENTS.md, BOOTSTRAP.md, docs/00-governance/*, framework/*, templates/*, schemas/*)",
+      "kind": "vendors",
+      "evidence": "dokimos/.echelon/ros.json:4: \"package\": \"@echelon-foundry/repository-operating-system\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "dokimos",
+      "from_path": "conditor.json",
+      "to_repo": "praxis",
+      "to_artifact": "Conditor component praxis (pinned version)",
+      "kind": "depends-on",
+      "evidence": "dokimos/conditor.json:16: \"id\": \"praxis\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "echelon-diagnostic-framework",
+      "from_path": ".echelon/ros.json",
+      "to_repo": "praxis",
+      "to_artifact": "Praxis/ROS payload (100-103 managed artifacts: AGENTS.md, BOOTSTRAP.md, docs/00-governance/*, framework/*, templates/*, schemas/*)",
+      "kind": "vendors",
+      "evidence": "echelon-diagnostic-framework/.echelon/ros.json:4: \"package\": \"@echelon-foundry/repository-operating-system\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "echelon-diagnostic-framework",
+      "from_path": "conditor.json",
+      "to_repo": "praxis",
+      "to_artifact": "Conditor component praxis (pinned version)",
+      "kind": "depends-on",
+      "evidence": "echelon-diagnostic-framework/conditor.json:16: \"id\": \"praxis\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "fides",
+      "from_path": ".echelon/ros.json",
+      "to_repo": "praxis",
+      "to_artifact": "Praxis/ROS payload (100-103 managed artifacts: AGENTS.md, BOOTSTRAP.md, docs/00-governance/*, framework/*, templates/*, schemas/*)",
+      "kind": "vendors",
+      "evidence": "fides/.echelon/ros.json:4: \"package\": \"@echelon-foundry/repository-operating-system\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "fides",
+      "from_path": "conditor.json",
+      "to_repo": "praxis",
+      "to_artifact": "Conditor component praxis (pinned version)",
+      "kind": "depends-on",
+      "evidence": "fides/conditor.json:11: \"id\": \"praxis\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "forma",
+      "from_path": ".echelon/ros.json",
+      "to_repo": "praxis",
+      "to_artifact": "Praxis/ROS payload (100-103 managed artifacts: AGENTS.md, BOOTSTRAP.md, docs/00-governance/*, framework/*, templates/*, schemas/*)",
+      "kind": "vendors",
+      "evidence": "forma/.echelon/ros.json:4: \"package\": \"@echelon-foundry/repository-operating-system\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "forma",
+      "from_path": "conditor.json",
+      "to_repo": "praxis",
+      "to_artifact": "Conditor component praxis (pinned version)",
+      "kind": "depends-on",
+      "evidence": "forma/conditor.json:16: \"id\": \"praxis\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "mercatus",
+      "from_path": ".echelon/ros.json",
+      "to_repo": "praxis",
+      "to_artifact": "Praxis/ROS payload (100-103 managed artifacts: AGENTS.md, BOOTSTRAP.md, docs/00-governance/*, framework/*, templates/*, schemas/*)",
+      "kind": "vendors",
+      "evidence": "mercatus/.echelon/ros.json:4: \"package\": \"@echelon-foundry/repository-operating-system\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "mercatus",
+      "from_path": "conditor.json",
+      "to_repo": "praxis",
+      "to_artifact": "Conditor component praxis (pinned version)",
+      "kind": "depends-on",
+      "evidence": "mercatus/conditor.json:41: \"id\": \"praxis\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "percepta",
+      "from_path": ".echelon/ros.json",
+      "to_repo": "praxis",
+      "to_artifact": "Praxis/ROS payload (100-103 managed artifacts: AGENTS.md, BOOTSTRAP.md, docs/00-governance/*, framework/*, templates/*, schemas/*)",
+      "kind": "vendors",
+      "evidence": "percepta/.echelon/ros.json:4: \"package\": \"@echelon-foundry/repository-operating-system\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "percepta",
+      "from_path": "conditor.json",
+      "to_repo": "praxis",
+      "to_artifact": "Conditor component praxis (pinned version)",
+      "kind": "depends-on",
+      "evidence": "percepta/conditor.json:21: \"id\": \"praxis\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": ".echelon/ros.json",
+      "to_repo": "praxis",
+      "to_artifact": "Praxis/ROS payload (100-103 managed artifacts: AGENTS.md, BOOTSTRAP.md, docs/00-governance/*, framework/*, templates/*, schemas/*)",
+      "kind": "vendors",
+      "evidence": "signal/.echelon/ros.json:4: \"package\": \"@echelon-foundry/repository-operating-system\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "conditor.json",
+      "to_repo": "praxis",
+      "to_artifact": "Conditor component praxis (pinned version)",
+      "kind": "depends-on",
+      "evidence": "signal/conditor.json:16: \"id\": \"praxis\",",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "echelon-organization-administration",
+      "from_path": "[withheld: private repository]",
+      "to_repo": "praxis",
+      "to_artifact": "requirements/CODE-QUALITY-HARDENING.md#PRX-QUAL-001",
+      "kind": "cites",
+      "evidence": "[withheld: private repository content; verified locally 2026-11-16]",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "echelon-engineering-system",
+      "from_path": "requirements/ENGINEERING-SYSTEM-WEBSITE-v0.1.md",
+      "to_repo": "praxis",
+      "to_artifact": "Praxis as authoritative contract source",
+      "kind": "references",
+      "evidence": "echelon-engineering-system/requirements/ENGINEERING-SYSTEM-WEBSITE-v0.1.md:40: - REQ-EVID-001: Treat Praxis, Ordo, Dokimos, Causa, and each component repository as authoritative for their own documented contracts and experiment outputs.",
+      "scenario": "praxis"
+    },
+    {
+      "from_repo": "fides",
+      "from_path": "vendor/nuget/arca.lock",
+      "to_repo": "arca",
+      "to_artifact": "EchelonFoundry.Arca.Core/GitHub 0.1.0 nupkgs",
+      "kind": "vendors",
+      "evidence": "fides/vendor/nuget/arca.lock:6: repository kemiller2002/arca",
+      "scenario": "other"
+    },
+    {
+      "from_repo": "fides",
+      "from_path": "conditor.json",
+      "to_repo": "arca",
+      "to_artifact": "Conditor component arca 0.1.0",
+      "kind": "depends-on",
+      "evidence": "fides/conditor.json:46: \"id\": \"arca\",",
+      "scenario": "other"
+    },
+    {
+      "from_repo": "fides",
+      "from_path": "conditor.json",
+      "to_repo": "percepta",
+      "to_artifact": "Conditor component percepta 0.1.0",
+      "kind": "depends-on",
+      "evidence": "fides/conditor.json:21: \"id\": \"percepta\",",
+      "scenario": "other"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "vendor/nuget/arca.lock",
+      "to_repo": "arca",
+      "to_artifact": "EchelonFoundry.Arca.* 0.7.0 nupkgs",
+      "kind": "vendors",
+      "evidence": "signal/vendor/nuget/arca.lock:6: repository kemiller2002/arca",
+      "scenario": "other"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "conditor.json",
+      "to_repo": "arca",
+      "to_artifact": "Conditor component arca 0.7.0",
+      "kind": "depends-on",
+      "evidence": "signal/conditor.json:26: \"id\": \"arca\",",
+      "scenario": "other"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "deploy/pages/signal.deployment.production.json",
+      "to_repo": "echelon-organization-administration",
+      "to_artifact": "folder signal/ as production data store",
+      "kind": "depends-on",
+      "evidence": "signal/deploy/pages/signal.deployment.production.json:18: \"repository\": \"echelon-organization-administration\",",
+      "scenario": "other"
+    },
+    {
+      "from_repo": "signal",
+      "from_path": "research/decisions/DF-SIGNAL-FND-2026-0001--aegis-forma-folio-not-yet-applicable.md",
+      "to_repo": "echelon-organization-administration",
+      "to_artifact": "application-governance/QUALITY-REMEDIATION-INVENTORY.md finding SIG-F1",
+      "kind": "cites",
+      "evidence": "signal/research/decisions/DF-SIGNAL-FND-2026-0001--aegis-forma-folio-not-yet-applicable.md:96: - **Portfolio inventory.** `echelon-organization-administration`",
+      "scenario": "other"
+    },
+    {
+      "from_repo": "fides",
+      "from_path": "docs/requirements/FIDES-REQUIREMENTS.md",
+      "to_repo": "arca",
+      "to_artifact": "ARCA-AUTH-001 token-provider port",
+      "kind": "implements",
+      "evidence": "fides/docs/requirements/FIDES-REQUIREMENTS.md:147: | FID-D-004 | Arca does not depend on Fides. Fides supplies a token provider that satisfies Arca's token-provider port (ARCA-AUTH-001). | DF-FIDES-2026-0002 (accepted) |",
+      "scenario": "other"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "note": "Per-agent usage reported by the Claude Code harness for each trial subagent (subagent_tokens = all tokens processed in the agent's session, including its fixed system prompt and tool definitions; tool_uses; duration_ms). Recorded by hand from task notifications on 2026-11-16.",
+  "runs": [
+    {
+      "answers": "md-b1",
+      "model": "sonnet",
+      "subagent_tokens": 81899,
+      "tool_uses": 10,
+      "duration_ms": 52343
+    },
+    {
+      "answers": "md-b2",
+      "model": "sonnet",
+      "subagent_tokens": 73032,
+      "tool_uses": 7,
+      "duration_ms": 35093
+    },
+    {
+      "answers": "md-index-b1",
+      "model": "sonnet",
+      "subagent_tokens": 79450,
+      "tool_uses": 9,
+      "duration_ms": 33700
+    },
+    {
+      "answers": "md-index-b2",
+      "model": "sonnet",
+      "subagent_tokens": 72253,
+      "tool_uses": 6,
+      "duration_ms": 25497
+    },
+    {
+      "answers": "jsonl-b1",
+      "model": "sonnet",
+      "subagent_tokens": 70744,
+      "tool_uses": 6,
+      "duration_ms": 25968
+    },
+    {
+      "answers": "jsonl-b2",
+      "model": "sonnet",
+      "subagent_tokens": 70201,
+      "tool_uses": 5,
+      "duration_ms": 20049
+    },
+    {
+      "answers": "dsl-b1",
+      "model": "sonnet",
+      "subagent_tokens": 70979,
+      "tool_uses": 7,
+      "duration_ms": 29285
+    },
+    {
+      "answers": "dsl-b2",
+      "model": "sonnet",
+      "subagent_tokens": 71227,
+      "tool_uses": 7,
+      "duration_ms": 24897
+    },
+    {
+      "answers": "compiled-b1",
+      "model": "sonnet",
+      "subagent_tokens": 76161,
+      "tool_uses": 6,
+      "duration_ms": 18483
+    },
+    {
+      "answers": "compiled-b2",
+      "model": "sonnet",
+      "subagent_tokens": 74654,
+      "tool_uses": 8,
+      "duration_ms": 25626
+    },
+    {
+      "answers": "plain-b1",
+      "model": "sonnet",
+      "subagent_tokens": 89510,
+      "tool_uses": 18,
+      "duration_ms": 74423
+    },
+    {
+      "answers": "plain-b2",
+      "model": "sonnet",
+      "subagent_tokens": 99069,
+      "tool_uses": 19,
+      "duration_ms": 87920
+    },
+    {
+      "answers": "md-b1-haiku",
+      "model": "haiku",
+      "subagent_tokens": 103159,
+      "tool_uses": 17,
+      "duration_ms": 90711
+    },
+    {
+      "answers": "md-b2-haiku",
+      "model": "haiku",
+      "subagent_tokens": 110717,
+      "tool_uses": 20,
+      "duration_ms": 113064
+    },
+    {
+      "answers": "plain-b1-haiku",
+      "model": "haiku",
+      "subagent_tokens": 139420,
+      "tool_uses": 19,
+      "duration_ms": 104891
+    },
+    {
+      "answers": "plain-b2-haiku",
+      "model": "haiku",
+      "subagent_tokens": 122150,
+      "tool_uses": 24,
+      "duration_ms": 113891
+    },
+    {
+      "answers": "compiled-b1-haiku",
+      "model": "haiku",
+      "subagent_tokens": 125951,
+      "tool_uses": 12,
+      "duration_ms": 40106
+    },
+    {
+      "answers": "compiled-b2-haiku",
+      "model": "haiku",
+      "subagent_tokens": 107478,
+      "tool_uses": 12,
+      "duration_ms": 29020
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Reproducible benchmark harness. Reads Echelon repositories read-only and
+       writes results under research/2026-knowledge-representation/experiments/results. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Tokens.fs" />
+    <Compile Include="Corpus.fs" />
+    <Compile Include="Report.fs" />
+    <Compile Include="Baseline.fs" />
+    <Compile Include="Formats.fs" />
+    <Compile Include="RetrievalBench.fs" />
+    <Compile Include="DependencyBench.fs" />
+    <Compile Include="Trials.fs" />
+    <Compile Include="AblationBench.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Echelon.KnowledgeStore.Core/Echelon.KnowledgeStore.Core.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML.Tokenizers" Version="2.0.1" />
+    <PackageReference Include="Microsoft.ML.Tokenizers.Data.O200kBase" Version="2.0.1" />
+    <PackageReference Include="Microsoft.ML.Tokenizers.Data.Cl100kBase" Version="2.0.1" />
+  </ItemGroup>
+</Project>

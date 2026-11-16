@@ -1,0 +1,187 @@
+{
+  "Costs": [
+    {
+      "Format": "original-markdown",
+      "View": "full",
+      "Tokens": {
+        "cl100k_base": 929106,
+        "llama-sp": 1169790,
+        "o200k_base": 926439
+      },
+      "Bytes": 4068329
+    },
+    {
+      "Format": "plain-markdown",
+      "View": "full",
+      "Tokens": {
+        "cl100k_base": 810494,
+        "llama-sp": 1008022,
+        "o200k_base": 807887
+      },
+      "Bytes": 3697700
+    },
+    {
+      "Format": "structured-markdown",
+      "View": "full",
+      "Tokens": {
+        "cl100k_base": 872385,
+        "llama-sp": 1097212,
+        "o200k_base": 869764
+      },
+      "Bytes": 3886541
+    },
+    {
+      "Format": "json",
+      "View": "full",
+      "Tokens": {
+        "cl100k_base": 1044436,
+        "llama-sp": 1372060,
+        "o200k_base": 1042391
+      },
+      "Bytes": 4211244
+    },
+    {
+      "Format": "jsonl",
+      "View": "full",
+      "Tokens": {
+        "cl100k_base": 1021374,
+        "llama-sp": 1341280,
+        "o200k_base": 1019953
+      },
+      "Bytes": 4156208
+    },
+    {
+      "Format": "yaml",
+      "View": "full",
+      "Tokens": {
+        "cl100k_base": 916411,
+        "llama-sp": 1135602,
+        "o200k_base": 914040
+      },
+      "Bytes": 3991520
+    },
+    {
+      "Format": "fsharp-records",
+      "View": "full",
+      "Tokens": {
+        "cl100k_base": 924995,
+        "llama-sp": 1156133,
+        "o200k_base": 921924
+      },
+      "Bytes": 4100770
+    },
+    {
+      "Format": "dsl",
+      "View": "full",
+      "Tokens": {
+        "cl100k_base": 909808,
+        "llama-sp": 1126472,
+        "o200k_base": 907487
+      },
+      "Bytes": 4083545
+    },
+    {
+      "Format": "structured-markdown",
+      "View": "metadata",
+      "Tokens": {
+        "cl100k_base": 69901,
+        "llama-sp": 99905,
+        "o200k_base": 69866
+      },
+      "Bytes": 227840
+    },
+    {
+      "Format": "json",
+      "View": "metadata",
+      "Tokens": {
+        "cl100k_base": 91865,
+        "llama-sp": 127404,
+        "o200k_base": 91925
+      },
+      "Bytes": 296213
+    },
+    {
+      "Format": "jsonl",
+      "View": "metadata",
+      "Tokens": {
+        "cl100k_base": 68311,
+        "llama-sp": 96122,
+        "o200k_base": 69563
+      },
+      "Bytes": 241177
+    },
+    {
+      "Format": "yaml",
+      "View": "metadata",
+      "Tokens": {
+        "cl100k_base": 70469,
+        "llama-sp": 99338,
+        "o200k_base": 70434
+      },
+      "Bytes": 228977
+    },
+    {
+      "Format": "fsharp-records",
+      "View": "metadata",
+      "Tokens": {
+        "cl100k_base": 122999,
+        "llama-sp": 159290,
+        "o200k_base": 121946
+      },
+      "Bytes": 442049
+    },
+    {
+      "Format": "dsl",
+      "View": "metadata",
+      "Tokens": {
+        "cl100k_base": 63280,
+        "llama-sp": 89635,
+        "o200k_base": 63295
+      },
+      "Bytes": 214888
+    },
+    {
+      "Format": "context-cards",
+      "View": "card",
+      "Tokens": {
+        "cl100k_base": 62267,
+        "llama-sp": 82321,
+        "o200k_base": 61664
+      },
+      "Bytes": 250049
+    }
+  ],
+  "MigrationFailures": [],
+  "RoundTrips": [
+    {
+      "Format": "structured-markdown",
+      "Records": 568,
+      "Equal": 568,
+      "FirstMismatch": ""
+    },
+    {
+      "Format": "json",
+      "Records": 568,
+      "Equal": 568,
+      "FirstMismatch": ""
+    },
+    {
+      "Format": "jsonl",
+      "Records": 568,
+      "Equal": 568,
+      "FirstMismatch": ""
+    },
+    {
+      "Format": "yaml",
+      "Records": 568,
+      "Equal": 568,
+      "FirstMismatch": ""
+    },
+    {
+      "Format": "dsl",
+      "Records": 568,
+      "Equal": 568,
+      "FirstMismatch": ""
+    }
+  ]
+}

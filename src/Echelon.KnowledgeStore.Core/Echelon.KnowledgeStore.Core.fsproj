@@ -6,5 +6,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Identifiers.fs" />
+    <Compile Include="Yaml.fs" />
+    <Compile Include="FrontMatter.fs" />
+    <Compile Include="Model.fs" />
+    <Compile Include="Graph.fs" />
+    <Compile Include="Validation.fs" />
+    <Compile Include="Codec.fs" />
+    <Compile Include="Dsl.fs" />
+    <Compile Include="FSharpSource.fs" />
+    <Compile Include="Strict.fs" />
+    <Compile Include="Retrieval.fs" />
+    <Compile Include="Context.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="YamlDotNet" Version="18.1.0" />
   </ItemGroup>
 </Project>

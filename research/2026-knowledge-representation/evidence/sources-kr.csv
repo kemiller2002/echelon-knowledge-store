@@ -1,0 +1,46 @@
+source_id,title,url,type,accessed,used_for
+SRC-KR-001,RDF 1.1 Primer (W3C Working Group Note 2014-06-24),https://www.w3.org/TR/rdf11-primer/,spec (fetched),2026-11-16,RDF triples/IRIs/serializations
+SRC-KR-002,Shapes Constraint Language (SHACL) (W3C Rec 2017-07-20),https://www.w3.org/TR/shacl/,spec (fetched; first 100k of 225k chars read),2026-11-16,SHACL constraint components and validation reports
+SRC-KR-003,JSON-LD 1.1 (W3C Rec 2020-07-16),https://www.w3.org/TR/json-ld11/,spec (fetched; first 100k of 577k chars read),2026-11-16,JSON-LD purpose and @context/@id/@type
+SRC-KR-004,OWL 2 Web Ontology Language Document Overview (W3C Rec 2012-12-11),https://www.w3.org/TR/owl2-overview/,spec (fetched),2026-11-16,OWL 2 DL and EL/QL/RL profiles
+SRC-KR-005,SPARQL 1.1 Query Language (W3C Rec 2013-03-21),https://www.w3.org/TR/sparql11-query/,spec (fetched; partial),2026-11-16,SPARQL status
+SRC-KR-006,GQL / ISO/IEC 39075:2024 (search results incl. Wikipedia and The New Stack),https://en.wikipedia.org/wiki/Graph_Query_Language,secondary (search snippets only),2026-11-16,Property-graph query standard publication date
+SRC-KR-007,What You Always Wanted to Know About Datalog (And Never Dared to Ask) Ceri/Gottlob/Tanca 1989,https://www.dcc.fc.up.pt/~ines/aulas/1617/PL/datalog-paper.pdf,paper (search abstract only; PDF not opened),2026-11-16,Datalog definition
+SRC-KR-008,Event Sourcing (Martin Fowler),https://martinfowler.com/eaaDev/EventSourcing.html,article (fetched),2026-11-16,Event sourcing benefits and costs
+SRC-KR-009,TLA+ home page (Lamport),https://lamport.azurewebsites.net/tla/tla.html,vendor/author page (fetched),2026-11-16,TLA+ purpose and tools
+SRC-KR-010,Alloy about page,https://alloytools.org/about.html,tool page (fetched),2026-11-16,Alloy relational logic and Analyzer
+SRC-KR-011,How Amazon Web Services Uses Formal Methods (Newcombe et al. CACM 2015),https://cacm.acm.org/?p=68484,paper (search snippets only),2026-11-16,Industrial TLA+ use evidence
+SRC-KR-012,Unifying Large Language Models and Knowledge Graphs: A Roadmap (Pan et al.),https://arxiv.org/abs/2306.08302,paper (search snippets only),2026-11-16,LLM+KG frameworks
+SRC-KR-013,From Local to Global: A Graph RAG Approach to Query-Focused Summarization (Edge et al.),https://arxiv.org/abs/2404.16130,paper (search snippets only),2026-11-16,GraphRAG vs vector RAG
+SRC-KR-014,A Benchmark to Understand the Role of Knowledge Graphs on LLM Accuracy for QA on Enterprise SQL Databases (Sequeda et al.),https://arxiv.org/abs/2311.07509,paper (abstract fetched),2026-11-16,KG context effect on LLM accuracy
+SRC-KR-015,Does Prompt Formatting Have Any Impact on LLM Performance? (He et al.),https://arxiv.org/abs/2411.10541,paper (abstract fetched),2026-11-16,Format sensitivity (plain/Markdown/JSON/YAML)
+SRC-KR-016,Quantifying Language Models' Sensitivity to Spurious Features in Prompt Design (Sclar et al.),https://arxiv.org/abs/2310.11324,paper (abstract fetched),2026-11-16,Format sensitivity
+SRC-KR-017,Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents? (Gloaguen et al.),https://arxiv.org/abs/2602.11988,paper (search snippets only; figures from secondary summaries),2026-11-16,Effect of context files on agent success and cost
+SRC-KR-018,Logic-LM: Empowering LLMs with Symbolic Solvers (Pan et al.),https://arxiv.org/abs/2305.12295,paper (abstract fetched),2026-11-16,LLM plus deterministic solver
+SRC-KR-019,Doorstop GitHub repository README,https://github.com/doorstop-dev/doorstop,repo page (fetched),2026-11-16,Doorstop overview license activity
+SRC-KR-020,Doorstop Item Reference,https://doorstop.readthedocs.io/en/latest/reference/item.html,tool docs (fetched),2026-11-16,Doorstop item format fingerprints references
+SRC-KR-021,Doorstop docs search results (validation and suspect links),https://doorstop.readthedocs.io/en/v3.1/cli/validation.html,tool docs (search snippets only),2026-11-16,Doorstop suspect link warnings
+SRC-KR-022,OpenFastTrace GitHub repository README,https://github.com/itsallcode/openfasttrace,repo page (fetched),2026-11-16,OFT overview license activity
+SRC-KR-023,OpenFastTrace user guide and spec docs (search snippets),https://github.com/itsallcode/openfasttrace/blob/main/doc/user_guide.md,tool docs (search snippets only; direct fetch returned 404),2026-11-16,OFT ID structure Covers/Needs coverage semantics
+SRC-KR-024,Sphinx-Needs documentation home,https://sphinx-needs.readthedocs.io/en/latest/,tool docs (fetched),2026-11-16,sphinx-needs overview
+SRC-KR-025,Sphinx-Needs need directive,https://sphinx-needs.readthedocs.io/en/latest/directives/need.html,tool docs (fetched),2026-11-16,IDs status tags links
+SRC-KR-026,Sphinx-Needs configuration,https://sphinx-needs.readthedocs.io/en/latest/configuration.html,tool docs (fetched; first 100k of 225k chars),2026-11-16,id_regex link target types validation warnings
+SRC-KR-027,Sphinx-Needs schema validation,https://sphinx-needs.readthedocs.io/en/latest/schema/index.html,tool docs (fetched),2026-11-16,JSON-Schema-based validation and link cardinality
+SRC-KR-028,Sphinx-Needs builders (needs.json),https://sphinx-needs.readthedocs.io/en/latest/builders.html,tool docs (fetched),2026-11-16,needs.json export
+SRC-KR-029,MADR Markdown Architectural Decision Records,https://adr.github.io/madr/,project page (fetched),2026-11-16,MADR template and front matter
+SRC-KR-030,Documenting Architecture Decisions (Nygard 2011),https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions,article (fetched),2026-11-16,Nygard ADR format
+SRC-KR-031,ReqIF 1.2 (OMG),https://www.omg.org/spec/ReqIF/1.2/About-ReqIF,spec page (fetched),2026-11-16,ReqIF purpose and versions
+SRC-KR-032,PROV-Overview (W3C Note 2013-04-30),https://www.w3.org/TR/prov-overview/,spec (fetched),2026-11-16,PROV family and status
+SRC-KR-033,PROV-DM The PROV Data Model,https://www.w3.org/TR/prov-dm/,spec (fetched; first 100k of 155k chars),2026-11-16,Entity/Activity/Agent and relations
+SRC-KR-034,The anatomy of a nanopublication (Groth Gibson Velterop 2010),https://www.doi.org/10.3233/ISU-2010-0613,paper (search snippets only),2026-11-16,Nanopublication structure
+SRC-KR-035,Micropublications: a semantic model for claims evidence arguments and annotations (Clark Ciccarese Goble 2014),https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4530550/,paper (search snippets only),2026-11-16,Micropublication model
+SRC-KR-036,GSN Community Standard Version 3 (SCSC) and Wikipedia overview,https://scsc.uk/gsn,standard (search snippets only),2026-11-16,GSN assurance case notation
+SRC-KR-037,Toulmin model of argument (educational summaries of The Uses of Argument 1958),https://writingcenter.mcdaniel.edu/?p=4139,secondary (search snippets only),2026-11-16,Toulmin components
+SRC-KR-038,IBIS / gIBIS / dialogue mapping (search results),https://research-archive.stem.open.ac.uk/stemra-data/uploads/sites/71/2024/11/Compendium_DCC2006_Final.pdf,secondary (search snippets only),2026-11-16,IBIS node types and lineage
+SRC-KR-039,Docs as Code (Write the Docs),https://www.writethedocs.org/guide/docs-as-code/,guide (fetched),2026-11-16,Docs-as-code definition
+SRC-KR-040,DITA 1.3 Part 0 Overview (OASIS),https://docs.oasis-open.org/dita/dita/v1.3/dita-v1.3-part0-overview.html,spec (fetched),2026-11-16,DITA overview
+SRC-KR-041,AsciiDoc documentation (Asciidoctor),https://docs.asciidoctor.org/asciidoc/latest/,docs (fetched),2026-11-16,AsciiDoc and its lack of formal spec
+SRC-KR-042,MDX,https://mdxjs.com/,project page (fetched),2026-11-16,MDX definition
+SRC-KR-043,MkDocs,https://www.mkdocs.org/,project page (fetched),2026-11-16,MkDocs definition
+SRC-KR-044,Sphinx,https://www.sphinx-doc.org/en/master/,project page (fetched),2026-11-16,Sphinx and MyST
+SRC-KR-045,DocBook 5.2 (OASIS Standard 2024-02-06),https://docs.oasis-open.org/docbook/docbook/v5.2/docbook-v5.2.html,spec (fetched),2026-11-16,DocBook status and schemas

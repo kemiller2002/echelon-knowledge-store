@@ -1,0 +1,10 @@
+{
+  "Q02": {"answer": ["DF-ROS-2026-A053"]},
+  "Q04": {"answer": "DF-FIDES-2026-0003"},
+  "Q06": {"answer": ["HY-PERCEPTA-2026-0003", "HY-PERCEPTA-2026-0004"]},
+  "Q08": {"answer": ["HY-FORMA-2026-0001", "HY-FORMA-2026-0002", "EX-FORMA-2026-0002", "EX-FORMA-2026-0003"]},
+  "Q09": {"answer": ["EV-ROS-2026-A064", "EV-ROS-2026-A070", "EV-ROS-2026-A075"]},
+  "Q10": {"answer": "DF-FIDES-2026-0016"},
+  "Q13": {"answer": ["EV-ROS-2026-A018"]},
+  "Q15": {"answer": "status=rejected; confidence=not stated; contested=no"}
+}

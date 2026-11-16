@@ -4,6 +4,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="IdentifierTests.fs" />
+    <Compile Include="Fixtures.fs" />
+    <Compile Include="CoreTests.fs" />
+    <Compile Include="CodecTests.fs" />
+    <Compile Include="RetrievalTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/Echelon.KnowledgeStore.Core/Echelon.KnowledgeStore.Core.fsproj" />

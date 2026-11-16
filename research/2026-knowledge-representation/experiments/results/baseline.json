@@ -1,0 +1,258 @@
+{
+  "Duplication": {
+    "DuplicateFileCopies": 580,
+    "DuplicateFileTokens": 868138,
+    "FilesWithCrossRepoCopies": 626,
+    "DuplicateParagraphCopies": 8519,
+    "DuplicateParagraphTokens": 883291
+  },
+  "Repositories": [
+    {
+      "Repository": "aegis",
+      "Files": 91,
+      "VendoredFiles": 0,
+      "Bytes": 632620,
+      "Tokens": {
+        "cl100k_base": 143521,
+        "llama-sp": 182327,
+        "o200k_base": 143406
+      },
+      "AverageTokens": 1575.89010989011,
+      "WithFrontMatter": 48,
+      "WithId": 36,
+      "FrontMatterErrors": 0,
+      "RelativeLinks": 73,
+      "BrokenLinks": 4,
+      "InstructionTokens": 5862,
+      "MaxFileTokens": 21645
+    },
+    {
+      "Repository": "arca",
+      "Files": 99,
+      "VendoredFiles": 0,
+      "Bytes": 602977,
+      "Tokens": {
+        "cl100k_base": 140192,
+        "llama-sp": 172895,
+        "o200k_base": 140125
+      },
+      "AverageTokens": 1415.4040404040404,
+      "WithFrontMatter": 52,
+      "WithId": 45,
+      "FrontMatterErrors": 0,
+      "RelativeLinks": 65,
+      "BrokenLinks": 0,
+      "InstructionTokens": 5793,
+      "MaxFileTokens": 9722
+    },
+    {
+      "Repository": "clarity-framework",
+      "Files": 131,
+      "VendoredFiles": 0,
+      "Bytes": 484375,
+      "Tokens": {
+        "cl100k_base": 106471,
+        "llama-sp": 141498,
+        "o200k_base": 105634
+      },
+      "AverageTokens": 806.3664122137404,
+      "WithFrontMatter": 17,
+      "WithId": 11,
+      "FrontMatterErrors": 0,
+      "RelativeLinks": 44,
+      "BrokenLinks": 26,
+      "InstructionTokens": 0,
+      "MaxFileTokens": 5434
+    },
+    {
+      "Repository": "dokimos",
+      "Files": 130,
+      "VendoredFiles": 0,
+      "Bytes": 771476,
+      "Tokens": {
+        "cl100k_base": 177788,
+        "llama-sp": 223711,
+        "o200k_base": 177204
+      },
+      "AverageTokens": 1363.1076923076923,
+      "WithFrontMatter": 38,
+      "WithId": 31,
+      "FrontMatterErrors": 0,
+      "RelativeLinks": 77,
+      "BrokenLinks": 4,
+      "InstructionTokens": 6440,
+      "MaxFileTokens": 21645
+    },
+    {
+      "Repository": "echelon-diagnostic-framework",
+      "Files": 207,
+      "VendoredFiles": 0,
+      "Bytes": 903180,
+      "Tokens": {
+        "cl100k_base": 194330,
+        "llama-sp": 250841,
+        "o200k_base": 192287
+      },
+      "AverageTokens": 928.9227053140097,
+      "WithFrontMatter": 72,
+      "WithId": 59,
+      "FrontMatterErrors": 0,
+      "RelativeLinks": 200,
+      "BrokenLinks": 6,
+      "InstructionTokens": 5866,
+      "MaxFileTokens": 21645
+    },
+    {
+      "Repository": "echelon-engineering-system",
+      "Files": 7,
+      "VendoredFiles": 0,
+      "Bytes": 35300,
+      "Tokens": {
+        "cl100k_base": 8544,
+        "llama-sp": 11040,
+        "o200k_base": 8510
+      },
+      "AverageTokens": 1215.7142857142858,
+      "WithFrontMatter": 0,
+      "WithId": 0,
+      "FrontMatterErrors": 0,
+      "RelativeLinks": 8,
+      "BrokenLinks": 0,
+      "InstructionTokens": 0,
+      "MaxFileTokens": 1920
+    },
+    {
+      "Repository": "echelon-organization-administration",
+      "Files": 188,
+      "VendoredFiles": 0,
+      "Bytes": 2700257,
+      "Tokens": {
+        "cl100k_base": 547789,
+        "llama-sp": 707462,
+        "o200k_base": 545600
+      },
+      "AverageTokens": 2902.127659574468,
+      "WithFrontMatter": 0,
+      "WithId": 0,
+      "FrontMatterErrors": 0,
+      "RelativeLinks": 271,
+      "BrokenLinks": 134,
+      "InstructionTokens": 0,
+      "MaxFileTokens": 90414
+    },
+    {
+      "Repository": "fides",
+      "Files": 115,
+      "VendoredFiles": 0,
+      "Bytes": 845831,
+      "Tokens": {
+        "cl100k_base": 200614,
+        "llama-sp": 253934,
+        "o200k_base": 199867
+      },
+      "AverageTokens": 1737.9739130434782,
+      "WithFrontMatter": 72,
+      "WithId": 60,
+      "FrontMatterErrors": 0,
+      "RelativeLinks": 67,
+      "BrokenLinks": 0,
+      "InstructionTokens": 6537,
+      "MaxFileTokens": 29427
+    },
+    {
+      "Repository": "forma",
+      "Files": 274,
+      "VendoredFiles": 0,
+      "Bytes": 1699679,
+      "Tokens": {
+        "cl100k_base": 397208,
+        "llama-sp": 497401,
+        "o200k_base": 395223
+      },
+      "AverageTokens": 1442.4197080291972,
+      "WithFrontMatter": 76,
+      "WithId": 64,
+      "FrontMatterErrors": 0,
+      "RelativeLinks": 102,
+      "BrokenLinks": 14,
+      "InstructionTokens": 11832,
+      "MaxFileTokens": 21645
+    },
+    {
+      "Repository": "mercatus",
+      "Files": 111,
+      "VendoredFiles": 0,
+      "Bytes": 937647,
+      "Tokens": {
+        "cl100k_base": 215777,
+        "llama-sp": 275251,
+        "o200k_base": 214791
+      },
+      "AverageTokens": 1935.054054054054,
+      "WithFrontMatter": 48,
+      "WithId": 36,
+      "FrontMatterErrors": 0,
+      "RelativeLinks": 54,
+      "BrokenLinks": 4,
+      "InstructionTokens": 7888,
+      "MaxFileTokens": 21645
+    },
+    {
+      "Repository": "percepta",
+      "Files": 171,
+      "VendoredFiles": 0,
+      "Bytes": 911888,
+      "Tokens": {
+        "cl100k_base": 206124,
+        "llama-sp": 262277,
+        "o200k_base": 205624
+      },
+      "AverageTokens": 1202.4795321637428,
+      "WithFrontMatter": 57,
+      "WithId": 45,
+      "FrontMatterErrors": 0,
+      "RelativeLinks": 60,
+      "BrokenLinks": 4,
+      "InstructionTokens": 6892,
+      "MaxFileTokens": 21645
+    },
+    {
+      "Repository": "praxis",
+      "Files": 458,
+      "VendoredFiles": 1,
+      "Bytes": 3376466,
+      "Tokens": {
+        "cl100k_base": 788738,
+        "llama-sp": 982268,
+        "o200k_base": 787660
+      },
+      "AverageTokens": 1719.7816593886462,
+      "WithFrontMatter": 256,
+      "WithId": 247,
+      "FrontMatterErrors": 7,
+      "RelativeLinks": 317,
+      "BrokenLinks": 5,
+      "InstructionTokens": 5473,
+      "MaxFileTokens": 31022
+    },
+    {
+      "Repository": "signal",
+      "Files": 167,
+      "VendoredFiles": 0,
+      "Bytes": 1303635,
+      "Tokens": {
+        "cl100k_base": 304045,
+        "llama-sp": 386898,
+        "o200k_base": 303659
+      },
+      "AverageTokens": 1818.317365269461,
+      "WithFrontMatter": 73,
+      "WithId": 61,
+      "FrontMatterErrors": 0,
+      "RelativeLinks": 88,
+      "BrokenLinks": 4,
+      "InstructionTokens": 18299,
+      "MaxFileTokens": 34897
+    }
+  ]
+}

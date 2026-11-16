@@ -1,0 +1,1010 @@
+[
+  {
+    "Condition": "compiled-b1-haiku",
+    "Question": "Q01",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1-haiku",
+    "Question": "Q03",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1-haiku",
+    "Question": "Q05",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1-haiku",
+    "Question": "Q07",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1-haiku",
+    "Question": "Q11",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1-haiku",
+    "Question": "Q12",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1-haiku",
+    "Question": "Q14",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1-haiku",
+    "Question": "Q16",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1",
+    "Question": "Q01",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1",
+    "Question": "Q03",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1",
+    "Question": "Q05",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1",
+    "Question": "Q07",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1",
+    "Question": "Q11",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1",
+    "Question": "Q12",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1",
+    "Question": "Q14",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b1",
+    "Question": "Q16",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2-haiku",
+    "Question": "Q02",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2-haiku",
+    "Question": "Q04",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2-haiku",
+    "Question": "Q06",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2-haiku",
+    "Question": "Q08",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2-haiku",
+    "Question": "Q09",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2-haiku",
+    "Question": "Q10",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2-haiku",
+    "Question": "Q13",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2-haiku",
+    "Question": "Q15",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2",
+    "Question": "Q02",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2",
+    "Question": "Q04",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2",
+    "Question": "Q06",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2",
+    "Question": "Q08",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2",
+    "Question": "Q09",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2",
+    "Question": "Q10",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2",
+    "Question": "Q13",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "compiled-b2",
+    "Question": "Q15",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b1",
+    "Question": "Q01",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b1",
+    "Question": "Q03",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b1",
+    "Question": "Q05",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b1",
+    "Question": "Q07",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b1",
+    "Question": "Q11",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b1",
+    "Question": "Q12",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b1",
+    "Question": "Q14",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b1",
+    "Question": "Q16",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b2",
+    "Question": "Q02",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b2",
+    "Question": "Q04",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b2",
+    "Question": "Q06",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b2",
+    "Question": "Q08",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b2",
+    "Question": "Q09",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b2",
+    "Question": "Q10",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b2",
+    "Question": "Q13",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "dsl-b2",
+    "Question": "Q15",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b1",
+    "Question": "Q01",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b1",
+    "Question": "Q03",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b1",
+    "Question": "Q05",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b1",
+    "Question": "Q07",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b1",
+    "Question": "Q11",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b1",
+    "Question": "Q12",
+    "Kind": "change-impact",
+    "Score": 0.7499999999999999,
+    "Exact": false
+  },
+  {
+    "Condition": "jsonl-b1",
+    "Question": "Q14",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b1",
+    "Question": "Q16",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b2",
+    "Question": "Q02",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b2",
+    "Question": "Q04",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b2",
+    "Question": "Q06",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b2",
+    "Question": "Q08",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b2",
+    "Question": "Q09",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b2",
+    "Question": "Q10",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b2",
+    "Question": "Q13",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "jsonl-b2",
+    "Question": "Q15",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1-haiku",
+    "Question": "Q01",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1-haiku",
+    "Question": "Q03",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1-haiku",
+    "Question": "Q05",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1-haiku",
+    "Question": "Q07",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1-haiku",
+    "Question": "Q11",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1-haiku",
+    "Question": "Q12",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1-haiku",
+    "Question": "Q14",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1-haiku",
+    "Question": "Q16",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1",
+    "Question": "Q01",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1",
+    "Question": "Q03",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1",
+    "Question": "Q05",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1",
+    "Question": "Q07",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1",
+    "Question": "Q11",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1",
+    "Question": "Q12",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1",
+    "Question": "Q14",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b1",
+    "Question": "Q16",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2-haiku",
+    "Question": "Q02",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2-haiku",
+    "Question": "Q04",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2-haiku",
+    "Question": "Q06",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2-haiku",
+    "Question": "Q08",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2-haiku",
+    "Question": "Q09",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2-haiku",
+    "Question": "Q10",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2-haiku",
+    "Question": "Q13",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2-haiku",
+    "Question": "Q15",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2",
+    "Question": "Q02",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2",
+    "Question": "Q04",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2",
+    "Question": "Q06",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2",
+    "Question": "Q08",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2",
+    "Question": "Q09",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2",
+    "Question": "Q10",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2",
+    "Question": "Q13",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-b2",
+    "Question": "Q15",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b1",
+    "Question": "Q01",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b1",
+    "Question": "Q03",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b1",
+    "Question": "Q05",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b1",
+    "Question": "Q07",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b1",
+    "Question": "Q11",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b1",
+    "Question": "Q12",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b1",
+    "Question": "Q14",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b1",
+    "Question": "Q16",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b2",
+    "Question": "Q02",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b2",
+    "Question": "Q04",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b2",
+    "Question": "Q06",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b2",
+    "Question": "Q08",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b2",
+    "Question": "Q09",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b2",
+    "Question": "Q10",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b2",
+    "Question": "Q13",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "md-index-b2",
+    "Question": "Q15",
+    "Kind": "epistemic-status",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b1-haiku",
+    "Question": "Q01",
+    "Kind": "find-evidence",
+    "Score": 0.5,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b1-haiku",
+    "Question": "Q03",
+    "Kind": "current-authority",
+    "Score": 0,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b1-haiku",
+    "Question": "Q05",
+    "Kind": "epistemic-status",
+    "Score": 0,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b1-haiku",
+    "Question": "Q07",
+    "Kind": "find-evidence",
+    "Score": 0.8,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b1-haiku",
+    "Question": "Q11",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b1-haiku",
+    "Question": "Q12",
+    "Kind": "change-impact",
+    "Score": 0.6666666666666666,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b1-haiku",
+    "Question": "Q14",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b1-haiku",
+    "Question": "Q16",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b1",
+    "Question": "Q01",
+    "Kind": "find-evidence",
+    "Score": 0.8,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b1",
+    "Question": "Q03",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b1",
+    "Question": "Q05",
+    "Kind": "epistemic-status",
+    "Score": 0.6666666666666666,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b1",
+    "Question": "Q07",
+    "Kind": "find-evidence",
+    "Score": 0.8,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b1",
+    "Question": "Q11",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b1",
+    "Question": "Q12",
+    "Kind": "change-impact",
+    "Score": 0.26666666666666666,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b1",
+    "Question": "Q14",
+    "Kind": "lookup-by-description",
+    "Score": 0,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b1",
+    "Question": "Q16",
+    "Kind": "missing-evidence",
+    "Score": 0.6666666666666666,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b2-haiku",
+    "Question": "Q02",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b2-haiku",
+    "Question": "Q04",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b2-haiku",
+    "Question": "Q06",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b2-haiku",
+    "Question": "Q08",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b2-haiku",
+    "Question": "Q09",
+    "Kind": "find-evidence",
+    "Score": 0.8571428571428571,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b2-haiku",
+    "Question": "Q10",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b2-haiku",
+    "Question": "Q13",
+    "Kind": "find-evidence",
+    "Score": 0.6666666666666666,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b2-haiku",
+    "Question": "Q15",
+    "Kind": "epistemic-status",
+    "Score": 0.6666666666666666,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b2",
+    "Question": "Q02",
+    "Kind": "change-impact",
+    "Score": 0.6666666666666666,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b2",
+    "Question": "Q04",
+    "Kind": "lookup-by-description",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b2",
+    "Question": "Q06",
+    "Kind": "missing-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b2",
+    "Question": "Q08",
+    "Kind": "change-impact",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b2",
+    "Question": "Q09",
+    "Kind": "find-evidence",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b2",
+    "Question": "Q10",
+    "Kind": "current-authority",
+    "Score": 1,
+    "Exact": true
+  },
+  {
+    "Condition": "plain-b2",
+    "Question": "Q13",
+    "Kind": "find-evidence",
+    "Score": 0,
+    "Exact": false
+  },
+  {
+    "Condition": "plain-b2",
+    "Question": "Q15",
+    "Kind": "epistemic-status",
+    "Score": 0.6666666666666666,
+    "Exact": false
+  }
+]

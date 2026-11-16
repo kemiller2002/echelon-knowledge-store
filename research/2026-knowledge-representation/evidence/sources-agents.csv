@@ -1,0 +1,59 @@
+source_id,title,url,type,accessed,used_for
+SRC-AG-001,Lost in the Middle: How Language Models Use Long Contexts,https://arxiv.org/abs/2307.03172,paper,2026-11-16,context rot; position effects
+SRC-AG-002,Context Rot (Chroma technical report),https://www.trychroma.com/research/context-rot,tech-report (vendor),2026-11-16,context rot; focused vs full prompts
+SRC-AG-003,Does Prompt Formatting Have Any Impact on LLM Performance?,https://arxiv.org/abs/2411.10541,paper,2026-11-16,format effect sizes (plain/MD/JSON/YAML)
+SRC-AG-004,Table Meets LLM (Sui et al.),https://arxiv.org/abs/2305.13062,paper,2026-11-16,table format effects
+SRC-AG-005,Singha et al. Tabular Representation Noise and Operations,https://arxiv.org/html/2310.10358v1,paper,2026-11-16,table format effects; noise
+SRC-AG-006,Improving Agents: best input data format for LLMs (tables),https://www.improvingagents.com/blog/best-input-data-format-for-llms,blog (practitioner),2026-11-16,format accuracy and tokens (single model)
+SRC-AG-007,Improving Agents: best nested data format,https://www.improvingagents.com/blog/best-nested-data-format,blog (practitioner),2026-11-16,format accuracy and tokens (3 models)
+SRC-AG-008,Quantifying LMs' Sensitivity to Spurious Features in Prompt Design (Sclar et al.),https://arxiv.org/abs/2310.11324,paper,2026-11-16,prompt format sensitivity upper bound
+SRC-AG-009,Let Me Speak Freely? Impact of Format Restrictions on LLM Performance,https://arxiv.org/abs/2408.02442,paper,2026-11-16,output-format constraints (abstract only)
+SRC-AG-010,RULER: What's the Real Context Size of Your Long-Context LMs?,https://arxiv.org/abs/2404.06654,paper,2026-11-16,effective context length
+SRC-AG-011,NoLiMa: Long-Context Evaluation Beyond Literal Matching,https://arxiv.org/abs/2502.05167,paper,2026-11-16,long-context degradation numbers
+SRC-AG-012,Effective context engineering for AI agents (Anthropic),https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents,vendor-engineering-blog,2026-11-16,context engineering definition; JIT retrieval; compaction
+SRC-AG-013,Introducing advanced tool use (Anthropic),https://www.anthropic.com/engineering/advanced-tool-use,vendor-engineering-blog,2026-11-16,tool-definition token overhead
+SRC-AG-014,Context editing and compaction (Claude API docs),https://platform.claude.com/docs/en/build-with-claude/context-editing,official-docs,2026-11-16,compaction mechanics
+SRC-AG-015,Managing context on the Claude Developer Platform,https://claude.com/blog/context-management,vendor-blog,2026-11-16,vendor-reported context-editing gains
+SRC-AG-016,How Claude remembers your project (Claude Code memory docs),https://code.claude.com/docs/en/memory,official-docs,2026-11-16,CLAUDE.md/AGENTS.md/rules/auto memory
+SRC-AG-017,Claude Code skills docs,https://code.claude.com/docs/en/skills,official-docs,2026-11-16,SKILL.md; progressive disclosure
+SRC-AG-018,Claude Code subagents docs,https://code.claude.com/docs/en/sub-agents,official-docs,2026-11-16,subagent startup context; Explore
+SRC-AG-019,Codex AGENTS.md guide,https://learn.chatgpt.com/docs/agent-configuration/agents-md,official-docs,2026-11-16,Codex AGENTS.md discovery and 32 KiB limit
+SRC-AG-020,AGENTS.md,https://agents.md,convention-site,2026-11-16,AGENTS.md convention; no required fields
+SRC-AG-021,GitHub Copilot repository custom instructions,https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions,official-docs,2026-11-16,copilot-instructions.md; applyTo
+SRC-AG-022,GitHub Copilot repository indexing,https://docs.github.com/en/copilot/concepts/context/repository-indexing,official-docs,2026-11-16,semantic code search index
+SRC-AG-023,Cursor rules docs,https://cursor.com/docs/context/rules,official-docs,2026-11-16,.mdc rules; AGENTS.md
+SRC-AG-024,Cursor codebase indexing / Instant Grep docs,https://cursor.com/docs/context/codebase-indexing,official-docs,2026-11-16,local grep index; explore subagent
+SRC-AG-025,Gemini CLI GEMINI.md docs,https://geminicli.com/docs/cli/gemini-md/,official-docs,2026-11-16,GEMINI.md hierarchy; context.fileName
+SRC-AG-026,Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?,https://arxiv.org/html/2602.11988v1,paper,2026-11-16,independent eval of context files
+SRC-AG-027,Agent READMEs: An Empirical Study of Context Files for Agentic Coding,https://arxiv.org/abs/2511.12884,paper,2026-11-16,content of context files
+SRC-AG-028,Configuring Agentic AI Coding Tools: An Exploratory Study (Galster et al.),https://arxiv.org/html/2602.14690,paper (seen via search result only),2026-11-16,adoption of config mechanisms (unverified detail)
+SRC-AG-029,Why grep beat embeddings in our SWE-bench agent (Jason Liu summary of Augment talk),https://jxnl.co/writing/2025/09/11/why-grep-beat-embeddings-in-our-swe-bench-agent-lessons-from-augment/,blog (secondary),2026-11-16,agentic grep vs embeddings
+SRC-AG-030,How Do Small Coding Agents Use Code Graphs and Embeddings?,https://deeplearn.org/arxiv/856072/how-do-small-coding-agents-use-code-graphs-and-embeddings,paper listing,2026-11-16,grep vs embedding vs graph tools ablation
+SRC-AG-031,Settling the RAG Debate: Why Claude Code Dropped Vector DB-Based RAG,https://smartscope.blog/en/ai-development/practices/rag-debate-agentic-search-code-exploration/,blog (secondary; seen via search result only),2026-11-16,Claude Code grep/glob retrieval claim (secondary)
+SRC-AG-032,MemGPT: Towards LLMs as Operating Systems,https://arxiv.org/abs/2310.08560,paper,2026-11-16,hierarchical memory
+SRC-AG-033,Generative Agents: Interactive Simulacra of Human Behavior,https://arxiv.org/abs/2304.03442,paper,2026-11-16,memory/reflection/planning
+SRC-AG-034,Cognitive Architectures for Language Agents (CoALA),https://arxiv.org/abs/2309.02427,paper (abstract only),2026-11-16,modular memory framing
+SRC-AG-035,Mem0: Production-Ready AI Agents with Scalable Long-Term Memory,https://arxiv.org/abs/2504.19413,paper (vendor-authored),2026-11-16,memory layer claims
+SRC-AG-036,Zep: A Temporal Knowledge Graph Architecture for Agent Memory,https://arxiv.org/abs/2501.13956,paper (vendor-authored),2026-11-16,temporal KG memory claims
+SRC-AG-037,Benchmarking AI Agent Memory: Is a Filesystem All You Need? (Letta),https://www.letta.com/blog/benchmarking-ai-agent-memory,vendor-blog,2026-11-16,filesystem memory on LoCoMo
+SRC-AG-038,Letta docs (memory concepts),https://docs.letta.com/concepts/memgpt,official-docs,2026-11-16,memory blocks; MemFS
+SRC-AG-039,LongMemEval,https://arxiv.org/abs/2410.10813,paper,2026-11-16,long-term memory benchmark
+SRC-AG-040,From Local to Global: A Graph RAG Approach,https://arxiv.org/abs/2404.16130,paper,2026-11-16,GraphRAG
+SRC-AG-041,LightRAG,https://arxiv.org/abs/2410.05779,paper,2026-11-16,graph+vector; incremental update
+SRC-AG-042,RAG vs. GraphRAG: A Systematic Evaluation and Key Insights,https://arxiv.org/html/2502.11371,paper,2026-11-16,independent RAG vs GraphRAG
+SRC-AG-043,When to use Graphs in RAG (GraphRAG-Bench),https://arxiv.org/html/2506.05690,paper,2026-11-16,when graph retrieval wins/loses; token costs
+SRC-AG-044,GraphRAG-Bench: Challenging Domain-Specific Reasoning,https://arxiv.org/abs/2506.02404,paper (abstract only),2026-11-16,graph RAG benchmark
+SRC-AG-045,RAG with Knowledge Graphs for Customer Service QA,https://arxiv.org/abs/2404.17723,paper (industry),2026-11-16,KG over structured tickets
+SRC-AG-046,Introducing Contextual Retrieval (Anthropic),https://www.anthropic.com/news/contextual-retrieval,vendor-blog,2026-11-16,hybrid retrieval; contextual chunks; reranking
+SRC-AG-047,Hybrid search scoring (RRF) - Azure AI Search,https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking,official-docs,2026-11-16,RRF formula k=60
+SRC-AG-048,Reciprocal Rank Fusion outperforms Condorcet (Cormack et al.),https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf,paper (seen via search result only),2026-11-16,RRF origin
+SRC-AG-049,Is Semantic Chunking Worth the Computational Cost?,https://arxiv.org/html/2410.13070v1,paper (vendor-authored; seen via search result),2026-11-16,chunking
+SRC-AG-050,MeanCache: User-Centric Semantic Caching,https://arxiv.org/pdf/2403.02694,paper (seen via search result only),2026-11-16,semantic cache false hits
+SRC-AG-051,LLMLingua,https://arxiv.org/abs/2310.05736,paper,2026-11-16,prompt compression
+SRC-AG-052,Claude prompting best practices (XML tags),https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices,official-docs,2026-11-16,vendor guidance on XML structure
+SRC-AG-053,Grammar Prompting for DSL Generation,https://arxiv.org/pdf/2305.19234,paper (seen via search snippet only),2026-11-16,few-shot DSL difficulty
+SRC-AG-054,Leveraging Code to Improve In-context Learning for Semantic Parsing,https://arxiv.org/html/2311.09519v2,paper (seen via search snippet only),2026-11-16,rare DSL few-shot difficulty
+SRC-AG-055,Token counts of same data in 7 formats (TabNews),https://www.tabnews.com.br/tokensave/contei-os-tokens-dos-mesmos-dados-em-7-formatos-json-indentado-custa-3x-mais-que-csv,blog (secondary; search snippet only),2026-11-16,token efficiency of formats (o200k)
+SRC-AG-056,YAML vs Markdown vs JSON vs TOON for the Claude API (dev.to),https://dev.to/webramos/yaml-vs-markdown-vs-json-vs-toon-which-format-is-most-efficient-for-the-claude-api-4l94,blog (secondary; search snippet only),2026-11-16,token efficiency on Claude count_tokens
+SRC-AG-057,YAML is smaller than JSON yet costs more tokens (Towards AI),https://pub.towardsai.net/gpt-5-llama-and-qwen-agree-yaml-is-smaller-than-json-and-costs-more-tokens-a9496ee62ff9,blog (secondary; search snippet only),2026-11-16,token efficiency across tokenizers
+SRC-AG-058,StructEval: Benchmarking LLMs' Capabilities to Generate Structural Outputs,https://arxiv.org/html/2505.20139v1,paper (seen via search result only),2026-11-16,output-format generation difficulty

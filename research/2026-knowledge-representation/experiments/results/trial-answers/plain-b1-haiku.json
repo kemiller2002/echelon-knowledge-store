@@ -1,0 +1,10 @@
+{
+  "Q01": {"answer": ["EV-FE-2026-B004"]},
+  "Q03": {"answer": "DF-ROS-2026-A032"},
+  "Q05": {"answer": "status=untested; confidence=Very Low; contested=no"},
+  "Q07": {"answer": ["EV-ROS-2026-A043", "EV-ROS-2026-A046", "EV-ROS-2026-A047", "EV-ROS-2026-A048"]},
+  "Q11": {"answer": "DF-ARCA-2026-0012"},
+  "Q12": {"answer": ["HY-ROS-2026-A027", "HY-ROS-2026-A028", "HY-ROS-2026-A029", "HY-ROS-2026-A030", "EV-ROS-2026-A063", "EV-ROS-2026-A064", "EV-ROS-2026-A065", "EV-ROS-2026-A066", "EV-ROS-2026-A067", "EV-ROS-2026-A070", "EV-ROS-2026-A072", "EV-ROS-2026-A074", "EV-ROS-2026-A075", "DF-ROS-2026-A047", "DF-ROS-2026-A053", "EX-ROS-2026-A022", "EX-ROS-2026-A023", "EX-ROS-2026-A024"]},
+  "Q14": {"answer": "DF-SIGNAL-2026-0016"},
+  "Q16": {"answer": ["HY-FORMA-2026-0002"]}
+}
