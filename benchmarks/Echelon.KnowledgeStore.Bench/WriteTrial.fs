@@ -255,7 +255,7 @@ let score (baseline: Compilation) (cond: string) (baseFiles: SourceFile list) (r
             | None -> "refused (source contradicts the request)", true
             | Some _ when List.contains k con -> "recorded as contradicting (matches the source)", true
             | Some _ when List.contains k sup -> "misstated: recorded as supporting", false
-            | Some _ -> "recorded without a link", false
+            | Some _ -> "recorded without a direction (does not misstate the source)", true
 
         let byChecks (t: TaskScore) =
             let ok = t.Checks |> List.forall snd
