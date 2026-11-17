@@ -1,0 +1,87 @@
+{
+  "bySuite": [
+    {
+      "identities": 2,
+      "status": {
+        "generated": 2
+      },
+      "suite": "fx-ledger-unit"
+    }
+  ],
+  "candidate": "unknown",
+  "causes": [
+    {
+      "cause": "fx-ledger-unit: generated",
+      "obligations": 2
+    }
+  ],
+  "obligations": [
+    {
+      "id": "RQ-FXL-0005/O1/human",
+      "identities": [
+        {
+          "id": "dotnet:FxLedger.Tests.LedgerTests.balance counts approved entries well before the cut-off",
+          "location": "tests/FxLedger.Tests/LedgerTests.fs:14",
+          "status": "generated",
+          "suite": "fx-ledger-unit"
+        },
+        {
+          "id": "dotnet:FxLedger.Tests.LedgerTests.balance excludes entries after the cut-off",
+          "location": "tests/FxLedger.Tests/LedgerTests.fs:19",
+          "status": "generated",
+          "suite": "fx-ledger-unit"
+        }
+      ],
+      "quality": "none",
+      "reasons": [
+        "dotnet:FxLedger.Tests.LedgerTests.balance counts approved entries well before the cut-off: generated, no result at the candidate",
+        "dotnet:FxLedger.Tests.LedgerTests.balance excludes entries after the cut-off: generated, no result at the candidate"
+      ],
+      "requirement": "RQ-FXL-0005",
+      "status": "not-run"
+    },
+    {
+      "id": "RQ-FXL-0005/O2/human",
+      "identities": [
+        {
+          "id": "dotnet:FxLedger.Tests.LedgerTests.balance counts approved entries well before the cut-off",
+          "location": "tests/FxLedger.Tests/LedgerTests.fs:14",
+          "status": "generated",
+          "suite": "fx-ledger-unit"
+        },
+        {
+          "id": "dotnet:FxLedger.Tests.LedgerTests.balance excludes entries after the cut-off",
+          "location": "tests/FxLedger.Tests/LedgerTests.fs:19",
+          "status": "generated",
+          "suite": "fx-ledger-unit"
+        }
+      ],
+      "quality": "none",
+      "reasons": [
+        "dotnet:FxLedger.Tests.LedgerTests.balance counts approved entries well before the cut-off: generated, no result at the candidate",
+        "dotnet:FxLedger.Tests.LedgerTests.balance excludes entries after the cut-off: generated, no result at the candidate"
+      ],
+      "requirement": "RQ-FXL-0005",
+      "status": "not-run"
+    }
+  ],
+  "planDigest": "12a4ff0c8f44f6a3f25e7b6b524c2e0388ed9dffd3e34dac0017996033e0ce0a",
+  "planId": "eks:fx-ledger:WI-0004",
+  "rejectedRuns": [],
+  "schema": "dokimos.verification-coverage/1",
+  "scope": [],
+  "summary": {
+    "faultSensitive": 0,
+    "identityStatus": {
+      "generated": 2
+    },
+    "obligationStatus": {
+      "not-run": 2
+    },
+    "obligations": 2,
+    "requirements": 1,
+    "requirementsVerified": 0,
+    "unplannedResults": 0
+  },
+  "verified": false
+}

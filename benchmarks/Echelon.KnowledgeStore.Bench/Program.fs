@@ -833,6 +833,78 @@ let main argv =
         | "write-score" -> writeScore root out
         | "score-trials2" -> scoreTrials2 out
         | "score-trials" -> scoreTrials root out
+        | "incremental" ->
+            let publicFiles, _ = publicCorpus root
+            let src = CompilerBench.sources publicFiles
+
+            let targets, muts, results, configOk =
+                IncrementalBench.run CompilerBench.config src 25 60 20261116
+
+            Report.json
+                out
+                "incremental-compilation.json"
+                {|
+                    targets = targets
+                    mutations = muts
+                    results = results
+                    configChangeCorrect = configOk
+                |}
+
+            results
+            |> List.iter (fun r ->
+                printfn
+                    "%-55s stale packages %3d / steps %2d  median %.1f ms  total %.0f ms  %s"
+                    r.Strategy
+                    r.StalePackages
+                    r.StaleSteps
+                    r.MedianMs
+                    r.TotalMs
+                    r.FirstStale)
+
+            printfn "config change with warm cache matches fresh compile: %b" configOk
+        | "evidence-prepare" ->
+            let sandbox = string (Environment.GetEnvironmentVariable "EKS_EVIDENCE_ROOT")
+            let runs = EvidenceTrial.prepare repoRoot sandbox [ "sonnet"; "haiku" ] 2 20261118
+
+            runs
+            |> List.iter (fun r -> printfn "%s %s condition %d rep %d" r.Run r.Model r.Condition r.Rep)
+        | "evidence-score" ->
+            let sandbox = string (Environment.GetEnvironmentVariable "EKS_EVIDENCE_ROOT")
+
+            let scores =
+                EvidenceTrial.readAssignment sandbox
+                |> List.map (EvidenceTrial.score repoRoot sandbox)
+
+            File.WriteAllText(Path.Combine(sandbox, "scores.json"), Text.Json.JsonSerializer.Serialize(scores))
+            printfn "scored %d runs" scores.Length
+        | "coding-prepare" ->
+            let sandbox = string (Environment.GetEnvironmentVariable "EKS_CODING_ROOT")
+
+            let variant =
+                Environment.GetEnvironmentVariable "EKS_CODING_VARIANT"
+                |> Option.ofObj
+                |> Option.defaultValue "base"
+
+            let reps =
+                Environment.GetEnvironmentVariable "EKS_CODING_REPS"
+                |> Option.ofObj
+                |> Option.map int
+                |> Option.defaultValue 2
+
+            let seed =
+                Environment.GetEnvironmentVariable "EKS_CODING_SEED"
+                |> Option.ofObj
+                |> Option.map int
+                |> Option.defaultValue 20261116
+
+            let runs = CodingTrial.prepare repoRoot sandbox variant reps seed
+            runs |> List.iter (fun r -> printfn "%s %s" r.Run (String.concat "," r.Batch))
+        | "coding-score" ->
+            let sandbox = string (Environment.GetEnvironmentVariable "EKS_CODING_ROOT")
+            let variant, hash, runs = CodingTrial.readAssignment sandbox
+            let scores = runs |> List.map (CodingTrial.scoreRun repoRoot sandbox variant hash)
+            File.WriteAllText(Path.Combine(sandbox, "scores.json"), Text.Json.JsonSerializer.Serialize(scores))
+            printfn "scored %d runs" scores.Length
         | other -> eprintfn "unknown command %s" other
 
     match List.ofArray argv with

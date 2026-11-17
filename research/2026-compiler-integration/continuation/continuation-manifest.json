@@ -1,0 +1,65 @@
+{
+  "schema": "eks.continuation-manifest/1",
+  "mission": "EKS-RESEARCH-2026-002",
+  "resumeFrom": {
+    "branch": "claude/echelon-knowledge-store-research-horhs0",
+    "pullRequest": 4,
+    "read": [
+      "research/2026-compiler-integration/strategy/executive-report.md",
+      "research/2026-compiler-integration/continuation/research-status.json"
+    ]
+  },
+  "nextQuestions": [
+    {
+      "priority": 1,
+      "question": "Do packages reduce missed requirements on real Echelon work items?",
+      "design": "Stage 1 advisory rollout; compare reopened/failed-verification rates of items with and without packages",
+      "blocks": [
+        "Stage 4 gating"
+      ]
+    },
+    {
+      "priority": 2,
+      "question": "Does the effect hold on a privately regenerated fixture with more repetitions and a third model?",
+      "design": "regenerate per held-out-policy.md; 3 reps x 4 conditions x 3 models"
+    },
+    {
+      "priority": 3,
+      "question": "Long-running tasks (category J): do packages reduce context decay?",
+      "design": "multi-hour task chains over the hard fixture"
+    },
+    {
+      "priority": 4,
+      "question": "Do integrity policies or reviewers reduce fabrication when fabrication is common?",
+      "design": "less legible traps; more runs per cell; reviewer of a different model"
+    },
+    {
+      "priority": 5,
+      "question": "False-positive rate of a title-only-source review rule on the public corpus",
+      "design": "run the rule over all accepted evidence; hand-label a sample"
+    }
+  ],
+  "pendingOwnerDecisions": [
+    "history rewrite for private names (security/privacy-review.md)",
+    "merge of PR #4",
+    "Praxis typed requirement links (Stage 2)",
+    "Dokimos obligations schema and planDigest check (Stage 3)"
+  ],
+  "commands": {
+    "package": "eks work-item REPO WI --root DIR",
+    "packageManifest": "eks work-item-manifest REPO WI --root DIR",
+    "obligations": "eks dokimos-obligations REPO WI --suite-id S --suite-command CMD --suite-path P",
+    "changeManifest": "eks change-manifest BASE HEAD",
+    "privacy": [
+      "eks privacy-check --root .",
+      "eks privacy-check-private WORKSPACE --root . --private a,b"
+    ],
+    "trials": [
+      "coding-prepare",
+      "coding-score",
+      "evidence-prepare",
+      "evidence-score",
+      "incremental"
+    ]
+  }
+}

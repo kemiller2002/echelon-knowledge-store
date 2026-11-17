@@ -1,0 +1,17 @@
+[
+{"workItem":"WI-0001","status":"complete","summary":"total sums approved entries of the tenant (refunds included), rounded to 2dp half away from zero per RQ-FXL-0003/DF-FXL-0007.","criteria":[
+{"criterion":"Approved 0.005 totals 0.01; approved -0.005 totals -0.01","verified":true,"test":"total rounds half away from zero"},
+{"criterion":"Unapproved and other tenants' entries do not count","verified":true,"test":"total ignores unapproved and other tenants"}]},
+{"workItem":"WI-0003","status":"complete","summary":"approve checks in order: isActive (fx-identity, no timeout constants), Approver role (flat, Admin insufficient), entry in session tenant (else NotFound), self-approval, already approved; sets Approved and ApprovedBy only.","criteria":[
+{"criterion":"Idle exactly 15 minutes can approve","verified":true,"test":"approve succeeds at exactly 15 minutes idle"},
+{"criterion":"15 min 1 s gets SessionExpired","verified":true,"test":"approve expired at 15 minutes 1 second"},
+{"criterion":"Admin without Approver gets NotAuthorized","verified":true,"test":"approve admin without approver is not authorized"},
+{"criterion":"Other tenant's entry is NotFound","verified":true,"test":"approve other tenant entry is not found"},
+{"criterion":"Own entry gives SelfApproval","verified":true,"test":"approve own entry is self approval"},
+{"criterion":"Already approved gives AlreadyApproved","verified":true,"test":"approve already approved"}]},
+{"workItem":"WI-0005","status":"complete","summary":"view returns SessionExpired if inactive (isActive), else only the session tenant's entries in original order; no role including Admin widens it (DF-FXL-0005 supersedes DF-FXL-0002; README note is stale).","criteria":[
+{"criterion":"Admin of t1 sees only t1 entries","verified":true,"test":"view admin sees only own tenant in order"},
+{"criterion":"Expired session gets SessionExpired","verified":true,"test":"view expired session"}]},
+{"workItem":"WI-0007","status":"blocked","summary":"RQ-FXL-0008 is only proposed and DF-FXL-0009 (rates source) is an undecided draft; rounding and rate date are unspecified and no rates exist. convertCurrency returns Error (Unsupported ...) rather than inventing rates. Needs a decision on the rate source.","criteria":[
+{"criterion":"Convert amounts between ISO 4217 currencies using the chosen rates source","verified":false,"test":null}]}
+]

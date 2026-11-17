@@ -168,7 +168,7 @@ word-bounded Forma hits.
 
 **Explicit finding:** no repository links to any clarity-framework artifact.
 Every consumer restates Clarity in its own words, for example EOA's
-`02.03-clarity-operating-model.md`. There is no path link, ID citation or
+[private file name withheld]. There is no path link, ID citation or
 version pin, so a change to Clarity cannot be propagated or detected.
 Clarity's methodology is not machine-addressable: clarity-framework has 17 of
 131 Markdown files with front matter and no `AGENTS.md`.
@@ -177,7 +177,7 @@ Clarity's methodology is not machine-addressable: clarity-framework has 17 of
 
 **Explicit finding: no repository depends on EDF's diagnostic model**, meaning
 its modes, lenses or Diagnostic Sufficiency. The 8 edges are:
-- conceptual cross-references from clarity-framework (`README.md:41`, `:51`; `docs/progressive-commitment.md:15`);
+- conceptual cross-references from clarity-framework ([private file references withheld]);
 - an explicit refusal to depend on it, at `dokimos/docs/architecture/ARCHITECTURE.md:77`: "EDF/Ordo research is still evolving. Dokimos therefore depends on narrow state/evidence principles rather than copying experimental framework internals";
 - Forma citing the EDF *site* as a bug reporter (`forma/CHANGELOG.md:106`);
 - commercial mentions (`mercatus/requirements/PORTFOLIO-GTM-SCENARIOS.md:1`, `echelon-organization-administration/[private path withheld]`);

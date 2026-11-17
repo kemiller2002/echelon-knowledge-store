@@ -31,6 +31,20 @@ type CompileConfig =
         /// All existing file paths as `repository/path` (any extension), when known.
         /// Enables checking that relative `source_uri` values point to real files.
         ExistingPaths: Set<string> option
+        /// Rules switched off (adversarial testing only). A disabled mandatory rule
+        /// makes every package INCOMPLETE.
+        DisabledRules: Set<string>
+        /// Source revision (commit) per repository, recorded in manifests.
+        Revisions: Map<string, string>
+    }
+
+/// One validation rule's execution record.
+type RuleRun =
+    {
+        Rule: string
+        Mandatory: bool
+        Executed: bool
+        Findings: int
     }
 
 /// Result of parsing one file. Cached by (path, hash) for incremental builds.
@@ -39,6 +53,9 @@ type ParsedUnit =
         File: SourceFile
         Record: KnowledgeRecord option
         Diagnostics: Diagnostic list
+        /// Compiler version and parse-relevant configuration the unit was parsed
+        /// with. A cached unit is reused only when this and the content hash match.
+        ParseKey: string
     }
 
 /// Precomputed (partially evaluated) query results.
@@ -59,6 +76,7 @@ type Compilation =
         Diagnostics: Diagnostic list
         Precomputed: Precomputed
         InputsHash: string
+        Rules: RuleRun list
     }
 
 /// Parse cache keyed by `repository/path` and content hash.
@@ -74,6 +92,10 @@ module Pipeline =
         SHA256.HashData(Encoding.UTF8.GetBytes s)
         |> Convert.ToHexString
         |> _.ToLowerInvariant()
+
+    /// Everything besides file content that `parse` depends on.
+    let parseKey (cfg: CompileConfig) =
+        $"{compilerVersion}/schema-{cfg.SupportedSchema}"
 
     let sourceFile repo path (text: string) =
         {
@@ -313,6 +335,7 @@ module Pipeline =
                 File = f
                 Record = filenameRecord f f.Text
                 Diagnostics = [ Diagnostic.make "EKS0011" None (loc f None None) e ]
+                ParseKey = parseKey cfg
             }
         | Ok doc ->
             match KnowledgeRecord.ofDocument f.Repository f.Path doc with
@@ -360,6 +383,7 @@ module Pipeline =
                     File = f
                     Record = Some r
                     Diagnostics = schemaDiag @ injection @ fields
+                    ParseKey = parseKey cfg
                 }
             | Error _ when recordDirs.IsMatch f.Path ->
                 {
@@ -373,12 +397,14 @@ module Pipeline =
                                 (loc f None None)
                                 "file in a record directory has no front-matter id"
                         ]
+                    ParseKey = parseKey cfg
                 }
             | Error _ ->
                 {
                     File = f
                     Record = filenameRecord f doc.Body
                     Diagnostics = []
+                    ParseKey = parseKey cfg
                 }
 
     let private ruleCode =
@@ -623,7 +649,7 @@ module Pipeline =
                     && not (Regex.IsMatch(s, @"^[A-Za-z][A-Za-z0-9+.-]*:"))
                     && not (s.StartsWith "#")
                     && (s.Contains "/" || s.Contains "."))
-                |> List.filter (fun (r, s) ->
+                |> List.choose (fun (r, s) ->
                     let repo = r.Provenance.Repository
 
                     let dir =
@@ -636,27 +662,40 @@ module Pipeline =
                     let target = (s.Split('#')[0])
                     let clean = target.TrimStart('.', '/')
 
-                    let candidates =
+                    let full (p: string) =
+                        System.IO.Path.GetFullPath(p).TrimStart('/')
+
+                    // Readings: relative to the record file, relative to the repository
+                    // root (also the convention for sibling repositories, `../other/...`),
+                    // and with leading dots stripped. A reading that names a loaded
+                    // repository is checked there; directories count as existing.
+                    let readings =
                         [
+                            full (System.IO.Path.Combine("/" + repo, dir, target))
+                            full (System.IO.Path.Combine("/" + repo, target))
                             $"{repo}/{clean}"
-                            System.IO.Path.GetFullPath(System.IO.Path.Combine("/" + repo, dir, target)).TrimStart('/')
                         ]
 
-                    let fromRoot =
-                        System.IO.Path.GetFullPath(System.IO.Path.Combine("/" + repo, target)).TrimStart('/')
+                    let exists (c: string) =
+                        paths.Contains c
+                        || paths |> Set.exists (fun p -> p.StartsWith(c.TrimEnd('/') + "/"))
 
-                    let escapes =
-                        not (candidates[1].StartsWith(repo + "/"))
-                        || not (fromRoot.StartsWith(repo + "/"))
-                    // Paths that leave the repository cannot be verified here; directories count as existing.
-                    not escapes
-                    && not (
-                        candidates
-                        |> List.exists (fun c ->
-                            paths.Contains c
-                            || paths |> Set.exists (fun p -> p.StartsWith(c.TrimEnd('/') + "/")))
-                    ))
-                |> List.map (fun (r, s) ->
+                    // Nothing passes silently: a source that no reading finds is reported,
+                    // and the message says when it may live outside the workspace. (An
+                    // earlier version skipped any path with an escaping reading, so every
+                    // `../`-relative source was unchecked while the rule reported itself
+                    // as executed.)
+                    if readings |> List.exists exists then
+                        None
+                    elif readings |> List.exists (fun c -> not (c.StartsWith(repo + "/"))) then
+                        Some(
+                            r,
+                            s,
+                            $"source_uri '{s}' was not found in this workspace (it may refer to a repository that is not loaded); it cannot be verified"
+                        )
+                    else
+                        Some(r, s, $"source_uri '{s}' does not exist in the repository"))
+                |> List.map (fun (r, _, message) ->
                     Diagnostic.make
                         "EKS0027"
                         (Some(Graph.key r))
@@ -669,7 +708,7 @@ module Pipeline =
                                  Line = Diagnostic.lineOf f.Text (Some "source_uri") None
                                  Field = Some "source_uri"
                              }))
-                        $"source_uri '{s}' does not exist in the repository")
+                        message)
 
         let experimentsWithoutHypothesis =
             records
@@ -695,14 +734,39 @@ module Pipeline =
                         $"private repository '{repo}' cannot be compiled for a public audience")
             | Private -> []
 
-        fromValidation
-        @ unresolvedTyped
-        @ collisions
-        @ misleadingConfidence
-        @ statusLag
-        @ experimentsWithoutHypothesis
-        @ missingSources
-        @ audience
+        // Named rules: (name, mandatory, findings). The evidence-source check is
+        // mandatory only when the existing paths are known.
+        let rules =
+            [
+                "core-validation", true, fromValidation
+                "case-sensitive-references", true, unresolvedTyped
+                "id-collisions", true, collisions
+                "confidence-backed-by-evidence", false, misleadingConfidence
+                "status-agrees-with-evidence", false, statusLag
+                "experiment-names-hypothesis", false, experimentsWithoutHypothesis
+                "evidence-source-exists", cfg.ExistingPaths.IsSome, missingSources
+                "audience", true, audience
+            ]
+
+        let runs =
+            rules
+            |> List.map (fun (name, mandatory, ds) ->
+                let executed =
+                    not (cfg.DisabledRules.Contains name)
+                    && (name <> "evidence-source-exists" || cfg.ExistingPaths.IsSome)
+
+                {
+                    Rule = name
+                    Mandatory = mandatory
+                    Executed = executed
+                    Findings = if executed then List.length ds else 0
+                })
+
+        let findings =
+            List.zip rules runs
+            |> List.collect (fun ((_, _, ds), run) -> if run.Executed then ds else [])
+
+        findings, runs
 
     let private sortDiagnostics (ds: Diagnostic list) =
         ds
@@ -723,15 +787,24 @@ module Pipeline =
             files
             |> List.map (fun f ->
                 match cache |> Map.tryFind $"{f.Repository}/{f.Path}" with
-                | Some u when u.File.Hash = f.Hash -> u
+                | Some u when u.File.Hash = f.Hash && u.ParseKey = parseKey cfg -> u
                 | _ -> parse cfg f)
 
         let records = units |> List.choose _.Record
         let g = Graph.build false records
 
-        let diagnostics =
-            (units |> List.collect _.Diagnostics) @ corpusDiagnostics cfg units records g
-            |> sortDiagnostics
+        let corpusFindings, corpusRuns = corpusDiagnostics cfg units records g
+        let parseFindings = units |> List.collect _.Diagnostics
+
+        let parseRun =
+            {
+                Rule = "parse-and-field-checks"
+                Mandatory = true
+                Executed = true
+                Findings = parseFindings.Length
+            }
+
+        let diagnostics = parseFindings @ corpusFindings |> sortDiagnostics
 
         let inputsHash =
             files
@@ -748,6 +821,7 @@ module Pipeline =
                 Diagnostics = diagnostics
                 Precomputed = precompute g
                 InputsHash = inputsHash
+                Rules = parseRun :: corpusRuns
             }
 
         comp,

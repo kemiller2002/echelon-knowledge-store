@@ -1,0 +1,4 @@
+[
+ {"record":"fx-ledger/research/evidence/EV-FXL-0010--october-reconciliation.md","verdict":"ok","reason":"Source exists; all 40 rows show difference 0.00, matching the summary line and the claim; supports DF-FXL-0007."},
+ {"record":"fx-ledger/research/evidence/EV-FXL-0012--support-survey-over-refunds.md","verdict":"ok","reason":"Source exists; survey figures (1,240 refunds, 2 over, goodwill, keep over-refunds) match the record. Contradicts DF-FXL-0006 is the correct relation, not supports."}
+]

@@ -1,0 +1,125 @@
+{
+  "runs": [
+    {
+      "Run": "e01",
+      "Condition": 1,
+      "Model": "sonnet",
+      "Rep": 2
+    },
+    {
+      "Run": "e02",
+      "Condition": 3,
+      "Model": "sonnet",
+      "Rep": 1
+    },
+    {
+      "Run": "e03",
+      "Condition": 5,
+      "Model": "haiku",
+      "Rep": 2
+    },
+    {
+      "Run": "e04",
+      "Condition": 3,
+      "Model": "sonnet",
+      "Rep": 2
+    },
+    {
+      "Run": "e05",
+      "Condition": 4,
+      "Model": "sonnet",
+      "Rep": 2
+    },
+    {
+      "Run": "e06",
+      "Condition": 1,
+      "Model": "haiku",
+      "Rep": 1
+    },
+    {
+      "Run": "e07",
+      "Condition": 4,
+      "Model": "haiku",
+      "Rep": 2
+    },
+    {
+      "Run": "e08",
+      "Condition": 4,
+      "Model": "sonnet",
+      "Rep": 1
+    },
+    {
+      "Run": "e09",
+      "Condition": 3,
+      "Model": "haiku",
+      "Rep": 1
+    },
+    {
+      "Run": "e10",
+      "Condition": 4,
+      "Model": "haiku",
+      "Rep": 1
+    },
+    {
+      "Run": "e11",
+      "Condition": 3,
+      "Model": "haiku",
+      "Rep": 2
+    },
+    {
+      "Run": "e12",
+      "Condition": 5,
+      "Model": "sonnet",
+      "Rep": 1
+    },
+    {
+      "Run": "e13",
+      "Condition": 2,
+      "Model": "haiku",
+      "Rep": 1
+    },
+    {
+      "Run": "e14",
+      "Condition": 1,
+      "Model": "sonnet",
+      "Rep": 1
+    },
+    {
+      "Run": "e15",
+      "Condition": 5,
+      "Model": "sonnet",
+      "Rep": 2
+    },
+    {
+      "Run": "e16",
+      "Condition": 2,
+      "Model": "haiku",
+      "Rep": 2
+    },
+    {
+      "Run": "e17",
+      "Condition": 2,
+      "Model": "sonnet",
+      "Rep": 1
+    },
+    {
+      "Run": "e18",
+      "Condition": 2,
+      "Model": "sonnet",
+      "Rep": 2
+    },
+    {
+      "Run": "e19",
+      "Condition": 1,
+      "Model": "haiku",
+      "Rep": 2
+    },
+    {
+      "Run": "e20",
+      "Condition": 5,
+      "Model": "haiku",
+      "Rep": 1
+    }
+  ],
+  "seed": 20261118
+}

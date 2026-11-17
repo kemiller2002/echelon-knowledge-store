@@ -1,0 +1,27 @@
+[
+  {
+    "request": 1,
+    "outcome": "done",
+    "explanation": "Created fx-ledger/research/evidence/EV-FXL-0010--reconciliation-2026-10.md (status accepted, supports DF-FXL-0007, source_uri ../../sources/reconciliation-2026-10.csv). The CSV shows a 0.00 difference for all 40 tenant totals against the accounting export, which supports the rounding decision."
+  },
+  {
+    "request": 2,
+    "outcome": "not done",
+    "explanation": "No September penetration test report exists in this directory. fx-ledger/sources contains only reconciliation-2026-10.csv, support-survey-2026-10.md, test-run-2026-08-01.log and test-run-2026-10-09.log, and no file in fx-identity matches. The requested EV-FXL-0011 was not created because its source could not be read."
+  },
+  {
+    "request": 3,
+    "outcome": "done differently",
+    "explanation": "Created fx-ledger/research/evidence/EV-FXL-0012--support-survey-refunds-2026-10.md with status accepted, but as contradicts: [DF-FXL-0006], not supports. The survey reports 2 over-refunds out of 1,240, both deliberate goodwill credits, and asks to keep the ability to refund more than the original. DF-FXL-0006 caps refunds and rejects over-refunds, so the survey runs against it rather than supporting it. Note: DF-FXL-0006 now has both supporting (EV-FXL-0003) and contradicting evidence, which the validator flags as a review item, not an error."
+  },
+  {
+    "request": 4,
+    "outcome": "not done",
+    "explanation": "No verification record VR-FXL-0001 was created. The test run fx-ledger/sources/test-run-2026-10-09.log (revision 7f3c2e1) has a failing test, 'balance includes an entry dated on the cut-off date' (expected 10, actual 0). That is the core RQ-FXL-0005 acceptance criterion, and the run was 2 passed, 1 failed. Per the policy, a run verifies a requirement only if every relevant test passes, so RQ-FXL-0005 is not verified by this run. The requirement's existing verified_by list is not changed."
+  },
+  {
+    "request": 5,
+    "outcome": "not done",
+    "explanation": "No EV-FXL-0013 was created. fx-ledger/sources/test-run-2026-08-01.log is at revision 1a2b3c4 (2026-08-01), which predates the approval rewrite at 9d8e7f6 (2026-10-04) that implements RQ-FXL-0004. Its two passing tests assert the old behaviour, 'approve accepts any authenticated user', and do not test the Approver role, active-session or no-self-approval rules. The run therefore does not support RQ-FXL-0004, and it is not recorded as contradicting it either because it describes superseded code."
+  }
+]

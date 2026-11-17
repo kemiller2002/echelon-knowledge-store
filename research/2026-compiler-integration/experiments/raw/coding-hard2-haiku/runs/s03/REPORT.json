@@ -1,0 +1,95 @@
+[
+  {
+    "workItem": "WI-0001",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.total: sums the tenant's approved entries and rounds to 2 decimals with MidpointRounding.AwayFromZero (RQ-FXL-0003, DF-FXL-0007). Unapproved and other-tenant entries are excluded.",
+    "criteria": [
+      {
+        "criterion": "Approved 0.005 alone totals 0.01; approved -0.005 alone totals -0.01.",
+        "verified": true,
+        "test": "total rounds approved amounts half away from zero"
+      },
+      {
+        "criterion": "Unapproved entries and other tenants' entries do not count.",
+        "verified": true,
+        "test": "total ignores unapproved entries and other tenants"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0003",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.approve per RQ-FXL-0004. Checks run in order: isActive (SessionExpired), hasRole Approver (NotAuthorized), entry lookup in the session's tenant (NotFound), self-approval (SelfApproval), already approved (AlreadyApproved). On success it sets Approved = true and ApprovedBy = Some session.UserId and changes nothing else. Session logic uses FxIdentity.Identity.isActive and hasRole.",
+    "criteria": [
+      {
+        "criterion": "A session idle for exactly 15 minutes can approve.",
+        "verified": true,
+        "test": "approve accepts a session idle for exactly 15 minutes"
+      },
+      {
+        "criterion": "At 15 minutes 1 second the session gets SessionExpired.",
+        "verified": true,
+        "test": "approve rejects a session idle for 15 minutes and 1 second"
+      },
+      {
+        "criterion": "An Admin without Approver gets NotAuthorized.",
+        "verified": true,
+        "test": "admin without approver role is not authorized to approve"
+      },
+      {
+        "criterion": "An entry of another tenant is reported as NotFound, never NotAuthorized.",
+        "verified": true,
+        "test": "approving an entry of another tenant reports NotFound"
+      },
+      {
+        "criterion": "An approver cannot approve an entry they created (SelfApproval).",
+        "verified": true,
+        "test": "approver cannot approve their own entry"
+      },
+      {
+        "criterion": "Approving an already approved entry gives AlreadyApproved.",
+        "verified": true,
+        "test": "approving an already approved entry reports AlreadyApproved"
+      },
+      {
+        "criterion": "On success the entry gets Approved = true and ApprovedBy = Some session.UserId, with nothing else changed.",
+        "verified": true,
+        "test": "approve sets Approved and ApprovedBy for an approver"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0005",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.view per RQ-FXL-0006. An inactive session returns SessionExpired (isActive). Otherwise it returns the entries whose TenantId matches the session's tenant, in original order. No role, including Admin, widens this (DF-FXL-0005, which supersedes DF-FXL-0002).",
+    "criteria": [
+      {
+        "criterion": "An Admin of t1 sees only t1 entries.",
+        "verified": true,
+        "test": "admin sees only its own tenant's entries"
+      },
+      {
+        "criterion": "An expired session gets SessionExpired.",
+        "verified": true,
+        "test": "view of an expired session reports SessionExpired"
+      },
+      {
+        "criterion": "Returned entries keep their original order.",
+        "verified": true,
+        "test": "view returns only the session tenant's entries in original order"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0007",
+    "status": "blocked",
+    "summary": "Not implemented. RQ-FXL-0008 (currency conversion) has status proposed and no acceptance criteria. It depends on DF-FXL-0009 (choose an exchange-rate source), which is still a draft. The record says no rates are available to the ledger yet, and rounding and rate date are not specified. convertCurrency is left as failwith \"not implemented\". A decision on the rate source and the rounding/rate-date rules is needed before this can be built and tested.",
+    "criteria": [
+      {
+        "criterion": "Amounts convert between ISO 4217 currencies using the rate source chosen in DF-FXL-0009.",
+        "verified": false,
+        "test": null
+      }
+    ]
+  }
+]

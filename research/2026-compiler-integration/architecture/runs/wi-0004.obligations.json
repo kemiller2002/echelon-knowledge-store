@@ -1,0 +1,64 @@
+{
+  "namespaceRoots": [],
+  "obligations": [
+    {
+      "categories": [
+        "human"
+      ],
+      "criterion": "An approved entry dated exactly \u0060until\u0060 is included.",
+      "dependencies": [],
+      "id": "RQ-FXL-0005/O1/human",
+      "priority": "",
+      "requirement": "RQ-FXL-0005"
+    },
+    {
+      "categories": [
+        "human"
+      ],
+      "criterion": "Entries after \u0060until\u0060, unapproved entries and other tenants are excluded.",
+      "dependencies": [],
+      "id": "RQ-FXL-0005/O2/human",
+      "priority": "",
+      "requirement": "RQ-FXL-0005"
+    }
+  ],
+  "planDigest": "12a4ff0c8f44f6a3f25e7b6b524c2e0388ed9dffd3e34dac0017996033e0ce0a",
+  "planId": "eks:fx-ledger:WI-0004",
+  "schema": "dokimos.verification-obligations/1",
+  "suites": [
+    {
+      "command": "dotnet test tests/FxLedger.Tests",
+      "dependsOn": [],
+      "environment": "",
+      "fixture": "",
+      "id": "fx-ledger-unit",
+      "paths": [
+        "tests/FxLedger.Tests"
+      ],
+      "requiredBoundary": [],
+      "runner": "dotnet-test"
+    }
+  ],
+  "tests": [
+    {
+      "categories": [],
+      "id": "dotnet:FxLedger.Tests.LedgerTests.balance counts approved entries well before the cut-off",
+      "kind": "unit",
+      "obligations": [
+        "RQ-FXL-0005/O1/human",
+        "RQ-FXL-0005/O2/human"
+      ],
+      "suite": "fx-ledger-unit"
+    },
+    {
+      "categories": [],
+      "id": "dotnet:FxLedger.Tests.LedgerTests.balance excludes entries after the cut-off",
+      "kind": "unit",
+      "obligations": [
+        "RQ-FXL-0005/O1/human",
+        "RQ-FXL-0005/O2/human"
+      ],
+      "suite": "fx-ledger-unit"
+    }
+  ]
+}

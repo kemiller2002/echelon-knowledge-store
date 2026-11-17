@@ -1,0 +1,39 @@
+{
+  "baseInputs": "675ff3f97743d1756e009fec33d921226a2bdfa18b95f816cabfe65ba0996f58",
+  "compiler": {
+    "name": "eks-compiler",
+    "version": "0.1.0-research"
+  },
+  "diagnosticsIntroduced": [
+    "fx-ledger/research/decisions/DF-FXL-0006--refund-ceiling.md(1): review EKS0017: has both supporting and contradicting evidence \u2014 Weigh the supporting and contradicting evidence; this is not a proven contradiction."
+  ],
+  "diagnosticsResolved": [],
+  "files": {
+    "added": [
+      {
+        "path": "fx-ledger/research/evidence/EV-FXL-0010--reconciliation-2026-10.md",
+        "sha256": "25445ffe3ee1b43375594dd24c354975da5b2b50447ba28388298a9a60378954"
+      },
+      {
+        "path": "fx-ledger/research/evidence/EV-FXL-0012--support-survey-refunds.md",
+        "sha256": "eebefbb81fc4d5ae61b74fded01fd48b997693b5feaca948f68d305778b709e5"
+      }
+    ],
+    "changed": [],
+    "removed": []
+  },
+  "headInputs": "851bf41afefbbfb759ea5a31cceab87817345c031843ca1f17d4e6a00c7a9cce",
+  "impacted": [],
+  "note": "No verdict approves a change. Schema-valid changes still require review.",
+  "reasons": [],
+  "records": {
+    "added": [
+      "fx-ledger:EV-FXL-0010",
+      "fx-ledger:EV-FXL-0012"
+    ],
+    "changed": [],
+    "removed": []
+  },
+  "schema": "eks.change-manifest/0",
+  "verdict": "requires-review"
+}

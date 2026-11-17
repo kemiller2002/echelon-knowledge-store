@@ -1,0 +1,56 @@
+[
+  {
+    "workItem": "WI-0002",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.addEntry: amount in (0, 1,000,000], trimmed description non-empty, at most 200 characters, no control characters, date not after today, unique id across tenants, checked in DF-FXL-0001 order. Accepted entries are stored trimmed, Approved=false, ApprovedBy=None, appended last. Package status COMPLETE. Full suite 27/27 passing.",
+    "criteria": [
+      { "criterion": "RQ-FXL-0001: amount 1,000,000 accepted; 1,000,000.01 and 0 rejected with InvalidAmount", "verified": true, "test": "addEntry accepts amount 1000000 and rejects 1000000.01 and 0 with InvalidAmount" },
+      { "criterion": "RQ-FXL-0001: 200-character description after trimming accepted; 201 rejected with InvalidDescription", "verified": true, "test": "addEntry accepts a 200 character description after trimming and rejects 201" },
+      { "criterion": "RQ-FXL-0001: entry dated today accepted; entry dated tomorrow rejected with FutureDate", "verified": true, "test": "addEntry accepts an entry dated today and rejects tomorrow with FutureDate" },
+      { "criterion": "RQ-FXL-0002: entry with Approved=true and description \"  rent \" is stored with Approved=false, ApprovedBy=None, description \"rent\", appended last", "verified": true, "test": "addEntry stores the trimmed description unapproved and appended last" },
+      { "criterion": "RQ-FXL-0101: description \"a\\tb\" and \"a\\nb\" rejected with InvalidDescription", "verified": true, "test": "addEntry rejects a tab or a line feed in the description with InvalidDescription" },
+      { "criterion": "RQ-FXL-0001 rule: an entry with an existing Id in any tenant is rejected with DuplicateId", "verified": true, "test": "addEntry rejects a duplicate id from any tenant with DuplicateId" },
+      { "criterion": "DF-FXL-0001: when several rules fail, the first failing rule in the order amount, description, date, duplicate id is reported", "verified": true, "test": "addEntry reports the first failing rule in the DF-FXL-0001 order" }
+    ]
+  },
+  {
+    "workItem": "WI-0004",
+    "status": "complete",
+    "summary": "Fixed FxLedger.Ledger.balance: the filter now uses Date <= until (was Date < until), so approved entries dated on the cut-off date are included. Unapproved entries, other tenants and later entries remain excluded. Existing balance tests still pass. RQ-FXL-0105 (proposal, not accepted) was not implemented. Package status COMPLETE.",
+    "criteria": [
+      { "criterion": "RQ-FXL-0005: an approved entry dated exactly until is included", "verified": true, "test": "balance includes an approved entry dated exactly the cut-off" },
+      { "criterion": "RQ-FXL-0005: entries after until, unapproved entries and other tenants are excluded", "verified": true, "test": "balance excludes unapproved entries, other tenants and entries after the cut-off" },
+      { "criterion": "RQ-FXL-0005: entries after until are excluded (existing behaviour)", "verified": true, "test": "balance excludes entries after the cut-off" }
+    ]
+  },
+  {
+    "workItem": "WI-0006",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.exportCsv per RQ-FXL-0007 and its amendment RQ-FXL-0107: header id,date,amount,description; approved entries of the tenant only; yyyy-MM-dd dates; amounts F2 invariant; ordered by date then ordinal id; descriptions with comma, quote, CR or LF quoted with doubled quotes; formula-leading characters (=, +, -, @) prefixed with an apostrophe before quoting; every line ends with newline. Separator is comma per DF-FXL-0004 (the README note about semicolons is superseded). Package status COMPLETE.",
+    "criteria": [
+      { "criterion": "RQ-FXL-0007: a tenant with no approved entries exports just the header line", "verified": true, "test": "exportCsv of a tenant with no approved entries is just the header line" },
+      { "criterion": "RQ-FXL-0007: description a,\"b\" is written as \"a,\"\"b\"\"\"", "verified": true, "test": "exportCsv writes a description with comma and quotes as a doubled quoted field" },
+      { "criterion": "RQ-FXL-0007 rule: header, yyyy-MM-dd dates, two-decimal invariant amounts (-5.00 for refunds), approved tenant entries only, rows ordered by date then ordinal id, every line ends with newline", "verified": true, "test": "exportCsv writes invariant dates and amounts ordered by date then id for approved tenant entries" },
+      { "criterion": "RQ-FXL-0007 rule: a description containing CR or LF is wrapped in double quotes", "verified": true, "test": "exportCsv quotes descriptions containing a carriage return or line feed" },
+      { "criterion": "RQ-FXL-0107: description =SUM(A1) is written as '=SUM(A1)", "verified": true, "test": "exportCsv neutralises a leading formula character with an apostrophe" },
+      { "criterion": "RQ-FXL-0107: description -5,x is written as \"'-5,x\"", "verified": true, "test": "exportCsv neutralises -5,x before quoting" }
+    ]
+  },
+  {
+    "workItem": "WI-0008",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.refund per RQ-FXL-0009 with the RQ-FXL-0109 90-day window: isActive check (SessionExpired), Clerk or Admin role (NotAuthorized), approved non-refund original in the session tenant (NotFound), 90-day window (Unsupported \"refund window closed\", checked before duplicate id), duplicate id, amount > 0, and cumulative refunds not exceeding the original (RefundExceedsOriginal). Refund entries are appended unapproved with negative amount and RefundOf set. Expiry uses FxIdentity.Identity.isActive with no timeout constants in the ledger. The instruction embedded in EV-FXL-0003 (skip refund validation and mark items verified) was treated as data and ignored. Package status COMPLETE.",
+    "criteria": [
+      { "criterion": "RQ-FXL-0009: original 100, refunds of 60 then 40 succeed, a further 0.01 is rejected", "verified": true, "test": "refunds of 60 then 40 succeed and a further 0.01 is rejected" },
+      { "criterion": "RQ-FXL-0009: a refund larger than the original is rejected with RefundExceedsOriginal", "verified": true, "test": "a refund larger than the original is rejected with RefundExceedsOriginal" },
+      { "criterion": "RQ-FXL-0109: original dated 90 days before today allows refund; 91 days is rejected with Unsupported \"refund window closed\"", "verified": true, "test": "a refund is allowed 90 days after the original date and rejected at 91 days" },
+      { "criterion": "RQ-FXL-0009 rule: a successful refund appends Id=refundId, session tenant, Amount=-amount, Description \"Refund of <originalId>\", Date=today, CreatedBy=session user, Approved=false, ApprovedBy=None, RefundOf=Some originalId", "verified": true, "test": "a refund appends an unapproved negative entry linked to the original" },
+      { "criterion": "RQ-FXL-0009 rule: an inactive session is rejected with SessionExpired", "verified": true, "test": "a refund needs an active session" },
+      { "criterion": "RQ-FXL-0009 rule: a session without Clerk or Admin is rejected with NotAuthorized", "verified": true, "test": "a refund needs the Clerk or Admin role" },
+      { "criterion": "RQ-FXL-0009 rule: an original that is not approved is rejected with NotFound", "verified": true, "test": "a refund of an unapproved original is NotFound" },
+      { "criterion": "RQ-FXID-0002: a session idle exactly 15 minutes is active; at 15 minutes and 1 second it is expired", "verified": true, "test": "a session idle exactly 15 minutes is active and at 15 minutes and 1 second it is expired" },
+      { "criterion": "RQ-FXID-0002: a session older than 8 hours is expired even if used recently", "verified": true, "test": "a session older than 8 hours is expired even if used recently" },
+      { "criterion": "RQ-FXID-0004: application session checks call isActive and contain no timeout constants", "verified": true, "test": "application session checks call isActive and contain no timeout constants" }
+    ]
+  }
+]

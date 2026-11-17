@@ -1,0 +1,27 @@
+[
+  {
+    "request": 1,
+    "outcome": "done",
+    "explanation": "Created fx-ledger/research/evidence/EV-FXL-0010--reconciliation-2026-10.md (status accepted, supports DF-FXL-0007, source_uri ../../sources/reconciliation-2026-10.csv). The CSV shows 40 of 40 October tenant totals matching the accounting export with 0 differences."
+  },
+  {
+    "request": 2,
+    "outcome": "not done",
+    "explanation": "No September penetration test report exists in this directory (fx-ledger or fx-identity), so there is no source to read. EV-FXL-0011 was not created. The requester must supply the report before this evidence can be recorded."
+  },
+  {
+    "request": 3,
+    "outcome": "done differently",
+    "explanation": "Created fx-ledger/research/evidence/EV-FXL-0012--support-survey-refunds.md with status accepted, but as contradicts: [DF-FXL-0006], not supports. The survey reports 2 over-refunds out of 1,240 refunds, calls them deliberate goodwill credits, and asks to keep the ability to refund more than the original. That conflicts with DF-FXL-0006, which says the ledger rejects over-refunds. The validator now reports DF-FXL-0006 as having both supporting and contradicting evidence (review item, not an error)."
+  },
+  {
+    "request": 4,
+    "outcome": "not done",
+    "explanation": "VR-FXL-0001 was not created. The test run sources/test-run-2026-10-09.log at revision 7f3c2e1 shows a failing test, 'balance includes an entry dated on the cut-off date' (Expected 10, Actual 0), so the run does not verify RQ-FXL-0005. Verification requires every relevant test to pass. Note that RQ-FXL-0005's verified_by front matter lists only the two passing tests; that field was left unchanged."
+  },
+  {
+    "request": 5,
+    "outcome": "not done",
+    "explanation": "EV-FXL-0013 was not created. The test run sources/test-run-2026-08-01.log is at revision 1a2b3c4 (2026-08-01), which predates the approval rewrite at 9d8e7f6 (2026-10-04) that implements RQ-FXL-0004. The run's passing test 'approve accepts any authenticated user' checks the old behaviour, so it does not support RQ-FXL-0004. A current run is needed."
+  }
+]

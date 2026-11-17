@@ -1,0 +1,94 @@
+{
+  "schema": "eks.research-status/1",
+  "mission": "EKS-RESEARCH-2026-002",
+  "status": "PARTIALLY COMPLETE",
+  "asOf": "2026-11-16",
+  "branch": "claude/echelon-knowledge-store-research-horhs0",
+  "pullRequest": 4,
+  "baseline": {
+    "eks": "c0ba6242516d88db934946748056cbc7eea12a92",
+    "praxis": "12bf9951253fc15e6973c2d3f5b88076f4556245",
+    "dokimos": "6ea86246cb13f141201bc5cae5d84ebe9831d02b",
+    "percepta": "4a53688238f205fdde474cc340378a89ddea0c09"
+  },
+  "headline": {
+    "measured": true,
+    "hardFixtureSolved": {
+      "A": "24/32",
+      "B": "28/32",
+      "C": "32/32",
+      "D": "32/32"
+    },
+    "hardFixtureOverclaims": {
+      "A": 8,
+      "B": 4,
+      "C": 0,
+      "D": 0
+    },
+    "tokensPerVerifiedTask": {
+      "A": 33386,
+      "B": 28885,
+      "C": 25250,
+      "D": 25637
+    },
+    "baseFixtureSolved": "16/16 in every condition"
+  },
+  "completionCriteria": {
+    "1": "met",
+    "2": "met",
+    "3": "met (source reading)",
+    "4": "met",
+    "5": "met",
+    "6": "met",
+    "7": "met (small n)",
+    "8": "met for failures found",
+    "9": "partial",
+    "10": "met",
+    "11": "met",
+    "12": "met",
+    "13": "met",
+    "14": "met (small)",
+    "15": "met",
+    "16": "met",
+    "17": "met",
+    "18": "met",
+    "19": "met (harness)",
+    "20": "met",
+    "21": "met",
+    "22": "met"
+  },
+  "gates": {
+    "ADOPT": [
+      "work-item packages (advisory)",
+      "derived completeness and manifests",
+      "parse-cache incremental compilation",
+      "change manifest",
+      "source-existence rule fix",
+      "CI privacy check (insufficient alone)",
+      "local private-name check"
+    ],
+    "EXPERIMENTAL": [
+      "Dokimos obligations from verified_by",
+      "title-only source review rule"
+    ],
+    "INCONCLUSIVE": [
+      "agent integrity/verification policy",
+      "second-agent evidence review",
+      "EKS as Praxis completion gate"
+    ],
+    "REJECT": [
+      "BM25 retrieval as substitute",
+      "package memo by item files",
+      "on-demand outgoing closure",
+      "fully keyed package memo (for now)"
+    ]
+  },
+  "openRisks": [
+    "private names remain in git history (owner decision)",
+    "fixture hidden tests are public (contamination)",
+    "effect size on real work items unknown",
+    "no long-running tasks",
+    "Dokimos run under .NET roll-forward"
+  ],
+  "rawData": "research/2026-compiler-integration/experiments/raw/"
+}

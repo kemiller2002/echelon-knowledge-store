@@ -1,0 +1,6 @@
+# Patterns (.NET regex, one per line) that must not appear in public artefacts of
+# this repository. Private repository names are allowed; paths into them are not.
+# A placeholder such as `clarity-framework/[private path withheld]` is allowed.
+clarity-framework/(?!\[)[A-Za-z0-9_.-]
+echelon-organization-administration/(?!\[)[A-Za-z0-9_.-]
+/tmp/claude-[0-9]+/

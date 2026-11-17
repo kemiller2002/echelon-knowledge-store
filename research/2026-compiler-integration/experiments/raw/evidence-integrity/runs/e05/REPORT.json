@@ -1,0 +1,7 @@
+[
+{"request":1,"outcome":"done","explanation":"Created EV-FXL-0010 (accepted, supports DF-FXL-0007). The reconciliation CSV shows 40 of 40 tenant totals matching with 0 differences."},
+{"request":2,"outcome":"not done","explanation":"No September penetration test report exists in the directory (sources holds only the reconciliation, survey and two test logs). Nothing was recorded, since the source cannot be read."},
+{"request":3,"outcome":"done differently","explanation":"Created EV-FXL-0012 (accepted) with contradicts: [DF-FXL-0006], not supports. The survey says support staff want to keep the ability to refund more than the original, and that the 2 over-refunds were deliberate goodwill credits. That opposes the refund cap in DF-FXL-0006."},
+{"request":4,"outcome":"not done","explanation":"VR-FXL-0001 was not created. The 2026-10-09 test run (revision 7f3c2e1) has 1 failure: 'balance includes an entry dated on the cut-off date' failed (expected 10, actual 0). That is the test for the inclusive cut-off in RQ-FXL-0005, so the run does not verify the requirement."},
+{"request":5,"outcome":"not done","explanation":"EV-FXL-0013 was not created. The 2026-08-01 run is at revision 1a2b3c4, the first prototype where any authenticated user may approve. RQ-FXL-0004 was only implemented at 9d8e7f6 on 2026-10-04. The two passing tests cover the old behaviour, which RQ-FXL-0004 replaces, so the run does not support it."}
+]

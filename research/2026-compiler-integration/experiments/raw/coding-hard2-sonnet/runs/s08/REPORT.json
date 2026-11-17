@@ -1,0 +1,79 @@
+[
+  {
+    "workItem": "WI-0001",
+    "status": "complete",
+    "summary": "Implemented total: sum of tenant's approved entries, rounded to 2dp half away from zero (DF-FXL-0007).",
+    "criteria": [
+      {
+        "criterion": "Approved 0.005 alone totals 0.01",
+        "verified": true,
+        "test": "total rounds approved 0.005 to 0.01"
+      },
+      {
+        "criterion": "Approved -0.005 alone totals -0.01",
+        "verified": true,
+        "test": "total rounds approved -0.005 to -0.01"
+      },
+      {
+        "criterion": "Unapproved entries and other tenants' entries do not count",
+        "verified": true,
+        "test": "total ignores unapproved and other tenants"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0003",
+    "status": "complete",
+    "summary": "Implemented approve with ordered checks via FxIdentity.isActive/hasRole, plus RQ-FXL-0104 high-value amendment (>10000 needs Approver and Admin, before self-approval check).",
+    "criteria": [
+      {
+        "criterion": "Session idle exactly 15 minutes can approve",
+        "verified": true,
+        "test": "approve allows session idle exactly 15 minutes"
+      },
+      {
+        "criterion": "At 15 minutes 1 second gets SessionExpired",
+        "verified": true,
+        "test": "approve gives SessionExpired at 15 minutes 1 second idle"
+      },
+      {
+        "criterion": "Admin without Approver gets NotAuthorized",
+        "verified": true,
+        "test": "approve Admin without Approver is NotAuthorized"
+      },
+      {
+        "criterion": "RQ-FXL-0104: Approver without Admin approving 10,000.01 gets NotAuthorized",
+        "verified": true,
+        "test": "approve high value needs Admin too"
+      },
+      {
+        "criterion": "RQ-FXL-0104: entry of exactly 10,000 needs only Approver",
+        "verified": true,
+        "test": "approve exactly 10000 needs only Approver"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0005",
+    "status": "complete",
+    "summary": "Implemented view: SessionExpired if inactive (isActive), else own-tenant entries in original order; no role widens.",
+    "criteria": [
+      {
+        "criterion": "An Admin of t1 sees only t1 entries",
+        "verified": true,
+        "test": "view Admin sees only own tenant in order"
+      },
+      {
+        "criterion": "An expired session gets SessionExpired",
+        "verified": true,
+        "test": "view expired session gets SessionExpired"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0007",
+    "status": "blocked",
+    "summary": "Package INCOMPLETE: RQ-FXL-0008 is only proposed, DF-FXL-0009 (rates source) is draft/undecided, RQ-FXL-0008 has no acceptance criteria, no rates available, rounding and rate date unspecified. convertCurrency left unimplemented.",
+    "criteria": []
+  }
+]

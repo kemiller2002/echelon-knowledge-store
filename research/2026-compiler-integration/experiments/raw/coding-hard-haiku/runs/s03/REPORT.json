@@ -1,0 +1,41 @@
+[
+  {
+    "workItem": "WI-0001",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.total: sums the tenant's approved entries and rounds to 2 places with MidpointRounding.AwayFromZero (RQ-FXL-0003 / DF-FXL-0007). Refund entries are included.",
+    "criteria": [
+      { "criterion": "Approved 0.005 alone totals 0.01; approved -0.005 alone totals -0.01", "verified": true, "test": "total rounds half away from zero" },
+      { "criterion": "Unapproved entries and other tenants' entries do not count", "verified": true, "test": "total excludes unapproved entries and other tenants" }
+    ]
+  },
+  {
+    "workItem": "WI-0003",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.approve following the RQ-FXL-0004 check order: session active via FxIdentity.Identity.isActive (SessionExpired), Approver role via hasRole (NotAuthorized), entry lookup in the session's tenant (NotFound), self-approval (SelfApproval), already approved (AlreadyApproved). On success sets Approved = true and ApprovedBy = Some session.UserId, changing nothing else.",
+    "criteria": [
+      { "criterion": "A session idle for exactly 15 minutes can approve; at 15 minutes 1 second it gets SessionExpired", "verified": true, "test": "approve allows exactly 15 minutes idle and rejects 15 minutes 1 second" },
+      { "criterion": "An Admin without Approver gets NotAuthorized", "verified": true, "test": "admin without approver gets NotAuthorized" },
+      { "criterion": "On success the entry gets Approved = true and ApprovedBy = Some session.UserId; nothing else changes", "verified": true, "test": "approve sets Approved and ApprovedBy for an active approver" },
+      { "criterion": "An entry of another tenant is reported as NotFound, and self-approval is rejected", "verified": true, "test": "approve rejects self approval and other tenants as NotFound" },
+      { "criterion": "An already approved entry is rejected with AlreadyApproved", "verified": true, "test": "approve rejects an already approved entry" }
+    ]
+  },
+  {
+    "workItem": "WI-0005",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.view per RQ-FXL-0006: returns SessionExpired when isActive fails, otherwise only entries whose TenantId equals the session's tenant, in original order, for every role including Admin (DF-FXL-0005).",
+    "criteria": [
+      { "criterion": "An Admin of t1 sees only t1 entries", "verified": true, "test": "view returns only the session tenant's entries in original order" },
+      { "criterion": "An expired session gets SessionExpired", "verified": true, "test": "view with an expired session gets SessionExpired" }
+    ]
+  },
+  {
+    "workItem": "WI-0007",
+    "status": "blocked",
+    "summary": "Not implemented. RQ-FXL-0008 (convert amounts between currencies) is status proposed and depends on DF-FXL-0009 (choose an exchange-rate source), which is still draft: no rate source is chosen and the ledger has no rates. Rounding and rate date are explicitly unspecified. convertCurrency is left as failwith \"not implemented\". Unblock by accepting DF-FXL-0009 and specifying rounding and rate date in RQ-FXL-0008.",
+    "criteria": [
+      { "criterion": "Amounts are convertible between ISO 4217 currencies using the rates source chosen in DF-FXL-0009", "verified": false, "test": null },
+      { "criterion": "Rounding and the rate date are specified", "verified": false, "test": null }
+    ]
+  }
+]

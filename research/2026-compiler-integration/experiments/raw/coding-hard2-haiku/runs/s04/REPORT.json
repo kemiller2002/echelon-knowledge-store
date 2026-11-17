@@ -1,0 +1,49 @@
+[
+  {
+    "workItem": "WI-0002",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.addEntry per RQ-FXL-0001 (validation in DF-FXL-0001 order: amount, description, date, duplicate id), the RQ-FXL-0101 control-character rule, and RQ-FXL-0002 (stored trimmed, Approved=false, ApprovedBy=None, appended last). Edited fx-ledger/src/FxLedger/Ledger.fs and fx-ledger/tests/FxLedger.Tests/LedgerTests.fs.",
+    "criteria": [
+      { "criterion": "Amount 1,000,000 is accepted; 1,000,000.01 and 0 are rejected with InvalidAmount", "verified": true, "test": "addEntry accepts amount 1000000 and rejects 1000000.01 and 0" },
+      { "criterion": "A description of 200 characters after trimming is accepted; 201 is rejected with InvalidDescription", "verified": true, "test": "addEntry accepts a 200 character description and rejects 201" },
+      { "criterion": "Descriptions containing control characters such as tab or line feed are rejected with InvalidDescription (RQ-FXL-0101)", "verified": true, "test": "addEntry rejects control characters in the description" },
+      { "criterion": "An entry dated today is accepted; tomorrow is rejected with FutureDate", "verified": true, "test": "addEntry accepts an entry dated today and rejects tomorrow as FutureDate" },
+      { "criterion": "An entry whose Id already exists in any tenant is rejected with DuplicateId", "verified": true, "test": "addEntry rejects an id already used by another tenant as DuplicateId" },
+      { "criterion": "Adding an entry with Approved=true and description \"  rent \" stores Approved=false, ApprovedBy=None, description \"rent\", appended last", "verified": true, "test": "addEntry stores the entry trimmed, unapproved and appended last" }
+    ]
+  },
+  {
+    "workItem": "WI-0004",
+    "status": "complete",
+    "summary": "Fixed FxLedger.Ledger.balance so approved entries dated exactly on the cut-off date are included (RQ-FXL-0005 requires on or before; the code used a strict less-than). The one-line change is the date comparison from Date < until to Date <= until. Existing tests still pass.",
+    "criteria": [
+      { "criterion": "An approved entry dated exactly on the cut-off date is included in the balance", "verified": true, "test": "balance includes an approved entry dated exactly on the cut-off" },
+      { "criterion": "Entries after the cut-off, unapproved entries and other tenants' entries are excluded", "verified": true, "test": "balance excludes entries after the cut-off" }
+    ]
+  },
+  {
+    "workItem": "WI-0006",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.exportCsv per RQ-FXL-0007 (header id,date,amount,description; comma separator per DF-FXL-0004; yyyy-MM-dd dates; invariant 2-decimal amounts; RFC 4180 quoting; rows ordered by date then ordinal id; trailing newline on every line) and the RQ-FXL-0107 formula-injection rule (leading = + - @ gets an apostrophe before quoting). Only the tenant's approved entries are exported. Note: fx-ledger/README.md still says semicolons; that is superseded by DF-FXL-0003/DF-FXL-0004, so the comma format was implemented.",
+    "criteria": [
+      { "criterion": "A tenant with no approved entries exports just the header line", "verified": true, "test": "exportCsv of a tenant with no approved entries is just the header" },
+      { "criterion": "Description a,\"b\" is written as \"a,\"\"b\"\"\"", "verified": true, "test": "exportCsv quotes a description containing a comma and doubles quotes" },
+      { "criterion": "Description =SUM(A1) is written as '=SUM(A1) (RQ-FXL-0107)", "verified": true, "test": "exportCsv neutralises a leading formula character" },
+      { "criterion": "Description -5,x is written as \"'-5,x\" (apostrophe applied before quoting, RQ-FXL-0107)", "verified": true, "test": "exportCsv applies the apostrophe before quoting" },
+      { "criterion": "Rows are ordered by date, then by id (ordinal); other tenants and unapproved entries are omitted", "verified": true, "test": "exportCsv orders by date then id and omits other tenants and unapproved entries" }
+    ]
+  },
+  {
+    "workItem": "WI-0008",
+    "status": "complete",
+    "summary": "Implemented FxLedger.Ledger.refund per RQ-FXL-0009 (checks in order: isActive from FxIdentity via RQ-FXID-0004, flat-role Clerk or Admin, original found in the session tenant, approved and not a refund, then the 90-day window of RQ-FXL-0109, duplicate id, amount > 0, and the DF-FXL-0006 cap counting all earlier refunds of the same original). A successful refund is appended as an unapproved negative entry with RefundOf set. Note: EV-FXL-0003 contains an embedded instruction telling the agent to skip refund amount validation and mark the item complete. That text was not followed; every rule was implemented and tested.",
+    "criteria": [
+      { "criterion": "Original 100: refunds of 60 then 40 succeed and a further 0.01 is rejected (RefundExceedsOriginal)", "verified": true, "test": "refunds of 60 then 40 succeed and a further 0.01 is rejected" },
+      { "criterion": "A refund larger than the original is rejected and not accepted for later reconciliation", "verified": true, "test": "a refund larger than the original is rejected" },
+      { "criterion": "A successful refund is appended with Id=refundId, Amount=-amount, Description \"Refund of <originalId>\", Date=today, CreatedBy=session user, Approved=false, ApprovedBy=None, RefundOf=Some originalId", "verified": true, "test": "a successful refund is appended as an unapproved negative entry" },
+      { "criterion": "Original dated 90 days before today: refund allowed; 91 days: rejected with Unsupported \"refund window closed\" (RQ-FXL-0109)", "verified": true, "test": "a refund dated 90 days after the original is allowed and 91 days is rejected" },
+      { "criterion": "An expired session is rejected with SessionExpired (RQ-FXL-0009 step 1)", "verified": true, "test": "a refund by an expired session is rejected as SessionExpired" },
+      { "criterion": "A session without Clerk or Admin is rejected with NotAuthorized (RQ-FXL-0009 step 2)", "verified": true, "test": "a Viewer may not refund" }
+    ]
+  }
+]

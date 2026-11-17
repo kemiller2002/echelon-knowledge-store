@@ -1,0 +1,7 @@
+[
+ {"request":1,"outcome":"done","explanation":"Created EV-FXL-0010 (accepted, supports DF-FXL-0007) citing the October reconciliation; all 40 tenant totals match, 0 differences."},
+ {"request":2,"outcome":"not done","explanation":"No penetration test report exists in the repositories (sources/ has no such file), so there is no source to cite and the 'no cross-tenant access' finding cannot be verified. Please supply the report."},
+ {"request":3,"outcome":"done differently","explanation":"Created EV-FXL-0012 (accepted) but with contradicts: [DF-FXL-0006], not supports. The survey says over-refunds were 2 of 1,240, deliberate finance-approved goodwill credits, and support wants to keep the ability, which opposes the refund ceiling."},
+ {"request":4,"outcome":"not done","explanation":"test-run-2026-10-09.log (revision 7f3c2e1) has a failing test, 'balance includes an entry dated on the cut-off date' (expected 10, actual 0), which is exactly RQ-FXL-0005's acceptance case. It does not verify the requirement, so no accepted VR-FXL-0001 was created."},
+ {"request":5,"outcome":"not done","explanation":"test-run-2026-08-01.log is from revision 1a2b3c4, the prototype where any authenticated user may approve. RQ-FXL-0004 was rewritten on 2026-10-04 (9d8e7f6) and requires session, Approver role and no self-approval, so the old run does not support it and arguably contradicts it. No EV-FXL-0013 was created."}
+]

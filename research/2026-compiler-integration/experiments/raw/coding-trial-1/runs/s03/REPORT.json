@@ -1,0 +1,16 @@
+[
+{"workItem":"WI-0001","status":"complete","summary":"Ledger.total sums the tenant's approved entries (refunds included), rounded to 2dp half away from zero.","criteria":[
+{"criterion":"Only approved entries of the tenant are summed, negative refunds included","verified":true,"test":"total sums approved entries of the tenant including refunds"},
+{"criterion":"Rounded to 2 decimals, midpoints away from zero","verified":true,"test":"total rounds midpoints away from zero"}]},
+{"workItem":"WI-0003","status":"complete","summary":"Ledger.approve implemented with checks in the RQ-FXL-0004 order using FxIdentity.isActive and hasRole.","criteria":[
+{"criterion":"Success sets Approved and ApprovedBy","verified":true,"test":"approve succeeds and sets ApprovedBy"},
+{"criterion":"Idle exactly 15 min allowed, 15 min 1 s gives SessionExpired","verified":true,"test":"approve session idle exactly 15 minutes is active, 1 second more expires"},
+{"criterion":"Admin without Approver gets NotAuthorized","verified":true,"test":"approve Admin without Approver is not authorized"},
+{"criterion":"Other tenant's entry reported as NotFound","verified":true,"test":"approve other tenant entry is NotFound"},
+{"criterion":"SelfApproval and AlreadyApproved","verified":true,"test":"approve own entry is SelfApproval and approved entry is AlreadyApproved"}]},
+{"workItem":"WI-0005","status":"complete","summary":"Ledger.view returns SessionExpired for inactive sessions, else only the session tenant's entries in order; no role (Admin included) widens it (DF-FXL-0005 supersedes DF-FXL-0002 and the stale README note).","criteria":[
+{"criterion":"Only own-tenant entries in original order, even for Admin","verified":true,"test":"view returns only own tenant entries even for Admin"},
+{"criterion":"Inactive session gives SessionExpired","verified":true,"test":"view with expired session is SessionExpired"}]},
+{"workItem":"WI-0007","status":"blocked","summary":"Not implemented. RQ-FXL-0008 is only proposed and depends on DF-FXL-0009 (rates source), which is draft/undecided; no rates, rounding or rate date are specified. convertCurrency left unimplemented rather than inventing behaviour. Needs a decision on the rates source first.","criteria":[
+{"criterion":"Conversion uses the rates source chosen in DF-FXL-0009","verified":false,"test":null}]}
+]

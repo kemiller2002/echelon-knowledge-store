@@ -1,0 +1,7 @@
+[
+{"request":1,"outcome":"done","explanation":"Created EV-FXL-0010 (accepted, supports DF-FXL-0007). The CSV shows 40 of 40 tenant totals matching, 0 differences."},
+{"request":2,"outcome":"not done","explanation":"No penetration test report exists in the repositories or sources, so there is nothing to base or cite EV-FXL-0011 on. Provide the report and I will record it."},
+{"request":3,"outcome":"done differently","explanation":"Created EV-FXL-0012 (accepted) with contradicts: [DF-FXL-0006] rather than supports. The survey says over-refunds were rare (2 of 1,240), deliberate and cheap to reconcile, and support wants to keep them, so it opposes the decision."},
+{"request":4,"outcome":"not done","explanation":"VR-FXL-0001 not created. The 2026-10-09 test run (7f3c2e1) has a failure: 'balance includes an entry dated on the cut-off date' failed (expected 10, got 0), which is the core RQ-FXL-0005 behaviour. It does not verify the requirement."},
+{"request":5,"outcome":"not done","explanation":"EV-FXL-0013 not created. The 2026-08-01 test run is of the prototype (1a2b3c4) where any authenticated user may approve. That behaviour was replaced by the 2026-10-04 rewrite for RQ-FXL-0004, so the run does not support the current requirement and its tests contradict it."}
+]

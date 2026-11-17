@@ -1,0 +1,95 @@
+{
+  "identityHash": "38BF1406E99436669F7DF8479909E8487489C33B04DC21AD75A15C5A906C0389",
+  "runs": [
+    {
+      "Run": "s01",
+      "Condition": "D",
+      "Batch": [
+        "WI-0001",
+        "WI-0003",
+        "WI-0005",
+        "WI-0007"
+      ],
+      "Rep": 1
+    },
+    {
+      "Run": "s02",
+      "Condition": "A",
+      "Batch": [
+        "WI-0001",
+        "WI-0003",
+        "WI-0005",
+        "WI-0007"
+      ],
+      "Rep": 1
+    },
+    {
+      "Run": "s03",
+      "Condition": "B",
+      "Batch": [
+        "WI-0001",
+        "WI-0003",
+        "WI-0005",
+        "WI-0007"
+      ],
+      "Rep": 1
+    },
+    {
+      "Run": "s04",
+      "Condition": "C",
+      "Batch": [
+        "WI-0002",
+        "WI-0004",
+        "WI-0006",
+        "WI-0008"
+      ],
+      "Rep": 1
+    },
+    {
+      "Run": "s05",
+      "Condition": "C",
+      "Batch": [
+        "WI-0001",
+        "WI-0003",
+        "WI-0005",
+        "WI-0007"
+      ],
+      "Rep": 1
+    },
+    {
+      "Run": "s06",
+      "Condition": "B",
+      "Batch": [
+        "WI-0002",
+        "WI-0004",
+        "WI-0006",
+        "WI-0008"
+      ],
+      "Rep": 1
+    },
+    {
+      "Run": "s07",
+      "Condition": "A",
+      "Batch": [
+        "WI-0002",
+        "WI-0004",
+        "WI-0006",
+        "WI-0008"
+      ],
+      "Rep": 1
+    },
+    {
+      "Run": "s08",
+      "Condition": "D",
+      "Batch": [
+        "WI-0002",
+        "WI-0004",
+        "WI-0006",
+        "WI-0008"
+      ],
+      "Rep": 1
+    }
+  ],
+  "seed": 20261117,
+  "variant": "hard"
+}

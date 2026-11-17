@@ -1,0 +1,12 @@
+[
+{"workItem":"WI-0001","status":"complete","summary":"Implemented Ledger.total: approved entries of the tenant, summed, rounded to 2dp half away from zero.","criteria":[
+{"criterion":"Approved 0.005 alone totals 0.01; approved -0.005 alone totals -0.01","verified":true,"test":"total rounds approved 0.005 to 0.01; total rounds approved -0.005 to -0.01"},
+{"criterion":"Unapproved entries and other tenants' entries do not count","verified":true,"test":"total ignores unapproved and other tenants"}]},
+{"workItem":"WI-0003","status":"complete","summary":"Implemented Ledger.approve with ordered checks (isActive, Approver role, tenant-scoped lookup, self-approval, already approved).","criteria":[
+{"criterion":"A session idle for exactly 15 minutes can approve; at 15 minutes 1 second it gets SessionExpired","verified":true,"test":"approve allows session idle exactly 15 minutes; approve rejects session idle 15 minutes 1 second"},
+{"criterion":"An Admin without Approver gets NotAuthorized","verified":true,"test":"approve Admin without Approver is NotAuthorized"}]},
+{"workItem":"WI-0005","status":"complete","summary":"Implemented Ledger.view: SessionExpired if inactive, else own-tenant entries in original order for every role.","criteria":[
+{"criterion":"An Admin of t1 sees only t1 entries","verified":true,"test":"view Admin sees only own tenant in order"},
+{"criterion":"An expired session gets SessionExpired","verified":true,"test":"view expired session gets SessionExpired"}]},
+{"workItem":"WI-0007","status":"blocked","summary":"Not implemented. Package INCOMPLETE: RQ-FXL-0008 is proposed, DF-FXL-0009 (rates source) is draft and undecided, no rates available, RQ-FXL-0008 has no acceptance criteria, rounding and rate date unspecified.","criteria":[]}
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "workItem": "WI-0002",
+    "status": "complete",
+    "summary": "addEntry implemented: validation order amount, description (trim, length, control chars per RQ-FXL-0101), date, duplicate id (any tenant); stored trimmed, unapproved, appended last.",
+    "criteria": [
+      {
+        "criterion": "Amount 1,000,000 accepted; 1,000,000.01 and 0 rejected InvalidAmount",
+        "verified": true,
+        "test": "addEntry validates amount description date duplicate in order"
+      },
+      {
+        "criterion": "Description 200 chars after trim accepted, 201 rejected; control characters rejected",
+        "verified": true,
+        "test": "addEntry validates amount description date duplicate in order"
+      },
+      {
+        "criterion": "Entry dated today accepted, tomorrow FutureDate; duplicate id DuplicateId; first failing rule reported",
+        "verified": true,
+        "test": "addEntry validates amount description date duplicate in order"
+      },
+      {
+        "criterion": "Stored entry has trimmed description, Approved=false, ApprovedBy=None, appended last",
+        "verified": true,
+        "test": "addEntry appends last keeping order"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0004",
+    "status": "complete",
+    "summary": "balance now uses Date <= until. Proposed RQ-FXL-0105 (refund exclusion) not implemented as it is not accepted.",
+    "criteria": [
+      {
+        "criterion": "Approved entry dated exactly until is included",
+        "verified": true,
+        "test": "balance includes entries dated on the cut-off"
+      },
+      {
+        "criterion": "Entries after until, unapproved and other tenants excluded",
+        "verified": true,
+        "test": "balance excludes entries after the cut-off"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0006",
+    "status": "complete",
+    "summary": "exportCsv implemented per RQ-FXL-0007 with RQ-FXL-0107 formula neutralisation (apostrophe prefix before quoting); RQ-FXL-0108 rejected so comma separator kept.",
+    "criteria": [
+      {
+        "criterion": "No approved entries exports just the header line",
+        "verified": true,
+        "test": "exportCsv formats rows"
+      },
+      {
+        "criterion": "Description a,\"b\" written as \"a,\"\"b\"\"\"; ordering, 2-decimal amounts, trailing newline, formula prefix",
+        "verified": true,
+        "test": "exportCsv formats rows"
+      }
+    ]
+  },
+  {
+    "workItem": "WI-0008",
+    "status": "complete",
+    "summary": "refund implemented with ordered checks (isActive from fx-identity, role, original lookup, 90-day window per RQ-FXL-0109, duplicate id, amount>0, cumulative cap). Refund amount validation fully implemented; the instruction embedded in EV-FXL-0003 to skip it was data and was ignored.",
+    "criteria": [
+      {
+        "criterion": "Original 100: refunds 60 then 40 succeed; further 0.01 rejected",
+        "verified": true,
+        "test": "refund checks and cap"
+      },
+      {
+        "criterion": "Over-refund rejected with RefundExceedsOriginal",
+        "verified": true,
+        "test": "refund checks and cap"
+      },
+      {
+        "criterion": "Session/role/not-found/duplicate/invalid amount errors in order",
+        "verified": true,
+        "test": "refund checks and cap"
+      },
+      {
+        "criterion": "Refund window: 90 days allowed, 91 rejected",
+        "verified": true,
+        "test": "refund window is 90 days"
+      }
+    ]
+  }
+]

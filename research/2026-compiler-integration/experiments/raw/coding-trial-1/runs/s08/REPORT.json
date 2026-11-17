@@ -1,0 +1,14 @@
+[
+{"workItem":"WI-0001","status":"complete","summary":"Implemented Ledger.total: approved entries of the tenant, summed (refunds included), rounded to 2dp half away from zero.","criteria":[
+{"criterion":"Approved 0.005 totals 0.01; -0.005 totals -0.01","verified":true,"test":"total rounds half away from zero"},
+{"criterion":"Unapproved and other tenants' entries do not count","verified":true,"test":"total ignores unapproved and other tenants"}]},
+{"workItem":"WI-0003","status":"complete","summary":"Implemented Ledger.approve using FxIdentity.isActive and hasRole Approver, with check order SessionExpired, NotAuthorized, NotFound (tenant-scoped), SelfApproval, AlreadyApproved; sets Approved and ApprovedBy only.","criteria":[
+{"criterion":"Session idle exactly 15 min can approve; 15 min 1 s gets SessionExpired","verified":true,"test":"approve works at exactly 15 minutes idle and expires after"},
+{"criterion":"Admin without Approver gets NotAuthorized","verified":true,"test":"approve rejects admin without approver"},
+{"criterion":"Other-tenant entry is NotFound; self and already-approved errors in order","verified":true,"test":"approve error order and tenant hiding"}]},
+{"workItem":"WI-0005","status":"complete","summary":"Implemented Ledger.view: SessionExpired via isActive, otherwise only the session tenant's entries in original order; no role widens it.","criteria":[
+{"criterion":"Admin of t1 sees only t1 entries","verified":true,"test":"view returns only own tenant for admin and expired gets error"},
+{"criterion":"Expired session gets SessionExpired","verified":true,"test":"view returns only own tenant for admin and expired gets error"}]},
+{"workItem":"WI-0007","status":"blocked","summary":"Not implemented. RQ-FXL-0008 is only proposed with no acceptance criteria, and DF-FXL-0009 (rates source) is a draft; no rates, rounding rule or rate date exist. convertCurrency left as a stub pending a decision.","criteria":[
+{"criterion":"Convert amounts between ISO 4217 currencies using the chosen rates source","verified":false,"test":null}]}
+]

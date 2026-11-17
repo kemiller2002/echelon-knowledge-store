@@ -1,0 +1,5 @@
+revision: 1a2b3c4 (2026-08-01)
+command: dotnet test tests/FxLedger.Tests
+  Passed FxLedger.Tests.LedgerTests.approve accepts any authenticated user [1 ms]
+  Passed FxLedger.Tests.LedgerTests.approve marks the entry approved [< 1 ms]
+Passed!  - Failed:     0, Passed:     2, Skipped:     0, Total:     2, Duration: 30 ms - FxLedger.Tests.dll (net10.0)

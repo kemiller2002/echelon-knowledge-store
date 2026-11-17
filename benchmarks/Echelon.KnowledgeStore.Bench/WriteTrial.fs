@@ -73,6 +73,8 @@ let private config =
         Audience = Private
         SupportedSchema = 1
         ExistingPaths = None
+        DisabledRules = Set.empty
+        Revisions = Map.empty
     }
 
 type TaskScore =
