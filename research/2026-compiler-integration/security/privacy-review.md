@@ -48,8 +48,11 @@ The agent must not rewrite history or force-push. Options for the repository own
    owner judges their sensitivity.
 
 Recommendation: the owner reviews the nine affected lines (six historical, three recent) and decides.
-If any name is sensitive, choose 2, then 1. Until then, no further mitigation is possible from this
-session.
+If any name is sensitive, choose 2, then 1.
+
+**Decision (2026-11-17, repository owner): option 3, accept.** History is not rewritten and the
+repository stays public. The leaked items are directory and file names, not contents; the current
+tree is clean under both checks. The controls above remain in force for all future work.
 
 ## Rule for future research
 

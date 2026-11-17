@@ -40,8 +40,6 @@
     }
   ],
   "pendingOwnerDecisions": [
-    "history rewrite for private names (security/privacy-review.md)",
-    "merge of PR #4",
     "Praxis typed requirement links (Stage 2)",
     "Dokimos obligations schema and planDigest check (Stage 3)"
   ],
@@ -61,5 +59,17 @@
       "evidence-score",
       "incremental"
     ]
-  }
+  },
+  "ownerDecisions": [
+    {
+      "date": "2026-11-17",
+      "decision": "accept private names remaining in git history; no rewrite",
+      "record": "security/privacy-review.md"
+    },
+    {
+      "date": "2026-11-17",
+      "decision": "PR #4 merged",
+      "commit": "588d90c1a9ad52f6fdba584e6657f0cb7ea17efa"
+    }
+  ]
 }

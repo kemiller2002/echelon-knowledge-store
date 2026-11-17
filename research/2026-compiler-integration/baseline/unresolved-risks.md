@@ -2,7 +2,7 @@
 
 | Risk | Status at start of Phase 2 | Status at end of Phase 2 |
 |---|---|---|
-| R1 Private paths in public history | Redacted in the tree; history retained (no force-push). | Mitigated going forward by a denylist check in CI. History rewrite still needs the owner's decision (`../security/privacy-review.md`). |
+| R1 Private paths in public history | Redacted in the tree; history retained (no force-push). | Mitigated going forward by a denylist check in CI. Owner accepted the historical exposure on 2026-11-17; history is not rewritten (`../security/privacy-review.md`). |
 | R2 Validation rules that exist but do not run | One instance found (EKS0026). | Rule runs are recorded in every compilation and manifest; a skipped mandatory rule blocks COMPLETE (tested). A second, subtler instance was found: the source-existence rule ran but silently skipped every `../`-relative path. Fixed and regression-tested. |
 | R3 Packages marked COMPLETE while incomplete | Completeness was assigned in code paths. | Completeness is now derived from listed conditions; tests assert status ⇔ all conditions. Work-item packages add checks for missing links, non-accepted dependencies and missing acceptance criteria. |
 | R4 Stale caches | Parse cache keyed by path + content hash only. | Found that parsing also depends on compiler version and schema configuration; the key now includes both (regression test). Package memoisation measured: naive memo is stale on every step; a dependency-keyed memo is correct but slower than recompiling. |
