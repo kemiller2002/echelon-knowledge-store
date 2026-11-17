@@ -5,11 +5,12 @@ governance rule is changed to make an experiment pass.
 
 ## Stage 0: consolidate EKS (this repository; ready now)
 
-- Merge PR #4: work-item packages, manifests, derived completeness, change manifest, fixed source
+- Done: PR #4 merged (`588d90c`) with work-item packages, manifests, derived completeness, change manifest, fixed source
   rule, parse-cache key, privacy checks, benchmarks, fixtures.
 - Add a planted-violation regression test for every mandatory rule (only some rules have one).
   This addresses "rules that exist but do not apply".
-- Owner decision on history rewrite for the privacy incident (`../security/privacy-review.md`).
+- Privacy incident: the owner accepted the historical exposure on 2026-11-17; no history rewrite
+  (`../security/privacy-review.md`).
 
 Exit: CI green; every mandatory rule has a planted-violation test.
 

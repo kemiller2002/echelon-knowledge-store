@@ -75,7 +75,7 @@ fabrications and rejected the one malformed change.
 
 - [measured] The Phase 2 CI privacy check would not have caught the Phase 1 incident (0/6 lines).
   A local check found **three private file names still in Phase 1 documents**; they are redacted.
-  They and the original six lines remain in Git history; rewriting it is the owner's decision
+  They and the original six lines remain in Git history; the owner accepted this on 2026-11-17 (no rewrite)
   (`../security/privacy-review.md`).
 - [measured] Compiler defects found and fixed: the source-existence rule silently skipped `../` paths;
   the parse cache ignored compiler version and schema configuration.

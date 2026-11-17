@@ -84,11 +84,17 @@
     ]
   },
   "openRisks": [
-    "private names remain in git history (owner decision)",
     "fixture hidden tests are public (contamination)",
     "effect size on real work items unknown",
     "no long-running tasks",
     "Dokimos run under .NET roll-forward"
   ],
-  "rawData": "research/2026-compiler-integration/experiments/raw/"
+  "rawData": "research/2026-compiler-integration/experiments/raw/",
+  "acceptedRisks": [
+    "private directory and file names remain in git history (accepted by owner 2026-11-17)"
+  ],
+  "merged": {
+    "pullRequest": 4,
+    "commit": "588d90c1a9ad52f6fdba584e6657f0cb7ea17efa"
+  }
 }
