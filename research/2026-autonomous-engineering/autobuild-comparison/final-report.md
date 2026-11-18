@@ -117,6 +117,14 @@ See [`clarity-edf-experiment-results.md`](clarity-edf-experiment-results.md).
   Smaller-model subagents made unrequested session-tool calls; they were denied, and no
   session was created or updated (EV-AE-013, EV-AE-014).
 - **Pre-registration evidence is container file times only** (EV-AE-026).
+- **Privacy.** The repository's `privacy-check` found 8 references in an earlier commit
+  of this branch: ephemeral agent scratchpad paths and file paths inside private
+  repositories.
+  - They are redacted forward, following the `.privacy-denylist` convention.
+  - `privacy-check` and `privacy-check-private` now report no findings (1,379 private
+    names checked).
+  - The earlier branch commits still contain them, because AGENTS.md forbids
+    force-pushing. **Squash-merge** keeps them out of `main`.
 - **No real-repository task experiment yet.**
 
 ## Next recommended actions
