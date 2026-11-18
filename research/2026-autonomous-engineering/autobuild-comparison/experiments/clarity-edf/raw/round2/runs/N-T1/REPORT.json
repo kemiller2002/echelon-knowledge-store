@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "summary": "Implemented split_amount in ledger/split.py: it validates parties >= 1 (ValueError otherwise), splits abs(total) with divmod so the earliest shares get the leftover cents, and negates every share for refunds. Added tests for remainders, refunds, sum conservation across totals and party counts, and invalid counts; all 55 tests pass.",
+  "assumptions": [
+    "total is an integer number of cents; floats are not type-checked, matching the existing code.",
+    "Negative totals follow CONVENTIONS.md rule 4: split the absolute value and negate each part, so the earliest entries carry the larger refund.",
+    "Pre-implementation notes could not be written to ANALYSIS.md because the operator instructions prohibit writing analysis .md files; the notes are returned in the final report instead.",
+    "No line-length config exists; kept lines under 100 characters."
+  ],
+  "questions_for_requester": [],
+  "files_changed": [
+    "/root/exp2/runs/N-T1/ledger/split.py",
+    "/root/exp2/runs/N-T1/tests/test_split.py",
+    "/root/exp2/runs/N-T1/REPORT.json"
+  ]
+}

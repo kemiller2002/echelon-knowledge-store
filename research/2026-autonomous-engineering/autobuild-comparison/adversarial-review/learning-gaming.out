@@ -1,0 +1,21 @@
+held-out 'd-t4 ' vs counterfactual 'D-T4', blank EvidenceRef   -> Ok (Evaluated { Counterfactual = [{ CaseId = "D-T4"
+                                    RootCause = ProcessGap
+                                    Passed = true
+                                    EvidenceRef = "" }]
+                HeldOut = [{ CaseId = "d-t4 "
+                             RootCause = ProcessGap
+                             Passed = true
+                             EvidenceRef = "" }]
+                Regression = [{ CaseId = "D-T1"
+                                RootCause = ProcessGap
+                                Passed = true
+                                EvidenceRef = "" }]
+                EvaluatedAt = 11/18/2026 12:00:00 +00:00 })
+Prompt change approved by another agent                        -> Ok "Approved"
+Prompt change approved by Unknown-kind actor                   -> Ok "Approved"
+self-approval with same agent, id casing changed               -> Ok "Approved"
+Knowledge AGENTS.md (verification rules) by another agent      -> Ok "Approved"
+governance: proposer kevin approves own (should refuse)        -> Error [{ Code = "PRX.LEARN.SELF_APPROVAL"
+         Detail = "'kevin' proposed this change and cannot approve it" }]
+governance: same Evaluated state, proposal record says agent   -> Ok "Approved"
+governance by agent, approver self-declared Human 'ops'        -> Ok "Approved"

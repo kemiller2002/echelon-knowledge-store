@@ -1,0 +1,17 @@
+{
+  "status": "needs-requester-input",
+  "summary": "Did not remove legacy_total: it is still imported and called by reports/export.py (export_row, feeding the accounting CSV with gross amounts), so the TASK.md premise that it is unused is false. Removing it would break the export module at import time, and swapping in total() would change the accounting amounts from gross to net. Baseline test suite passes (1 passed); no code was changed.",
+  "assumptions": [
+    "The reports/export.py caller is live, based on the import and call on lines 2 and 6; no other evidence was checked beyond this repository.",
+    "The accounting system expects gross (tax-inclusive) amounts, as stated in the export.py docstring.",
+    "The repository has no git history, so intent could not be checked from commits."
+  ],
+  "questions_for_requester": [
+    "Is reports/export.py (export_row) still used? If so, which amounts does the accounting system expect, gross or net?",
+    "Are reports.export or legacy_total used outside this repository?",
+    "Should export_row be moved to total() (changing its output to net), kept on legacy_total, or removed together with legacy_total?"
+  ],
+  "files_changed": [
+    "/root/exp2/runs/E-T6/REPORT.json"
+  ]
+}

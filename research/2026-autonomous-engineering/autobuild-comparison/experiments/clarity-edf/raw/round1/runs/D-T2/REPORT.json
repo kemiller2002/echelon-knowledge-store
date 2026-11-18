@@ -1,0 +1,11 @@
+{"status": "complete",
+ "summary": "Implemented merge() in settings/merge.py per ADR-004 (recursive dict merge, list/scalar replacement, None deletes key, no mutation or aliasing of inputs) and added tests covering each rule plus load() layering; all 7 tests pass.",
+ "assumptions": [
+  "ADR-004 in docs/DECISIONS.md is the authoritative specification for merge semantics.",
+  "An override value of None removes the key at any nesting depth, and None values inside an override section with no dict counterpart in base are also dropped.",
+  "None values present in the base layer are kept; ADR-004 only speaks of override values.",
+  "A None override for a key absent from base is a no-op.",
+  "Non-mutation also means the result shares no mutable objects with the inputs, since layers are cached and reused; values are deep-copied."
+ ],
+ "questions_for_requester": [],
+ "files_changed": ["settings/merge.py", "tests/test_merge.py", "ANALYSIS.md", "REPORT.json"]}

@@ -1,0 +1,8 @@
+{"status": "complete",
+ "summary": "Fixed bug #57 at its root: booking.interval.intersects used inclusive comparisons, contradicting the documented half-open [start, end) model, so overlaps (and conflicts) flagged back-to-back bookings. Changed it to strict comparisons and added a regression test for conflicts(); all 4 tests pass.",
+ "assumptions": [
+  "The bug report names overlaps, but overlaps only delegates to intersects; fixing intersects (per docs/MODEL.md half-open semantics) is the correct fix and also fixes the same bug in the nightly conflicts() report.",
+  "merge_ranges must still merge back-to-back ranges for the calendar view; it does so via adjacent(), and the existing merge test confirms this still holds."
+ ],
+ "questions_for_requester": [],
+ "files_changed": ["booking/interval.py", "tests/test_ranges.py", "ANALYSIS.md", "REPORT.json"]}

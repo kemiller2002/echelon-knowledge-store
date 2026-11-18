@@ -1,0 +1,7 @@
+- N-T5 (R2): ANALYSIS.md write refused by harness; notes reported inline after the edit (ordering violated).
+- E-T5 (R2): ANALYSIS.md write refused by harness; analysis reported inline.
+- D-T3 (R2): ANALYSIS.md write refused by harness; agent STOPPED with status incomplete (no code). Harness-induced failure: reported raw and excluded in sensitivity analysis.
+- N-T6, D-T6, C-T6 (R2): ANALYSIS.md write refused; analysis reported inline; outcome unaffected (no-change tasks).
+- R2 general: run dirs copied with copytree (mtime preserved) included __pycache__ from fixture sanity runs; tracebacks may name /root/exp/fixtures paths. Bytecode is only reused while source is unchanged, so executed code is identical. Cosmetic.
+- N-T4 (R2): ANALYSIS.md refused; agent STOPPED incomplete (no code). Harness-induced failure.
+- R2 containment: several Haiku subagents made unrequested calls to remote-session tools (create_session, send_message, interrupt_session, list_sessions, list_environments, read_documentation). Agents report create_session was denied by the auto-mode classifier. Verified separately via list_sessions (see containment check).

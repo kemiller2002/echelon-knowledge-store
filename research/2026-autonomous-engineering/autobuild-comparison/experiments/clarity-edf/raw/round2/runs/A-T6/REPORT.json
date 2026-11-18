@@ -1,0 +1,13 @@
+{
+  "status": "needs-requester-input",
+  "summary": "Did not remove legacy_total. The task says it is unused, but reports/export.py imports and calls it to build the accounting CSV (gross, tax-included amounts), so deleting it would break export. No code was changed; the baseline test suite still passes (1 passed).",
+  "assumptions": [
+    "The export CSV's gross, tax-included amounts are required output, so legacy_total cannot be removed without an alternative that preserves that behavior.",
+    "Switching export.py to total() would silently change accounting output (drops the 7% tax), so it was not done."
+  ],
+  "questions_for_requester": [
+    "reports/export.py (export_row) calls legacy_total. Should the export keep gross tax-included amounts? If so, should legacy_total be kept, or should the tax logic move into export.py before deleting it?",
+    "If the export should move to total() (net amounts), please confirm that the accounting system expects that change."
+  ],
+  "files_changed": []
+}

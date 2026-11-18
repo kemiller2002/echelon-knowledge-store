@@ -1,0 +1,22 @@
+PRE-IMPLEMENTATION NOTES (checklist N, v1)
+Do this before editing any file. Do not write code in this step. Keep it as short as the task allows.
+
+Produce exactly these sections, in this order, under these headings:
+
+1. Task restatement. Restate the task in your own words in one or two sentences.
+2. Files read. List every file you opened while preparing, one per line, with one line on what it contains.
+3. Code layout. Describe how the repository is organized: packages, modules, and test folders.
+4. Entry points. Name the functions or modules that the task touches directly.
+5. Coding style. Note the style the existing code uses (naming, typing, function length, imports) so your change matches it.
+6. Plan. List the implementation steps you will take, in order, as short imperative lines.
+7. Test plan. List the test commands you will run and when you will run them.
+8. Edits. List the files you expect to edit or create.
+9. Formatting. Note any formatting conventions (line length, quotes, blank lines) to follow.
+10. Done check. Describe what you will look at to decide you are finished.
+
+End with exactly:
+FINAL
+Plan steps: <number>
+Files to edit: <number>
+
+Write these notes to {DIR}/ANALYSIS.md before editing any other file, then carry out the task.

@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "summary": "Fixed bug #57 by changing intersects() in booking/interval.py to half-open comparisons (a.start < b.end and b.start < a.end), so back-to-back bookings no longer conflict; overlaps() and the nightly conflicts() report both get the fix. All 3 tests in tests/test_ranges.py pass.",
+  "assumptions": [
+    "The root cause is intersects() using closed comparisons; fixing it at the shared predicate rather than only in overlaps() is intended, because conflicts() uses the same predicate and has the same bug.",
+    "docs/MODEL.md (half-open intervals) is the source of truth for intended semantics.",
+    "merge_ranges() still joins touching ranges through adjacent(), so the calendar view behaviour is unchanged.",
+    "No caller outside booking/ relies on closed-interval intersects(); the only in-repository callers are ranges.py and conflicts.py, and no test covers conflicts().",
+    "Zero-length intervals are not meaningful bookings; under half-open semantics they contain no instant.",
+    "Process deviation: the protocol asked for ANALYSIS.md, but writing an analysis .md file was refused by the harness under the session's rules, so the pre-implementation analysis was done in working notes and is not saved to the repository.",
+    "Unexplained: pytest's failure trace showed the path /root/exp/fixtures/T4/tests/test_ranges.py rather than a path inside this repository. Not investigated, since reads outside /root/exp2/runs/C-T4 are not permitted; it does not affect the fix."
+  ],
+  "questions_for_requester": [],
+  "files_changed": [
+    "/root/exp2/runs/C-T4/booking/interval.py"
+  ]
+}

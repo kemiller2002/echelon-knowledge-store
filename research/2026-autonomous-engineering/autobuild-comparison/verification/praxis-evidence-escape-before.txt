@@ -1,0 +1,4 @@
+/tmp/prx-repro/outside.txt               -> Present
+../outside.txt                           -> Present
+/etc/hostname                            -> Present
+.                                        -> Present

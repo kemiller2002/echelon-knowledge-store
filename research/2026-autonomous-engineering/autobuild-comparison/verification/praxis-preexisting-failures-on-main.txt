@@ -1,0 +1,29 @@
+# Praxis tests failing on untouched main 12bf995 in this container (all spawn real subprocesses/validators), 2026-11-18T16:03:33Z
+concrete acceptance flow: real validators and Git candidate reach integration and native completion
+concrete checklist: Unix private evidence is created with the selected host access policy
+concrete checklist: changed evidence refuses even when its cached process report passed
+concrete checklist: dirty candidate or changed host policy invalidates previous observations
+concrete checklist: real validators populate all member rows and reread evidence without rerunning a stale TRX path
+construction scope: end to end: construct, extend, then the mandatory row passes the real checklist on the exact candidate
+construction scope: the checklist refuses a construction package with every precise reason, and the row cannot be dropped
+journaled worker: actual subprocess mechanism receives the exact packet with synthetic fixture identity
+local runtime cli: a refusal after the worker exits resumes at acceptance without relaunching it
+local runtime cli: an exit whose archive was lost is archived from the host spool on resume, without relaunching
+local runtime cli: completion interrupted after integration and telemetry finalization resumes without a second update
+local runtime cli: coordinator delegates two workers whose independently checked candidates integrate and complete natively
+local runtime cli: failed acceptance, forged delegation and replay refuse integration and completion
+local validator: changed pinned dependency cannot be mistaken for a passing command
+local validator: fresh TRX counts actually represented passing tests, not exit code alone
+local validator: one signed pin covers fresh checkouts and TRX paths but not a changed command
+local validator: real process produces candidate-bound evidence without native acceptance
+local worker process: combined stdout and stderr are capped in bytes
+local worker process: explicit argv and stdin remain literal and ambient environment is excluded
+local worker process: nonzero exit and invalid UTF-8 remain observed failure evidence
+local worker process: timeout and external cancellation observe root exit without implying completion
+portability host: real subprocess seals output, records exit and archives once without granting acceptance
+portability: injected platform preserves literal argv, stdin and bounded output on a real process
+worker output spool: a seal preceding a failed exit append waits for independent journal reconciliation
+worker output spool: actual subprocess output is sealed before journal exit and recovered before archive
+worker output spool: forced controller interruption preserves partial bytes and recovers only sealed output
+worker submission: a terminated controller-store fixture leaves its flushed submission recoverable
+worker submission: actual subprocess output is archived and independently inspected after reopening

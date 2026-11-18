@@ -1,0 +1,289 @@
+{
+ "low": {
+  "round1": {
+   "A": {
+    "agentMinutes": 2.2,
+    "humanMinutes": 6,
+    "totalHumanEquivalentMinutes": 6.1,
+    "perVerifiedOutcome": 1.02
+   },
+   "B": {
+    "agentMinutes": 3.4,
+    "humanMinutes": 6,
+    "totalHumanEquivalentMinutes": 6.2,
+    "perVerifiedOutcome": 1.03
+   },
+   "C": {
+    "agentMinutes": 3.7,
+    "humanMinutes": 10,
+    "totalHumanEquivalentMinutes": 10.2,
+    "perVerifiedOutcome": 1.7
+   },
+   "D": {
+    "agentMinutes": 4.3,
+    "humanMinutes": 8,
+    "totalHumanEquivalentMinutes": 8.2,
+    "perVerifiedOutcome": 1.37
+   },
+   "E": {
+    "agentMinutes": 4.9,
+    "humanMinutes": 8,
+    "totalHumanEquivalentMinutes": 8.2,
+    "perVerifiedOutcome": 1.37
+   },
+   "N": {
+    "agentMinutes": 2.9,
+    "humanMinutes": 4,
+    "totalHumanEquivalentMinutes": 4.1,
+    "perVerifiedOutcome": 0.69
+   },
+   "F(derived)": {
+    "agentMinutes": 3.6,
+    "humanMinutes": 8,
+    "totalHumanEquivalentMinutes": 8.2,
+    "perVerifiedOutcome": 1.36
+   }
+  },
+  "round2": {
+   "A": {
+    "agentMinutes": 1.9,
+    "humanMinutes": 34,
+    "totalHumanEquivalentMinutes": 34.1,
+    "perVerifiedOutcome": 6.82
+   },
+   "B": {
+    "agentMinutes": 3.3,
+    "humanMinutes": 10,
+    "totalHumanEquivalentMinutes": 10.2,
+    "perVerifiedOutcome": 1.69
+   },
+   "C": {
+    "agentMinutes": 3.5,
+    "humanMinutes": 8,
+    "totalHumanEquivalentMinutes": 8.2,
+    "perVerifiedOutcome": 1.36
+   },
+   "D": {
+    "agentMinutes": 3.8,
+    "humanMinutes": 44,
+    "totalHumanEquivalentMinutes": 44.2,
+    "perVerifiedOutcome": 11.05
+   },
+   "E": {
+    "agentMinutes": 4.1,
+    "humanMinutes": 10,
+    "totalHumanEquivalentMinutes": 10.2,
+    "perVerifiedOutcome": 1.7
+   },
+   "N": {
+    "agentMinutes": 3.6,
+    "humanMinutes": 8,
+    "totalHumanEquivalentMinutes": 8.2,
+    "perVerifiedOutcome": 1.64
+   },
+   "F(derived)": {
+    "agentMinutes": 3.5,
+    "humanMinutes": 40,
+    "totalHumanEquivalentMinutes": 40.2,
+    "perVerifiedOutcome": 8.03
+   }
+  }
+ },
+ "central": {
+  "round1": {
+   "A": {
+    "agentMinutes": 2.2,
+    "humanMinutes": 15,
+    "totalHumanEquivalentMinutes": 15.2,
+    "perVerifiedOutcome": 2.54
+   },
+   "B": {
+    "agentMinutes": 3.4,
+    "humanMinutes": 15,
+    "totalHumanEquivalentMinutes": 15.3,
+    "perVerifiedOutcome": 2.56
+   },
+   "C": {
+    "agentMinutes": 3.7,
+    "humanMinutes": 25,
+    "totalHumanEquivalentMinutes": 25.4,
+    "perVerifiedOutcome": 4.23
+   },
+   "D": {
+    "agentMinutes": 4.3,
+    "humanMinutes": 20,
+    "totalHumanEquivalentMinutes": 20.4,
+    "perVerifiedOutcome": 3.41
+   },
+   "E": {
+    "agentMinutes": 4.9,
+    "humanMinutes": 20,
+    "totalHumanEquivalentMinutes": 20.5,
+    "perVerifiedOutcome": 3.42
+   },
+   "N": {
+    "agentMinutes": 2.9,
+    "humanMinutes": 10,
+    "totalHumanEquivalentMinutes": 10.3,
+    "perVerifiedOutcome": 1.71
+   },
+   "F(derived)": {
+    "agentMinutes": 3.6,
+    "humanMinutes": 20,
+    "totalHumanEquivalentMinutes": 20.4,
+    "perVerifiedOutcome": 3.39
+   }
+  },
+  "round2": {
+   "A": {
+    "agentMinutes": 1.9,
+    "humanMinutes": 70,
+    "totalHumanEquivalentMinutes": 70.2,
+    "perVerifiedOutcome": 14.04
+   },
+   "B": {
+    "agentMinutes": 3.3,
+    "humanMinutes": 25,
+    "totalHumanEquivalentMinutes": 25.3,
+    "perVerifiedOutcome": 4.22
+   },
+   "C": {
+    "agentMinutes": 3.5,
+    "humanMinutes": 20,
+    "totalHumanEquivalentMinutes": 20.4,
+    "perVerifiedOutcome": 3.39
+   },
+   "D": {
+    "agentMinutes": 3.8,
+    "humanMinutes": 95,
+    "totalHumanEquivalentMinutes": 95.4,
+    "perVerifiedOutcome": 23.84
+   },
+   "E": {
+    "agentMinutes": 4.1,
+    "humanMinutes": 25,
+    "totalHumanEquivalentMinutes": 25.4,
+    "perVerifiedOutcome": 4.23
+   },
+   "N": {
+    "agentMinutes": 3.6,
+    "humanMinutes": 20,
+    "totalHumanEquivalentMinutes": 20.4,
+    "perVerifiedOutcome": 4.07
+   },
+   "F(derived)": {
+    "agentMinutes": 3.5,
+    "humanMinutes": 85,
+    "totalHumanEquivalentMinutes": 85.3,
+    "perVerifiedOutcome": 17.07
+   }
+  }
+ },
+ "high": {
+  "round1": {
+   "A": {
+    "agentMinutes": 2.2,
+    "humanMinutes": 30,
+    "totalHumanEquivalentMinutes": 30.4,
+    "perVerifiedOutcome": 5.07
+   },
+   "B": {
+    "agentMinutes": 3.4,
+    "humanMinutes": 30,
+    "totalHumanEquivalentMinutes": 30.7,
+    "perVerifiedOutcome": 5.11
+   },
+   "C": {
+    "agentMinutes": 3.7,
+    "humanMinutes": 50,
+    "totalHumanEquivalentMinutes": 50.7,
+    "perVerifiedOutcome": 8.46
+   },
+   "D": {
+    "agentMinutes": 4.3,
+    "humanMinutes": 40,
+    "totalHumanEquivalentMinutes": 40.9,
+    "perVerifiedOutcome": 6.81
+   },
+   "E": {
+    "agentMinutes": 4.9,
+    "humanMinutes": 40,
+    "totalHumanEquivalentMinutes": 41.0,
+    "perVerifiedOutcome": 6.83
+   },
+   "N": {
+    "agentMinutes": 2.9,
+    "humanMinutes": 20,
+    "totalHumanEquivalentMinutes": 20.6,
+    "perVerifiedOutcome": 3.43
+   },
+   "F(derived)": {
+    "agentMinutes": 3.6,
+    "humanMinutes": 40,
+    "totalHumanEquivalentMinutes": 40.7,
+    "perVerifiedOutcome": 6.79
+   }
+  },
+  "round2": {
+   "A": {
+    "agentMinutes": 1.9,
+    "humanMinutes": 260,
+    "totalHumanEquivalentMinutes": 260.4,
+    "perVerifiedOutcome": 52.07
+   },
+   "B": {
+    "agentMinutes": 3.3,
+    "humanMinutes": 50,
+    "totalHumanEquivalentMinutes": 50.7,
+    "perVerifiedOutcome": 8.44
+   },
+   "C": {
+    "agentMinutes": 3.5,
+    "humanMinutes": 40,
+    "totalHumanEquivalentMinutes": 40.7,
+    "perVerifiedOutcome": 6.78
+   },
+   "D": {
+    "agentMinutes": 3.8,
+    "humanMinutes": 310,
+    "totalHumanEquivalentMinutes": 310.8,
+    "perVerifiedOutcome": 77.69
+   },
+   "E": {
+    "agentMinutes": 4.1,
+    "humanMinutes": 50,
+    "totalHumanEquivalentMinutes": 50.8,
+    "perVerifiedOutcome": 8.47
+   },
+   "N": {
+    "agentMinutes": 3.6,
+    "humanMinutes": 40,
+    "totalHumanEquivalentMinutes": 40.7,
+    "perVerifiedOutcome": 8.15
+   },
+   "F(derived)": {
+    "agentMinutes": 3.5,
+    "humanMinutes": 290,
+    "totalHumanEquivalentMinutes": 290.7,
+    "perVerifiedOutcome": 58.14
+   }
+  }
+ },
+ "assumptions": {
+  "low": {
+   "minutesPerRequesterQuestion": 2,
+   "minutesPerEscapedFalseCompletion": 30,
+   "agentWallMinuteInHumanMinutes": 0.05
+  },
+  "central": {
+   "minutesPerRequesterQuestion": 5,
+   "minutesPerEscapedFalseCompletion": 60,
+   "agentWallMinuteInHumanMinutes": 0.1
+  },
+  "high": {
+   "minutesPerRequesterQuestion": 10,
+   "minutesPerEscapedFalseCompletion": 240,
+   "agentWallMinuteInHumanMinutes": 0.2
+  }
+ }
+}

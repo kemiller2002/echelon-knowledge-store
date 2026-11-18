@@ -1,0 +1,10 @@
+{"status": "complete",
+ "summary": "Fixed bug #57 at its root: booking/interval.py::intersects used closed-interval comparisons (<=) despite the documented half-open [start, end) model, so overlaps() (and conflicts() for the nightly report) flagged back-to-back bookings; it now uses strict <. Added regression tests for conflicts() and merge_ranges(); all 6 tests pass.",
+ "assumptions": [
+  "Intervals are half-open as stated in docs/MODEL.md and the interval.py docstring, so touching intervals share no instant.",
+  "Fixing the shared intersects predicate satisfies the request to fix overlaps (overlaps delegates to it unchanged); this also corrects conflicts(), which had the same defect.",
+  "merge_ranges should keep merging back-to-back bookings for the calendar view; it still does because it ORs in adjacent().",
+  "No callers of intersects exist outside this repository that rely on closed-interval semantics."
+ ],
+ "questions_for_requester": [],
+ "files_changed": ["booking/interval.py", "tests/test_ranges.py", "ANALYSIS.md", "REPORT.json"]}

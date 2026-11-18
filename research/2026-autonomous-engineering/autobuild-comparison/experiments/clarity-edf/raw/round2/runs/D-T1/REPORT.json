@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "summary": "Implemented split_amount in ledger/split.py using integer divmod, giving leftover cents one each to the earliest entries, splitting refunds by absolute value and negating, and raising ValueError for parties < 1. Added tests for remainder placement, total conservation, refunds, zero totals and invalid counts; the suite passes (7 passed).",
+  "assumptions": [
+    "docs/CONVENTIONS.md is the specification for remainder and refund rules, as the task defers to it.",
+    "A zero total returns a list of zero shares of length parties.",
+    "Non-integer inputs are not explicitly validated; Python raises its own errors for them.",
+    "The analysis required by the task was delivered in the subagent report instead of ANALYSIS.md, because the harness forbids writing analysis markdown files from this agent.",
+    "The pytest traceback names /root/exp/fixtures/T1/tests/test_split.py, which differs from the repository test path; it was not inspected because it is outside the permitted scope, and the results were taken from the repository's own tests."
+  ],
+  "questions_for_requester": [],
+  "files_changed": [
+    "/root/exp2/runs/D-T1/ledger/split.py",
+    "/root/exp2/runs/D-T1/tests/test_split.py",
+    "/root/exp2/runs/D-T1/REPORT.json"
+  ]
+}

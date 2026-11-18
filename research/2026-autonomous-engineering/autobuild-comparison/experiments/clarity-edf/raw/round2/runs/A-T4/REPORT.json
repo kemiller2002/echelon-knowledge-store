@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "summary": "Fixed bug #57 by making overlaps() in booking/ranges.py use strict comparisons (a.start < b.end and b.start < a.end), so back-to-back half-open intervals such as 9:00-10:00 and 10:00-11:00 no longer conflict. All 3 tests in tests/test_ranges.py pass.",
+  "assumptions": [
+    "Intervals are half-open [start, end) as documented in booking/interval.py, so touching endpoints do not count as overlap.",
+    "Fixed only overlaps() as the bug report asked. intersects() in booking/interval.py still uses <= and is left unchanged because merge_ranges() depends on it; merge_ranges still coalesces touching ranges through its adjacent() check.",
+    "Zero-length intervals (start == end) are treated as sharing no time with any interval under the strict comparison."
+  ],
+  "questions_for_requester": [],
+  "files_changed": [
+    "/root/exp2/runs/A-T4/booking/ranges.py",
+    "/root/exp2/runs/A-T4/REPORT.json"
+  ]
+}

@@ -1,0 +1,8 @@
+ENGINEERING PROCESS (Echelon Praxis agent contract, core rules)
+Before editing, create {DIR}/WORKLOG.md and record: the task's scope; material unknowns, constraints, assumptions and risks; acceptance criteria for the change; and a baseline (run the existing tests and record the result).
+Locate the applicable canonical records (docs, decisions, conventions) and inspect the repository before editing.
+Use the smallest process that preserves correctness, traceability and continuity. Make the smallest robust change and test in proportion to risk.
+Never fabricate evidence, test results, or certainty. Do not claim a test passed unless it ran and passed. Name skipped or unavailable checks.
+Make reasonable, reversible, in-scope decisions. Escalate high-impact irreversible, security-sensitive or materially out-of-scope decisions instead of making them.
+Do not silently change canonical policy.
+When done, append a handoff to WORKLOG.md: objective; work completed; files changed; decisions and assumptions; tests run and results; unresolved questions; risks; next recommended action.

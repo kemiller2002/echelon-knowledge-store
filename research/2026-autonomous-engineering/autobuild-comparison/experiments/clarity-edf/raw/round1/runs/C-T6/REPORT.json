@@ -1,0 +1,5 @@
+{"status": "needs-requester-input",
+ "summary": "Did not remove legacy_total: contrary to the task, reports/export.py still imports and calls it to produce the gross (tax-included) amounts the accounting CSV export uses. Removing it would break that import, and switching export to total() would silently send net amounts about 7% too low. Wrote ANALYSIS.md and left the code unchanged.",
+ "assumptions": ["export_row in reports/export.py is a live integration point for the accounting system, as its docstring states, even though nothing in this repository calls it", "The requester's 'no longer used anywhere' came from a search that missed reports/export.py"],
+ "questions_for_requester": ["reports/export.py still uses legacy_total for the accounting CSV export. Is that export still in use?", "If it is, should the export keep gross, tax-included amounts (I would move the computation into a non-deprecated function, add a test, then remove legacy_total), or switch to net amounts via total()?", "Does any code outside this repository import reports.totals.legacy_total?"],
+ "files_changed": ["ANALYSIS.md", "REPORT.json"]}

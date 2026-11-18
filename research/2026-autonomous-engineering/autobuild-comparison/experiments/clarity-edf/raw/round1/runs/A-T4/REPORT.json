@@ -1,0 +1,5 @@
+{"status": "complete",
+ "summary": "Fixed bug #57 at its root: booking.interval.intersects compared half-open [start, end) intervals as if closed (<=), so back-to-back bookings counted as overlapping; changed to strict < so overlaps() (and conflicts(), which shared the bug) now treat 9:00-10:00 and 10:00-11:00 as non-conflicting. Added regression tests for conflicts(); all tests pass.",
+ "assumptions": ["Fixing the shared primitive intersects() rather than special-casing overlaps() is correct, since docs/MODEL.md defines intervals as half-open and conflicts() (nightly report) had the same false-positive bug.", "merge_ranges() must still coalesce back-to-back bookings for the calendar view; it does, via its separate adjacent() check, and test_merge_back_to_back still passes.", "The nightly conflicts report will now stop listing back-to-back bookings; this is the intended behavior, not a regression."],
+ "questions_for_requester": [],
+ "files_changed": ["booking/interval.py", "tests/test_conflicts.py"]}

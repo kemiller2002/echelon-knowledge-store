@@ -1,0 +1,10 @@
+{"status": "complete",
+ "summary": "Implemented settings.merge.merge per ADR-004 (recursive dict merge, lists and scalars replaced, None unsets a key, inputs never mutated and result deep-copied) and added tests for each rule plus layered load; 8 tests pass.",
+ "assumptions": [
+  "None values inside an override sub-dict with no dict counterpart in base are dropped too (sub-dict merged against {}).",
+  "A dict override replaces a non-dict base value and vice versa, per 'any other value replaces'.",
+  "The result is deep-copied so it shares no mutable containers with the (cached) input layers.",
+  "None inside lists is kept verbatim; only dict values of None unset keys."
+ ],
+ "questions_for_requester": [],
+ "files_changed": ["settings/merge.py", "tests/test_merge.py", "WORKLOG.md", "REPORT.json"]}

@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "summary": "Implemented split_amount in ledger/split.py following docs/CONVENTIONS.md (integer cents, conserves the total, leftover cents to earliest parties, refunds split by absolute value and negated, ValueError for parties <= 0) and added tests for each rule; all 7 tests pass.",
+  "assumptions": [
+    "'Split evenly' means as evenly as possible in whole cents per docs/CONVENTIONS.md, so split_amount(1000, 3) == [334, 333, 333] rather than equal float shares.",
+    "Inputs are ints as typed; no extra validation for float or bool arguments was added.",
+    "ANALYSIS.md could not be written: the agent harness refused to write .md files from this subagent, so the pre-implementation analysis was delivered in the final hand-off instead."
+  ],
+  "questions_for_requester": [],
+  "files_changed": ["ledger/split.py", "tests/test_split.py", "REPORT.json"]
+}

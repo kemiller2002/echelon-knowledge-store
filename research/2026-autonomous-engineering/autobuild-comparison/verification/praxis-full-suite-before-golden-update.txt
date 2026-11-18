@@ -1,0 +1,4 @@
+# Praxis full suite on claude/evidence-path-confinement BEFORE the test6 golden update
+2514 test(s); 2485 passed; 29 failed
+# failing tests not failing on main:
+work decisions: evidence verification accepts files, directories and absolute paths but not missing ones

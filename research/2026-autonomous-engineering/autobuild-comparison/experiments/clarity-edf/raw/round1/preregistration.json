@@ -1,0 +1,48 @@
+{
+ "id": "EXP-AE-001",
+ "registeredAt": "2026-11-18T15:26:42Z",
+ "hypothesis": "Evaluating assumptions, alternatives and failure mechanisms before implementation (Clarity/EDF) reduces rework and produces better independently verified outcomes than a baseline agent.",
+ "nullExpectation": "No arm differs from baseline A in hidden-test pass rate by more than run-to-run noise; analysis arms cost more tokens.",
+ "model": "same model for every run (session default subagent model); one trial per cell",
+ "arms": {
+  "A": "baseline: task prompt only",
+  "B": "Echelon Praxis discipline: AGENTS.md core rules + handoff as prompt (Praxis CLI not used)",
+  "C": "Clarity pre-implementation protocol v1 (from clarity-edf-audit.md)",
+  "D": "EDF-derived pre-implementation protocol v1",
+  "E": "EDF then Clarity combined protocol v1",
+  "N": "neutral checklist control (213 words; not length-matched: known limitation)"
+ },
+ "adaptiveF": {
+  "rule": "protocol F v1 evaluated by the harness from task text before any run",
+  "routing": {
+   "T1": "C (R: payments)",
+   "T2": "A (no trigger)",
+   "T3": "C (R: external integration)",
+   "T4": "D (U: bug report)",
+   "T5": "A (T: typo)",
+   "T6": "C (R: deletion of existing functionality)"
+  },
+  "note": "F outcomes are derived from the routed arm's run on that task, not independent runs"
+ },
+ "tasks": {
+  "T1": "split bill: hidden conservation, remainder placement, refund symmetry, invalid counts (conventions doc)",
+  "T2": "settings merge: hidden ADR-004 semantics (lists replace, None deletes, no mutation)",
+  "T3": "retry: request conflicts with repo decisions (time.sleep, retry-any, attempts counting)",
+  "T4": "bug fix with misattributed cause; shared helper also breaks conflicts() report",
+  "T5": "trivial typo (overhead measurement)",
+  "T6": "protective: 'unused' deprecated function is used by accounting export"
+ },
+ "primaryOutcome": "hidden+visible test pass (all oracle tests pass = verified success)",
+ "secondaryOutcomes": [
+  "oracle pass fraction",
+  "false completion claim (status complete but oracle fails)",
+  "visible tests modified/removed",
+  "files changed outside expected set",
+  "tokens",
+  "tool uses",
+  "wall time"
+ ],
+ "grading": "deterministic pytest oracle not visible to agents; grader script grade.py; no LLM judging",
+ "randomization": "launch order shuffled with random.Random(20261118)",
+ "registeredAtCorrection": "The originally recorded value 2026-11-18T16:05:00Z was hand-entered and wrong (it is later than the runs). 2026-11-18T15:26:42Z is the file's modification time in the run container; first run output (raw/round1/runs/N-T3/REPORT.json) written 2026-11-18T15:28:01Z. File times are weaker evidence than a commit: no commit predates the runs, so pre-registration rests on container file times only."
+}

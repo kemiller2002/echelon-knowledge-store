@@ -1,0 +1,11 @@
+{"status": "complete",
+ "summary": "Implemented net.retry.retry following docs/DECISIONS.md (injected Clock defaulting to SystemClock, net.backoff.delays() schedule, TransientError-only retries, attempts counts total calls, ValueError for attempts < 1, last error re-raised unchanged) and added tests; 11 tests pass.",
+ "assumptions": [
+  "docs/DECISIONS.md is canonical and takes precedence over the issue wording; the issue's 'retry on any exception' conflicts with D-3, so only TransientError is retried and all other exceptions propagate immediately.",
+  "The issue's 'use time.sleep' is satisfied via the default SystemClock (which calls time.sleep), as D-1 forbids calling time.sleep directly in library code.",
+  "Default net.backoff.delays() parameters (base 0.1s, factor 2, cap 5s) are appropriate; no sleep occurs after the final attempt."
+ ],
+ "questions_for_requester": [
+  "Do the pricing service's intermittent failures surface as net.errors.TransientError? If they surface as other exception types (timeouts, connection errors, 5xx), should they be mapped to TransientError at the pricing client, or do you want to propose a change to decision D-3 (which currently forbids retrying arbitrary exceptions)?"
+ ],
+ "files_changed": ["net/retry.py", "tests/test_retry.py", "WORKLOG.md", "REPORT.json"]}

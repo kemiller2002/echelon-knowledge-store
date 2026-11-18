@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "summary": "Implemented merge(base, override) in settings/merge.py per ADR-004: nested dicts merge recursively, lists and other values are replaced, None in the override removes the key, and inputs are never mutated (values are deep-copied). Added tests for each rule; the suite passes (8 tests).",
+  "assumptions": [
+    "When the override holds a dict but the base value at that key is not a dict (or is absent), the override dict is merged into an empty dict, so None-valued keys inside it are dropped rather than kept.",
+    "None values already present in the base are kept as-is; only the override's None removes a key.",
+    "Values are deep-copied so the result shares no mutable state with either input, which matters because callers cache layers."
+  ],
+  "questions_for_requester": [],
+  "files_changed": [
+    "settings/merge.py",
+    "tests/test_merge.py"
+  ]
+}

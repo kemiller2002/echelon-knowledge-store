@@ -1,0 +1,861 @@
+{
+ "schema": "eks.baseline-inventory/1",
+ "mission": "EKS-RESEARCH-2026-003",
+ "asOf": "2026-11-18",
+ "sources": [
+  "baseline-group-a.json",
+  "baseline-group-b.json",
+  "clarity-edf-audit.md"
+ ],
+ "systems": [
+  {
+   "system": "Praxis",
+   "repo": "kemiller2002/praxis",
+   "defaultBranch": "main",
+   "headSha": "12bf9951253fc15e6973c2d3f5b88076f4556245",
+   "version": "3.25.0 (release.json; Directory.Build.props:21-22 derives <Version> from release.json; tag v3.25.0; released 2026-11-03)",
+   "responsibility": "Repository Operating System (ROS) for engineering governance: work protocol (capture/start/block/complete with required evidence), claims and verified completion, telemetry/usage/cost, provenance, execution/containment of agents, autonomy (owner-signed run authorization + fail-closed merge evaluator), requirement catalog and verification manifests. It consumes Dokimos and Ordo judgements rather than re-measuring quality (CompletionReadiness.fs header).",
+   "buildTest": {
+    "ran": true,
+    "result": "build passed; tests partially run (runner exceeded time cap) with 0 failures observed",
+    "details": "dotnet build Praxis.slnx -c Release: 0 warnings 0 errors (203s incl. dotnet test, which finds no tests because Praxis.Tests is OutputType Exe, GenerateProgramFile=false). CI-equivalent `dotnet tests/Praxis.Tests/bin/Release/net10.0/Praxis.Tests.dll` (.github/workflows/praxis-validation.yml:58) killed at 330s cap: 958 PASS, 0 FAIL lines before timeout. Commit 6ca42a6 claims full suite 2489/2489."
+   },
+   "dependencies": [
+    "EchelonFoundry.Ordo.Core 1.8.2 + Ordo.Construction 1.8.2 (vendored nupkg, vendor/nuget, NuGet.config packageSourceMapping) - Ordo itself is at 1.20.0",
+    "EchelonFoundry.Limen.Routing 0.9.0 (vendored)",
+    "EchelonFoundry.Aegis.Core 1.0.0 (nuget.org) - Aegis is at 2.0.0",
+    "Forma design system 0.4.1 tgz (vendor/forma)",
+    "Consumes Dokimos contracts: dokimos.ratchet 1.0.0, dokimos.completion-authority/1 and completion-verification receipts (CompletionGate.fs:7-9, CompletionReadiness.fs:3-8)",
+    "Consumes Ordo ordo.boundary-amplification/1 (CompletionReadiness.fs:79-110)",
+    "Text references in src: ordo 64 files, forma 58, dokimos 19, limen 8, tutela 7, aegis 6, conditor 2"
+   ],
+   "gaps": [
+    "`work complete --evidence TYPE=PATH` only checks that each path exists: FileEvidenceRepository.observe calls File.GetAttributes on Path.Combine(root, path) (src/Praxis.Infrastructure/Work/FileEvidenceRepository.fs:10-17); no content, digest, test outcome, or root-containment check (Path.Combine accepts absolute paths). Required types come from ros.json workProtocol.completionEvidence (default: implementation, tests) and are matched only by type name (Model.fs:70-75).",
+    "The PRX-QUAL-023 completion-readiness gate that does judge Dokimos/Ordo verdicts (QualityEvidenceCommands.completionGate, Program.fs:1489) returns NotApplicable unless ros.json has workProtocol.qualityEvidence; none of the 7 repos' ros.json defines it (observed), so the gate does nothing in practice.",
+    "Two completion paths with different strength: legacy `work complete` (existence-only) vs `work complete-verified` (claim token + fencing generation + ValidatedEvidence + Dokimos receipt). parseEvidence in Program.fs:234 has no @sha256 support while ClaimArguments.evidence (ClaimArguments.fs:63-69) does.",
+    "Even the readiness gate trusts producer verdict strings: VerificationEvidenceItem.Result is a string, ReleaseReadinessEvidence.Verdict is self-declared (CompletionReadiness.fs:135-182).",
+    "Stale docs: context/CURRENT-STATE.md (last changed 2026-10-14) says remote execution lives on unmerged PR #91 and does not mention autonomy/claims/verified completion; docs/ROADMAP-STATUS.md 'Updated: 2026-08-16' says daemon/model routing is out of scope while local worker dispatch/autonomy now exists.",
+    "20 src files cite `tools/ros_cli.mjs` as the production behavior being mirrored, but no tools/ directory exists in Praxis (Node implementation retired).",
+    "Self-declared Partial requirements: PRX-ARCH-001 'Praxis re-implements Ordo semantics locally', PRX-EXEC-002 capability sets from a local copy of Ordo RoleAuthority, PRX-BND-001 boundary from CLI flags not an Ordo contract, PRX-STEP-008 no cost analysis by role (requirements/EXECUTION-ORCHESTRATION.md:445-569).",
+    "Pinned dependency lag: Ordo.Core 1.8.2 vs Ordo 1.20.0; Aegis.Core 1.0.0 vs 2.0.0.",
+    "Receipt/DSSE verification logic duplicated with Dokimos (VerificationReceipt.fs vs Dokimos CompletionAttestation.fs); ManifestObligation type duplicated with Dokimos RequirementEvidence.fs."
+   ],
+   "reuseCandidates": [
+    {
+     "name": "LiveWorkState / WorkAction / WorkTransition.decide",
+     "path": "/home/user/praxis/src/Praxis.Domain/Work/Model.fs:4-80",
+     "why": "Pure work-item state machine (Ready/Active/Blocked/Complete/Abandoned) with typed rejections incl. MissingEvidence."
+    },
+    {
+     "name": "ClaimStatus + WorkClaim + ClaimFence",
+     "path": "/home/user/praxis/src/Praxis.Domain/Work/Claim.fs:8-206",
+     "why": "Lease/fencing-generation claim lifecycle (Unclaimed..AwaitingVerification..Completed/Failed/Expired) for concurrent agents."
+    },
+    {
+     "name": "ValidationResult (praxis.validation-result/1) + work validate-run",
+     "path": "/home/user/praxis/src/Praxis.Domain/Work/ValidationResult.fs:28-43; src/Praxis.Application/Work/ValidationRuns.fs:76-77",
+     "why": "Praxis itself runs the check (no shell), records exit code, output sha256, revision; the only Praxis path that binds completion to an actual test outcome."
+    },
+    {
+     "name": "ValidatedEvidence (private ctor; establish/attest) + EvidenceProof",
+     "path": "/home/user/praxis/src/Praxis.Domain/Work/VerificationReceipt.fs:375-442",
+     "why": "Type-level invariant that passing evidence can only come from a recorded passed result or a verified signed receipt."
+    },
+    {
+     "name": "ReceiptPayload / ReceiptEnvelope (echelon.verification-receipt/1, DSSE) + TrustedVerifierKey",
+     "path": "/home/user/praxis/src/Praxis.Domain/Work/VerificationReceipt.fs:12-74",
+     "why": "Provenance-bound attestation of verification outcome with policy digest."
+    },
+    {
+     "name": "CompletionPacket / CompletionAuthority (praxis.completion-packet/1, dokimos.completion-authority/1)",
+     "path": "/home/user/praxis/src/Praxis.Domain/Work/CompletionGate.fs:21-63",
+     "why": "Completion gate model: untrusted agent claim vs host-held authority, verified by Dokimos."
+    },
+    {
+     "name": "CompletionReadiness: CompletionFacet, FacetStatus, QualityEvidencePolicy, ItemReadiness, VerificationMatrix, ReleaseReadinessEvidence, ConsumedEvidence(sha256)",
+     "path": "/home/user/praxis/src/Praxis.Domain/Work/CompletionReadiness.fs:20-260",
+     "why": "Facet-based verification/release gate with policy levels Required/Optional/Off and digest of each consumed evidence file."
+    },
+    {
+     "name": "Autonomy: ExecutionPolicy(PolicyVersion), RunAuthorization (owner-signed, PolicyDigest), ProtectedClass, AuthorizationState, Evaluator, Lifecycle.MergeReceipt",
+     "path": "/home/user/praxis/src/Praxis.Domain/Autonomy/Model.fs:50-185; Lifecycle.fs:58-114; Evaluator.fs",
+     "why": "Policy versioning + human approval reservation + fail-closed merge authorization; directly relevant to autonomous PR/merge loops."
+    },
+    {
+     "name": "CostBasis / PriceTableRef / UsageCost / PriceSchedule; GroupCost",
+     "path": "/home/user/praxis/src/Praxis.Domain/Telemetry/UsageCost.fs:8-144; src/Praxis.Domain/Work/GroupCost.fs",
+     "why": "Cost accounting that never mixes provider-reported and estimated cost; versioned price tables."
+    },
+    {
+     "name": "Telemetry domain (ProviderUsage, Steps, SessionTranscript, ReliabilityReport)",
+     "path": "/home/user/praxis/src/Praxis.Domain/Telemetry/",
+     "why": "Per-execution/step usage telemetry with unknown-not-zero semantics."
+    },
+    {
+     "name": "ArtifactProvenance / Contribution / ProvenancePolicy / Actor",
+     "path": "/home/user/praxis/src/Praxis.Domain/Provenance/ArtifactProvenance.fs:11-155; ProvenancePolicy.fs:34-80",
+     "why": "Agent/human contribution provenance (provider, model, runtime) already written into front matter across all repos."
+    },
+    {
+     "name": "RequirementCatalog / ManifestObligation (praxis.requirement-catalog/1, verification manifest)",
+     "path": "/home/user/praxis/src/Praxis.Domain/Requirements/RequirementCatalog.fs:19-140",
+     "why": "Stable requirement IDs -> deterministic verification manifest consumed by Dokimos."
+    }
+   ]
+  },
+  {
+   "system": "Ordo",
+   "repo": "kemiller2002/ordo",
+   "defaultBranch": "main",
+   "headSha": "db6d39ed2e7bc185a7fab6821677e7cd00201d8c",
+   "version": "1.20.0 (distribution/package.json, read by Directory.Build.props:11-13; RELEASE-1-20-0 commit 55beac0, 2026-11-02)",
+   "responsibility": "Originally 'State Directed Engineering' (SDE) methodology: explicit states, legal transitions, invariants, evidence, obligations, policies (PROJECT-CHARTER.md v0.3.0). In code it is the decision/contract engine: transition evaluation, evidence provenance, versioned policies, construction plans/IR, verification scheduling, pattern recognition (ECIR), decision events, and an LLM provider adapter. Distributed as native `ordo` CLI (alias `sde`) and NuGet Ordo.Core/Ordo.Construction.",
+   "buildTest": {
+    "ran": true,
+    "result": "5 of 6 test projects pass; Sde.Core.Tests fails for environmental reason",
+    "details": "No solution file at root (dotnet build at root fails MSB1003). Per-project dotnet test (net8.0 runtime 8.0.34 present): Churn 9/9, Complexity 28/28, Construction 129/129, Site 65/65, Ordo.Tests 575 passed 1 skipped; Sde.Core.Tests 70 passed / 95 failed \u2014 all from fixture init: 'distribution/dist is not built; run npm run build in distribution/' (not run). Total 304s."
+   },
+   "dependencies": [
+    "No EchelonFoundry package references (it is upstream)",
+    "Records Dokimos receipts (dokimos.completion-verification, dokimos.recognition-audit/1) as verification events (Sde.Cli/Help.fs:274-276)",
+    "Correlates with Praxis via PRAXIS_TELEMETRY_RUN_ID / PRAXIS_WORK_ITEM env vars (Help.fs:281-283)",
+    "Governed by Praxis (praxis/ ros/ shims, ros.json)",
+    "experiments/verified-construction references Dokimos B4 trace"
+   ],
+   "gaps": [
+    "context/CURRENT-STATE.md (last change 2026-10-06) describes SDE package v1.1.x and 'distribution suite passes 32 tests'; README says 'greenfield pilot running ROS 1.2.1-main.16.1' \u2014 both far behind 1.20.0.",
+    "Charter (v0.3.0, 2026-09-05) is about SDE methodology, not the Ordo orchestration product; rename Ordo<-SDE only partially reflected (sde alias, Sde.* projects).",
+    "No root solution; CI workflows pin dotnet 8.0.x while ecosystem moved to net10.",
+    "Sde.Core.Tests require an npm build of distribution/ (Node dependency persists despite native distribution).",
+    "Open draft PRs #83-#90 carry version numbers already consumed on main.",
+    "Praxis pins Ordo.Core 1.8.2 and self-reports re-implementing Ordo semantics locally (PRX-ARCH-001) \u2014 contract not actually shared."
+   ],
+   "reuseCandidates": [
+    {
+     "name": "Policy<'facts> / PolicyIdentity{Id,Version,Experimental} / PolicyVerdict (Allows|Refuses|RequiresHumanReview)",
+     "path": "/home/user/kemiller2002/ordo/src/Ordo.Core/Policy.fs:19-62",
+     "why": "Generic versioned policy with first-class human-review verdict: policy versioning + approval routing."
+    },
+    {
+     "name": "Evidence / EvidenceKind (Direct|Derived|Inferred by provider) / EvidenceDependency",
+     "path": "/home/user/kemiller2002/ordo/src/Ordo.Core/Evidence.fs:25-316",
+     "why": "Provenance-typed evidence that never conflates model inference with observation; acyclic derivation check."
+    },
+    {
+     "name": "Transition / TransitionAuthorization / TransitionEvaluation",
+     "path": "/home/user/kemiller2002/ordo/src/Ordo.Core/Transition.fs:29-137",
+     "why": "Legal-transition evaluation with evidence and authorization requirements."
+    },
+    {
+     "name": "VerificationSchedule: EvidenceOutcome, RecordedEvidence(bindings), ObligationState(Satisfied|Failing|NotRun|BlockedRun|Stale|TestMissing), WorkKind",
+     "path": "/home/user/kemiller2002/ordo/src/Ordo.Core/VerificationSchedule.fs:32-144",
+     "why": "Deterministic next-work derivation from verification plan with freshness-bound evidence."
+    },
+    {
+     "name": "DecisionEvents (ordo.decision-event/1): RunFacts, SelectionFacts, ExecutionFacts, VerificationFacts, Correlation",
+     "path": "/home/user/kemiller2002/ordo/src/Ordo.Core/DecisionEvents.fs:45-139",
+     "why": "Append-only JSONL telemetry separating selection, execution and independent verification; redacts content."
+    },
+    {
+     "name": "Receipt (ExpectedReceipt/ObservedReceipt/ReceiptOutcome)",
+     "path": "/home/user/kemiller2002/ordo/src/Ordo.Core/Receipt.fs:17-100",
+     "why": "Expected-vs-observed effect reconciliation."
+    },
+    {
+     "name": "Ordo.Decisions Gate / Escalation / Replay / Confidence",
+     "path": "/home/user/kemiller2002/ordo/src/Ordo.Decisions/Gate.fs:25-43; Escalation.fs:22-54",
+     "why": "Gate from model decision to legal transition; escalation chains; replayable decisions."
+    },
+    {
+     "name": "Ordo.Providers.Anthropic Adapter",
+     "path": "/home/user/kemiller2002/ordo/src/Ordo.Providers.Anthropic/Adapter.fs",
+     "why": "Single-tool constrained LLM call, transport-only retries, pinned model required."
+    },
+    {
+     "name": "Authorization (ActorKind/ActorRequirement/AuthorizationPolicy)",
+     "path": "/home/user/kemiller2002/ordo/src/Ordo.Core/Authorization.fs:14-75",
+     "why": "Actor-kind based authorization for transitions."
+    }
+   ]
+  },
+  {
+   "system": "Dokimos",
+   "repo": "kemiller2002/dokimos",
+   "defaultBranch": "main",
+   "headSha": "6ea86246cb13f141201bc5cae5d84ebe9831d02b",
+   "version": "0.11.1 (Directory.Build.props:11; commit 1b253e4 2026-11-04)",
+   "responsibility": "Evidence-based longitudinal code-quality system: immutable snapshots, comparison, ratchet/policy evaluation, hotspots; plus independent verification services: completion verify (Praxis completion packets), construction/behavior verification, requirement verification from Praxis manifests, evidence reuse (PROJECT-CHARTER.md mission/constraints).",
+   "buildTest": {
+    "ran": true,
+    "result": "pass",
+    "details": "dotnet build Dokimos.sln -c Release OK; tests: Domain 4/4, Core 436/436, Cli 157/157 (597 total, 0 failed); 223s."
+   },
+   "dependencies": [
+    "EchelonFoundry.Aegis.Core 1.0.0 (fault boundary in Program.fs:503-530)",
+    "Consumes Praxis praxis.completion-packet/1 and verification manifests; produces dokimos.completion-authority/1 receipts consumed by Praxis",
+    "Mirrors Forma.Workflow.RequirementIdentity (RequirementJudging.fs:17-20)",
+    "Pins Forma 0.3.0 release URL (WI-0017)",
+    "Ordo plan/evidence output (--ordo-evidence) for requirement verification"
+   ],
+   "gaps": [
+    "completion verify does not run tests or parse results: it compares the packet against host-supplied EvidenceObservation.Status (EvidencePassed|Failed|Unavailable) (CompletionVerification.fs:25-71); truth of a pass depends on the host (Praxis validate-run or attested receipt).",
+    "Test outcomes ARE parsed in `verification coverage` (TRX via TestResults.fs:9-33) and `verification requirements` (Playwright JSON) \u2014 but Praxis `work complete` does not invoke these.",
+    "context/CURRENT-STATE.md 'Updated: 2026-10-02' and HANDOFF.md (2026-10-06) describe v0.1/v0.2; current is 0.11.1 with completion/requirement verification.",
+    "Aegis.Core pinned at 1.0.0 (Aegis is 2.0.0 with breaking fail-closed store queries).",
+    "DSSE receipt verification duplicated with Praxis (CompletionAttestation.fs vs Praxis VerificationReceipt.fs)."
+   ],
+   "reuseCandidates": [
+    {
+     "name": "CompletionVerification (CompletionPacket, VerificationAuthority, EvidenceObservation, VerificationReceipt dokimos.completion-verification/1)",
+     "path": "/home/user/dokimos/src/Dokimos.Core/CompletionVerification.fs:10-120",
+     "why": "Independent verifier of agent completion claims: commit/revision binding, required requirement/decision/validation IDs, replay protection (ConsumedPacketDigests), freshness window."
+    },
+    {
+     "name": "CompletionAttestation (TrustedVerifierKey, ReceiptPayload, AttestedReceipt)",
+     "path": "/home/user/dokimos/src/Dokimos.Core/CompletionAttestation.fs:18-82",
+     "why": "Signed verification receipts; attested mode where agent cannot forge passes."
+    },
+    {
+     "name": "RequirementEvidence: RequirementStatus(Pass|Fail|Blocked|NotRun|NotApplicable), RequirementManifest, VerificationReport(Accepted,Blockers)",
+     "path": "/home/user/dokimos/src/Dokimos.Core/Verification/RequirementEvidence.fs:25-142",
+     "why": "Requirement-level verification outcome with candidate-commit staleness."
+    },
+    {
+     "name": "TestResults (Outcome Passed|Failed|Skipped|NotExecuted; TRX, Playwright)",
+     "path": "/home/user/dokimos/src/Dokimos.Core/Verification/TestResults.fs:9-33",
+     "why": "Actual test-outcome parsing to back a verification gate."
+    },
+    {
+     "name": "EvidenceReuse (Freshness, ObservationProvenance, PriorEvidence) + evidence plan|record",
+     "path": "/home/user/dokimos/src/Dokimos.Core/EvidenceReuse.fs:16-100",
+     "why": "Content-addressed evidence reuse and affected-test selection \u2014 cost reduction for autonomous loops."
+    },
+    {
+     "name": "Ratchet / Evaluation (QualityPolicy, RatchetRule, Suppression) + EvidenceStore",
+     "path": "/home/user/dokimos/src/Dokimos.Core/Ratchet.fs; Evaluation.fs:8-60; EvidenceStore.fs:8-94",
+     "why": "Quality ratchet consumed by Praxis readiness gate (dokimos-ratchet evidence)."
+    },
+    {
+     "name": "Verification FaultProbe / Coverage / Obligations",
+     "path": "/home/user/dokimos/src/Dokimos.Core/Verification/",
+     "why": "Mutation-style probes proving tests detect faults."
+    }
+   ]
+  },
+  {
+   "system": "Aegis",
+   "repo": "kemiller2002/aegis",
+   "defaultBranch": "main",
+   "headSha": "2c28b6e20565164b0f604298062ebdfc19d1a2af",
+   "version": "2.0.0 (src/Aegis.Core/Aegis.Core.fsproj:10 and other two packages; 'Release 2.0.0' commit ec0e876, 2026-10-05)",
+   "responsibility": "Despite the assumed 'security and assurance' label, Aegis is a .NET library for handling and recovering from unexpected operational failures: fault model, capture API, redaction, lifecycle, recovery authority, escalation, containment, sinks, GitHub-backed event store (README.md). Security posture is delegated to Tutela; Aegis only projects faults as Tutela evidence (requirements/TUTELA-INTEGRATION.md).",
+   "buildTest": {
+    "ran": true,
+    "result": "pass",
+    "details": "Aegis.sln build OK; Aegis.Core.Tests 339/339, Aegis.Core.CSharpTests 8/8; 47s."
+   },
+   "dependencies": [
+    "None on other Echelon packages",
+    "Consumed by Praxis, Dokimos, Fides, Arca, Vigila \u2014 all at Aegis.Core 1.0.0 (Integration.GitHub 1.0.0 in Arca)",
+    "Governed by Praxis 3.7.2 / Ordo 1.5.0 (conditor.json)"
+   ],
+   "gaps": [
+    "PROJECT-CHARTER.md is the unfilled template (status draft, 'Intended users: Not yet established') and context/CURRENT-STATE.md says 'Newly initialized with ROS 3.0.0 ... no vertical slice' \u2014 contradicted by 2.0.0 with 137/143 requirements done.",
+    "No commits since Oct 16; governance pins Praxis 3.7.2/Ordo 1.5.0 (current 3.25.0/1.20.0).",
+    "All consumers remain on Aegis.Core 1.0.0, so 2.0.0 fail-closed semantics are not in use anywhere in this group.",
+    "Name/role mismatch with the program's assumption: no security scanning/assurance gate here."
+   ],
+   "reuseCandidates": [
+    {
+     "name": "Fault / FaultCode / FailureCategory / RecoveryPolicy / AegisEvent",
+     "path": "/home/user/kemiller2002/aegis/src/Aegis.Core/Types.fs:32-340",
+     "why": "Uniform typed failure model for autonomous runners; already used as CLI fault boundary in Dokimos."
+    },
+    {
+     "name": "Recovery (Authority, Decision, Refusal, SafeMode, Obligation)",
+     "path": "/home/user/kemiller2002/aegis/src/Aegis.Core/Recovery.fs:13-134",
+     "why": "Authorized, bounded retry/recovery with explicit refusal and terminal events."
+    },
+    {
+     "name": "Redaction",
+     "path": "/home/user/kemiller2002/aegis/src/Aegis.Core/Redaction.fs",
+     "why": "Secret/PII redaction for telemetry and logs."
+    },
+    {
+     "name": "Tutela evidence projection",
+     "path": "/home/user/kemiller2002/aegis/src/Aegis.Core/Tutela.fs",
+     "why": "Provenance-safe fault->assurance evidence mapping."
+    }
+   ]
+  },
+  {
+   "system": "Fides",
+   "repo": "kemiller2002/fides",
+   "defaultBranch": "main",
+   "headSha": "f9b72911bdc0dedc5c4a4d0df182edd6406505fd",
+   "version": "0.2.0 (Directory.Build.props:5; CHANGELOG.md:3 '0.2.0 (2026-10-08)'); requirements baseline 0.3.0 (WI-0022)",
+   "responsibility": "Common Echelon authentication/SSO identity boundary: stateless GitHub App code-for-token exchange/refresh/revocation (AWS Lambda first) and an F# WASM client providing sessions and the token provider Arca consumes (PROJECT-CHARTER.md, README.md). Authorization ownership is only a draft proposal (docs/architecture/AUTHORIZATION-OWNERSHIP.md status draft).",
+   "buildTest": {
+    "ran": true,
+    "result": "pass",
+    "details": "Fides.slnx build OK; Fides.Tests 241/241, Fides.Hosting.Aws.Tests 90/90; 45s. Wasm verification (scripts/verify-wasm.sh) not run."
+   },
+   "dependencies": [
+    "EchelonFoundry.Aegis.Core 1.0.0 (Fides.Hosting)",
+    "EchelonFoundry.Arca.Core 0.1.0 (Fides.Arca) \u2014 Arca is 0.7.0",
+    "Limen/Forma for client apps",
+    "Praxis 3.7.2 / Ordo 1.5.0 governance"
+   ],
+   "gaps": [
+    "Own gap report lists 8 existing violations incl. High: cross-application confused deputy on refresh/revoke (V1, src/Fides/Configuration.fs, Exchange.fs) and shared GitHub App token reach (V2); fine-grained authorization unenforceable because users hold GitHub tokens.",
+    "Nothing deployed; no live-provider evidence for 26 requirements; 27 P0 unverified.",
+    "WI-0042 shared Echelon GitHub App likely widens V2 (inference).",
+    "Arca.Core pinned at 0.1.0."
+   ],
+   "reuseCandidates": [
+    {
+     "name": "Provider model + Exchange core (pure)",
+     "path": "/home/user/kemiller2002/fides/src/Fides/Provider.fs; Exchange.fs; Service.fs",
+     "why": "GitHub App user-to-server token exchange; identity for agent/human actors."
+    },
+    {
+     "name": "READINESS-AND-GAP-REPORT + TRACEABILITY-MATRIX pattern",
+     "path": "/home/user/kemiller2002/fides/docs/requirements/READINESS-AND-GAP-REPORT.md",
+     "why": "Honest status taxonomy (verified/unverified/missing/blocked) and `Verifies` traits tying tests to requirements."
+    }
+   ]
+  },
+  {
+   "system": "Arca",
+   "repo": "kemiller2002/arca",
+   "defaultBranch": "main",
+   "headSha": "8cfa064ab80003980ec0647363e980ff2e9d1b84",
+   "version": "0.7.0 (Directory.Build.props:6; CHANGELOG.md:12 '[0.7.0] \u2014 2026-10-29')",
+   "responsibility": "Shared data layer for Echelon apps: authoritative records stored in GitHub repositories, pure core + GitHub adapter running in browser WASM, offline queue, read cache, concurrency, migrations, published as NuGet (PROJECT-CHARTER.md).",
+   "buildTest": {
+    "ran": true,
+    "result": "pass",
+    "details": "Arca.slnx build OK; Arca.Tests 415/415; 80s."
+   },
+   "dependencies": [
+    "EchelonFoundry.Aegis.Core 1.0.0, Aegis.Integration.GitHub 1.0.0",
+    "EchelonFoundry.Limen.Store/Contract 0.9.0 (vendored nupkgs)",
+    "Consumed by Fides.Arca (at 0.1.0)",
+    "Decision DF-ARCA-2026-0001: no Fides dependency"
+   ],
+   "gaps": [
+    "context/CURRENT-STATE.md (2026-10-08) says 'No storage behaviour exists yet. src/Arca/Library.fs is the scaffold placeholder' and 'Limen has no IndexedDB capability' \u2014 contradicted by 0.7.0 and Arca.Limen IndexedDbQueue.fs.",
+    "Downstream Fides.Arca pinned at 0.1.0."
+   ],
+   "reuseCandidates": [
+    {
+     "name": "Concurrency (Revision, ChangeToken, IdempotencyKey, CorrelationId, Change, OperationMetadata)",
+     "path": "/home/user/kemiller2002/arca/src/Arca.Core/Concurrency.fs:8-164",
+     "why": "Optimistic concurrency + idempotency for any GitHub-stored state (e.g. work state, evidence ledgers)."
+    },
+    {
+     "name": "SyncSchedule (RetryPolicy, SyncDirective, SaveState)",
+     "path": "/home/user/kemiller2002/arca/src/Arca.Core/SyncSchedule.fs:6-360",
+     "why": "Bounded retry scheduling with typed deferrals."
+    },
+    {
+     "name": "Conformance suites",
+     "path": "/home/user/kemiller2002/arca/src/Arca.Core/Conformance.fs",
+     "why": "Reusable contract tests for storage adapters."
+    }
+   ]
+  },
+  {
+   "system": "Vigila",
+   "repo": "kemiller2002/vigila",
+   "defaultBranch": "main",
+   "headSha": "feab75517e791d4ab0db9e42158cd3c7167ce4ee",
+   "version": "none declared (no <Version>, no release/ dir, no CHANGELOG, no tags); ros.json rosVersion 3.0.3; conditor.json pins Praxis 3.7.2/Ordo 1.5.0",
+   "responsibility": "NOT monitoring/observability: Vigila is a system of record for personal/business follow-ups, open loops, reminders and lightweight tasks, agent-operable, with per-user GitHub data repositories (PROJECT-CHARTER.md Purpose; VIG-GOV-001..003). README tagline 'Task organizer.'",
+   "buildTest": {
+    "ran": true,
+    "result": "pass (dotnet only)",
+    "details": "Vigila.sln build OK; Semantic 19, Transition 8, Application 118, Host.GitHub 140 \u2014 285/285; Playwright/browser not run."
+   },
+   "dependencies": [
+    "EchelonFoundry.Aegis.Core 1.0.0",
+    "@echelon-foundry/limen 0.9.0, Forma design-system 0.4.1, Folio print-components 0.3.0 (package.json)"
+   ],
+   "gaps": [
+    "context/CURRENT-STATE.md (2026-09-18) and README still the ROS bootstrap template ('Newly initialized', 'Complete PROJECT-CHARTER.md').",
+    "No versioning/release.",
+    "304 requirement IDs vs ~4.9k lines of code: implementation coverage unknown (TRACEABILITY.md maps sections to IDs, not status).",
+    "If the program needs a monitoring/observability system, none exists in this group; observability lives in Praxis telemetry and Ordo decision events."
+   ],
+   "reuseCandidates": [
+    {
+     "name": "Vigila.Transition (TransitionRefusal) + Semantic Item/Resolution",
+     "path": "/home/user/kemiller2002/vigila/src/Vigila.Transition/Transitions.fs:17; src/Vigila.Semantic/Item.fs:30-54",
+     "why": "Small open-loop item lifecycle; could track human follow-ups/approvals awaiting response."
+    }
+   ]
+  },
+  {
+   "system": "Echelon Knowledge Store (EKS)",
+   "repo": "kemiller2002/echelon-knowledge-store",
+   "defaultBranch": "main",
+   "headSha": "35d9cee0df94eed89335712fbaade4d491a45bcd",
+   "version": "none released; compiler self-identifies 'eks-compiler 0.1.0-research'; no tags; README: 'No stable schema, no released packages'",
+   "responsibility": "Research into how Echelon repos should store/deliver knowledge to agents; experimental F# knowledge compiler + `eks` CLI over Markdown+YAML front matter (README.md; AGENTS.md 'research phase').",
+   "buildTest": {
+    "ran": true,
+    "result": "PASS",
+    "details": "`dotnet tool restore; dotnet test Echelon.KnowledgeStore.sln -c Release` -> 'Passed! Failed: 0, Passed: 78, Skipped: 0, Total: 78' exit 0. CLI built separately (`dotnet build tools/Echelon.KnowledgeStore.Cli -c Release` -> eks.dll); test build does not produce the CLI. CLI runs: validate on fixture -> '23 records; 1 Warning, 1 RequiresReview' exit 0; work-item fx-ledger WI-0003 -> status COMPLETE, 524 words; work-item-manifest -> JSON with derived conditions; impact, explain, obligations (eks.requirement-contract/0), compile (index.md, records.jsonl, diagnostics.json, precomputed.json, manifest.json), verify -> 'fresh'. validate over local forma,folio,limen,echelon-registry,echelon-foundry -> '188 records; 6 Error, 46 Advisory, 1 RequiresReview, 10 Warning' in 0.5 s (6 errors = limen research/decisions DF-LIMEN-2026-0001..0006 without front-matter id). examples/ is empty (.gitkeep), so the fixture was used."
+   },
+   "dependencies": [
+    "Praxis: reads REPO/.ros/work/queue.json schemaVersion 1.0.0 (research/2026-compiler-integration/architecture/task-package-contract.md)",
+    "Dokimos: emits dokimos.verification-obligations/1 (eks dokimos-obligations)",
+    "Corpus: 13 pinned repos incl. forma, echelon-engineering-system, praxis, dokimos (benchmarks/corpus.lock.json)",
+    "Not registered in echelon-registry (0 matches in registry/systems-v2.json)"
+   ],
+   "gaps": [
+    "No released package/schema; schemas/ and examples/ empty",
+    "No real-repository task evidence; benchmark fixture authored by compiler author; hidden tests public (contamination) (research/2026-compiler-integration/strategy/executive-report.md 'Remaining uncertainties')",
+    "Status-vs-prose contradictions not detectable structurally; contradiction detection limited to typed `contradicts` relations (EKS0017 contested-claim, Validation.fs:173-180)",
+    "Claude tokenizer not measured (Tokens.fs:19); token counts are o200k/cl100k/llama",
+    "Recommendation is advisory only; no Praxis/Dokimos integration merged upstream",
+    "Real-corpus run shows current Echelon repos fail EKS rules (6 errors) - adoption friction"
+   ],
+   "reuseCandidates": [
+    {
+     "name": "eks work-item / work-item-manifest",
+     "path": "/home/user/echelon-knowledge-store/src/Echelon.KnowledgeStore.Compiler/WorkItems.fs",
+     "why": "Compiled task package with 12 required fields, derived completeness, sha256 provenance; measured 32/32 vs 24/32 on amended-requirement tasks"
+    },
+    {
+     "name": "eks change-manifest / diff / impact",
+     "path": "/home/user/echelon-knowledge-store/src/Echelon.KnowledgeStore.Compiler/Changes.fs",
+     "why": "Transactional evaluation of agent knowledge edits; never approves; impact 13/13 recall on fixture"
+    },
+    {
+     "name": "Content-hashed artefact manifest + stale refusal",
+     "path": "/home/user/echelon-knowledge-store/src/Echelon.KnowledgeStore.Compiler/Artifacts.fs",
+     "why": "Knowledge packaging with provenance/version ids; `verify` exit 2 when stale"
+    },
+    {
+     "name": "dokimos-obligations / requirement contract",
+     "path": "/home/user/echelon-knowledge-store/src/Echelon.KnowledgeStore.Compiler/Packages.fs",
+     "why": "Bridge from requirements acceptance criteria to verification obligations"
+    },
+    {
+     "name": "Coding benchmark harness + fixture",
+     "path": "/home/user/echelon-knowledge-store/benchmarks",
+     "why": "Seeded, hidden-test scoring of agent runs; reusable to evaluate autonomous-engineering changes"
+    }
+   ]
+  },
+  {
+   "system": "Forma (design system / UI components)",
+   "repo": "kemiller2002/forma",
+   "defaultBranch": "main",
+   "headSha": "3887eec80668fecc7c6e91e38a782765a71199ff",
+   "version": "@echelon-foundry/design-system 1.0.2 (package.json; CHANGELOG.md '## 1.0.2'); registry echelon-current 1.39.0 pins forma 1.0.1; subpackages @echelon-foundry/forma-workflow 2.0.0, @echelon-foundry/forma-conformance 0.3.0",
+   "responsibility": "Zero-component-runtime, brand-neutral design system: semantic HTML patterns, CSS, design tokens, accessibility contracts; behaviour belongs to consuming app 'normally through Limen' (README.md:1-35).",
+   "buildTest": {
+    "ran": true,
+    "result": "PARTIAL - no failures observed; timed out",
+    "details": "On a git-archive copy: npm ci OK; 'npm run check' (dotnet on PATH) ran build, icons, tokens:validate, token/brand/runtime/design/color/motion/marketing/character-grid/figma/... and workflow-package node suites: 399 'ok' subtests, 0 'not ok', then hit the 420 s cap (exit 124) at test:browser (Playwright). Token build: '537 tokens, 22 semantic variables across 18 themes'. Browser suites not evaluated; only Chromium is installed locally."
+   },
+   "dependencies": [
+    "Limen (documented behavioural boundary, docs/AGENT-USAGE.md:26)",
+    "Visual Engineering UI-LAYOUT-INTERACTION@1.0.0 (forma-conformance)",
+    "Praxis/ROS governance (praxis, ros scripts)",
+    "Consumed by echelon-engineering-system (pinned 0.9.0), echelon-foundry (0.2.0), Folio (icons)"
+   ],
+   "gaps": [
+    "Registry pins 1.0.1 while main is 1.0.2",
+    "FOR-F1 contract enforcement thin (13 of 165 components with machine metadata) - open as of 2026-10-05",
+    "FOR-F4 44 recorded shipped defects incl. WCAG AA contrast failures (accepted-debt)",
+    "FOR-F3 consumers pinned at many versions (EES 0.9.0, foundry 0.2.0)",
+    "FOR-F6 intermittent browser tests"
+   ],
+   "reuseCandidates": [
+    {
+     "name": "Control-plane patterns",
+     "path": "/home/user/kemiller2002/forma/patterns",
+     "why": "work-queue, lane-board, diff-viewer, conflict-review, obligation-panel, provenance-trail, verification-frame, readiness-checklist, evidence-relationship, operation-status, diagnostic-status - directly fit an autonomous-engineering UI control plane"
+    },
+    {
+     "name": "forma-workflow",
+     "path": "/home/user/kemiller2002/forma/packages/workflow",
+     "why": "Embeddable workflow renderer/editor"
+    },
+    {
+     "name": "forma-conformance",
+     "path": "/home/user/kemiller2002/forma/packages/conformance",
+     "why": "Playwright UI conformance assertions for verification"
+    }
+   ]
+  },
+  {
+   "system": "Folio (print/report components)",
+   "repo": "kemiller2002/folio",
+   "defaultBranch": "main",
+   "headSha": "217d644e39b11127620f8d83a1e1ee9dff59ec48",
+   "version": "@echelon-foundry/print-components 0.4.2 (package.json); registry pins 0.4.1; EES notes 0.4.2 'did not exist as a published release' (echelon-engineering-system/docs/requirements-verification.md:15-17)",
+   "responsibility": "Print component system: light-DOM custom elements and print-layout primitives for HTML -> paper/PDF; standards-first, tiered renderer capability P0-P3; explicitly not a JS pagination engine (README.md:1-30).",
+   "buildTest": {
+    "ran": true,
+    "result": "PARTIAL",
+    "details": "git-archive copy, `npm ci` OK. Full `npm test` FAILED at run-primitive-component-tests.mjs: Playwright Firefox executable missing (environmental). Individually: runtime:check PASS; runtime-version.test 3/3; test:ui-conformance:rules 31 pass, 1 skipped; run-report-fixture-tests produced results; run-print-experiments emitted a JSON error 'Executable doesn't exist ... firefox' (environmental; exit status masked by pipe). Note FOL-F4: runners hard-code chromium/firefox/webkit and ignore FOLIO_ENGINES."
+   },
+   "dependencies": [
+    "Forma (icons tests: test:forma-icons; FOR-F2 stale copy of Forma CSS for diagram projections)",
+    "Limen (installed, boundary notApplicable)",
+    "Tutela (security-record components, FOL-F2)",
+    "Praxis/ROS"
+   ],
+   "gaps": [
+    "FOL-F1 registers ef-print-* in Forma's ef- namespace (open 2026-10-05)",
+    "FOL-F2 Tutela-specific components inside generic print library",
+    "No PDF determinism test runnable without all three browsers",
+    "Folio 0.4.2 on main but registry/consumers at 0.4.1"
+   ],
+   "reuseCandidates": [
+    {
+     "name": "ef-print-* document primitives",
+     "path": "/home/user/kemiller2002/folio/src/components",
+     "why": "Reporting/print of engineering evidence (EES already generates tagged Letter PDFs with Folio 0.4.1)"
+    },
+    {
+     "name": "report fixture",
+     "path": "/home/user/kemiller2002/folio/tests/run-report-fixture-tests.mjs",
+     "why": "Reference for report layout incl. grayscale/text-equivalent checks"
+    }
+   ]
+  },
+  {
+   "system": "Limen (browser boundary; F#/.NET WASM consumers)",
+   "repo": "kemiller2002/limen",
+   "defaultBranch": "main",
+   "headSha": "743cdb9be8971c0a3a250906a6e2e112170dfae0",
+   "version": "@echelon-foundry/limen 0.9.1 (package.json; tag v0.9.1); [Unreleased] adds `limen wasm-check`; registry: limen 0.9.1, limen-fsharp 0.9.0 (F# library fsproj Version 0.0.0 in source)",
+   "responsibility": "Dependency-free browser library splitting app into kernel (browser APIs) and engine (authority), exchanging only JSON; plus F# lifecycle CLI init/status/verify/upgrade/doctor (README.md:20-45).",
+   "buildTest": {
+    "ran": true,
+    "result": "PASS (partial scope)",
+    "details": "Full `npm test` pretest requires `dotnet workload restore` + WASM publish (not attempted fully; first run failed only because dotnet was not on PATH). Ran `npm run build && node --experimental-strip-types --test test/*.test.ts` on a git-archive copy: tests 883, pass 873, fail 0, skipped 10, EXIT=0. Not run: contract/architecture/docs checks, F# CLI tests, WASM site build."
+   },
+   "dependencies": [
+    "@echelon-foundry/repository-operating-system ^1.2.1 (devDependency)",
+    "Consumers: Forma (documented), Folio/foundry (notApplicable boundary), EES intentionally absent"
+   ],
+   "gaps": [
+    "Describing Limen as a 'WebAssembly runtime' contradicts its README: npm package is a TS browser boundary; WASM exists only in site/guests",
+    "XC-06 consumer verify passes vacuously on empty boundary lists / unpinned npx (open portfolio item; LIM-F2 done in limen#77)",
+    "LIM-F7 work items 'ready' though shipped (open)",
+    "6 open PRs, oldest 2026-09-16"
+   ],
+   "reuseCandidates": [
+    {
+     "name": "Kernel/engine boundary + capability packs",
+     "path": "/home/user/kemiller2002/limen/src",
+     "why": "Hosting an F#/WASM control-plane engine with no direct browser authority"
+    },
+    {
+     "name": "limen wasm-check",
+     "path": "/home/user/kemiller2002/limen/docs/57-wasm-interpreter-frame-check.md",
+     "why": "Catches WASM-only InvalidProgramException that CoreCLR unit tests miss - a verification gap class"
+    },
+    {
+     "name": "Limen.Outbox/Store/Http F# libs",
+     "path": "/home/user/kemiller2002/limen/libraries/fsharp",
+     "why": "Reusable F# effect libraries for a WASM UI"
+    }
+   ]
+  },
+  {
+   "system": "Echelon Registry",
+   "repo": "kemiller2002/echelon-registry",
+   "defaultBranch": "main",
+   "headSha": "fef1f944ccfb2f9975a2183bb770c14fed88cc5f",
+   "version": "no package version; channel echelon-current 1.39.0 (sets/echelon-current/1.39.0.json, owner-approved WI-0081)",
+   "responsibility": "Discovery/interoperability specification for independently installable Echelon systems: identity, repository, provided/consumed capabilities, executables, contract versions; distribution catalog, release sets, channels (README.md).",
+   "buildTest": {
+    "ran": true,
+    "result": "PASS",
+    "details": "`dotnet fsi conformance/<x>.fsx`: validate-capability-pairing PASS; validate-manifest-references PASS (self-test 3 findings as expected); validate-release-sets PASS (echelon-current@1.39.0 approved, 15 records, 5 self-tests); validate-current-channel PASS; validate-distribution-fixtures PASS. git status clean afterwards."
+   },
+   "dependencies": [
+    "Describes all systems; Praxis provenance contract (open PRs #1, #2)",
+    "project-administration owns installation history"
+   ],
+   "gaps": [
+    "Forma, Folio, Limen declare provides: [] and optionalConsumes: [] (systems-v2.json) - REG-F2 no compatibility validation",
+    "EKS not registered",
+    "Pins lag main: forma 1.0.1 vs 1.0.2, folio 0.4.1 vs 0.4.2",
+    "REG-F5 resolved set not reproducible; REG-F6 authority semantics undocumented (open as of 2026-10-05)",
+    "PR #95 references 1.28.0 while channel is at 1.39.0 (stale)"
+   ],
+   "reuseCandidates": [
+    {
+     "name": "Release-set + channel model",
+     "path": "/home/user/kemiller2002/echelon-registry/sets",
+     "why": "Pinned, hashed component sets for reproducible autonomous runs"
+    },
+    {
+     "name": "Conformance .fsx validators",
+     "path": "/home/user/kemiller2002/echelon-registry/conformance",
+     "why": "Self-testing validators (each includes negative self-tests) - pattern for verifying verifiers"
+    }
+   ]
+  },
+  {
+   "system": "Echelon Engineering System (documentation site)",
+   "repo": "kemiller2002/echelon-engineering-system",
+   "defaultBranch": "main",
+   "headSha": "4ca2f981ea2c813cd4894f1ce83c7b2c4ece14a6",
+   "version": "echelon-engineering-site 0.1.0 (private package.json)",
+   "responsibility": "Evidence-led documentation of Echelon engineering architecture, method, components, agent decision boundaries and research; F# static publisher using Forma 0.9.0 and Folio 0.4.1; no Limen (README.md:1-10).",
+   "buildTest": {
+    "ran": true,
+    "result": "BUILD PASS; browser tests not run",
+    "details": "git-archive copy: `npm ci --ignore-scripts` then `npm run build` -> 0 errors, 'Generated 8 pages', 'Validated 8 routes, 5 assets, headings, current navigation, and internal links.' Playwright not run. Repo's own record claims npm test 22 PASS, print 5 PASS (docs/requirements-verification.md 'Commands executed')."
+   },
+   "dependencies": [
+    "Forma 0.9.0 (npm)",
+    "Folio 0.4.1 (GitHub release tarball)"
+   ],
+   "gaps": [
+    "No Praxis/ROS governance files unlike other repos",
+    "Pins Forma 0.9.0 (registry current 1.0.1)",
+    "Branding test depends on /private/tmp corporate build (README)"
+   ],
+   "reuseCandidates": [
+    {
+     "name": "F# static publisher with route/link validation",
+     "path": "/home/user/kemiller2002/echelon-engineering-system/src/EngineeringSystem.Site",
+     "why": "Template for reporting site combining Forma + Folio print output"
+    },
+    {
+     "name": "requirements-verification gate table",
+     "path": "/home/user/kemiller2002/echelon-engineering-system/docs/requirements-verification.md",
+     "why": "Example evidence-driven acceptance gate format"
+    }
+   ]
+  },
+  {
+   "system": "Echelon Foundry (org site/meta)",
+   "repo": "kemiller2002/echelon-foundry",
+   "defaultBranch": "main",
+   "headSha": "8c6b45358fb1bcae4f612534637077d35dd72762",
+   "version": "echelon-foundry-site (no version)",
+   "responsibility": "Greenfield Praxis 3.7.1 pilot repository and organisation website (README.md:1-30 'The operating system is itself under evaluation').",
+   "buildTest": {
+    "ran": true,
+    "result": "PASS",
+    "details": "git-archive copy: npm ci OK; npm run build OK; npm test -> tests 12, pass 12, fail 0."
+   },
+   "dependencies": [
+    "devDeps: Forma 0.2.0, Folio 0.3.0 tarball, Visual Engineering 1.0.0, Communication Engineering 1.0.0",
+    "Limen 0.9.0 with notApplicable boundary (WI-0005)"
+   ],
+   "gaps": [
+    "SITE-F2 hand-written stylesheet; declared Forma 0.2.0 unused by build (open)",
+    "SITE-F10 scratch.txt committed (still present at HEAD)",
+    "README says Praxis 3.7.1 while registry current Praxis 3.25.0"
+   ],
+   "reuseCandidates": [
+    {
+     "name": "UI conformance config",
+     "path": "/home/user/kemiller2002/echelon-foundry/playwright.ui-conformance.config.mjs",
+     "why": "Small example of conformance evidence validation (test/ui-conformance/validate-evidence.mjs)"
+    }
+   ]
+  },
+  {
+   "system": "Clarity (method)",
+   "repo": "kemiller2002/clarity-framework",
+   "headSha": "see data/clarity-edf-audit.md",
+   "version": null,
+   "responsibility": "Decision-evaluation methodology (documents and agent directions); no executable decision engine",
+   "buildTest": {
+    "ran": false,
+    "result": "n/a (docs)",
+    "details": ""
+   },
+   "dependencies": [],
+   "gaps": [
+    "Posture tables contradict across documents (audit \u00a71.1)"
+   ],
+   "reuseCandidates": [
+    {
+     "name": "agent-directions /directions.md",
+     "path": "clarity-framework/[private path withheld] /directions.md",
+     "why": "Escalation triggers reused in protocol C/F"
+    }
+   ]
+  },
+  {
+   "system": "Clarity (service)",
+   "repo": "kemiller2002/clarity-service",
+   "headSha": "dd21138",
+   "version": null,
+   "responsibility": "F# CLI `scan` that inventories a repository and extracts evidence; makes no decisions",
+   "buildTest": {
+    "ran": true,
+    "result": "pass",
+    "details": "23/23 tests; 3 suites are Assert.True(true) placeholders (audit \u00a71.6)"
+   },
+   "dependencies": [],
+   "gaps": [
+    "Types.fs:13-16 checks Directory.Exists twice; 'not a directory' error unreachable",
+    "ReasoningModel.fs unused"
+   ],
+   "reuseCandidates": []
+  },
+  {
+   "system": "EDF",
+   "repo": "kemiller2002/echelon-diagnostic-framework",
+   "headSha": "710d54c",
+   "version": "v0.3 spec",
+   "responsibility": "Retrospective diagnostic method (9-step sequence, 15 output fields); research harnesses; no analysis tool",
+   "buildTest": {
+    "ran": false,
+    "result": "n/a (docs)",
+    "details": ""
+   },
+   "dependencies": [
+    "praxis"
+   ],
+   "gaps": [
+    "'Unintended consequences' and 'recovery' only in research variants",
+    "Not designed for pre-implementation use (spec v1 draft line 323)"
+   ],
+   "reuseCandidates": []
+  }
+ ],
+ "portfolioVerificationDefects": [
+  {
+   "id": "QDI-078",
+   "repo": "dokimos",
+   "path": "application-governance/ENGINEERING-QUALITY-DECISION-INVENTORY.md:1245-1262",
+   "summary": "Dokimos TRX parser trxCounters returns 0 when counter attributes are missing (total/executed/passed/failed); int parse can escape typed failure - incomplete test evidence can appear as valid zero-valued measurements",
+   "status": "required work listed (inventory)"
+  },
+  {
+   "id": "ITR-F2",
+   "repo": "iter",
+   "path": "application-governance/quality-remediation-inventory.json",
+   "summary": "`dotnet test Iter.slnx` succeeds while running zero tests",
+   "status": "done (iter#5, 76cd9e7 per QUALITY-REMEDIATION-REPORT-2026-10-05.md:57)"
+  },
+  {
+   "id": "XC-10",
+   "repo": "portfolio",
+   "path": "application-governance/quality-remediation-inventory.json",
+   "summary": "Several .NET suites invisible to dotnet test (Iter zero tests reports success; Conditor custom runner; Tutela harness prints success early; Forma Studio custom harness)",
+   "status": "open"
+  },
+  {
+   "id": "TUT-F7",
+   "repo": "tutela",
+   "path": "application-governance/quality-remediation-inventory.json",
+   "summary": "Test harness success message prints before later assertions run (tests/Tutela.Core.Tests/Program.fs:24)",
+   "status": "in-progress"
+  },
+  {
+   "id": "PRX-QUAL-022",
+   "repo": "praxis",
+   "path": "application-governance/quality-remediation-inventory.json",
+   "summary": "Green compilation/unit tests can satisfy completion of stateful control-plane, persistence, release, security or remote-execution work (QDI-040/041/047)",
+   "status": "open"
+  },
+  {
+   "id": "QDI-041",
+   "repo": "portfolio",
+   "path": "application-governance/ENGINEERING-QUALITY-DECISION-INVENTORY.md:1360",
+   "summary": "Behavioural and structural completion are distinct",
+   "status": "proposed decision"
+  },
+  {
+   "id": "QDI-034",
+   "repo": "portfolio",
+   "path": "application-governance/ENGINEERING-QUALITY-DECISION-INVENTORY.md:506",
+   "summary": "Ecosystem verification must gate 'done', not merely repository-local validation",
+   "status": "decision item"
+  },
+  {
+   "id": "LIM-F2 / XC-06",
+   "repo": "limen / portfolio",
+   "path": "application-governance/quality-remediation-inventory.json",
+   "summary": "Limen consumer verify passed vacuously on empty boundary lists as 'passed (strict)'; unpinned npx latest",
+   "status": "LIM-F2 done (limen#77, 70fbe25: not-configured exit 8); XC-06 open"
+  },
+  {
+   "id": "LIM-F3",
+   "repo": "limen",
+   "path": "application-governance/quality-remediation-inventory.json",
+   "summary": "Self-verify run with -p:Version=0.6.1 to match recorded version while package is 0.6.2",
+   "status": "done"
+  },
+  {
+   "id": "LIM-F8",
+   "repo": "limen",
+   "path": "application-governance/quality-remediation-inventory.json",
+   "summary": "Packaged-CLI node tests conditionally skipped under npm test",
+   "status": "done"
+  },
+  {
+   "id": "AEG-F5",
+   "repo": "aegis",
+   "path": "application-governance/quality-remediation-inventory.json",
+   "summary": "Malformed stored records skipped and query returns Ok; a test enshrines this (GitHubStoreTests.fs:267)",
+   "status": "done"
+  },
+  {
+   "id": "XC-17 / QDI-042",
+   "repo": "portfolio",
+   "path": "application-governance/quality-remediation-inventory.json; ENGINEERING-QUALITY-DECISION-INVENTORY.md:1368",
+   "summary": "Failures collapsed into empty/success values (Percepta status returns 0 on unreadable evidence, PER-F5; Clarity maps errors to [], CLR-F2)",
+   "status": "open"
+  },
+  {
+   "id": "PRX-QUAL-002",
+   "repo": "praxis",
+   "path": "application-governance/quality-remediation-inventory.json",
+   "summary": "Corrupt/truncated hold.json loaded as empty state, silently releasing latches",
+   "status": "done"
+  },
+  {
+   "id": "XC-12",
+   "repo": "portfolio",
+   "path": "application-governance/quality-remediation-inventory.json",
+   "summary": "Red CI on main normalised across many repos (incl. echelon-foundry bootstrap)",
+   "status": "open"
+  },
+  {
+   "id": "STR-F5",
+   "repo": "strata",
+   "path": "application-governance/quality-remediation-inventory.json",
+   "summary": "35 live-PostgreSQL tests skip locally; CI treats skip as failure",
+   "status": "open"
+  },
+  {
+   "id": "HLX-F6/HLX-F7",
+   "repo": "helix-note-application",
+   "path": "application-governance/quality-remediation-inventory.json",
+   "summary": "Most suites never run in CI; auto-merge gates run bare dotnet build/test at a root with no project",
+   "status": "open"
+  },
+  {
+   "id": "HelixNote runner_id 0",
+   "repo": "helix-note-application",
+   "path": "application-governance/AEGIS-FORMA-FOLIO-COMPLIANCE.md:111",
+   "summary": "Rerun job executed zero steps (runner_id 0) - explicitly recorded as not evidence of pass or fail",
+   "status": "noted"
+  },
+  {
+   "id": "EKS phase-2 evidence integrity",
+   "repo": "echelon-knowledge-store",
+   "path": "research/2026-compiler-integration/strategy/executive-report.md",
+   "summary": "[measured] 8/32 false completion claims (existing workflow) on hard fixture; 2/20 fabricated evidence (title-only source) accepted; Sonnet write-trial fabrication",
+   "status": "research finding"
+  }
+ ]
+}

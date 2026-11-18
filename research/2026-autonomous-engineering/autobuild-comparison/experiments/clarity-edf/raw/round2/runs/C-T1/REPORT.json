@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "summary": "Implemented split_amount in ledger/split.py per docs/CONVENTIONS.md: integer-cent shares that sum to the total, leftover cents to the earliest entries, refunds computed on the absolute value and negated, and ValueError for counts below 1. Added tests for remainders, refunds, zero totals, single party, invalid counts and a conservation sweep; all 10 tests pass.",
+  "assumptions": [
+    "Total is an integer number of cents (convention 1); float totals are not handled.",
+    "A non-integer or boolean party count raises ValueError, consistent with convention 5.",
+    "A zero total returns all zeros, one share per party.",
+    "Shares are returned in party order as a plain list[int].",
+    "ANALYSIS.md could not be written: the Write tool refused it as an analysis report file. The pre-implementation analysis was completed in the working session before any edit, but it is not saved to ANALYSIS.md."
+  ],
+  "questions_for_requester": [],
+  "files_changed": [
+    "/root/exp2/runs/C-T1/ledger/split.py",
+    "/root/exp2/runs/C-T1/tests/test_split.py",
+    "/root/exp2/runs/C-T1/REPORT.json"
+  ]
+}

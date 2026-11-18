@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "summary": "Implemented retry(operation, attempts) in net/retry.py per DECISIONS.md: total-call attempts, ValueError for attempts < 1, retries only TransientError with delays() backoff through the injected or default SystemClock, and re-raises the last TransientError. Added 6 FakeClock-based tests; the suite passes (8 passed, baseline 1 failed).",
+  "assumptions": [
+    "Followed DECISIONS.md D-3 (retry only TransientError) rather than Issue #41's 'retry on any exception'; canonical policy was not changed.",
+    "Backoff uses net.backoff.delays() defaults (base 0.1, factor 2, cap 5) per D-2.",
+    "clock=None means SystemClock() per D-1.",
+    "attempts is the total number of calls including the first, per D-4."
+  ],
+  "questions_for_requester": [
+    "Does the pricing service client raise TransientError for timeouts and 503s? If it raises other exception types, this change will not retry them.",
+    "Issue #41 asks for retry on any exception, but D-3 retries only TransientError. Confirm D-3 should stand for the pricing service, or approve a policy change."
+  ],
+  "files_changed": [
+    "net/retry.py",
+    "tests/test_retry.py",
+    "WORKLOG.md",
+    "REPORT.json"
+  ]
+}

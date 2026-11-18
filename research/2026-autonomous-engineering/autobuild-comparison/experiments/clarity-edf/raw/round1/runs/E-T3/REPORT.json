@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "summary": "Implemented net/retry.py retry(operation, attempts, clock=None) following docs/DECISIONS.md D-1..D-4: injected Clock, net.backoff.delays() schedule, only TransientError retried, attempts counts total calls, last error re-raised unchanged. Added 8 tests; the full suite passes (9 tests).",
+  "assumptions": [
+    "docs/DECISIONS.md (referenced by net/retry.py) is the authoritative contract and takes precedence over the issue's wording 'retry on any exception' and 'using time.sleep'. Retrying all exceptions would violate D-3, and calling time.sleep directly would violate D-1. Production still sleeps for real through the default SystemClock, which calls time.sleep.",
+    "'Exponential backoff' means the project's shared schedule net.backoff.delays() (0.1s doubling, capped at 5s), per D-2.",
+    "No sleep happens after the final failed attempt; attempts < 1 raises ValueError (D-4)."
+  ],
+  "questions_for_requester": [
+    "Issue #41 asks to retry on any exception, but project decision D-3 retries only TransientError. Does the pricing-service client raise (or map its timeouts/5xx to) net.errors.TransientError? If not, retry() will not help those calls until the client maps them. Do you intend to override D-3 (e.g. via a configurable set of retryable exceptions)?",
+    "Do you want the backoff schedule for pricing calls to differ from the shared net.backoff.delays() defaults?"
+  ],
+  "files_changed": ["net/retry.py", "tests/test_retry.py", "ANALYSIS.md", "REPORT.json"]
+}

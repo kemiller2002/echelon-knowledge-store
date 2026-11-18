@@ -1,0 +1,182 @@
+{
+"C-T5": {
+"subagentTokens": 67555,
+"toolUses": 5,
+"durationMs": 20723
+},
+"E-T5": {
+"subagentTokens": 68364,
+"toolUses": 5,
+"durationMs": 28492
+},
+"B-T4": {
+"subagentTokens": 69313,
+"toolUses": 5,
+"durationMs": 33586
+},
+"E-T6": {
+"subagentTokens": 69597,
+"toolUses": 4,
+"durationMs": 40252
+},
+"A-T4": {
+"subagentTokens": 67451,
+"toolUses": 4,
+"durationMs": 22102
+},
+"N-T3": {
+"subagentTokens": 69965,
+"toolUses": 6,
+"durationMs": 41161
+},
+"B-T3": {
+"subagentTokens": 70602,
+"toolUses": 5,
+"durationMs": 45599
+},
+"B-T6": {
+"subagentTokens": 67496,
+"toolUses": 4,
+"durationMs": 26934
+},
+"D-T2": {
+"subagentTokens": 70878,
+"toolUses": 6,
+"durationMs": 45912
+},
+"D-T1": {
+"subagentTokens": 71031,
+"toolUses": 5,
+"durationMs": 46590
+},
+"N-T1": {
+"subagentTokens": 67782,
+"toolUses": 5,
+"durationMs": 28343
+},
+"N-T2": {
+"subagentTokens": 68186,
+"toolUses": 5,
+"durationMs": 28755
+},
+"N-T4": {
+"subagentTokens": 68848,
+"toolUses": 5,
+"durationMs": 29344
+},
+"E-T4": {
+"subagentTokens": 71900,
+"toolUses": 6,
+"durationMs": 48984
+},
+"N-T5": {
+"subagentTokens": 66402,
+"toolUses": 5,
+"durationMs": 17234
+},
+"A-T1": {
+"subagentTokens": 66660,
+"toolUses": 5,
+"durationMs": 20711
+},
+"C-T3": {
+"subagentTokens": 71724,
+"toolUses": 6,
+"durationMs": 51082
+},
+"C-T6": {
+"subagentTokens": 68842,
+"toolUses": 4,
+"durationMs": 34643
+},
+"E-T1": {
+"subagentTokens": 72173,
+"toolUses": 14,
+"durationMs": 54312
+},
+"D-T6": {
+"subagentTokens": 69697,
+"toolUses": 4,
+"durationMs": 42831
+},
+"A-T6": {
+"subagentTokens": 66027,
+"toolUses": 4,
+"durationMs": 19357
+},
+"E-T2": {
+"subagentTokens": 75304,
+"toolUses": 13,
+"durationMs": 71292
+},
+"D-T3": {
+"subagentTokens": 72704,
+"toolUses": 6,
+"durationMs": 53538
+},
+"B-T1": {
+"subagentTokens": 69049,
+"toolUses": 5,
+"durationMs": 37489
+},
+"N-T6": {
+"subagentTokens": 67303,
+"toolUses": 5,
+"durationMs": 26325
+},
+"A-T5": {
+"subagentTokens": 65283,
+"toolUses": 4,
+"durationMs": 14413
+},
+"B-T5": {
+"subagentTokens": 66754,
+"toolUses": 5,
+"durationMs": 22280
+},
+"D-T5": {
+"subagentTokens": 67864,
+"toolUses": 4,
+"durationMs": 23770
+},
+"A-T3": {
+"subagentTokens": 67913,
+"toolUses": 5,
+"durationMs": 27205
+},
+"A-T2": {
+"subagentTokens": 67302,
+"toolUses": 5,
+"durationMs": 28895
+},
+"C-T1": {
+"subagentTokens": 69541,
+"toolUses": 5,
+"durationMs": 37462
+},
+"E-T3": {
+"subagentTokens": 72188,
+"toolUses": 6,
+"durationMs": 53358
+},
+"C-T2": {
+"subagentTokens": 69745,
+"toolUses": 5,
+"durationMs": 38192
+},
+"B-T2": {
+"subagentTokens": 69472,
+"toolUses": 6,
+"durationMs": 38606
+},
+"C-T4": {
+"subagentTokens": 70767,
+"toolUses": 5,
+"durationMs": 38966
+},
+"D-T4": {
+"subagentTokens": 71607,
+"toolUses": 5,
+"durationMs": 47536
+}
+}

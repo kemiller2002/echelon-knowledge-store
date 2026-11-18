@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "summary": "Fixed bug #57 by changing booking.interval.intersects to half-open comparisons (a.start < b.end and b.start < a.end), matching docs/MODEL.md. This corrects overlaps() and the nightly conflicts() report, which shared the same false positive for back-to-back bookings. Added a regression test for conflicts(); the suite went from 1 failed, 2 passed to 4 passed.",
+  "assumptions": [
+    "Fixed the root cause in intersects rather than only overlaps, because the canonical model is half-open and conflicts() uses the same primitive.",
+    "merge_ranges behavior is unchanged: adjacent() still merges touching ranges, so back-to-back bookings still draw as one calendar block.",
+    "Zero-length intervals (start == end) now intersect nothing under half-open semantics; no test or doc covers this case.",
+    "The nightly conflicts() report should also stop flagging back-to-back bookings, as the model implies."
+  ],
+  "questions_for_requester": [],
+  "files_changed": [
+    "/root/exp2/runs/B-T4/booking/interval.py",
+    "/root/exp2/runs/B-T4/tests/test_ranges.py",
+    "/root/exp2/runs/B-T4/WORKLOG.md",
+    "/root/exp2/runs/B-T4/REPORT.json"
+  ]
+}

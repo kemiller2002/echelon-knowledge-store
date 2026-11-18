@@ -1,0 +1,3 @@
+<!-- Agent's final report, extracted verbatim from the run transcript (model output, not verified). -->
+
+complete: Implemented `merge` in /root/exp/runs/N-T2/settings/merge.py following ADR-004 in docs/DECISIONS.md. Nested dicts merge recursively, lists and other values replace the base value, `None` removes a key, and neither input is changed because values are deep-copied. I added tests for each of these rules and for `load()` in /root/exp/runs/N-T2/tests/test_merge.py, and all 6 tests pass. Before editing anything I wrote /root/exp/runs/N-T2/ANALYSIS.md, and I recorded my assumptions in /root/exp/runs/N-T2/REPORT.json; there are no questions for the requester.

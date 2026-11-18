@@ -1,0 +1,9 @@
+{"status": "complete",
+ "summary": "Implemented split_amount in ledger/split.py per docs/CONVENTIONS.md: integer-cent shares that always sum to the total, leftover cents to earliest parties, refunds split by absolute value then negated, ValueError for non-positive party counts. Added tests covering each rule; all 11 tests pass.",
+ "assumptions": [
+  "total is in integer cents, so split_amount(1000, 3) == [334, 333, 333].",
+  "A zero total returns a list of zeros rather than raising.",
+  "Non-integer inputs (floats, bools) raise TypeError, enforcing the no-float rule."
+ ],
+ "questions_for_requester": [],
+ "files_changed": ["ANALYSIS.md", "ledger/split.py", "tests/test_split.py", "REPORT.json"]}

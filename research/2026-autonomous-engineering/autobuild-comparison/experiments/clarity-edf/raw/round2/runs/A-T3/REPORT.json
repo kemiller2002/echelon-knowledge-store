@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "summary": "Implemented retry(operation, attempts, clock=None) in net/retry.py per docs/DECISIONS.md: calls are counted in total including the first, only TransientError is retried with waits from net.backoff.delays() through the injected clock, the last TransientError is re-raised unchanged, and attempts < 1 raises ValueError. Added tests covering success after retries, schedule, re-raise, permanent/other exceptions, and invalid attempts; all 8 tests pass.",
+  "assumptions": [
+    "Issue #41 says retry on any exception and use time.sleep; I followed docs/DECISIONS.md instead: only TransientError is retried (D-3) and waits go through the injected Clock with SystemClock as default (D-1).",
+    "attempts is the total number of calls, including the first (D-4); no wait occurs after the final failed attempt.",
+    "Waits use net.backoff.delays() with its default schedule (0.1, 0.2, 0.4, ... capped at 5.0) (D-2).",
+    "attempts < 1 raises ValueError (D-4)."
+  ],
+  "questions_for_requester": [],
+  "files_changed": [
+    "/root/exp2/runs/A-T3/net/retry.py",
+    "/root/exp2/runs/A-T3/tests/test_retry.py",
+    "/root/exp2/runs/A-T3/REPORT.json"
+  ]
+}

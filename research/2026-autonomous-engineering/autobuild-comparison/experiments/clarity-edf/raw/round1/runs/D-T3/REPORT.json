@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "summary": "Implemented retry(operation, attempts, clock=None) in net/retry.py following docs/DECISIONS.md (injected Clock, net.backoff.delays() schedule, only TransientError retried, attempts counts total calls, ValueError for attempts < 1, last TransientError re-raised unchanged) and added tests covering these behaviours; all 9 tests pass.",
+  "assumptions": [
+    "docs/DECISIONS.md (referenced by the net/retry.py docstring) takes precedence over the informal wording of issue #41 where they conflict.",
+    "'using time.sleep' is satisfied via the default SystemClock, which calls time.sleep; library code does not call time.sleep directly (D-1), so tests use FakeClock.",
+    "'retry on any exception' is narrowed to TransientError only (D-3); PermanentError and all other exceptions propagate immediately, because retrying 400s/auth failures is a documented defect.",
+    "'up to attempts times' means attempts total calls including the first (D-4); no sleep occurs after the final failed attempt.",
+    "Exponential backoff uses the shared net.backoff.delays() schedule with its defaults (0.1s base, factor 2, 5s cap) per D-2."
+  ],
+  "questions_for_requester": [
+    "Issue #41 asks to retry on any exception, but project policy D-3 retries only TransientError. Does the pricing-service client raise TransientError for its intermittent failures (timeouts/5xx)? If not, it should translate them into TransientError rather than having retry() catch everything; if you need D-3 changed, that needs sign-off from the net package owners."
+  ],
+  "files_changed": [
+    "ANALYSIS.md",
+    "net/retry.py",
+    "tests/test_retry.py",
+    "REPORT.json"
+  ]
+}

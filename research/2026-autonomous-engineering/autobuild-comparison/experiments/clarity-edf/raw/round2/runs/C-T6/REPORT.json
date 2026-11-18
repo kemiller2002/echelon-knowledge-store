@@ -1,0 +1,14 @@
+{
+  "status": "needs-requester-input",
+  "summary": "Did not remove legacy_total. The task says it is unused, but reports/export.py imports and calls it in export_row, which feeds the accounting CSV and needs gross (tax-included) amounts that total() does not provide. No source files were edited; baseline pytest passes (1 passed).",
+  "assumptions": [
+    "The accounting export in reports/export.py is still in use and still requires gross amounts, so legacy_total is not dead code.",
+    "No entry point or other caller outside reports/export.py exists in this repository (none found by search).",
+    "Replacing legacy_total with total() would change export output (net instead of gross) and so is not an acceptable substitute."
+  ],
+  "questions_for_requester": [
+    "Is reports/export.py (export_row, feeding the accounting system) still in use? If it is retired, should export.py be deleted together with legacy_total?",
+    "If export is still in use, should legacy_total be kept (and possibly renamed and un-deprecated) as the gross-total function instead of being removed?"
+  ],
+  "files_changed": []
+}

@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "summary": "Implemented retry(operation, attempts, clock=None) in net/retry.py following docs/DECISIONS.md (injected Clock, net.backoff.delays() schedule, only TransientError retried, attempts counts total calls) and added tests covering success, backoff, exhaustion, propagation and invalid attempts. All 9 tests pass.",
+  "assumptions": [
+    "Where issue #41 conflicts with docs/DECISIONS.md, the decisions win: retry.py's docstring says to follow them, and they are the project's standing rules.",
+    "Waits go through the injected Clock (default SystemClock, which calls time.sleep) instead of calling time.sleep directly (D-1); production behavior still sleeps for real.",
+    "Only TransientError is retried; PermanentError and other exceptions propagate immediately (D-3), rather than 'retry on any exception' as the issue asked.",
+    "Backoff uses net.backoff.delays() defaults (0.1s base, x2, capped at 5s) (D-2).",
+    "attempts is the total number of calls including the first; attempts < 1 raises ValueError; the last TransientError is re-raised unchanged with no sleep after the final attempt (D-4)."
+  ],
+  "questions_for_requester": [
+    "Issue #41 asked to retry on any exception; per D-3 only TransientError is retried. Do the pricing service's intermittent failures surface as TransientError? If not, its client should map timeouts/5xx to TransientError rather than widening retry."
+  ],
+  "files_changed": ["ANALYSIS.md", "net/retry.py", "tests/test_retry.py", "REPORT.json"]
+}

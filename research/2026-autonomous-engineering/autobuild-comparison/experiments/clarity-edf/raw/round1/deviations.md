@@ -1,0 +1,2 @@
+- E-T1: harness denied subagent creating ANALYSIS.md and one Bash call; agent reported analysis inline (FINAL: SUFFICIENT/GUARDRAIL/PROCEED/93%). Treated as protocol applied, artifact missing.
+- E-T2: harness denied subagent creating ANALYSIS.md; analysis reported inline (FAST/PROCEED/92%).

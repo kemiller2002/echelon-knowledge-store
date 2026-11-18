@@ -1,0 +1,7 @@
+central, as published:       {'A': 14.04, 'B': 4.22, 'C': 3.39, 'D': 23.84, 'E': 4.23, 'N': 4.07}
+D-T4 disclosed (no R):       {'A': 14.04, 'B': 4.22, 'C': 3.39, 'E': 4.23, 'N': 4.07, 'D': 8.84}
++ incompletes need redo (R): {'A': 14.04, 'B': 4.22, 'C': 3.39, 'E': 4.23, 'D': 22.59, 'N': 15.07}
+break-even R (A vs B), central Q,k: 10.9 min
+  Q=2: A cheaper than B iff R < 4.4 min
+  Q=5: A cheaper than B iff R < 10.9 min
+  Q=10: A cheaper than B iff R < 21.8 min

@@ -1,0 +1,20 @@
+
+
+[agent scratchpad path withheld],32): info FS3886: This list expression contains a single tuple element. Did you mean to use ';' instead of ',' to separate list elements?
+
+
+
+[agent scratchpad path withheld],29): info FS3886: This list expression contains a single tuple element. Did you mean to use ';' instead of ',' to separate list elements?
+
+
+
+[agent scratchpad path withheld],40): info FS3886: This list expression contains a single tuple element. Did you mean to use ';' instead of ',' to separate list elements?
+
+parsed rows: [("dotnet:App.Tests.Rounds", Passed); ("dotnet:App.Tests.Rounds", Passed);
+ ("dotnet:App.Tests.Rounds", NotExecuted)]
+theory with one skipped row -> NotExecuted
+worst [Passed; NotExecuted] = NotExecuted
+playwright-list pass+skip     -> [("playwright:e2e/a.spec.ts > logs in [chromium]",
+  Failed "retried: outcomes differed")]
+coverage mergeWorst pass+skip -> [("id", Skipped)]
+manifest lists only the passing rerun -> Passed
