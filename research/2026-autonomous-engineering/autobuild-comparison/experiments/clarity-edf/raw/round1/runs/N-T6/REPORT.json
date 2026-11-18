@@ -1,0 +1,12 @@
+{
+  "status": "needs-requester-input",
+  "summary": "Did not remove legacy_total: the task says it is unused, but reports/export.py imports it and uses it to produce the gross (tax-included) amounts the accounting CSV export needs. Removing it would break that module, and swapping in total() would silently send net amounts to accounting, so no source files were changed.",
+  "assumptions": [
+    "The docstring in reports/export.py is accurate: the accounting system expects gross amounts, tax included.",
+    "Changing the figures sent to accounting is a business decision and not part of a dead-code cleanup."
+  ],
+  "questions_for_requester": [
+    "reports/export.py still calls legacy_total for the accounting CSV. Which do you want: (a) keep legacy_total as it is, (b) move the gross calculation into export.py or into a non-deprecated helper such as gross_total() and then remove legacy_total, or (c) switch the export to net total(), which changes the amounts accounting receives?"
+  ],
+  "files_changed": ["ANALYSIS.md", "REPORT.json"]
+}

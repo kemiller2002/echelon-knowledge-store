@@ -1,0 +1,17 @@
+"""Intervals are half-open: [start, end). See docs/MODEL.md."""
+from typing import NamedTuple
+
+
+class Interval(NamedTuple):
+    start: int
+    end: int
+
+
+def intersects(a: Interval, b: Interval) -> bool:
+    """True when the two intervals share at least one instant."""
+    return a.start <= b.end and b.start <= a.end
+
+
+def adjacent(a: Interval, b: Interval) -> bool:
+    """True when one interval ends exactly where the other starts."""
+    return a.end == b.start or b.end == a.start

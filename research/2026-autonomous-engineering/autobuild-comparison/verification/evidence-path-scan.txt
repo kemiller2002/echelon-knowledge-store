@@ -1,0 +1,28 @@
+# Historical tests/implementation evidence paths in .ros state, classified against each repo's current HEAD, 2026-11-18T15:39:55Z
+# columns: count repo class [path]
+    597 kemiller2002/aegis FILE
+    415 praxis GONE
+    387 kemiller2002/limen FILE
+    358 praxis FILE
+    311 kemiller2002/forma FILE
+    146 kemiller2002/ordo FILE
+    115 dokimos FILE
+     71 kemiller2002/arca FILE
+     46 kemiller2002/fides FILE
+      6 kemiller2002/arca DIR tests
+      6 kemiller2002/arca DIR src
+      4 praxis DIR src/Praxis.Domain/Identity
+      3 kemiller2002/forma GONE
+      3 dokimos DIR tests/Dokimos.Cli.Tests
+      2 kemiller2002/fides GONE
+      1 kemiller2002/ordo DIR tests/Ordo.Tests
+      1 kemiller2002/ordo DIR src/Ordo.Providers.Anthropic
+      1 kemiller2002/ordo DIR src/Ordo.Decisions
+      1 kemiller2002/ordo DIR src/Ordo.Core
+      1 kemiller2002/limen GONE
+      1 kemiller2002/forma DIR experiments/RLP-002/compiler
+      1 kemiller2002/forma DIR experiments/RLP-001/engine
+      1 kemiller2002/arca GONE
+      1 kemiller2002/arca DIR tests/Arca.Tests
+      1 dokimos ESCAPE /tmp/claude-0/-home-user/cf565065-a168-5486-8bfa-956f257becfe/scratchpad/dokimos-0.8.0-tests.txt
+      1 dokimos DIR tests/Dokimos.Core.Tests

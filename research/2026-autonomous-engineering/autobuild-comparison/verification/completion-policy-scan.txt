@@ -1,0 +1,14 @@
+# ros.json workProtocol completion-policy scan, 2026-11-18T15:39:55Z
+praxis/ros.json 12bf995 {'requireVerifiedCompletion': None, 'requireAttestedEvidence': None, 'allowUnattestedEvidence': None, 'trustedVerifierKeyIds': None, 'qualityEvidence': None}
+dokimos/ros.json 355ae60 {'requireVerifiedCompletion': None, 'requireAttestedEvidence': None, 'allowUnattestedEvidence': None, 'trustedVerifierKeyIds': None, 'qualityEvidence': None}
+kemiller2002/aegis/ros.json 2c28b6e {'requireVerifiedCompletion': None, 'requireAttestedEvidence': None, 'allowUnattestedEvidence': None, 'trustedVerifierKeyIds': None, 'qualityEvidence': None}
+kemiller2002/arca/ros.json 8cfa064 {'requireVerifiedCompletion': None, 'requireAttestedEvidence': None, 'allowUnattestedEvidence': None, 'trustedVerifierKeyIds': None, 'qualityEvidence': None}
+kemiller2002/echelon-diagnostic-framework/ros.json 710d54c {'requireVerifiedCompletion': None, 'requireAttestedEvidence': None, 'allowUnattestedEvidence': None, 'trustedVerifierKeyIds': None, 'qualityEvidence': None}
+kemiller2002/echelon-foundry/ros.json 8c6b453 {'requireVerifiedCompletion': None, 'requireAttestedEvidence': None, 'allowUnattestedEvidence': None, 'trustedVerifierKeyIds': None, 'qualityEvidence': None}
+kemiller2002/echelon-registry/ros.json fef1f94 {'requireVerifiedCompletion': None, 'requireAttestedEvidence': None, 'allowUnattestedEvidence': None, 'trustedVerifierKeyIds': None, 'qualityEvidence': None}
+kemiller2002/fides/ros.json f9b7291 {'requireVerifiedCompletion': None, 'requireAttestedEvidence': None, 'allowUnattestedEvidence': None, 'trustedVerifierKeyIds': None, 'qualityEvidence': None}
+kemiller2002/folio/ros.json 217d644 {'requireVerifiedCompletion': None, 'requireAttestedEvidence': None, 'allowUnattestedEvidence': None, 'trustedVerifierKeyIds': None, 'qualityEvidence': None}
+kemiller2002/forma/ros.json 3887eec {'requireVerifiedCompletion': None, 'requireAttestedEvidence': None, 'allowUnattestedEvidence': None, 'trustedVerifierKeyIds': None, 'qualityEvidence': None}
+kemiller2002/limen/ros.json 743cdb9 {'requireVerifiedCompletion': None, 'requireAttestedEvidence': None, 'allowUnattestedEvidence': None, 'trustedVerifierKeyIds': None, 'qualityEvidence': None}
+kemiller2002/ordo/ros.json db6d39e {'requireVerifiedCompletion': None, 'requireAttestedEvidence': None, 'allowUnattestedEvidence': None, 'trustedVerifierKeyIds': None, 'qualityEvidence': None}
+kemiller2002/vigila/ros.json feab755 {'requireVerifiedCompletion': None, 'requireAttestedEvidence': None, 'allowUnattestedEvidence': None, 'trustedVerifierKeyIds': None, 'qualityEvidence': None}

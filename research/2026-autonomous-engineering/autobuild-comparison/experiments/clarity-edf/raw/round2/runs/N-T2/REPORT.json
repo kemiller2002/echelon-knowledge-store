@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "summary": "Implemented recursive, non-mutating merge in settings/merge.py per ADR-004 (nested dicts merge, lists and scalars replace, None removes a key) and added tests for nesting, list replacement, None removal, type replacement, non-mutation, and the three-layer load fold. All 10 tests pass. ANALYSIS.md was not written because the environment disallows writing analysis .md files; its checklist content is in the final handback instead.",
+  "assumptions": [
+    "An override value of None for a key absent from base adds nothing to the result.",
+    "A dict in the override whose base value is missing or not a dict is merged against an empty dict, so None values nested inside it are stripped.",
+    "Values copied from either input are deep-copied so cached layers are never shared with or mutated through the result.",
+    "ANALYSIS.md was not written: the environment rejected a write of an analysis .md file, so the pre-implementation notes were given in the final handback instead."
+  ],
+  "questions_for_requester": [],
+  "files_changed": [
+    "settings/merge.py",
+    "tests/test_merge.py"
+  ]
+}

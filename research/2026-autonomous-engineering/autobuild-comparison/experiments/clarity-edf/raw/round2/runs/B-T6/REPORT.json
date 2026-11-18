@@ -1,0 +1,18 @@
+{
+  "status": "needs-requester-input",
+  "summary": "Did not remove legacy_total because the task premise is wrong: reports/export.py imports and calls it to produce the accounting CSV's gross, tax-included amounts. Removing it would break the export, and repointing to total() would change financial output, so the requester must decide. No source files were changed; baseline tests pass (1 passed).",
+  "assumptions": [
+    "The live caller in reports/export.py is authoritative over the TASK.md statement that legacy_total is unused.",
+    "Repointing export_row to total() is a behaviour change to accounting output and is out of scope for dead-code removal.",
+    "The baseline test suite (1 test, tests/test_totals.py) is the only automated check available."
+  ],
+  "questions_for_requester": [
+    "Should the accounting CSV from reports/export.py keep gross (tax-included) amounts? If yes, legacy_total or an equivalent gross helper must stay.",
+    "Is the accounting system still consuming this export? If not, export.py itself may be dead code and the decision changes.",
+    "If the deprecation is approved, what is the replacement for gross amounts, and should export_row be migrated with tests asserting identical output before legacy_total is deleted?"
+  ],
+  "files_changed": [
+    "WORKLOG.md",
+    "REPORT.json"
+  ]
+}

@@ -1,0 +1,7 @@
+/tmp/prx-repro/outside.txt               -> Unavailable
+  "evidence '/tmp/prx-repro/outside.txt' resolves outside the repository; cite a repository-relative path"
+../outside.txt                           -> Unavailable
+  "evidence '../outside.txt' resolves outside the repository; cite a repository-relative path"
+/etc/hostname                            -> Unavailable
+  "evidence '/etc/hostname' resolves outside the repository; cite a repository-relative path"
+.                                        -> Present

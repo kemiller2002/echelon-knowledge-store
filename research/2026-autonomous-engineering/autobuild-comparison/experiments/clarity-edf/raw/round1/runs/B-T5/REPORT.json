@@ -1,0 +1,5 @@
+{"status": "complete",
+ "summary": "Fixed the typo 'recieved' -> 'received' in the missing e-mail error in forms/validate.py and added a regression test for the message; all 3 tests pass.",
+ "assumptions": ["Only the misspelled word should change; the rest of the message wording is kept verbatim.", "A small regression test for the message is in scope since the message was previously untested."],
+ "questions_for_requester": [],
+ "files_changed": ["forms/validate.py", "tests/test_validate.py", "WORKLOG.md", "REPORT.json"]}

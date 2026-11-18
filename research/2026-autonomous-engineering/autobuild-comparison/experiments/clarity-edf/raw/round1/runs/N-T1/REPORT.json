@@ -1,0 +1,5 @@
+{"status": "complete",
+ "summary": "Implemented split_amount in ledger/split.py per docs/CONVENTIONS.md (integer cents, conservation, leftover cents to earliest parties, refunds split by absolute value then negated, ValueError for non-positive parties) and added tests covering these rules.",
+ "assumptions": ["'Evenly' follows docs/CONVENTIONS.md: when not exactly divisible, the leftover cents go one each to the earliest parties, e.g. split_amount(1000, 3) == [334, 333, 333].", "A total of 0 is valid and yields zeros; only parties <= 0 raises ValueError.", "Non-integer inputs are not validated beyond the type hints."],
+ "questions_for_requester": [],
+ "files_changed": ["ANALYSIS.md", "ledger/split.py", "tests/test_split.py", "REPORT.json"]}

@@ -1,0 +1,5 @@
+{"status": "needs-requester-input",
+ "summary": "Did not remove legacy_total: contrary to the task premise it is still used by reports/export.py (export_row), which emits gross, tax-included amounts for the accounting system, and total() is not an equivalent replacement (net only). No code was changed; analysis is in ANALYSIS.md.",
+ "assumptions": ["export.py is live production code because its docstring says the accounting system consumes it; no evidence in the repo says otherwise.", "Silently changing exported amounts from gross to net, or breaking the export import, is unacceptable without requester sign-off."],
+ "questions_for_requester": ["reports/export.py still calls legacy_total to produce gross (tax-included) amounts for accounting. Is that export still in use?", "If it is, should the gross calculation be moved into export.py (or a non-deprecated gross_total helper) so legacy_total can be removed, or should legacy_total stay?", "If it is not, should export.py be removed together with legacy_total?"],
+ "files_changed": ["ANALYSIS.md", "REPORT.json"]}

@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "summary": "Implemented split_amount in ledger/split.py per docs/CONVENTIONS.md: integer shares that sum to the total, leftover cents to the earliest entries, refunds split on the absolute value then negated, and ValueError for zero or negative party counts. Added tests for remainders, conservation, zero and refund totals, single party and invalid counts; all 8 tests pass.",
+  "assumptions": [
+    "The CONVENTIONS.md rules are the specification where the task text is silent.",
+    "total is an integer number of cents; non-integer input is not validated and is out of scope.",
+    "A zero total returns parties zeros rather than an empty list.",
+    "A non-integer parties value fails with a TypeError from normal comparison or range handling; no extra validation was added.",
+    "The planned ANALYSIS.md file was not written because the environment refused the write (subagents must return findings as text). The pre-implementation analysis is in the final report instead."
+  ],
+  "questions_for_requester": [],
+  "files_changed": [
+    "/root/exp2/runs/E-T1/ledger/split.py",
+    "/root/exp2/runs/E-T1/tests/test_split.py",
+    "/root/exp2/runs/E-T1/REPORT.json"
+  ]
+}

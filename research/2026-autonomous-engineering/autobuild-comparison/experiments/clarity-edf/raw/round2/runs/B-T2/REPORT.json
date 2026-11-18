@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "summary": "Implemented merge(base, override) in settings/merge.py per ADR-004: recursive dict merge, list replacement, None removes keys, and no mutation or aliasing of inputs. Added six tests; the suite passes 7/7 (baseline was 1 failing stub test).",
+  "assumptions": [
+    "A dict override that replaces a non-dict or missing base value is merged onto {} so nested None entries are removed (ADR-004 does not state this case explicitly).",
+    "Values are deep-copied into the result so callers cannot corrupt cached layers (ADR-004 rule that merge never mutates inputs)."
+  ],
+  "questions_for_requester": [],
+  "files_changed": [
+    "settings/merge.py",
+    "tests/test_merge.py",
+    "WORKLOG.md",
+    "REPORT.json"
+  ]
+}

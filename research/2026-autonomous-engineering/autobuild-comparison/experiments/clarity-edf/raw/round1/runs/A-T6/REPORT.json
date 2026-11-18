@@ -1,0 +1,13 @@
+{
+  "status": "needs-requester-input",
+  "summary": "Did not remove legacy_total: contrary to the task, it is still used by reports/export.py (export_row), which produces the CSV consumed by the accounting system with gross, tax-included amounts. Removing it would break that import, and replacing it with total() would silently change exported values from gross to net, so no code was changed.",
+  "assumptions": [
+    "The export.py docstring is accurate that the accounting system expects gross (tax-included) amounts, so total() (net) is not a drop-in replacement.",
+    "Silently changing financial export values or breaking a live import is worse than leaving a deprecated function in place until the requester confirms intent."
+  ],
+  "questions_for_requester": [
+    "legacy_total is still used by reports/export.py for the accounting CSV. Should it be kept, or should the gross-total calculation (net + 7% tax, rounded half up) move into export.py or into a non-deprecated function such as gross_total() before legacy_total is removed?",
+    "Alternatively, should the accounting export switch to net amounts via total()? This would change the values the accounting system receives and would need sign-off from its owners."
+  ],
+  "files_changed": []
+}

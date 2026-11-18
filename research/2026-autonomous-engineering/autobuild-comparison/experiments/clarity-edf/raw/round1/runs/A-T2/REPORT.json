@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "summary": "Implemented merge() in settings/merge.py per ADR-004: recursive dict merge, lists and scalars replaced, None override removes the key, inputs never mutated (results are deep-copied so they share no mutable objects with the layers). Added tests covering each rule plus load() layering; all 7 tests pass.",
+  "assumptions": [
+    "An override of None for a key absent from base is a no-op (nothing to remove).",
+    "When an override dict replaces a non-dict (or missing) base value, it is merged into an empty dict so nested None markers are dropped rather than stored as None.",
+    "A non-dict override value replaces a dict base value entirely (ADR-004: any other value replaces).",
+    "'Never mutates either input' is extended to no aliasing: the result is deep-copied so later mutation of the result cannot alter cached layers.",
+    "None values present in the base layer itself are kept as-is; only None in the override signals removal."
+  ],
+  "questions_for_requester": [],
+  "files_changed": ["settings/merge.py", "tests/test_merge_semantics.py"]
+}

@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "summary": "Implemented split_amount in ledger/split.py as integer-cent even split with leftover cents to earliest entries, refund negation per convention 4, and ValueError/TypeError validation; added tests. Full suite passes (11 passed; baseline was 1 failed).",
+  "assumptions": [
+    "Non-int or bool total/parties raises TypeError, since floats are forbidden for money.",
+    "split_amount(0, n) returns n zeros.",
+    "Negative totals are split by applying the rule to the absolute value and negating every share, per CONVENTIONS.md item 4."
+  ],
+  "questions_for_requester": [],
+  "files_changed": [
+    "/root/exp2/runs/B-T1/ledger/split.py",
+    "/root/exp2/runs/B-T1/tests/test_split.py",
+    "/root/exp2/runs/B-T1/WORKLOG.md",
+    "/root/exp2/runs/B-T1/REPORT.json"
+  ]
+}

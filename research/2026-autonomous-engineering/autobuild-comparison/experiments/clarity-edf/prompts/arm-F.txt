@@ -1,0 +1,22 @@
+ADAPTIVE INVOCATION RULE (protocol F, v1)
+Preferred use: the harness evaluates these rules from observable task features (task text keywords, paths named or touched, diff size) and injects the selected protocol. Do not let the agent choose its own depth: self-selected depth did not track stakes in the Clarity study. If an agent must apply the rule itself, it answers each check YES/NO with the evidence, then applies the table mechanically.
+
+Check R (risk). YES if the task or the files it names or touches involve any of: authentication, authorization, payments, security, privacy, secrets, production data; database schema or migrations; public API, wire format or external integration; deployment, infrastructure or CI/CD configuration; deletion of existing functionality or files; dependency upgrades.
+Check S (scope). YES if the task needs changes in more than one module or package, a broad refactor, or a data-model or architecture change, or names no concrete location.
+Check U (unexplained failure). YES if the task reports a bug, failing test, error, regression or incident whose cause is not stated in the task.
+Check T (trivial). YES if the change is limited to typos, comments, documentation text, formatting, renaming a local identifier, or copy, and R, S and U are all NO.
+
+Selection (first matching row wins):
+1. T = YES: no protocol. Make the smallest change, run focused validation, summarize.
+2. U = YES and (R = YES or S = YES): protocol E (EDF then Clarity).
+3. U = YES: protocol D (EDF).
+4. R = YES or S = YES: protocol C (Clarity).
+5. Otherwise: no protocol (baseline instructions only).
+
+Re-trigger during implementation (each fires at most once per task; record which fired):
+- A test or check fails for a reason the current analysis did not predict, or a fix attempt fails once: run protocol D on the new failure before the next edit.
+- The repository contradicts the request or a recorded assumption, or the change grows beyond the declared scope (new module, schema, public contract): run protocol C, starting from the existing analysis.
+- A recorded "reconsider if" condition is met: re-run the protocol that produced it, sections for decision, act-or-wait and reconsider-if only.
+De-escalation: if the protocol output says Posture FAST and Diagnostic sufficiency SUFFICIENT, proceed without further analysis passes.
+
+Hard limits: analysis output is capped by the harness (max tokens), not by instructions in the prompt. A protocol never authorizes skipping a project rule, test, or protective check.

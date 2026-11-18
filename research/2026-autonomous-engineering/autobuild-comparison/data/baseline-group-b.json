@@ -1,0 +1,745 @@
+{
+  "generated": "2026-11-18",
+  "notes": {
+    "inventoryAsOf": "2026-10-05 (quality-remediation-inventory.json asOf); statuses may be stale relative to repo HEADs",
+    "method": "Builds run on git-archive copies in scratchpad; source repos not modified (registry git status clean). Observed = command output/file reads; inferences labelled in summary."
+  },
+  "systems": [
+    {
+      "system": "Echelon Knowledge Store (EKS)",
+      "repo": "kemiller2002/echelon-knowledge-store",
+      "localPath": "/home/user/echelon-knowledge-store",
+      "defaultBranch": "main",
+      "headSha": "35d9cee0df94eed89335712fbaade4d491a45bcd",
+      "headDate": "2026-11-17",
+      "version": "none released; compiler self-identifies 'eks-compiler 0.1.0-research'; no tags; README: 'No stable schema, no released packages'",
+      "responsibility": "Research into how Echelon repos should store/deliver knowledge to agents; experimental F# knowledge compiler + `eks` CLI over Markdown+YAML front matter (README.md; AGENTS.md 'research phase').",
+      "implemented": [
+        "F# Core: record model (14 KnowledgeKinds, 8 relation kinds, qualitative confidence, provenance), YAML/front-matter parser (data-only), validation, graph, retrieval (src/Echelon.KnowledgeStore.Core)",
+        "Compiler: 27 diagnostic codes EKS0001-EKS0027 with level/remediation (src/Echelon.KnowledgeStore.Compiler/Diagnostics.fs:41-139), pipeline, optimisation, packages, work-item packages, change manifests, content-hashed artefacts",
+        "eks CLI commands: validate, compile, verify, query, explain, context, evidence, impact, obligations, manifest, work-item, work-item-manifest, dokimos-obligations, privacy-check, privacy-check-private, diff, change-manifest (tools/Echelon.KnowledgeStore.Cli/Program.fs:8-35)",
+        "Benchmark harness (benchmarks/Echelon.KnowledgeStore.Bench, ~17 modules) incl. coding trials with hidden tests; FCS probe",
+        "Synthetic coding fixture fx-ledger/fx-identity with hidden tests and hard overlay (benchmarks/coding-fixture)"
+      ],
+      "buildTest": {
+        "ran": true,
+        "result": "PASS",
+        "details": "`dotnet tool restore; dotnet test Echelon.KnowledgeStore.sln -c Release` -> 'Passed! Failed: 0, Passed: 78, Skipped: 0, Total: 78' exit 0. CLI built separately (`dotnet build tools/Echelon.KnowledgeStore.Cli -c Release` -> eks.dll); test build does not produce the CLI. CLI runs: validate on fixture -> '23 records; 1 Warning, 1 RequiresReview' exit 0; work-item fx-ledger WI-0003 -> status COMPLETE, 524 words; work-item-manifest -> JSON with derived conditions; impact, explain, obligations (eks.requirement-contract/0), compile (index.md, records.jsonl, diagnostics.json, precomputed.json, manifest.json), verify -> 'fresh'. validate over local forma,folio,limen,echelon-registry,echelon-foundry -> '188 records; 6 Error, 46 Advisory, 1 RequiresReview, 10 Warning' in 0.5 s (6 errors = limen research/decisions DF-LIMEN-2026-0001..0006 without front-matter id). examples/ is empty (.gitkeep), so the fixture was used."
+      },
+      "dependencies": [
+        "Praxis: reads REPO/.ros/work/queue.json schemaVersion 1.0.0 (research/2026-compiler-integration/architecture/task-package-contract.md)",
+        "Dokimos: emits dokimos.verification-obligations/1 (eks dokimos-obligations)",
+        "Corpus: 13 pinned repos incl. forma, echelon-engineering-system, praxis, dokimos (benchmarks/corpus.lock.json)",
+        "Not registered in echelon-registry (0 matches in registry/systems-v2.json)"
+      ],
+      "recentThemes": [
+        "Phase 2 compiler-integration research merged (#4, 588d90c, 2026-11-17)",
+        "privacy redaction + owner acceptance of private names in history (#5)",
+        "write-path trial replication with integrity scoring (#3)",
+        "EKS0027 source-existence rule (#2)"
+      ],
+      "openPRs": [],
+      "gaps": [
+        "No released package/schema; schemas/ and examples/ empty",
+        "No real-repository task evidence; benchmark fixture authored by compiler author; hidden tests public (contamination) (research/2026-compiler-integration/strategy/executive-report.md 'Remaining uncertainties')",
+        "Status-vs-prose contradictions not detectable structurally; contradiction detection limited to typed `contradicts` relations (EKS0017 contested-claim, Validation.fs:173-180)",
+        "Claude tokenizer not measured (Tokens.fs:19); token counts are o200k/cl100k/llama",
+        "Recommendation is advisory only; no Praxis/Dokimos integration merged upstream",
+        "Real-corpus run shows current Echelon repos fail EKS rules (6 errors) - adoption friction"
+      ],
+      "reuseCandidates": [
+        {
+          "name": "eks work-item / work-item-manifest",
+          "path": "/home/user/echelon-knowledge-store/src/Echelon.KnowledgeStore.Compiler/WorkItems.fs",
+          "why": "Compiled task package with 12 required fields, derived completeness, sha256 provenance; measured 32/32 vs 24/32 on amended-requirement tasks"
+        },
+        {
+          "name": "eks change-manifest / diff / impact",
+          "path": "/home/user/echelon-knowledge-store/src/Echelon.KnowledgeStore.Compiler/Changes.fs",
+          "why": "Transactional evaluation of agent knowledge edits; never approves; impact 13/13 recall on fixture"
+        },
+        {
+          "name": "Content-hashed artefact manifest + stale refusal",
+          "path": "/home/user/echelon-knowledge-store/src/Echelon.KnowledgeStore.Compiler/Artifacts.fs",
+          "why": "Knowledge packaging with provenance/version ids; `verify` exit 2 when stale"
+        },
+        {
+          "name": "dokimos-obligations / requirement contract",
+          "path": "/home/user/echelon-knowledge-store/src/Echelon.KnowledgeStore.Compiler/Packages.fs",
+          "why": "Bridge from requirements acceptance criteria to verification obligations"
+        },
+        {
+          "name": "Coding benchmark harness + fixture",
+          "path": "/home/user/echelon-knowledge-store/benchmarks",
+          "why": "Seeded, hidden-test scoring of agent runs; reusable to evaluate autonomous-engineering changes"
+        }
+      ],
+      "evidence": [
+        {
+          "claim": "78/78 tests pass",
+          "ref": "dotnet test output (this run)"
+        },
+        {
+          "claim": "27 diagnostic codes",
+          "ref": "src/Echelon.KnowledgeStore.Compiler/Diagnostics.fs:41-139"
+        },
+        {
+          "claim": "Phase 2 status PARTIALLY COMPLETE",
+          "ref": "research/2026-compiler-integration/continuation/research-status.json"
+        },
+        {
+          "claim": "No open PRs",
+          "ref": "gh search repo:kemiller2002/echelon-knowledge-store is:pr is:open -> 0"
+        }
+      ]
+    },
+    {
+      "system": "Forma (design system / UI components)",
+      "repo": "kemiller2002/forma",
+      "localPath": "/home/user/kemiller2002/forma",
+      "defaultBranch": "main",
+      "headSha": "3887eec80668fecc7c6e91e38a782765a71199ff",
+      "headDate": "2026-11-10",
+      "version": "@echelon-foundry/design-system 1.0.2 (package.json; CHANGELOG.md '## 1.0.2'); registry echelon-current 1.39.0 pins forma 1.0.1; subpackages @echelon-foundry/forma-workflow 2.0.0, @echelon-foundry/forma-conformance 0.3.0",
+      "responsibility": "Zero-component-runtime, brand-neutral design system: semantic HTML patterns, CSS, design tokens, accessibility contracts; behaviour belongs to consuming app 'normally through Limen' (README.md:1-35).",
+      "implemented": [
+        "170 catalog component entries (catalog/components), 178 patterns (patterns/)",
+        "F# token compiler/validator (tools/TokenCompiler, TokenValidator) producing dist/tokens.css; brands, color contract",
+        "Generated component documentation site (npm run site:check)",
+        "forma-workflow embeddable renderer/editor (packages/workflow) and dev-only Playwright conformance helpers (packages/conformance)",
+        "Namespace codemod tools/NamespaceMigrator (dominant recent work, WI-0049..WI-0062)"
+      ],
+      "buildTest": {
+        "ran": true,
+        "result": "PARTIAL - no failures observed; timed out",
+        "details": "On a git-archive copy: npm ci OK; 'npm run check' (dotnet on PATH) ran build, icons, tokens:validate, token/brand/runtime/design/color/motion/marketing/character-grid/figma/... and workflow-package node suites: 399 'ok' subtests, 0 'not ok', then hit the 420 s cap (exit 124) at test:browser (Playwright). Token build: '537 tokens, 22 semantic variables across 18 themes'. Browser suites not evaluated; only Chromium is installed locally."
+      },
+      "dependencies": [
+        "Limen (documented behavioural boundary, docs/AGENT-USAGE.md:26)",
+        "Visual Engineering UI-LAYOUT-INTERACTION@1.0.0 (forma-conformance)",
+        "Praxis/ROS governance (praxis, ros scripts)",
+        "Consumed by echelon-engineering-system (pinned 0.9.0), echelon-foundry (0.2.0), Folio (icons)"
+      ],
+      "recentThemes": [
+        "Forma 1.0.2 namespace codemod re-reviews 5-10 (fix(codemod) WI-0055..WI-0060)",
+        "test build race fix (WI-0061, PR #185)",
+        "perf tests for codemod"
+      ],
+      "openPRs": [],
+      "gaps": [
+        "Registry pins 1.0.1 while main is 1.0.2",
+        "FOR-F1 contract enforcement thin (13 of 165 components with machine metadata) - open as of 2026-10-05",
+        "FOR-F4 44 recorded shipped defects incl. WCAG AA contrast failures (accepted-debt)",
+        "FOR-F3 consumers pinned at many versions (EES 0.9.0, foundry 0.2.0)",
+        "FOR-F6 intermittent browser tests"
+      ],
+      "reuseCandidates": [
+        {
+          "name": "Control-plane patterns",
+          "path": "/home/user/kemiller2002/forma/patterns",
+          "why": "work-queue, lane-board, diff-viewer, conflict-review, obligation-panel, provenance-trail, verification-frame, readiness-checklist, evidence-relationship, operation-status, diagnostic-status - directly fit an autonomous-engineering UI control plane"
+        },
+        {
+          "name": "forma-workflow",
+          "path": "/home/user/kemiller2002/forma/packages/workflow",
+          "why": "Embeddable workflow renderer/editor"
+        },
+        {
+          "name": "forma-conformance",
+          "path": "/home/user/kemiller2002/forma/packages/conformance",
+          "why": "Playwright UI conformance assertions for verification"
+        }
+      ],
+      "evidence": [
+        {
+          "claim": "version 1.0.2",
+          "ref": "forma/package.json; CHANGELOG.md:10"
+        },
+        {
+          "claim": "registry pins 1.0.1",
+          "ref": "echelon-registry/sets/echelon-current/1.39.0.json"
+        },
+        {
+          "claim": "no open PRs",
+          "ref": "gh search -> 0"
+        }
+      ]
+    },
+    {
+      "system": "Folio (print/report components)",
+      "repo": "kemiller2002/folio",
+      "localPath": "/home/user/kemiller2002/folio",
+      "defaultBranch": "main",
+      "headSha": "217d644e39b11127620f8d83a1e1ee9dff59ec48",
+      "headDate": "2026-10-22",
+      "version": "@echelon-foundry/print-components 0.4.2 (package.json); registry pins 0.4.1; EES notes 0.4.2 'did not exist as a published release' (echelon-engineering-system/docs/requirements-verification.md:15-17)",
+      "responsibility": "Print component system: light-DOM custom elements and print-layout primitives for HTML -> paper/PDF; standards-first, tiered renderer capability P0-P3; explicitly not a JS pagination engine (README.md:1-30).",
+      "implemented": [
+        "27 ef-print-* custom elements registered (src/components/register.js)",
+        "print CSS styles, runtime version stamp (WI-0011)",
+        "Fixture suites: report, profile, journal, diagram projection, Tutela security record, print experiments",
+        "src/engine and src/kernel are reserved empty placeholders (limen.config.json notApplicable rationale)"
+      ],
+      "buildTest": {
+        "ran": true,
+        "result": "PARTIAL",
+        "details": "git-archive copy, `npm ci` OK. Full `npm test` FAILED at run-primitive-component-tests.mjs: Playwright Firefox executable missing (environmental). Individually: runtime:check PASS; runtime-version.test 3/3; test:ui-conformance:rules 31 pass, 1 skipped; run-report-fixture-tests produced results; run-print-experiments emitted a JSON error 'Executable doesn't exist ... firefox' (environmental; exit status masked by pipe). Note FOL-F4: runners hard-code chromium/firefox/webkit and ignore FOLIO_ENGINES."
+      },
+      "dependencies": [
+        "Forma (icons tests: test:forma-icons; FOR-F2 stale copy of Forma CSS for diagram projections)",
+        "Limen (installed, boundary notApplicable)",
+        "Tutela (security-record components, FOL-F2)",
+        "Praxis/ROS"
+      ],
+      "recentThemes": [
+        "runtime version stamp (WI-0011, PR #58)",
+        "requirements ingestion/Praxis compatibility (PR #57)",
+        "PolyForm license",
+        "UI conformance print evidence ULI 1.0.0 (PR #55)"
+      ],
+      "openPRs": [
+        {
+          "number": 23,
+          "created": "2026-09-29",
+          "title": "Adopt Praxis CI batching policy"
+        },
+        {
+          "number": 15,
+          "created": "2026-09-25",
+          "title": "Add bounded-sheet and adaptive-fit Folio primitives"
+        }
+      ],
+      "gaps": [
+        "FOL-F1 registers ef-print-* in Forma's ef- namespace (open 2026-10-05)",
+        "FOL-F2 Tutela-specific components inside generic print library",
+        "No PDF determinism test runnable without all three browsers",
+        "Folio 0.4.2 on main but registry/consumers at 0.4.1"
+      ],
+      "reuseCandidates": [
+        {
+          "name": "ef-print-* document primitives",
+          "path": "/home/user/kemiller2002/folio/src/components",
+          "why": "Reporting/print of engineering evidence (EES already generates tagged Letter PDFs with Folio 0.4.1)"
+        },
+        {
+          "name": "report fixture",
+          "path": "/home/user/kemiller2002/folio/tests/run-report-fixture-tests.mjs",
+          "why": "Reference for report layout incl. grayscale/text-equivalent checks"
+        }
+      ],
+      "evidence": [
+        {
+          "claim": "0.4.2",
+          "ref": "folio/package.json"
+        },
+        {
+          "claim": "2 open PRs",
+          "ref": "gh search -> #23, #15"
+        }
+      ]
+    },
+    {
+      "system": "Limen (browser boundary; F#/.NET WASM consumers)",
+      "repo": "kemiller2002/limen",
+      "localPath": "/home/user/kemiller2002/limen",
+      "defaultBranch": "main",
+      "headSha": "743cdb9be8971c0a3a250906a6e2e112170dfae0",
+      "headDate": "2026-10-28",
+      "version": "@echelon-foundry/limen 0.9.1 (package.json; tag v0.9.1); [Unreleased] adds `limen wasm-check`; registry: limen 0.9.1, limen-fsharp 0.9.0 (F# library fsproj Version 0.0.0 in source)",
+      "responsibility": "Dependency-free browser library splitting app into kernel (browser APIs) and engine (authority), exchanging only JSON; plus F# lifecycle CLI init/status/verify/upgrade/doctor (README.md:20-45).",
+      "implemented": [
+        "TypeScript kernel + protocol (npm package does NOT ship a WASM engine - README.md 'Where is the WebAssembly?')",
+        "F# lifecycle CLI (cli/Limen.Cli, Limen.Core)",
+        "F# libraries Limen.Forms/Http/Localization/Outbox/Resources/Routing/Store (libraries/fsharp)",
+        "WASM guests: csharp, fsharp, minimal, rust (guests/); F# WASM product site (site/fsharp)",
+        "limen wasm-check: static Mono interpreter frame-size check LIMEN030/031 (CHANGELOG Unreleased, WI-0177)"
+      ],
+      "buildTest": {
+        "ran": true,
+        "result": "PASS (partial scope)",
+        "details": "Full `npm test` pretest requires `dotnet workload restore` + WASM publish (not attempted fully; first run failed only because dotnet was not on PATH). Ran `npm run build && node --experimental-strip-types --test test/*.test.ts` on a git-archive copy: tests 883, pass 873, fail 0, skipped 10, EXIT=0. Not run: contract/architecture/docs checks, F# CLI tests, WASM site build."
+      },
+      "dependencies": [
+        "@echelon-foundry/repository-operating-system ^1.2.1 (devDependency)",
+        "Consumers: Forma (documented), Folio/foundry (notApplicable boundary), EES intentionally absent"
+      ],
+      "recentThemes": [
+        "Echelon speed optimisation P5 (WI-0178)",
+        "EII-A interpreter frame check (WI-0177)",
+        "CI runner pinning to Ubuntu 24.04 (WI-0176)",
+        "Http explicit cache mode intake (WI-0175)"
+      ],
+      "openPRs": [
+        {
+          "number": 111,
+          "created": "2026-10-24",
+          "title": "feat(http): explicit cache mode on the Http effect, protocol 1.5"
+        },
+        {
+          "number": 109,
+          "created": "2026-10-14",
+          "title": "Adopt UI-LAYOUT-INTERACTION@1.0.0 conformance for the product site"
+        },
+        {
+          "number": 75,
+          "created": "2026-10-01",
+          "title": "Adopt shared Echelon release v2 contract"
+        },
+        {
+          "number": 74,
+          "created": "2026-09-30",
+          "title": "Add Forma NASA F# WASM integration proof"
+        },
+        {
+          "number": 66,
+          "created": "2026-09-29",
+          "title": "Adopt Praxis CI batching and end-biased CI checks"
+        },
+        {
+          "number": 6,
+          "created": "2026-09-16",
+          "title": "Browser capabilities, and an F# WebAssembly engine that runs the site"
+        }
+      ],
+      "gaps": [
+        "Describing Limen as a 'WebAssembly runtime' contradicts its README: npm package is a TS browser boundary; WASM exists only in site/guests",
+        "XC-06 consumer verify passes vacuously on empty boundary lists / unpinned npx (open portfolio item; LIM-F2 done in limen#77)",
+        "LIM-F7 work items 'ready' though shipped (open)",
+        "6 open PRs, oldest 2026-09-16"
+      ],
+      "reuseCandidates": [
+        {
+          "name": "Kernel/engine boundary + capability packs",
+          "path": "/home/user/kemiller2002/limen/src",
+          "why": "Hosting an F#/WASM control-plane engine with no direct browser authority"
+        },
+        {
+          "name": "limen wasm-check",
+          "path": "/home/user/kemiller2002/limen/docs/57-wasm-interpreter-frame-check.md",
+          "why": "Catches WASM-only InvalidProgramException that CoreCLR unit tests miss - a verification gap class"
+        },
+        {
+          "name": "Limen.Outbox/Store/Http F# libs",
+          "path": "/home/user/kemiller2002/limen/libraries/fsharp",
+          "why": "Reusable F# effect libraries for a WASM UI"
+        }
+      ],
+      "evidence": [
+        {
+          "claim": "883 tests, 0 fail",
+          "ref": "node --test test/*.test.ts (this run)"
+        },
+        {
+          "claim": "6 open PRs",
+          "ref": "gh search"
+        }
+      ]
+    },
+    {
+      "system": "Echelon Registry",
+      "repo": "kemiller2002/echelon-registry",
+      "localPath": "/home/user/kemiller2002/echelon-registry",
+      "defaultBranch": "main",
+      "headSha": "fef1f944ccfb2f9975a2183bb770c14fed88cc5f",
+      "headDate": "2026-11-09",
+      "version": "no package version; channel echelon-current 1.39.0 (sets/echelon-current/1.39.0.json, owner-approved WI-0081)",
+      "responsibility": "Discovery/interoperability specification for independently installable Echelon systems: identity, repository, provided/consumed capabilities, executables, contract versions; distribution catalog, release sets, channels (README.md).",
+      "implemented": [
+        "registry/systems-v2.json: 32 systems; systems.json (v1)",
+        "releases/<system>/<ver>.release.json for 19 systems",
+        "release sets echelon-current 1.27.0-1.39.0 (18 components) with per-platform channel indexes and sha256s",
+        "F# script tools (tools/*.fsx) and conformance validators (conformance/*.fsx)"
+      ],
+      "buildTest": {
+        "ran": true,
+        "result": "PASS",
+        "details": "`dotnet fsi conformance/<x>.fsx`: validate-capability-pairing PASS; validate-manifest-references PASS (self-test 3 findings as expected); validate-release-sets PASS (echelon-current@1.39.0 approved, 15 records, 5 self-tests); validate-current-channel PASS; validate-distribution-fixtures PASS. git status clean afterwards."
+      },
+      "dependencies": [
+        "Describes all systems; Praxis provenance contract (open PRs #1, #2)",
+        "project-administration owns installation history"
+      ],
+      "recentThemes": [
+        "cutting echelon-current 1.37.2-1.39.0 for Forma 0.14.0/1.0.1 and Echelon theme 1.0.0/1.1.0 (WI-0079..WI-0081)"
+      ],
+      "openPRs": [
+        {
+          "number": 95,
+          "created": "2026-10-25",
+          "title": "WI-0063 (blocked): register percepta-semantic and cut echelon-current 1.28.0"
+        },
+        {
+          "number": 6,
+          "created": "2026-09-29",
+          "title": "Adopt Praxis CI batching policy"
+        },
+        {
+          "number": 2,
+          "created": "2026-09-26",
+          "title": "feat: envelope v2 adopts the Praxis actor; manifests declare provenance capability"
+        },
+        {
+          "number": 1,
+          "created": "2026-09-26",
+          "title": "Carry the Praxis provenance contract through registry envelopes (v2)"
+        }
+      ],
+      "gaps": [
+        "Forma, Folio, Limen declare provides: [] and optionalConsumes: [] (systems-v2.json) - REG-F2 no compatibility validation",
+        "EKS not registered",
+        "Pins lag main: forma 1.0.1 vs 1.0.2, folio 0.4.1 vs 0.4.2",
+        "REG-F5 resolved set not reproducible; REG-F6 authority semantics undocumented (open as of 2026-10-05)",
+        "PR #95 references 1.28.0 while channel is at 1.39.0 (stale)"
+      ],
+      "reuseCandidates": [
+        {
+          "name": "Release-set + channel model",
+          "path": "/home/user/kemiller2002/echelon-registry/sets",
+          "why": "Pinned, hashed component sets for reproducible autonomous runs"
+        },
+        {
+          "name": "Conformance .fsx validators",
+          "path": "/home/user/kemiller2002/echelon-registry/conformance",
+          "why": "Self-testing validators (each includes negative self-tests) - pattern for verifying verifiers"
+        }
+      ],
+      "evidence": [
+        {
+          "claim": "32 systems",
+          "ref": "registry/systems-v2.json"
+        },
+        {
+          "claim": "conformance PASS",
+          "ref": "dotnet fsi output (this run)"
+        }
+      ]
+    },
+    {
+      "system": "Echelon Engineering System (documentation site)",
+      "repo": "kemiller2002/echelon-engineering-system",
+      "localPath": "/home/user/kemiller2002/echelon-engineering-system",
+      "defaultBranch": "main",
+      "headSha": "4ca2f981ea2c813cd4894f1ce83c7b2c4ece14a6",
+      "headDate": "2026-10-28",
+      "version": "echelon-engineering-site 0.1.0 (private package.json)",
+      "responsibility": "Evidence-led documentation of Echelon engineering architecture, method, components, agent decision boundaries and research; F# static publisher using Forma 0.9.0 and Folio 0.4.1; no Limen (README.md:1-10).",
+      "implemented": [
+        "F# publisher src/EngineeringSystem.Site generating 8 routes with structural validation",
+        "Playwright suites site/print/branding",
+        "4 tagged Letter PDFs (output/pdf)",
+        "GitHub Pages deploy workflow (pages.yml)"
+      ],
+      "buildTest": {
+        "ran": true,
+        "result": "BUILD PASS; browser tests not run",
+        "details": "git-archive copy: `npm ci --ignore-scripts` then `npm run build` -> 0 errors, 'Generated 8 pages', 'Validated 8 routes, 5 assets, headings, current navigation, and internal links.' Playwright not run. Repo's own record claims npm test 22 PASS, print 5 PASS (docs/requirements-verification.md 'Commands executed')."
+      },
+      "dependencies": [
+        "Forma 0.9.0 (npm)",
+        "Folio 0.4.1 (GitHub release tarball)"
+      ],
+      "recentThemes": [
+        "site CSS versioning, mobile diagram layout, removal of Indy Init page (PRs #3-#6, 2026-10-28)"
+      ],
+      "openPRs": [],
+      "gaps": [
+        "No Praxis/ROS governance files unlike other repos",
+        "Pins Forma 0.9.0 (registry current 1.0.1)",
+        "Branding test depends on /private/tmp corporate build (README)"
+      ],
+      "reuseCandidates": [
+        {
+          "name": "F# static publisher with route/link validation",
+          "path": "/home/user/kemiller2002/echelon-engineering-system/src/EngineeringSystem.Site",
+          "why": "Template for reporting site combining Forma + Folio print output"
+        },
+        {
+          "name": "requirements-verification gate table",
+          "path": "/home/user/kemiller2002/echelon-engineering-system/docs/requirements-verification.md",
+          "why": "Example evidence-driven acceptance gate format"
+        }
+      ],
+      "evidence": [
+        {
+          "claim": "build passes",
+          "ref": "npm run build (this run)"
+        },
+        {
+          "claim": "0 open PRs",
+          "ref": "gh search"
+        }
+      ]
+    },
+    {
+      "system": "Echelon Foundry (org site/meta)",
+      "repo": "kemiller2002/echelon-foundry",
+      "localPath": "/home/user/kemiller2002/echelon-foundry",
+      "defaultBranch": "main",
+      "headSha": "8c6b45358fb1bcae4f612534637077d35dd72762",
+      "headDate": "2026-10-13",
+      "version": "echelon-foundry-site (no version)",
+      "responsibility": "Greenfield Praxis 3.7.1 pilot repository and organisation website (README.md:1-30 'The operating system is itself under evaluation').",
+      "implemented": [
+        "node build.js static site from src/pages/templates/case-studies",
+        "12 node tests (color contrast + UI conformance)",
+        "UI-LAYOUT-INTERACTION@1.0.0 conformance evidence (GH-11)",
+        "Dockerfile serving via python http.server"
+      ],
+      "buildTest": {
+        "ran": true,
+        "result": "PASS",
+        "details": "git-archive copy: npm ci OK; npm run build OK; npm test -> tests 12, pass 12, fail 0."
+      },
+      "dependencies": [
+        "devDeps: Forma 0.2.0, Folio 0.3.0 tarball, Visual Engineering 1.0.0, Communication Engineering 1.0.0",
+        "Limen 0.9.0 with notApplicable boundary (WI-0005)"
+      ],
+      "recentThemes": [
+        "UI conformance adoption (PR #12)",
+        "repinning devDependencies to release tarballs (WI-0006)",
+        "Ordo 1.5.0 via echelon-current 1.2.0"
+      ],
+      "openPRs": [
+        {
+          "number": 2,
+          "created": "2026-09-29",
+          "title": "Adopt Praxis CI batching policy"
+        }
+      ],
+      "gaps": [
+        "SITE-F2 hand-written stylesheet; declared Forma 0.2.0 unused by build (open)",
+        "SITE-F10 scratch.txt committed (still present at HEAD)",
+        "README says Praxis 3.7.1 while registry current Praxis 3.25.0"
+      ],
+      "reuseCandidates": [
+        {
+          "name": "UI conformance config",
+          "path": "/home/user/kemiller2002/echelon-foundry/playwright.ui-conformance.config.mjs",
+          "why": "Small example of conformance evidence validation (test/ui-conformance/validate-evidence.mjs)"
+        }
+      ],
+      "evidence": [
+        {
+          "claim": "12/12 tests",
+          "ref": "npm test (this run)"
+        },
+        {
+          "claim": "1 open PR",
+          "ref": "gh search"
+        }
+      ]
+    }
+  ],
+  "knowledgeStoreDeepDive": {
+    "repo": "kemiller2002/echelon-knowledge-store",
+    "head": "35d9cee0df94eed89335712fbaade4d491a45bcd",
+    "compilerProducesToday": {
+      "typedRecords": "Yes: KnowledgeRecord with Kind (Requirement, Decision, Hypothesis, Evidence, Experiment, Theory, ResearchPackage, Journal, ResearchQuestion, Governance, Method, Verification, Document, Other), typed relations (supports, contradicts, depends_on, supersedes, superseded_by, derived_from, related_to, mentions), qualitative Confidence, Provenance (src/Echelon.KnowledgeStore.Core/Model.fs:1-75). Kind inferred from directory then ID prefix (RQ, DF/ADR, EV, HY, EX, TH, RP, JR, GV, VR...) (Model.fs:78-125).",
+      "typedRequirements": "Requirements parsed as records; acceptance criteria extracted from '## Acceptance' list; `eks obligations ID` emits eks.requirement-contract/0 with obligations (all classified 'human', MechanicallyTestable=false in fixture run unless `verified_by` bindings declared).",
+      "diagnostics": "27 codes EKS0001-EKS0027, levels Error/Warning/Advisory/RequiresReview, file(line), remediation text (Diagnostics.fs). Examples: EKS0001 missing id, EKS0002 dangling ref, EKS0006 cycle, EKS0008 vendored copies, EKS0009 no acceptance, EKS0013 superseded without replacement, EKS0015 instructions to agents in record text, EKS0017 contested claim, EKS0022 misspelled field, EKS0027 non-existent source.",
+      "packages": "`context`, `evidence`, `impact`, `explain`, `work-item` Markdown packages with header (compiler version, inputs hash, as-of, status COMPLETE/INCOMPLETE, authority statement), record text fenced as data; `manifest`/`work-item-manifest` JSON with derived completeness conditions.",
+      "provenanceAndVersionIds": "Per-record sha256 of source file; inputs hash in header; manifest.json lists every input path+sha256; source revisions from .git HEAD; compiler name/version 'eks-compiler 0.1.0-research'; `verify` refuses stale artefacts (exit 2).",
+      "contradictionDetection": "Partial: contested-claim (EKS0017) when a record has both supports and contradicts evidence; supersession authority/asymmetry (EKS0021); EKS0008 divergent vendored copies; `explain` derives current authority. No semantic/prose contradiction detection (findings/unresolved-questions.md 'Status vs prose contradictions').",
+      "compileArtifacts": "`eks compile --out DIR` writes index.md, records.jsonl, diagnostics.json, precomputed.json, manifest.json (observed this run).",
+      "changeControl": "`diff` and `change-manifest` (eks.change-manifest/0; exit 4 if rejected, otherwise requires-review; never approves)."
+    },
+    "commandsRun": [
+      "dotnet tool restore; dotnet test Echelon.KnowledgeStore.sln -c Release -> 78 passed, 0 failed, exit 0",
+      "dotnet build tools/Echelon.KnowledgeStore.Cli -c Release -> eks.dll",
+      "eks validate --root benchmarks/coding-fixture/repos --repos fx-ledger,fx-identity --as-of 2026-10-10 -> 23 records; 1 Warning (EKS0009 RQ-FXL-0008), 1 RequiresReview (EKS0015 EV-FXL-0003); exit 0",
+      "eks work-item fx-ledger WI-0003 --root benchmarks/coding-fixture/repos --as-of 2026-10-10 -> status COMPLETE, 524 words, exit 0",
+      "eks work-item-manifest fx-ledger WI-0003 ... -> JSON, completeness COMPLETE with condition list",
+      "eks impact fx-identity:RQ-FXID-0002 ... -> impacted RQ-FXID-0004 (and downstream)",
+      "eks explain fx-ledger:DF-FXL-0003 ... -> superseded; current authority DF-FXL-0004",
+      "eks compile --out <scratch>/eks-out ... -> 23 records, 25 edges, 0 errors; eks verify --artifacts ... -> fresh, exit 0",
+      "eks obligations fx-ledger:RQ-FXL-0004 ... -> eks.requirement-contract/0, 2 human obligations",
+      "eks validate --root /home/user/kemiller2002 --repos forma,folio,limen,echelon-registry,echelon-foundry -> 188 records; 6 Error, 46 Advisory, 1 RequiresReview, 10 Warning (0.5 s)"
+    ],
+    "research": [
+      {
+        "mission": "EKS-RESEARCH-2026-001",
+        "path": "research/2026-knowledge-representation",
+        "status": "PARTIALLY COMPLETE (2026-11-16)",
+        "findings": [
+          "[measured] Corpus 13 repos, 2,149 Markdown files, 3.42M o200k tokens; ~25% byte-identical vendored copies; 0 typed cross-repo edges (experiments/results/baseline.md)",
+          "[measured] Syntax changes move total tokens <=13%; DSL saves 0.7%; F# records +75% metadata (results/formats.md)",
+          "[measured] Trial 1 (144 answers): metadata present 0.98-1.00 accuracy, stripped 0.72-0.76",
+          "[measured] Trial 2 (54 answers): raw Markdown 0.99, optimised retrieval 0.47, registries 0.99, compiler-first 0.92 -> 1.00 after fixing unwired rule; compiler halves wall time (15 s vs 31 s) but does not reduce end-to-end tokens",
+          "[measured] Compiler: 36 -> 3 true errors on public corpus after calibration; 22/26 agent-edit mutations caught; cold <0.4 s, warm ~0.05 s",
+          "[measured] Write trials: Sonnet fabricated/misstated evidence sources; explicit integrity policy reduced fabrication 2/2 -> 0/2 (small n)",
+          "Recommendation: keep Markdown+front matter canonical; compile it; reject DSL, F# storage, JSON source, graph DB, service"
+        ]
+      },
+      {
+        "mission": "EKS-RESEARCH-2026-002",
+        "path": "research/2026-compiler-integration",
+        "status": "PARTIALLY COMPLETE; merged PR #4 (588d90c)",
+        "findings": [
+          "[measured] Base fixture: 16/16 in all four conditions (no separation)",
+          "[measured] Hard fixture (2 models x 2 seeds): A existing 24/32, B retrieval 28/32, C packages 32/32, D packages+policy 32/32; false completion claims 8/4/0/0; amended tasks 16/16 vs 8/16 (p~0.002) vs 12/16 (p~0.10)",
+          "[measured] Tokens per verified task 33,386 (A) vs 25,250 (C) = solve rate restated; tokens per run flat (~70k fixed harness)",
+          "[measured] Evidence integrity: 2 fabrications in 20 runs (title-only sources) in conditions 1-2; 0 failed tests reported as passing",
+          "[measured] Incremental parse cache: 0 stale over 60 edits x 25 packages, 2.5x faster; full compile 159 ms vs 62 ms incremental on 532 records",
+          "[measured] eks impact 13/13 recall, 0 FP vs text search 11/13, precision 69%",
+          "[hypothesis] 65% of 796 real work items cite no records, so the hard case is plausibly common - untested",
+          "Gates: ADOPT advisory packages/manifests/incremental/change-manifest; EXPERIMENTAL Dokimos obligations; INCONCLUSIVE EKS as gate; REJECT BM25 retrieval as substitute"
+        ]
+      }
+    ],
+    "measuredVsHypothesised": "Both executive reports tag each statement [measured]/[hypothesis]; AGENTS.md rule 5 requires it. Raw data committed under experiments/raw and experiments/results. Caveats: fixture designed by compiler author; only Claude Sonnet/Haiku; hidden tests now public.",
+    "benchmarkHarness": {
+      "path": "benchmarks/Echelon.KnowledgeStore.Bench",
+      "commands": "baseline, validate, formats, retrieval, dependencies, trials, ablation, compiler, trials2, write-prepare/score, score-trials(2), incremental, evidence-prepare/score, coding-prepare/score (Program.fs:823-902)",
+      "measures": "Corpus tokens/files/front-matter coverage/broken links/duplication; format token cost; retrieval accuracy; ablations; compiler timings; agent Q&A trial preparation/scoring; coding trials with hidden tests (solve rate, overclaims, tokens per solved task, wall time); evidence-integrity trials; incremental compile staleness",
+      "tokenizers": "Microsoft.ML.Tokenizers o200k_base, cl100k_base, Llama SentencePiece; Claude tokenizer not measured (Tokens.fs:17-35)",
+      "corpus": "benchmarks/corpus.lock.json pins 13 repos by commit (2 private skipped in CI); CI workflow .github/workflows/benchmarks.yml runs baseline validate formats retrieval ablation compiler trials trials2 on PR/dispatch",
+      "fixture": "benchmarks/coding-fixture: fx-ledger + fx-identity repos (Praxis-style records + .ros/work/queue.json), hidden xUnit tests (T1-T8), hard overlay with amendments and ~300 distractors, reference solutions"
+    },
+    "researchArtifactFormat": {
+      "missionFolder": "research/<YYYY>-<topic>/ with README.md (mission ID 'EKS-RESEARCH-2026-00N', question, short answer, status, contents table, reproducing commands)",
+      "subfolders": "baseline/, architecture/, benchmarks/, experiments/ (results md + raw/ with every score/usage/assignment), evidence-integrity/, knowledge-updates/, security/, strategy/ (executive-report.md, recommendations, roadmap), findings/ (accepted/rejected ideas, unresolved-questions.md), evidence/ (CSV registers), continuation/",
+      "machineReadable": "continuation/research-status.json (schema 'eks.research-status/1': mission, status, asOf, branch, pullRequest, baseline SHAs, headline, completionCriteria, gates, openRisks) and continuation/continuation-manifest.json (schema 'eks.continuation-manifest/1': resumeFrom, nextQuestions[priority, question, design], pendingOwnerDecisions, commands)",
+      "evidenceCsvs": "claims-and-evidence.csv (claim_id CL-NNN, claim, status, evidence, measured_or_hypothesis, reproduce); contradictions.csv (CX-NNN ...); source-register.csv (SRC-<AREA>-NNN, title, url, type, accessed, used_for, workstream)",
+      "frontMatter": "Research report .md files in EKS have NO YAML front matter (plain '# Title'); every claim labelled [measured]/[hypothesis] with reproducing command (AGENTS.md rule 5). Knowledge RECORDS (what the compiler reads) use YAML front matter: id, title, status, created, relation lists (supports, contradicts, depends_on, supersedes, superseded_by), source_uri, optional verified_by; IDs '<PREFIX>-<REPO>-<NNNN>' e.g. RQ-FXL-0004, filename '<ID>--<slug>.md' in research/{requirements,decisions,evidence,hypotheses,experiments,...}; acceptance criteria under '## Acceptance'; cross-repo refs 'repo:ID'.",
+      "governance": "Branch claude/<task> or research/<topic>, PR with template stating measured results; never force-push; fantomas --check; no migrations of other repos' knowledge"
+    },
+    "ongoingQuestions": [
+      "P1: Do packages reduce missed requirements on real Echelon work items? (Stage 1 advisory rollout) - research/2026-compiler-integration/continuation/continuation-manifest.json",
+      "P2: Effect on privately regenerated fixture, more reps, third model",
+      "P3: Long-running tasks (category J) / context decay",
+      "P4: Do integrity policies or reviewers reduce fabrication",
+      "P5: False-positive rate of title-only-source review rule",
+      "Phase 1 open: other model families; embedding retrieval; EKS inside Praxis vs library; status-vs-prose contradictions; Dokimos requirement-contract integration (findings/unresolved-questions.md)",
+      "Pending owner decisions: Praxis typed requirement links (Stage 2); Dokimos obligations schema and planDigest check (Stage 3)"
+    ],
+    "compiledVsMarkdownSummary": "[measured] Markdown with typed front matter already reaches ceiling Q&A accuracy; compiled delivery halves agent wall time without cutting tokens (Phase 1) and improves verified completion only when requirements are amended by unlinked records (Phase 2 hard fixture). Real-work effect unmeasured."
+  },
+  "portfolioVerificationDefects": [
+    {
+      "id": "QDI-078",
+      "repo": "dokimos",
+      "path": "application-governance/ENGINEERING-QUALITY-DECISION-INVENTORY.md:1245-1262",
+      "summary": "Dokimos TRX parser trxCounters returns 0 when counter attributes are missing (total/executed/passed/failed); int parse can escape typed failure - incomplete test evidence can appear as valid zero-valued measurements",
+      "status": "required work listed (inventory)"
+    },
+    {
+      "id": "ITR-F2",
+      "repo": "iter",
+      "path": "application-governance/quality-remediation-inventory.json",
+      "summary": "`dotnet test Iter.slnx` succeeds while running zero tests",
+      "status": "done (iter#5, 76cd9e7 per QUALITY-REMEDIATION-REPORT-2026-10-05.md:57)"
+    },
+    {
+      "id": "XC-10",
+      "repo": "portfolio",
+      "path": "application-governance/quality-remediation-inventory.json",
+      "summary": "Several .NET suites invisible to dotnet test (Iter zero tests reports success; Conditor custom runner; Tutela harness prints success early; Forma Studio custom harness)",
+      "status": "open"
+    },
+    {
+      "id": "TUT-F7",
+      "repo": "tutela",
+      "path": "application-governance/quality-remediation-inventory.json",
+      "summary": "Test harness success message prints before later assertions run (tests/Tutela.Core.Tests/Program.fs:24)",
+      "status": "in-progress"
+    },
+    {
+      "id": "PRX-QUAL-022",
+      "repo": "praxis",
+      "path": "application-governance/quality-remediation-inventory.json",
+      "summary": "Green compilation/unit tests can satisfy completion of stateful control-plane, persistence, release, security or remote-execution work (QDI-040/041/047)",
+      "status": "open"
+    },
+    {
+      "id": "QDI-041",
+      "repo": "portfolio",
+      "path": "application-governance/ENGINEERING-QUALITY-DECISION-INVENTORY.md:1360",
+      "summary": "Behavioural and structural completion are distinct",
+      "status": "proposed decision"
+    },
+    {
+      "id": "QDI-034",
+      "repo": "portfolio",
+      "path": "application-governance/ENGINEERING-QUALITY-DECISION-INVENTORY.md:506",
+      "summary": "Ecosystem verification must gate 'done', not merely repository-local validation",
+      "status": "decision item"
+    },
+    {
+      "id": "LIM-F2 / XC-06",
+      "repo": "limen / portfolio",
+      "path": "application-governance/quality-remediation-inventory.json",
+      "summary": "Limen consumer verify passed vacuously on empty boundary lists as 'passed (strict)'; unpinned npx latest",
+      "status": "LIM-F2 done (limen#77, 70fbe25: not-configured exit 8); XC-06 open"
+    },
+    {
+      "id": "LIM-F3",
+      "repo": "limen",
+      "path": "application-governance/quality-remediation-inventory.json",
+      "summary": "Self-verify run with -p:Version=0.6.1 to match recorded version while package is 0.6.2",
+      "status": "done"
+    },
+    {
+      "id": "LIM-F8",
+      "repo": "limen",
+      "path": "application-governance/quality-remediation-inventory.json",
+      "summary": "Packaged-CLI node tests conditionally skipped under npm test",
+      "status": "done"
+    },
+    {
+      "id": "AEG-F5",
+      "repo": "aegis",
+      "path": "application-governance/quality-remediation-inventory.json",
+      "summary": "Malformed stored records skipped and query returns Ok; a test enshrines this (GitHubStoreTests.fs:267)",
+      "status": "done"
+    },
+    {
+      "id": "XC-17 / QDI-042",
+      "repo": "portfolio",
+      "path": "application-governance/quality-remediation-inventory.json; ENGINEERING-QUALITY-DECISION-INVENTORY.md:1368",
+      "summary": "Failures collapsed into empty/success values (Percepta status returns 0 on unreadable evidence, PER-F5; Clarity maps errors to [], CLR-F2)",
+      "status": "open"
+    },
+    {
+      "id": "PRX-QUAL-002",
+      "repo": "praxis",
+      "path": "application-governance/quality-remediation-inventory.json",
+      "summary": "Corrupt/truncated hold.json loaded as empty state, silently releasing latches",
+      "status": "done"
+    },
+    {
+      "id": "XC-12",
+      "repo": "portfolio",
+      "path": "application-governance/quality-remediation-inventory.json",
+      "summary": "Red CI on main normalised across many repos (incl. echelon-foundry bootstrap)",
+      "status": "open"
+    },
+    {
+      "id": "STR-F5",
+      "repo": "strata",
+      "path": "application-governance/quality-remediation-inventory.json",
+      "summary": "35 live-PostgreSQL tests skip locally; CI treats skip as failure",
+      "status": "open"
+    },
+    {
+      "id": "HLX-F6/HLX-F7",
+      "repo": "helix-note-application",
+      "path": "application-governance/quality-remediation-inventory.json",
+      "summary": "Most suites never run in CI; auto-merge gates run bare dotnet build/test at a root with no project",
+      "status": "open"
+    },
+    {
+      "id": "HelixNote runner_id 0",
+      "repo": "helix-note-application",
+      "path": "application-governance/AEGIS-FORMA-FOLIO-COMPLIANCE.md:111",
+      "summary": "Rerun job executed zero steps (runner_id 0) - explicitly recorded as not evidence of pass or fail",
+      "status": "noted"
+    },
+    {
+      "id": "EKS phase-2 evidence integrity",
+      "repo": "echelon-knowledge-store",
+      "path": "research/2026-compiler-integration/strategy/executive-report.md",
+      "summary": "[measured] 8/32 false completion claims (existing workflow) on hard fixture; 2/20 fabricated evidence (title-only source) accepted; Sonnet write-trial fabrication",
+      "status": "research finding"
+    }
+  ]
+}

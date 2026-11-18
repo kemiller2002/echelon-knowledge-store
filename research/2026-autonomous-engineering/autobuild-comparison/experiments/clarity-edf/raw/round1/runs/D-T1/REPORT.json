@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "summary": "Implemented split_amount in ledger/split.py following docs/CONVENTIONS.md (integer cents, conservation, leftover cents to earliest entries, refunds split on absolute value and negated, ValueError for parties <= 0) and added tests; all 57 tests pass.",
+  "assumptions": [
+    "total is in integer cents (per ledger/money.py and CONVENTIONS rule 1), so split_amount(1000, 3) returns [334, 333, 333] rather than float shares.",
+    "docs/CONVENTIONS.md is the authoritative specification for remainder, refund and invalid-count handling, since the task text does not cover them and split.py references it.",
+    "Non-integer inputs (floats, bools) are rejected with TypeError; the conventions do not specify this, but rule 1 forbids floats for money."
+  ],
+  "questions_for_requester": [],
+  "files_changed": ["ANALYSIS.md", "ledger/split.py", "tests/test_split.py", "REPORT.json"]
+}
