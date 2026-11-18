@@ -1,0 +1,9 @@
+evidence/forged-tests.txt        -> Present
+direct-link.txt                  -> Unavailable
+  "evidence 'direct-link.txt' resolves outside the repository; cite a repository-relative path"
+a/b/forged-tests.txt             -> Present
+bin/never-committed.txt          -> Present
+.                                -> Present
+                                 -> Present
+[root via symlink] t.txt          -> Present
+[root via symlink] alias.txt      -> Present

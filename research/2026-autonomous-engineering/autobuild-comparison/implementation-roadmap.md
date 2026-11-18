@@ -28,7 +28,7 @@ acceptance test and its evidence.
 | ID | Item | Gate |
 |---|---|---|
 | R6 | EXP-AE-002: 20+ real Echelon tasks with known fixes, 3 trials, production model, arms A, A-effort, B, E; analysis returned inline | Pre-registered; succeeds only if false completion claims or root-cause misses fall by ≥50% with non-overlapping intervals |
-| R7 | Proposal runner: produce counterfactual, held-out and regression results for `ImprovementProposal` from Dokimos outcomes | First proposal (EDF ranking revision, I5) evaluated with a real held-out case |
+| R7 | Proposal runner: produce counterfactual, held-out and regression results for `ImprovementProposal` from Dokimos outcomes; bind approval to the owner-signed `RunAuthorization` | First proposal (disclosure rule, I5) evaluated with a real held-out case |
 | R8 | Compiled packages on real work items with uncited amendments | EKS continuation question 1 |
 
 ## Unified engineering control plane (Phase 8): incremental plan

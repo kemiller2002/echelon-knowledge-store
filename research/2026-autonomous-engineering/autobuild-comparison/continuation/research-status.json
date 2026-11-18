@@ -13,17 +13,43 @@
   "pullRequests": {
     "dokimos#71": "worst-outcome merging of repeated test identities (draft)",
     "praxis#302": "governed improvement proposals contract (draft)",
-    "praxis#CONFINEMENT": "evidence-path confinement; changes frozen golden test6 (draft)"
+    "praxis#303": "evidence-path confinement; changes frozen golden test6 (draft)"
   },
   "headline": {
     "measured": true,
     "experiment": "EXP-AE-001",
-    "round1Verified": {"A": "6/6", "B": "6/6", "C": "6/6", "D": "6/6", "E": "6/6", "N": "6/6"},
-    "round2Verified": {"A": "5/6", "B": "6/6", "C": "6/6", "D": "4/6", "E": "6/6", "N": "5/6", "F": "5/6 (derived)"},
-    "round2FalseCompletionClaims": {"A": 1, "D": 1},
-    "wallTimeVsBaseline": {"round1": "1.29x-2.24x", "round2": "1.78x-2.19x"},
+    "round1Verified": {
+      "A": "6/6",
+      "B": "6/6",
+      "C": "6/6",
+      "D": "6/6",
+      "E": "6/6",
+      "N": "6/6"
+    },
+    "round2Verified": {
+      "A": "5/6",
+      "B": "6/6",
+      "C": "6/6",
+      "D": "4/6",
+      "E": "6/6",
+      "N": "5/6",
+      "F": "5/6 (derived)"
+    },
+    "wallTimeVsBaseline": {
+      "round1": "1.29x-2.24x",
+      "round2": "1.78x-2.19x"
+    },
     "verificationDefectsConfirmedAndFixed": 2,
-    "reposWithVerifiedCompletionEnabled": "0/13"
+    "reposWithVerifiedCompletionEnabled": "0/13",
+    "round2CompleteWithOracleFailure": {
+      "undisclosed": {
+        "A": 1
+      },
+      "residualDisclosedAndAsked": {
+        "D": 1
+      }
+    },
+    "note": "A parent-directory symlink bypass of this program's own first confinement fix was found by independent review and fixed in praxis#303."
   },
   "phases": {
     "0-baseline": "done (data/baseline-inventory.json)",
@@ -37,10 +63,11 @@
     "8-control-plane": "plan: extend praxis hub serve; nothing built",
     "9-implementation": "3 draft PRs",
     "10-outputs": "this directory",
-    "11-adversarial-review": "independent review incorporated in final-report.md"
+    "11-adversarial-review": "done: independent reviewer reproduced all 72 grades; corrections applied (D-T4 over-read withdrawn, symlink bypass fixed, learning-contract gaming fixed, economics caveated, pre-registration timestamps corrected); see adversarial-review/"
   },
   "nextActions": [
     "Owner: review and merge dokimos#71, praxis#302 and the confinement PR",
+    "Bind learning-proposal approval to the owner-signed RunAuthorization before any unattended use",
     "Owner decision: pilot requireVerifiedCompletion with pinned trustedVerifierKeyIds in Dokimos (PRAXIS-REL-006)",
     "Instrument human-attention minutes and escaped-defect links in Praxis telemetry",
     "EXP-AE-002: 20+ real Echelon tasks, 3 trials, production model, arms A, A-effort, B, E; analysis returned inline"

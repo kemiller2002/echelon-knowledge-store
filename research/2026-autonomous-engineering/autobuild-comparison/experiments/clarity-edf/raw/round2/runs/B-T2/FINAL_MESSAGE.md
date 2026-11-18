@@ -1,0 +1,3 @@
+<!-- Agent's final report, extracted verbatim from the run transcript (model output, not verified). -->
+
+complete: Implemented merge(base, override) in settings/merge.py per ADR-004 (recursive dict merge, list replacement, None removes keys, deep-copied so inputs are never mutated or aliased). Added six tests; the suite passes 7/7, up from 1 failing stub test at baseline. Files changed: settings/merge.py, tests/test_merge.py, WORKLOG.md, REPORT.json. Assumption recorded: a dict override replacing a non-dict base value is merged onto {}, so nested None entries are removed, which ADR-004 does not state explicitly.

@@ -27,7 +27,11 @@ A hosted, spec-driven, multi-agent "software factory":
 - **Inferred:** 1.
 
 The vendor's 96% decided-merge rate is consistent with the public count (96.1%), but
-merge rate is not correctness. Every other quantitative claim is unverified: 6.9×
+merge rate is not correctness.
+
+The often-quoted Storybook figure ("87 of 143 merged") counts still-open PRs as
+unmerged, so it is **not** comparable with the 96% decided-merge rate. This was corrected
+after review. Every other quantitative claim is unverified: 6.9×
 velocity, "3 in 4 merged PRs", and "six months in 48 hours", which the same page also
 gives as 24 hours.
 
@@ -53,6 +57,10 @@ gives as 24 hours.
      kept independent of the author.
    - **However**, Echelon's verified completion is enabled in 0 of 13 repositories
      (`verification-audit.md` V3). Today the advantage exists only on paper.
+   - AutoBuild PRs, by contrast, already pass through each customer's own CI and review
+     bots. Those checks are deployed and independent of the authoring agent. Echelon has
+     nothing equivalent deployed. Calling Echelon "ahead" here compares Echelon designs
+     with AutoBuild documentation; this mission did no hands-on AutoBuild trial.
 2. **Governed learning.**
    - AutoBuild consolidates memory nightly without approval. It requires approval for
      rules, but documents no counterfactual or regression evaluation, no version history

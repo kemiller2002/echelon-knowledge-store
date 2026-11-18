@@ -41,8 +41,9 @@ No AutoBuild capability is independently verified.
 - **Memory consolidation without approval** (capability 8). It conflicts with
   provenance and with "never silently modify governance".
 - **"96% merge rate" as a quality metric.** Merge rate measures reviewer acceptance, not
-  correctness. In Storybook, only 87 of 143 public AutoBuild PRs merged, and the repo's
-  own review bots found blocking bugs (`data/autobuild-research-notes.md` §5).
+  correctness. Storybook's review bots found blocking bugs in some merged-path AutoBuild
+  PRs (`data/autobuild-research-notes.md` §5). Storybook's "87 of 143 merged" counts open
+  PRs as unmerged, so it does not contradict the 96% decided-merge figure.
 
 ## What AutoBuild has that Echelon underestimated
 

@@ -23,14 +23,14 @@ Mission EKS-RESEARCH-2026-003 · 2026-11-18. Each item cites its evidence. Statu
 | I2 | Pin evidence by sha256 at plain completion | 415 historical citations now point at missing files (EV-AE-004) | proposed |
 | I3 | Extend `praxis hub serve` into the unified control plane; do not build a new app | It already exists, consumes pinned Forma and Limen routing, and separates human-required actions (EV-AE-023) | proposed (see roadmap) |
 | I4 | One receipt contract shared by Praxis and Dokimos | Duplicated receipt and obligation types (EV-AE-020) | proposed |
-| I5 | Revise EDF's control-point ranking: require enumerating every caller of an origin before calling its fix "premature" | Observed root-cause miss plus false completion claim (EV-AE-012, D-T4) | experimental (needs a held-out case; see governed-learning design) |
+| I5 | Require agents to state every other caller of a changed or defective function, and whether each was tested, before reporting `complete` | One undisclosed incomplete fix (round-2 A-T4); disclosure appears to be what separates acceptable from harmful scoped fixes (EV-AE-012) | experimental. (An earlier "revise EDF ranking" recommendation was withdrawn: one run each way, EV-AE-012) |
 
 ## Reject (for now)
 
 | # | Item | Why |
 |---|---|---|
 | R1 | **Mandatory** Clarity, EDF or combined analysis before every implementation | 72 runs: no measured correctness gain over baseline at n=6 per arm; 30–124% more wall time (EV-AE-011, EV-AE-012). Consistent with prior Echelon studies on decision cases (EV-AE-016). |
-| R2 | Adaptive routing protocol F as specified | It routes bug reports to EDF alone, the arm that missed the root cause on the only discriminating task |
+| R2 | Adaptive routing protocol F as specified | Its derived score equals baseline (5/6); nothing supports the extra routing machinery |
 | R3 | Merge rate as a quality metric (AutoBuild's 96%) | It measures acceptance, not correctness; public Storybook data contradicts its use |
 | R4 | Unapproved memory consolidation | Conflicts with provenance and governance rules |
 | R5 | Converting knowledge from Markdown to a new syntax | ≤13% token effect, ≤2% best saving; Markdown was not the bottleneck in 35/35 effective runs (EV-AE-017) |
@@ -40,7 +40,7 @@ Mission EKS-RESEARCH-2026-003 · 2026-11-18. Each item cites its evidence. Statu
 | # | Item | Condition for further investment |
 |---|---|---|
 | K1 | Lightweight Praxis discipline (arm B: scope, acceptance criteria, baseline, handoff) | It matched the best arms in both rounds at lower cost than C, D or E. Re-test on real tasks before mandating it. |
-| K2 | Combined Clarity+EDF (E) for tasks with unexplained failures | 6/6 in both rounds, and fixed T4's origin with Haiku. Re-test with ≥20 real bug tasks and 3 trials before routing to it. |
+| K2 | Combined Clarity+EDF (E) for tasks with unexplained failures | 6/6 in both rounds; on T4 with Haiku it fixed the origin *and* asked before changing the nightly report, the only arm to do both. Re-test with ≥20 real bug tasks and 3 trials before routing to it. |
 | K3 | Compiled work-item packages | Only for requirements amended by uncited records; trial on real work items |
 
 ## Discontinue

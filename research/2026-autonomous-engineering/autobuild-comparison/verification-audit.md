@@ -8,7 +8,7 @@ Evidence IDs (`EV-AE-*`) resolve in [`evidence-register.md`](evidence-register.m
 | # | Finding | Status | Evidence |
 |---|---|---|---|
 | V1 | Dokimos coverage kept the **last** outcome for a repeated test identity, so a failed test followed by a pass (TRX theory rows, retries, reruns at the same SHA) verified the obligation. | **Confirmed defect, fixed** in dokimos#71 (draft) | EV-AE-001, EV-AE-002 |
-| V2 | Praxis `work complete --evidence TYPE=PATH` accepted paths **outside the repository** (absolute paths, `../` escapes, symlinks out). One real completion cited an agent's ephemeral `/tmp` scratchpad as test evidence. | **Confirmed defect, fixed** in praxis#303 (draft; changes a frozen golden) | EV-AE-003, EV-AE-004, EV-AE-008, EV-AE-009 |
+| V2 | Praxis `work complete --evidence TYPE=PATH` accepted paths **outside the repository** (absolute paths, `../` escapes, symlinked files or **symlinked parent directories**). One real completion cited an agent's ephemeral `/tmp` scratchpad as test evidence. | **Confirmed defect, fixed** in praxis#303 (draft; changes a frozen golden). The parent-directory bypass was found by independent review and is fixed in the same PR. | EV-AE-003, EV-AE-004, EV-AE-008, EV-AE-009 |
 | V3 | Praxis's strong path (`complete-verified`: claim-bound validation results, signed receipts, protected policy, pinned verifier keys) is enabled in **0 of 13** repositories inspected. Default completion checks only that each evidence path exists. | **Confirmed gap** (policy adoption, not code) | EV-AE-005, EV-AE-007 |
 | V4 | The `behavior-verified` readiness facet is satisfied by the *presence* of `tests=PATH`. Docs call it "an attestation, not a proof", but the name invites the opposite reading. | **Confirmed, documented limitation**; proposal only | EV-AE-006 |
 | V5 | 415 historical Praxis `tests`/`implementation` citations point at files that no longer exist; evidence is cited by path, not pinned by digest. | **Confirmed gap**; proposal only | EV-AE-004 |
@@ -52,7 +52,15 @@ the deployment absent (V3).** That gap matters more than any single code defect.
   `mergeWorst` is applied in `admit`. There are 5 new adversarial tests; the full suite
   passes 602/602 and the Dokimos self-ratchet passes (`verification/dokimos-worst-outcome-after.txt`).
 - **Policy consequence for reviewers.** A rerun that passes no longer clears an earlier
-  failure at the same SHA. A flaky test must be fixed or explicitly excepted.
+  failure at the same SHA. A flaky test must be fixed. Coverage has no exception
+  mechanism; the first draft wrongly said "or excepted".
+- **Limits found by independent review** (`adversarial-review/dokimos-worst-edges.*`):
+  - Rerun protection works only if the caller-written results manifest lists every run.
+    Omit the failing run and the obligation verifies. The manifest is not independent
+    evidence.
+  - A data-driven test with one deliberately skipped row can no longer verify, because
+    Skipped ranks above Passed. That is fail-closed, but it is a behaviour change for
+    such suites.
 
 ## V2: Praxis evidence-path confinement (fixed, contract change)
 
@@ -66,18 +74,27 @@ the deployment absent (V3).** That gap matters more than any single code defect.
   exactly one was outside its repository. A Dokimos completion cited
   `/tmp/claude-0/.../scratchpad/dokimos-0.8.0-tests.txt`, a file in a since-destroyed
   agent container (`verification/evidence-path-scan.txt`).
-- **Fix.** Resolve the path, require it to lie under the repository root, and resolve
-  symlinks on the final entry. Otherwise the result is `Unavailable` with "resolves
-  outside the repository". In-repo directories stay accepted: 30 historical citations
-  use directories deliberately.
+- **Fix.**
+  - Resolve the path and require it to lie under the repository root.
+  - Resolve symbolic links in **every** path component against the physical repository
+    root. The first version resolved only the final component; an independent reviewer
+    bypassed it with a symlinked parent directory.
+  - Otherwise the result is `Unavailable` with "resolves outside the repository".
+  - In-repo directories stay accepted: 30 historical citations use directories
+    deliberately.
+- **Not closed (documented limits):** untracked or ignored files inside the repository,
+  and `.` or the empty path (the repository root), are still `Present`. Closing them
+  needs "tracked at the completion commit, sha256 recorded" (V5, roadmap R2).
 - **Contract change.** Golden case `test6` in `tests/Praxis.Tests/Golden/work.json`
   froze "absolute paths outside are accepted". The PR changes it explicitly and says so.
 - **Test results.**
-  - Full suite on the branch before the golden update: 2,076 passed, 21 failed.
-  - 20 of the 21 failures reproduce identically on untouched main in this container.
-    All spawn real subprocesses or validators (`verification/praxis-preexisting-failures-on-main.txt`).
-  - The 21st was `test6`.
-  - Full-suite result after the golden update: see EV-AE-008.
+  - Full suite before the golden update: 2,514 tests, 2,485 passed, 29 failed. 28 of the
+    failures also fail on untouched main in this container; all spawn real subprocesses
+    or validators (`verification/praxis-preexisting-failures-on-main.txt`). The 29th
+    was `test6`.
+  - After the golden update: 2,486 passed and 28 failed, with **no failure absent from
+    main** (`verification/praxis-full-suite-after.txt`, EV-AE-008).
+  - After the parent-symlink hardening: see `verification/praxis-full-suite-final.txt`.
 
 ## V3: verified completion is not deployed
 

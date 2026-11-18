@@ -1,7 +1,7 @@
 # Governed self-improvement (Phase 4)
 
 Mission EKS-RESEARCH-2026-003 · 2026-11-18 · Status: **contract implemented**
-(praxis#302, 12/12 tests). Persistence, runners and effectiveness are **not** implemented
+(praxis#302; 18/18 tests after hardening against gaming found by independent review). Persistence, runners and effectiveness are **not** implemented
 or measured.
 
 ## AutoBuild's model, as documented (vendor marketing page only)
@@ -29,7 +29,7 @@ brief requires:
 | 5. Counterfactual test | `Evaluation.Counterfactual` must be non-empty and all passing |
 | 6. Regression tests | `Evaluation.Regression` must be non-empty and all passing |
 | 7. Cost | `EstimatedCost` (execution plus maintenance, caller's unit) |
-| 8. Approval and rollback | `approve` refuses self-approval and requires a human for protected governance; `RollbackPlan`; `rollBack` from `Applied` |
+| 8. Approval and rollback | `approve` refuses self-approval (trimmed, case-insensitive) and, initially, requires an identified human for every change; refuses a proposal changed after evaluation; `RollbackPlan`; `rollBack` from `Applied` |
 | 9. Versioned provenance | `Id`, `Version`, `ProposedBy: Actor`, `DerivedFrom`, approver and applied version recorded in state |
 
 **Memorisation guard.** "Do not confuse memorising one failed example with learning a
@@ -37,25 +37,49 @@ generalisable rule" is enforced:
 - at least one **held-out** case of the same root cause must pass;
 - a "held-out" case that is one of the original cases is refused (`PRX.LEARN.MEMORIZED`).
 
-**Self-modification guard.** `Governance` targets reuse Praxis's existing
-`ProtectedClass`. Autonomous execution and the learning loop therefore share one
-definition of what an agent may not change by itself. Initially every governance change
-needs a human approver who is not the proposer.
+**Self-modification guard.**
+- `Governance` targets reuse Praxis's existing `ProtectedClass`.
+- A "knowledge" change to agent-governing files (`AGENTS.md`, `CLAUDE.md`, `ros.json`,
+  `.github/`, `.claude/`, ...) is classified as governance.
+- Initially **every** change needs a human approver who is not the proposer. Identities
+  are compared trimmed and case-insensitively; `Unknown` and extension actor kinds
+  never approve.
+- States carry the evaluated proposal, so a proposal swapped after evaluation is refused.
+
+**Hardening (PRX-LEARN-002).** An independent reviewer gamed the first version with:
+- a re-spelt held-out id;
+- blank evidence references;
+- a re-cased self-approval;
+- an `Unknown` approver;
+- another agent approving a change to `AGENTS.md`;
+- a proposal swapped after evaluation.
+
+Each is now refused and has a regression test (`adversarial-review/learning-gaming.*`
+holds the original reproduction).
+
+**Known limit:** actor kinds are self-reported provenance, not authentication. An
+agent declaring itself `human` under another id passes `approve`. Binding approval to
+Praxis's owner-signed `RunAuthorization` is required before this loop runs unattended.
 
 ## First worked case (from this program)
 
-**Failure.** EXP-AE-001 round 2, D-T4. The EDF-derived protocol identified a second
-broken caller of a defective helper, but ranked the origin fix "premature". It patched
-only the reported function and claimed `complete`.
+**Failure.** EXP-AE-001 round 2, A-T4. The baseline agent patched only the reported
+function, did not mention the second broken caller (`conflicts()`), and claimed
+`complete`. This is the program's only undisclosed incomplete fix
+(`clarity-edf-experiment-results.md`, Task T4).
 
-**Candidate proposal (not applied).** Before ranking a shared-origin fix as premature,
-enumerate every caller of the origin and test each one.
+(An earlier draft used D-T4 as the worked case. That run disclosed the residual bug and
+asked the requester, so it is not an undisclosed failure; withdrawn after review.)
+
+**Candidate proposal (not applied).** Before reporting `complete`, list every other
+caller of any function you changed or diagnosed as defective, and state for each whether
+it was tested.
 
 **What evaluation would need:**
-- Counterfactual: re-run D-T4.
+- Counterfactual: re-run round-2 A-T4.
 - Held-out: a different shared-helper bug of the same root cause, which this program
   does not have.
-- Regression: the other D-arm tasks.
+- Regression: the other round-2 A-arm tasks.
 
 Under the contract this proposal **cannot be approved yet**, because there is no
 held-out case. That is the intended behaviour.

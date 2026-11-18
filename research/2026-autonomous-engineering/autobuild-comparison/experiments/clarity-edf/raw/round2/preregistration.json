@@ -1,9 +1,18 @@
 {
-  "id": "EXP-AE-001-R2",
-  "registeredAt": "2026-11-18T17:05:00Z",
-  "reason": "Round 1 (EXP-AE-001) hit ceiling: 36/36 verified in every arm, so it cannot discriminate correctness. Round 2 creates headroom by running every arm on a smaller Claude model.",
-  "changesFromRound1": ["model: haiku (Agent tool model override) for every arm", "fresh run directories under /root/exp2/runs", "new seed 20261119 for launch order"],
-  "unchanged": ["tasks, fixtures, oracles, grader", "arm prompts (byte-identical text apart from the run directory path)", "F routing"],
-  "primaryOutcome": "hidden+visible oracle pass (verified)",
-  "decisionRule": "An arm is reported as better than A only if it verifies at least 2 more of 6 tasks than A; smaller differences are reported as indistinguishable at n=6 (exact binomial uncertainty is wide)."
+ "id": "EXP-AE-001-R2",
+ "registeredAt": "2026-11-18T15:30:07Z",
+ "reason": "Round 1 (EXP-AE-001) hit ceiling: 36/36 verified in every arm, so it cannot discriminate correctness. Round 2 creates headroom by running every arm on a smaller Claude model.",
+ "changesFromRound1": [
+  "model: haiku (Agent tool model override) for every arm",
+  "fresh run directories under /root/exp2/runs",
+  "new seed 20261119 for launch order"
+ ],
+ "unchanged": [
+  "tasks, fixtures, oracles, grader",
+  "arm prompts (byte-identical text apart from the run directory path)",
+  "F routing"
+ ],
+ "primaryOutcome": "hidden+visible oracle pass (verified)",
+ "decisionRule": "An arm is reported as better than A only if it verifies at least 2 more of 6 tasks than A; smaller differences are reported as indistinguishable at n=6 (exact binomial uncertainty is wide).",
+ "registeredAtCorrection": "The originally recorded value 2026-11-18T17:05:00Z was hand-entered and wrong (it is later than the runs). 2026-11-18T15:30:07Z is the file's modification time in the run container; first run output (raw/round2/runs/E-T5/REPORT.json) written 2026-11-18T15:30:56Z. File times are weaker evidence than a commit: no commit predates the runs, so pre-registration rests on container file times only."
 }

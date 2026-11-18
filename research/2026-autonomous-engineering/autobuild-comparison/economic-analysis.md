@@ -41,6 +41,30 @@ cost per verified outcome = total ÷ verified.
 | N neutral | 0.69 | 1.71 | 3.43 | 1.64 | 4.07 | 8.15 |
 | F adaptive (derived) | 1.36 | 3.39 | 6.79 | 8.03 | 17.07 | 58.14 |
 
+## Corrections after independent adversarial review (Phase 11)
+
+The table above is arithmetic on stated assumptions. The review showed how much the
+ranking depends on them (`adversarial-review/econ-sensitivity.py` and `.out`):
+
+| Variant (round 2, central Q and k) | A | B | C | D | E | N |
+|---|---|---|---|---|---|---|
+| As published | 14.04 | 4.22 | 3.39 | 23.84 | 4.23 | 4.07 |
+| D-T4 counted as a disclosed residual (no rework charge) | 14.04 | 4.22 | 3.39 | **8.84** | 4.23 | 4.07 |
+| Incomplete runs also charged one rework (R) | 14.04 | 4.22 | 3.39 | 22.59 | 4.23 | **15.07** |
+
+**Break-even.** Baseline A is cheaper than B whenever an escaped incomplete fix costs
+less than R = 4.4 min (Q=2), 10.9 min (Q=5) or 21.8 min (Q=10). The round-2 ranking rests
+on **one** event per arm.
+
+**Corrected statements:**
+- The first draft said the false-completion term dominates "under all assumption sets"
+  and "every place this program looked". That is wrong: round 1 had no false
+  completions, and below the break-even R the baseline wins.
+- The harness-blocked runs (D-T3, N-T4) were charged no human time, although someone
+  would have to redo them.
+- Some questions were caused by the harness, and appropriate questions (T6) are not
+  waste. Both make the question cost a poor proxy.
+
 ## Interpretation
 
 1. **Agent time is not the cost driver.**
@@ -58,10 +82,12 @@ cost per verified outcome = total ÷ verified.
    - The model needs a correctness-weighted question cost, and this program has no data
      to set it. The round-1 ranking is therefore **not decision-grade**.
 3. **Round 2 (headroom):**
-   - The arms with a false completion claim (A and D on T4) are 3–9× more expensive per
-     verified outcome than B, C and E, under every scenario.
-   - **This rests on one task and one false claim per arm. It is a direction for the
-     next experiment, not a finding.**
+   - The arms with a T4 oracle failure claimed complete (A and D) come out 3–9× more
+     expensive per verified outcome than B, C and E in the published scenarios.
+   - The corrections above show this depends on R and on how D-T4's disclosed residual
+     is counted.
+   - **It rests on one task and one event per arm. It is a direction for the next
+     experiment, not a finding.**
    - It points at the same lever as EKS mission 002 (0 vs 8 false completion claims with
      compiled packages) and the verification audit (V3: verified completion is not
      deployed): **preventing false "complete" claims is where the money is.**
@@ -80,10 +106,10 @@ cost per verified outcome = total ÷ verified.
 | Human attention minutes per task | **assumed** (no instrumentation exists in Praxis; see roadmap item R3) |
 | First-pass verification rate | measured (= verified rate; there were no retries) |
 | Regression rate | measured: 0 (no run broke a visible or hidden pre-existing test, except the T4 cases above) |
-| False-positive verification rate | measured: false completion claims 2/72 runs (both Haiku, T4) |
+| False-positive verification rate | measured: "complete" with an oracle failure in 2/72 runs (both Haiku, T4); only 1 was undisclosed (A-T4) |
 | Rework frequency | not observable in single-shot runs |
 | Token usage | proxy only (see above) |
-| Decision-quality failures | 1 mechanism identified (EDF "premature" ranking, D-T4) |
+| Decision-quality failures | 1 undisclosed incomplete fix (round-2 A-T4); no protocol-level mechanism established (see the experiment results, Task T4) |
 | Successful autonomous completion rate | measured: 68/72 runs verified (2 of the 4 misses are harness-blocked) |
 
 ## What Echelon must instrument to answer this properly
