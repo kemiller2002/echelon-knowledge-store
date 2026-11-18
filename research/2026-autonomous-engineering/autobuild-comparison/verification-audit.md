@@ -72,7 +72,7 @@ the deployment absent (V3).** That gap matters more than any single code defect.
   script `praxis-evidence-escape-repro.fsx`).
 - **Real incident.** Across about 2,470 historical evidence citations in 8 repositories,
   exactly one was outside its repository. A Dokimos completion cited
-  `/tmp/claude-0/.../scratchpad/dokimos-0.8.0-tests.txt`, a file in a since-destroyed
+  `[agent scratchpad path withheld]`, a file in a since-destroyed
   agent container (`verification/evidence-path-scan.txt`).
 - **Fix.**
   - Resolve the path and require it to lie under the repository root.

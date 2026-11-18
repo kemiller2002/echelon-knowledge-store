@@ -119,7 +119,7 @@ Supporting documents:
    - **`round-2/protocols/arm-D3-clarity-lean-1.2.md`**: the production candidate the research recommends, about 330 words of protocol. It is decision-first: bottom line with probability, evidence check, strongest rival plus a causal checklist, load-bearing assumptions (fact or assumption), act-or-wait with a protective-action guard, and reconsider-if with thresholds.
    - `round-2/protocols/arm-A2-matched-instructions.md`: the control arm.
    - `protocols/final-block.md`: the closing FINAL block used by every arm.
-3. **`CLARITY.fragment.txt`** in EDF (`research/2026-framework-improvement/experiments/prompts/CLARITY.fragment.txt`). A 9-element "Clarity decision pass": question and owner, evidence provenance, assumptions with rivals, consequence, reversibility, decision threshold, ownership, learning, reassessment. It derives from `echelon-organization-administration/business-plan/02-company-foundation/02.03-clarity-operating-model.md` lines 20–24.
+3. **`CLARITY.fragment.txt`** in EDF (`research/2026-framework-improvement/experiments/prompts/CLARITY.fragment.txt`). A 9-element "Clarity decision pass": question and owner, evidence provenance, assumptions with rivals, consequence, reversibility, decision threshold, ownership, learning, reassessment. It derives from `echelon-organization-administration/[private path withheld]` lines 20–24.
 
 `prompts/clarity_chapter1_prompts.md` holds book-writing prompts and is not relevant.
 
@@ -261,7 +261,7 @@ Source: `docs/edf/specification.md`, v0.3, the frozen working baseline.
 
 All of the evidence below is **measured**, but on **synthetic, packet-based (non-agentic) cases, with Claude-family authors, runners and judges, and no humans**.
 
-### 3.1 Clarity (`clarity-framework/research/2026-framework-improvement/`)
+### 3.1 Clarity (`clarity-framework/[private path withheld]`)
 **Round 1** (50 held-out cases, blinded, two judges; `strategy/executive-recommendations.md` lines 5–12):
 
 | Arm | Sound | Usefulness (of 4) |
@@ -477,11 +477,11 @@ Key missing evidence: <short list or "none">
 
 ### F. Adaptive invocation (trigger criteria)
 Sources:
-- **Use observable features, not self-assessment:** `clarity-framework/research/2026-framework-improvement/efficiency/adaptive-reasoning.md` lines 9–21, 23–38 and 50–56 (checkable triggers; mechanical length caps)
+- **Use observable features, not self-assessment:** `clarity-framework/[private path withheld]` lines 9–21, 23–38 and 50–56 (checkable triggers; mechanical length caps)
 - **R and S checks:** `agent-directions /directions.md` lines 175–189 (escalation triggers) and 74–92 (Fast: "avoid broad analysis", "do not turn a Fast Decision into a refactor")
 - **D/E branch:** `docs/edf/complexity-levels.md` lines 101–115 (escalation triggers, "do not escalate solely because a case sounds important"); `docs/edf/diagnostic-calibration.md` ("usually unnecessary when the issue is simple, evidence is direct, and a safe reversible test is available")
 - **Escalate only when criteria are met:** `docs/progressive-commitment.md` lines 17–23
-- **Consequence factors:** `clarity-service/docs/roadmap.md` §5.2 lines 433–460 (reversibility, blast radius, data, security, operational criticality, external dependency, migration difficulty)
+- **Consequence factors:** `clarity-service/[private path withheld]` §5.2 lines 433–460 (reversibility, blast radius, data, security, operational criticality, external dependency, migration difficulty)
 - **Re-triggers:** `docs/reconsideration-criteria.md` lines 61–71 ("Monitor only those conditions")
 
 ```text

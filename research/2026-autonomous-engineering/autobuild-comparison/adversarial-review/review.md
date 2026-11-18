@@ -8,7 +8,7 @@ files, `experiments/clarity-edf/`, `verification/`, `data/`), plus the code chan
 (`claude/governed-improvement-proposals`). No research or repository file was modified.
 
 Scratch reproductions (all in
-`/tmp/claude-0/-home-user-echelon-organization-administration/b387634d-5515-5d87-9ee4-72bd08245fbb/scratchpad/review/`):
+`[agent scratchpad path withheld]`):
 
 | File | What it shows |
 |---|---|

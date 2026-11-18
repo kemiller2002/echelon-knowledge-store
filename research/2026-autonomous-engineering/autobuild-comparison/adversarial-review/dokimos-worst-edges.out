@@ -1,14 +1,14 @@
 
 
-/tmp/claude-0/-home-user-echelon-organization-administration/b387634d-5515-5d87-9ee4-72bd08245fbb/scratchpad/review/dokimos-worst-edges.fsx(19,32): info FS3886: This list expression contains a single tuple element. Did you mean to use ';' instead of ',' to separate list elements?
+[agent scratchpad path withheld],32): info FS3886: This list expression contains a single tuple element. Did you mean to use ';' instead of ',' to separate list elements?
 
 
 
-/tmp/claude-0/-home-user-echelon-organization-administration/b387634d-5515-5d87-9ee4-72bd08245fbb/scratchpad/review/dokimos-worst-edges.fsx(29,29): info FS3886: This list expression contains a single tuple element. Did you mean to use ';' instead of ',' to separate list elements?
+[agent scratchpad path withheld],29): info FS3886: This list expression contains a single tuple element. Did you mean to use ';' instead of ',' to separate list elements?
 
 
 
-/tmp/claude-0/-home-user-echelon-organization-administration/b387634d-5515-5d87-9ee4-72bd08245fbb/scratchpad/review/dokimos-worst-edges.fsx(29,40): info FS3886: This list expression contains a single tuple element. Did you mean to use ';' instead of ',' to separate list elements?
+[agent scratchpad path withheld],40): info FS3886: This list expression contains a single tuple element. Did you mean to use ';' instead of ',' to separate list elements?
 
 parsed rows: [("dotnet:App.Tests.Rounds", Passed); ("dotnet:App.Tests.Rounds", Passed);
  ("dotnet:App.Tests.Rounds", NotExecuted)]

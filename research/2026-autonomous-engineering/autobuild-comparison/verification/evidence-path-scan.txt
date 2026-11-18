@@ -24,5 +24,5 @@
       1 kemiller2002/forma DIR experiments/RLP-001/engine
       1 kemiller2002/arca GONE
       1 kemiller2002/arca DIR tests/Arca.Tests
-      1 dokimos ESCAPE /tmp/claude-0/-home-user/cf565065-a168-5486-8bfa-956f257becfe/scratchpad/dokimos-0.8.0-tests.txt
+      1 dokimos ESCAPE [agent scratchpad path withheld]
       1 dokimos DIR tests/Dokimos.Core.Tests
