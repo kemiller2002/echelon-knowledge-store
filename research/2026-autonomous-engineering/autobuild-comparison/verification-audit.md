@@ -94,7 +94,7 @@ the deployment absent (V3).** That gap matters more than any single code defect.
     was `test6`.
   - After the golden update: 2,486 passed and 28 failed, with **no failure absent from
     main** (`verification/praxis-full-suite-after.txt`, EV-AE-008).
-  - After the parent-symlink hardening: see `verification/praxis-full-suite-final.txt`.
+  - After the parent-symlink hardening (final code): 2,514 tests, 2,486 passed, 28 failed, all also failing on main; **zero branch-only failures** (`verification/praxis-full-suite-final.txt`).
 
 ## V3: verified completion is not deployed
 
